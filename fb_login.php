@@ -33,6 +33,7 @@ use Facebook\HttpClients\FacebookCurlHttpClient;
 
 // init SDK
 include_once('fb_config.php');
+//$login_url = 'http://owenmundy.local/owenmundy.com/work/dnt/dnt3/app.php';
 $login_url = 'http://owenmundy.com/work/dnt/dnt3/app.php';
 FacebookSession::setDefaultApplication($app_id,$app_secret);
 

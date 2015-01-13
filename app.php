@@ -80,71 +80,68 @@ if (isset($_GET['q'])) {
 
 if (isset($loggedin)){
 	
+	if ($q == '/me'){
 	
-	if (strpos($q,'/me') !== false){
+	$request = new FacebookRequest($session,'GET',$q.'/?offset=0&limit=100');
+	$response = $request->execute();
+	$arr = $response->getGraphObject()->asArray();
+	print_r($arr);
 	
+	} else if (strpos($q,'/me/') !== false){
 	
-		$request = new FacebookRequest($session,'GET',$q);
+		$str = "";
+		$arr = array();
+	
+		$request = new FacebookRequest($session,'GET',$q.'/?offset=0&limit=100');
 		$response = $request->execute();
-		$arr = $response->getGraphObject()->asArray();
+		$arr2 = $response->getGraphObject()->asArray();
+		$str .= get_tags($arr2);
+		$arr2d = $arr2['data'];
+		$arr = array_merge($arr,$arr2d);
+	
+		// do another one
+		if (isset($arr2['paging']->cursors)) {
+			$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
+			$response = $request->execute();
+			$arr2 = $response->getGraphObject()->asArray();
+			$str .= get_tags($arr2);
+			$arr2d = $arr2['data'];
+			$arr = array_merge($arr,$arr2d);		}
+	
 		
+		print '<h3>Tags ('. substr_count($str,' ') .')</h3>';
+		print '<form>';
+		print '<textarea rows="12" class="form-control">'. $str .'</textarea>';
+		print '</form>';
+		
+		print '<h3>JSON</h3>';
+		
+		print_r($arr);
 		
 		
 		/*
+		// paging, not working yet
+		
 		function paging($arr){
 			global $session;
 			if (isset($arr['paging']->cursors)) {
 				$arr2 = (array)$arr['paging']->next;
 				$url = $arr2[0];
 				print $url;
-				$request = (new FacebookRequest($session,'GET',
-					$q,array(
-		            'offset' => 26
-				))->execute();
-				print $url;
-				$arr3 = $request->getGraphObject()->asArray();
+				print 'hi';
+				$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
+				$response = $request->execute();
+				$arr3 = $response->getGraphObject()->asArray();
 				print_r($arr3);
 			}
 		}
 		paging($arr);
 		
-		
-		
-		
-			
-		
-		foreach($arr as $key => $d){
-			if ($key == 'paging'){
-				print $key;				
-			}
-		}
-		
-		
-		
-		
-		
-		// try this below
-		
-		
-		$data = $arr;
-	//loop through pages to return all results
-	while(in_array("paging", $data) && array_key_exists("cursors", $data["paging"])) {
-	    $offset += $limit;
-	    
-	    print $data["paging"]['next'];
-	    $d = file_get_contents($data["paging"]['next']);
-	    
-	    // make sure we do not merge with an empty array
-	    if (count($data["data"]) > 0){
-	        $events_data = array_merge($events_data, $data["data"]);
-	    } else {
-	        // if the data entry is empty, we have reached the end, exit the while loop
-	        break;
-	    }
-	}
 		*/
+			
+	
 		
-		print_r($arr);
+		
 	
 		
 		
@@ -165,6 +162,17 @@ if (isset($loggedin)){
 }
 
 
+
+function get_tags($arr){
+	$str = '';
+	if (count($arr) > 0){
+		foreach($arr['data'] as $obj){
+			$str .= ' '. str_replace('/',' ',$obj->category);
+			$str .= ' '. str_replace('/',' ',$obj->name);
+		}
+	}
+	return $str;
+}
 
 
 
