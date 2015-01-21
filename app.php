@@ -2,6 +2,9 @@
 // include fb_login
 include_once('fb_login.php'); 
 use Facebook\FacebookRequest;
+include_once('inc/fb_api_calls.php');
+include_once('inc/fb_functions.php'); 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,60 +16,140 @@ use Facebook\FacebookRequest;
 <style>
 img.user_thumb { height:30px; }
 </style>
-
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+<?php
 
-
-<nav class="navbar navbar-default">
-	<div class="container">
-
-
-		<a href="./app.php?q=/me" type="button" class="btn btn-default navbar-btn">/me</a> 
-		<a href="./app.php?q=/me/books" type="button" class="btn btn-default navbar-btn">/books</a> 
-		<a href="./app.php?q=/me/games" type="button" class="btn btn-default navbar-btn">/games</a> 
-		<a href="./app.php?q=/me/likes" type="button" class="btn btn-default navbar-btn">/likes</a> 
-		<a href="./app.php?q=/me/movies" type="button" class="btn btn-default navbar-btn">/movies</a> 
-		<a href="./app.php?q=/me/music" type="button" class="btn btn-default navbar-btn">/music</a> 
-		<a href="./app.php?q=/me/television" type="button" class="btn btn-default navbar-btn">/television</a> 
-		<a href="./app.php?q=photo" type="button" class="btn btn-default navbar-btn">photo</a>
-
-		<div class="nav navbar-nav navbar-right">
-			<?php if (isset($loggedin)){ ?>
-			<img src="<?php print fb_me_photo_thumb();?>" class="user_thumb">
-			<?php } ?>
-			<?php print $login_btn; ?>
-		</div>
+if (isset($loggedin)){
+	$permissions = fb_get_permissions();
 	
-	</div>
-</nav>
+	if (isset($_GET['revoke']) && isset($_GET['q'])){
+		if ($_GET['q'] == 'all'){
+			fb_delete_permissions();
+			header( 'Location: ./app.php' );
+		} else {
+			fb_delete_permissions($_GET['revoke']);
+			header( 'Location: ./app.php?q='.$_GET['q'] );
+		}
+	}
+}
 
+/**
+ *	Generic API call
+ */
+function fb_generic_api_call($name){
+	global $session, $fb_data, $permissions, $login;
+	
+	// update permissions
+	$permissions = fb_get_permissions();
+	print '<pre>';
+	print_r($permissions);
+	//print_r($fb_data);
+	print '</pre>';
 
+	// check for permission
+	if (isset($permissions[$name]) && $permissions[$name] == 'granted' ||
+		isset($permissions[$fb_data[$name]['scope']]) && $permissions[$fb_data[$name]['scope']] == 'granted'){
+		$permission =  '<button type="button" class="btn btn-success btn-xs disabled">'. $fb_data[$name]['scope'] .": permission granted</button> <a href='./app.php?revoke=".$fb_data[$name]['scope']."&q=$name'>revoke permission</a>";
+	} else {
+		$permission =  '<button type="button" class="btn btn-danger btn-xs disabled">'. $fb_data[$name]['scope'] .": permission not granted or revoked</button>";
+		$permission .= ' <a href="https://www.facebook.com/dialog/oauth?client_id='.$login['app_id'].'&redirect_uri='.$login['login_url'].'?q='.$fb_data[$name]['name'].'&auth_type=rerequest&scope='. $fb_data[$name]['scope'] .'">enable permission</a>';
+	}
 
+	$report = "<h3>". $fb_data[$name]['name'] ."</h3>";
+	$report .= "call: ". $fb_data[$name]['call'] ."<br>";
+	$report .=  "scope: $permission<br>";
+	$report .=  "desc: ". $fb_data[$name]['desc'] ."<br>";
+	$report .=  "<br>";
+	//$report .=  "$permission<br><br>";
+	print $report;
+
+	// define query
+	$q = $fb_data[$name]['call'];
+	$offset = 0;
+	$limit = 100;
+	try {
+		$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
+		$response = $request->execute();
+		$arr = $response->getGraphObject()->asArray();
+		
+		/*
+		// store original array
+		$arr2 = $arr;
+		
+		// handle any pagination
+		if (isset($arr2['paging']->next) && $arr2['paging']->next != '') {
+			$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
+			$response = $request->execute();
+			$arr3 = $response->getGraphObject()->asArray();
+			//$str .= get_tags_likes($arr2);
+			$arr2d = $arr2['data'];
+			$arr = array_merge($arr,$arr2d);
+		}
+			*/
+			
+		return $arr;
+	} catch (Exception $e) {
+		return array('error' => $e->getMessage());
+	}
+	
+	
+	
+}
+
+	
+?>
 
 
 <div class="container">
 	<div class="row">
+		<div class="col-md-10">
+		</div>
+		<div class="col-md-2">
+			
+			<?php if (isset($loggedin)){ ?>
+			<img src="<?php print fb_photo_thumb_url();?>" class="user_thumb">
+			<?php } ?>
+			<?php print $login_btn; ?>
+		</div>
+	</div>
+</div>
+			
+			
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			
+			<?php
+				foreach($fb_data as $key => $a){
 
+//print_r($a);
+						
+						
+					if (isset($permissions[$a['scope']]) && $permissions[$a['scope']] == 'granted' ||
+							isset($permissions[$a['name']]) && $permissions[$a['name']] == 'granted'){
+						$title = 'permission is granted';
+						print '<span title="'.$title.'" class="circle success"></span> ';
+					} else {
+						$title = 'NO permissions granted';
+						print '<span title="'.$title.'" class="circle danger"></span> ';
+					}
+					print '<a title="'.$title.'" href="./app.php?q='.$a['name'].'" >'.$a['name'].'</a> ';
+					if (isset($a['approval'])){
+						print '<span class="text-danger" title="this permission requires approval!"><b>!!!</b></span> ';
+					}
+					print '<br>'; 
+				}
+				
+				print "<br><br><br><a href='./app.php?revoke=true&q=all'>revoke all</a>";
+				
+			?>
+		</div>
+		<div class="col-md-10">
 	
 
-<pre>
-	
 <?php
 
 print $msg;
@@ -78,35 +161,79 @@ if (isset($_GET['q'])) {
 }
 
 
+
+$offset = 0;
+$limit = 100;
+
 if (isset($loggedin)){
 	
-	if ($q == '/me'){
+	if (array_key_exists($q,$fb_data)){
+		$arr = fb_generic_api_call($q);	
+		if (!isset($arr['error'])){
+			print '<pre>';
+			print_r($arr);
+			print '</pre>';
+		} else {
+			print $arr['error'];
+		}
+	/*
+	} else if ($q == '/me/photos'){
+		$arr = fb_generic_api_call($q);	
+		if (!isset($arr['error'])){
+			print_r($arr);
+		} else {
+			print $arr['error'];
+		}
+				
+	} else if ($q == '/me/permissions'){
+		$arr = fb_generic_api_call($q);	
+		if (!isset($arr['error'])){
+			print_r($arr);
+		} else {
+			print $arr['error'];
+		}
+	*/
 	
-	$request = new FacebookRequest($session,'GET',$q.'/?offset=0&limit=100');
-	$response = $request->execute();
-	$arr = $response->getGraphObject()->asArray();
-	print_r($arr);
+	
+	
+	} else if ($q == '/me'){
+		try {
+			$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
+			$response = $request->execute();
+			$arr = $response->getGraphObject()->asArray();
+			print_r($arr);
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}		
 	
 	} else if (strpos($q,'/me/') !== false){
 	
 		$str = "";
 		$arr = array();
-	
-		$request = new FacebookRequest($session,'GET',$q.'/?offset=0&limit=100');
-		$response = $request->execute();
-		$arr2 = $response->getGraphObject()->asArray();
-		$str .= get_tags($arr2);
-		$arr2d = $arr2['data'];
-		$arr = array_merge($arr,$arr2d);
+		try {
+			$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
+			$response = $request->execute();
+			$arr2 = $response->getGraphObject()->asArray();
+			$str .= get_tags_likes($arr2);
+			$arr2d = $arr2['data'];
+			$arr = array_merge($arr,$arr2d);
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}		
 	
 		// do another one
 		if (isset($arr2['paging']->cursors)) {
-			$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
-			$response = $request->execute();
-			$arr2 = $response->getGraphObject()->asArray();
-			$str .= get_tags($arr2);
-			$arr2d = $arr2['data'];
-			$arr = array_merge($arr,$arr2d);		}
+			try {
+				$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
+				$response = $request->execute();
+				$arr2 = $response->getGraphObject()->asArray();
+				$str .= get_tags_likes($arr2);
+				$arr2d = $arr2['data'];
+				$arr = array_merge($arr,$arr2d);
+			} catch (Exception $e) {
+				echo 'Caught exception: ',  $e->getMessage(), "\n";
+			}		
+		}
 	
 		
 		print '<h3>Tags ('. substr_count($str,' ') .')</h3>';
@@ -116,7 +243,9 @@ if (isset($loggedin)){
 		
 		print '<h3>JSON</h3>';
 		
+		print '<pre>';
 		print_r($arr);
+		print '</pre>';
 		
 		
 		/*
@@ -138,15 +267,7 @@ if (isset($loggedin)){
 		paging($arr);
 		
 		*/
-			
-	
 		
-		
-	
-		
-		
-	
-	
 	
 	
 	} else if ($q == 'photo'){
@@ -163,7 +284,12 @@ if (isset($loggedin)){
 
 
 
-function get_tags($arr){
+
+
+/**
+ *	Get tags from Likes
+ */
+function get_tags_likes($arr){
 	$str = '';
 	if (count($arr) > 0){
 		foreach($arr['data'] as $obj){
@@ -175,14 +301,13 @@ function get_tags($arr){
 }
 
 
-
-
-function fb_me_photo_thumb(){
+/**
+ *	Return user thumb url
+ */
+function fb_photo_thumb_url(){
 	global $session;
 	$request = new FacebookRequest(
-	$session,
-		'GET',
-		'/me/picture',
+		$session,'GET','/me/picture',
 		array (
 			'redirect' => false,
 			'height' => '200',
@@ -198,13 +323,17 @@ function fb_me_photo_thumb(){
 
 
 
+
+
 ?>
 
 
-</pre>
 
-
+		
+		</div>
+		
 	</div>
+
 </div>
 </body>
 </html>

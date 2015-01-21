@@ -1,0 +1,7 @@
+<?php 
+
+$login = array(
+			'app_id' => 'APP-ID',
+			'app_secret' => 'APP-SECRET',
+			'login_url' => 'URL',
+			);
