@@ -1,9 +1,9 @@
-<?php 
+<?php
 // include fb_login
-include_once('fb_login.php'); 
+include_once('fb_login.php');
 use Facebook\FacebookRequest;
-include_once('inc/fb_api_calls.php');
-include_once('inc/fb_functions.php'); 
+include_once('/inc/fb_api_calls.php');
+include_once('/inc/fb_functions.php');
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ img.user_thumb { height:30px; }
 
 if (isset($loggedin)){
 	$permissions = fb_get_permissions();
-	
+
 	if (isset($_GET['revoke']) && isset($_GET['q'])){
 		if ($_GET['q'] == 'all'){
 			fb_delete_permissions();
@@ -41,7 +41,7 @@ if (isset($loggedin)){
  */
 function fb_generic_api_call($name){
 	global $session, $fb_data, $permissions, $login;
-	
+
 	// update permissions
 	$permissions = fb_get_permissions();
 	print '<pre>';
@@ -74,11 +74,11 @@ function fb_generic_api_call($name){
 		$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
 		$response = $request->execute();
 		$arr = $response->getGraphObject()->asArray();
-		
+
 		/*
 		// store original array
 		$arr2 = $arr;
-		
+
 		// handle any pagination
 		if (isset($arr2['paging']->next) && $arr2['paging']->next != '') {
 			$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
@@ -89,17 +89,17 @@ function fb_generic_api_call($name){
 			$arr = array_merge($arr,$arr2d);
 		}
 			*/
-			
+
 		return $arr;
 	} catch (Exception $e) {
 		return array('error' => $e->getMessage());
 	}
-	
-	
-	
+
+
+
 }
 
-	
+
 ?>
 
 
@@ -108,7 +108,7 @@ function fb_generic_api_call($name){
 		<div class="col-md-10">
 		</div>
 		<div class="col-md-2">
-			
+
 			<?php if (isset($loggedin)){ ?>
 			<img src="<?php print fb_photo_thumb_url();?>" class="user_thumb">
 			<?php } ?>
@@ -116,18 +116,18 @@ function fb_generic_api_call($name){
 		</div>
 	</div>
 </div>
-			
-			
+
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-2">
-			
+
 			<?php
 				foreach($fb_data as $key => $a){
 
 //print_r($a);
-						
-						
+
+
 					if (isset($permissions[$a['scope']]) && $permissions[$a['scope']] == 'granted' ||
 							isset($permissions[$a['name']]) && $permissions[$a['name']] == 'granted'){
 						$title = 'permission is granted';
@@ -140,21 +140,21 @@ function fb_generic_api_call($name){
 					if (isset($a['approval'])){
 						print '<span class="text-danger" title="this permission requires approval!"><b>!!!</b></span> ';
 					}
-					print '<br>'; 
+					print '<br>';
 				}
-				
+
 				print "<br><br><br><a href='./app.php?revoke=true&q=all'>revoke all</a>";
-				
+
 			?>
 		</div>
 		<div class="col-md-10">
-	
+
 
 <?php
 
 print $msg;
 
-if (isset($_GET['q'])) { 
+if (isset($_GET['q'])) {
 	$q = $_GET['q'];
 } else {
 	$q = 'profile';
@@ -166,9 +166,9 @@ $offset = 0;
 $limit = 100;
 
 if (isset($loggedin)){
-	
+
 	if (array_key_exists($q,$fb_data)){
-		$arr = fb_generic_api_call($q);	
+		$arr = fb_generic_api_call($q);
 		if (!isset($arr['error'])){
 			print '<pre>';
 			print_r($arr);
@@ -178,24 +178,24 @@ if (isset($loggedin)){
 		}
 	/*
 	} else if ($q == '/me/photos'){
-		$arr = fb_generic_api_call($q);	
+		$arr = fb_generic_api_call($q);
 		if (!isset($arr['error'])){
 			print_r($arr);
 		} else {
 			print $arr['error'];
 		}
-				
+
 	} else if ($q == '/me/permissions'){
-		$arr = fb_generic_api_call($q);	
+		$arr = fb_generic_api_call($q);
 		if (!isset($arr['error'])){
 			print_r($arr);
 		} else {
 			print $arr['error'];
 		}
 	*/
-	
-	
-	
+
+
+
 	} else if ($q == '/me'){
 		try {
 			$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
@@ -204,10 +204,10 @@ if (isset($loggedin)){
 			print_r($arr);
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
-		}		
-	
+		}
+
 	} else if (strpos($q,'/me/') !== false){
-	
+
 		$str = "";
 		$arr = array();
 		try {
@@ -219,8 +219,8 @@ if (isset($loggedin)){
 			$arr = array_merge($arr,$arr2d);
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
-		}		
-	
+		}
+
 		// do another one
 		if (isset($arr2['paging']->cursors)) {
 			try {
@@ -232,25 +232,25 @@ if (isset($loggedin)){
 				$arr = array_merge($arr,$arr2d);
 			} catch (Exception $e) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
-			}		
+			}
 		}
-	
-		
+
+
 		print '<h3>Tags ('. substr_count($str,' ') .')</h3>';
 		print '<form>';
 		print '<textarea rows="12" class="form-control">'. $str .'</textarea>';
 		print '</form>';
-		
+
 		print '<h3>JSON</h3>';
-		
+
 		print '<pre>';
 		print_r($arr);
 		print '</pre>';
-		
-		
+
+
 		/*
 		// paging, not working yet
-		
+
 		function paging($arr){
 			global $session;
 			if (isset($arr['paging']->cursors)) {
@@ -265,11 +265,11 @@ if (isset($loggedin)){
 			}
 		}
 		paging($arr);
-		
+
 		*/
-		
-	
-	
+
+
+
 	} else if ($q == 'photo'){
 		// Graph API to request profile picture
 		$request = new FacebookRequest( $session, 'GET', '/me/picture?type=large&redirect=false' );
@@ -278,7 +278,7 @@ if (isset($loggedin)){
 		$picture = $response->getGraphObject()->asArray();
 		print_r( $picture );
 		print '<img src="'. $picture['url'] .'">';
-	
+
 	}
 }
 
@@ -329,9 +329,9 @@ function fb_photo_thumb_url(){
 
 
 
-		
+
 		</div>
-		
+
 	</div>
 
 </div>
