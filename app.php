@@ -2,8 +2,8 @@
 // include fb_login
 include_once('fb_login.php');
 use Facebook\FacebookRequest;
-include_once('/inc/fb_api_calls.php');
-include_once('/inc/fb_functions.php');
+include_once('inc/fb_api_calls.php');
+include_once('inc/fb_functions.php');
 
 ?>
 <!DOCTYPE html>

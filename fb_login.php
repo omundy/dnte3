@@ -14,7 +14,7 @@
 session_start();
 
 // include fb
-include_once('/inc/facebook-php-sdk-v4/autoload.php');
+require_once 'inc/facebook-php-sdk-v4/autoload.php';
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 
@@ -32,7 +32,7 @@ use Facebook\HttpClients\FacebookHttpable;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 
 // init SDK
-include_once('/inc/fb_config.php');
+include_once('inc/fb_config.php');
 
 FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
 
