@@ -5,6 +5,21 @@ use Facebook\FacebookRequest;
 include_once('inc/fb_api_calls.php');
 include_once('inc/fb_functions.php');
 
+
+if (isset($loggedin)){
+	$permissions = fb_get_permissions();
+
+	if (isset($_GET['revoke']) && isset($_GET['q'])){
+		if ($_GET['q'] == 'all'){
+			fb_delete_permissions();
+			header( 'Location: ./app.php' );
+		} else {
+			fb_delete_permissions($_GET['revoke']);
+			header( 'Location: ./app.php?q='.$_GET['q'] );
+		}
+	}
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,19 +37,7 @@ img.user_thumb { height:30px; }
 <body>
 <?php
 
-if (isset($loggedin)){
-	$permissions = fb_get_permissions();
 
-	if (isset($_GET['revoke']) && isset($_GET['q'])){
-		if ($_GET['q'] == 'all'){
-			fb_delete_permissions();
-			header( 'Location: ./app.php' );
-		} else {
-			fb_delete_permissions($_GET['revoke']);
-			header( 'Location: ./app.php?q='.$_GET['q'] );
-		}
-	}
-}
 
 /**
  *	Generic API call
