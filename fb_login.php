@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * wow!
  *	fb_login.php - Confirms user:
  *
  *	1. Is logged into FB
