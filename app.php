@@ -1,19 +1,23 @@
 <?php
-// include fb_login
+
+// include fb_login, api reference, and functions
 include_once('fb_login.php');
 use Facebook\FacebookRequest;
 include_once('inc/fb_api_calls.php');
 include_once('inc/fb_functions.php');
 
-
+// $loggedin should be set before proceeding
 if (isset($loggedin)){
+	// so store permissions
 	$permissions = fb_get_permissions();
-
+	
+	// or maybe they are trying to remove all permissions
 	if (isset($_GET['revoke']) && isset($_GET['q'])){
 		if ($_GET['q'] == 'all'){
 			fb_delete_permissions();
 			header( 'Location: ./app.php' );
 		} else {
+			// or a specific permission
 			fb_delete_permissions($_GET['revoke']);
 			header( 'Location: ./app.php?q='.$_GET['q'] );
 		}
