@@ -1,14 +1,15 @@
 <?php
 
-// include fb_login, api reference, and functions
+global $session, $fb_login_state, $login_btn;
+$fb_login_state = false;
+
 include_once('fb_login.php');
-use Facebook\FacebookRequest;
 include_once('inc/fb_api_calls.php');
 include_once('inc/fb_functions.php');
 include_once('inc/fb_wrappers.php');
 
-// $loggedin should be set before proceeding
-if (isset($loggedin)){
+// $fb_login_state should be set before proceeding
+if ($fb_login_state){
 	// so store permissions
 	$permissions = fb_get_permissions();
 
@@ -29,17 +30,15 @@ include_once('templates/header.php');
 
 ?>
 
-
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
 		</div>
 		<div class="col-md-2">
-
-			<?php if (isset($loggedin)){ ?>
-			<img src="<?php print fb_photo_thumb_url();?>" class="user_thumb">
-			<?php } ?>
-			<?php print $login_btn; ?>
+			<?php if($fb_login_state): ?>
+				<img src="<?php print fb_photo_thumb_url();?>" class="user_thumb">
+			<?php endif; ?>
+			<?php echo $login_btn; ?>
 		</div>
 	</div>
 </div>
@@ -76,8 +75,6 @@ include_once('templates/header.php');
 
 <?php
 
-print $msg;
-
 if (isset($_GET['q'])) {
 	$q = $_GET['q'];
 } else {
@@ -89,7 +86,7 @@ if (isset($_GET['q'])) {
 $offset = 0;
 $limit = 100;
 
-if (isset($loggedin)){
+if ($fb_login_state){
 
 	if (array_key_exists($q,$fb_data)){
 		$arr = fb_generic_api_call($q);
