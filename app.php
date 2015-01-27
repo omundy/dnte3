@@ -2,6 +2,9 @@
 
 global $session, $fb_login_state, $login_btn;
 $fb_login_state = false;
+$q = (isset($_GET['q'])) ? $_GET['q']: 'profile';
+$offset = 0;
+$limit = 100;
 
 include_once('fb_login.php');
 include_once('inc/fb_api_calls.php');
@@ -30,61 +33,13 @@ include_once('templates/header.php');
 
 ?>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-10">
-		</div>
-		<div class="col-md-2">
-			<?php if($fb_login_state): ?>
-				<img src="<?php print fb_photo_thumb_url();?>" class="user_thumb">
-			<?php endif; ?>
-			<?php echo $login_btn; ?>
-		</div>
-	</div>
-</div>
-
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-2">
-
-			<?php
-				foreach($fb_data as $key => $a){
-
-					if (isset($permissions[$a['scope']]) && $permissions[$a['scope']] == 'granted' ||
-							isset($permissions[$a['name']]) && $permissions[$a['name']] == 'granted'){
-						$title = 'permission is granted';
-						print '<span title="'.$title.'" class="circle success"></span> ';
-					} else {
-						$title = 'NO permissions granted';
-						print '<span title="'.$title.'" class="circle danger"></span> ';
-					}
-					print '<a title="'.$title.'" href="./app.php?q='.$a['name'].'" >'.$a['name'].'</a> ';
-					if (isset($a['approval'])){
-						print '<span class="text-danger" title="this permission requires approval!"><b>!!!</b></span> ';
-					}
-					print '<br>';
-				}
-
-				print "<br><br><br><a href='./app.php?revoke=true&q=all'>revoke all</a>";
-
-			?>
-		</div>
+		<?php include_once('templates/sidebar.php'); ?>
 		<div class="col-md-10">
-
 
 <?php
-
-if (isset($_GET['q'])) {
-	$q = $_GET['q'];
-} else {
-	$q = 'profile';
-}
-
-
-
-$offset = 0;
-$limit = 100;
 
 if ($fb_login_state){
 
@@ -97,26 +52,6 @@ if ($fb_login_state){
 		} else {
 			print $arr['error'];
 		}
-	/*
-	} else if ($q == '/me/photos'){
-		$arr = fb_generic_api_call($q);
-		if (!isset($arr['error'])){
-			print_r($arr);
-		} else {
-			print $arr['error'];
-		}
-
-	} else if ($q == '/me/permissions'){
-		$arr = fb_generic_api_call($q);
-		if (!isset($arr['error'])){
-			print_r($arr);
-		} else {
-			print $arr['error'];
-		}
-	*/
-
-
-
 	} else if ($q == '/me'){
 		try {
 			$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
