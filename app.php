@@ -33,7 +33,6 @@ include_once('templates/header.php');
 
 ?>
 
-
 <div class="container">
 	<div class="row">
 		<?php include_once('templates/sidebar.php'); ?>
@@ -43,7 +42,25 @@ include_once('templates/header.php');
 
 if ($fb_login_state){
 
-	if (array_key_exists($q,$fb_data)){
+	if ($q == "feed") {
+		$feed_text = "";
+		$arr = fb_generic_api_call($q);
+		if (!isset( $arr['error']) ) {
+			print '<pre>';
+			foreach( $arr['data'] as $key => $val ) {
+				if ( isset( $val->message ) ) {
+					$feed_text .= $val->message . " ";
+				}
+				if ( isset( $val->description ) ) {
+					$feed_text .= $val->description . " ";
+				}
+			}
+			print($feed_text);
+			print '</pre>';
+		} else {
+			print $arr['error'];
+		}
+	} else if (array_key_exists($q,$fb_data) ) {
 		$arr = fb_generic_api_call($q);
 		if (!isset($arr['error'])){
 			print '<pre>';
