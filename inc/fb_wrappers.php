@@ -1,18 +1,14 @@
 <?php
 
+use Facebook\FacebookRequest;
 
 /**
  *	Generic API call
  */
 function fb_generic_api_call($name){
-	global $session, $fb_data, $permissions, $login;
+	global $session, $fb_data, $permissions, $login, $fb_login_state;
 
-	// update permissions
 	$permissions = fb_get_permissions();
-	print '<pre>';
-	print_r($permissions);
-	//print_r($fb_data);
-	print '</pre>';
 
 	// check for permission
 	if (isset($permissions[$name]) && $permissions[$name] == 'granted' ||
@@ -28,7 +24,6 @@ function fb_generic_api_call($name){
 	$report .=  "scope: $permission<br>";
 	$report .=  "desc: ". $fb_data[$name]['desc'] ."<br>";
 	$report .=  "<br>";
-	//$report .=  "$permission<br><br>";
 	print $report;
 
 	// define query
@@ -39,22 +34,6 @@ function fb_generic_api_call($name){
 		$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
 		$response = $request->execute();
 		$arr = $response->getGraphObject()->asArray();
-
-		/*
-		// store original array
-		$arr2 = $arr;
-
-		// handle any pagination
-		if (isset($arr2['paging']->next) && $arr2['paging']->next != '') {
-			$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
-			$response = $request->execute();
-			$arr3 = $response->getGraphObject()->asArray();
-			//$str .= get_tags_likes($arr2);
-			$arr2d = $arr2['data'];
-			$arr = array_merge($arr,$arr2d);
-		}
-			*/
-
 		return $arr;
 	} catch (Exception $e) {
 		return array('error' => $e->getMessage());
