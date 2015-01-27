@@ -13,15 +13,15 @@ function fb_generic_api_call($name){
 	// check for permission
 	if (isset($permissions[$name]) && $permissions[$name] == 'granted' ||
 		isset($permissions[$fb_data[$name]['scope']]) && $permissions[$fb_data[$name]['scope']] == 'granted'){
-		$permission =  '<button type="button" class="btn btn-success btn-xs disabled">'. $fb_data[$name]['scope'] .": permission granted</button> <a href='./app.php?revoke=".$fb_data[$name]['scope']."&q=$name'>revoke permission</a>";
+		$permission_html =  '<button type="button" class="btn btn-success btn-xs disabled">'. $fb_data[$name]['scope'] .": permission granted</button> <a href='./app.php?revoke=".$fb_data[$name]['scope']."&q=$name'>revoke permission</a>";
 	} else {
-		$permission =  '<button type="button" class="btn btn-danger btn-xs disabled">'. $fb_data[$name]['scope'] .": permission not granted or revoked</button>";
-		$permission .= ' <a href="https://www.facebook.com/dialog/oauth?client_id='.$login['app_id'].'&redirect_uri='.$login['login_url'].'?q='.$fb_data[$name]['name'].'&auth_type=rerequest&scope='. $fb_data[$name]['scope'] .'">enable permission</a>';
+		$permission_html =  '<button type="button" class="btn btn-danger btn-xs disabled">'. $fb_data[$name]['scope'] .": permission not granted or revoked</button>";
+		$permission_html .= ' <a href="https://www.facebook.com/dialog/oauth?client_id='.$login['app_id'].'&redirect_uri='.$login['login_url'].'?q='.$fb_data[$name]['name'].'&auth_type=rerequest&scope='. $fb_data[$name]['scope'] .'">enable permission</a>';
 	}
 
 	$report = "<h3>". $fb_data[$name]['name'] ."</h3>";
 	$report .= "call: ". $fb_data[$name]['call'] ."<br>";
-	$report .=  "scope: $permission<br>";
+	$report .=  "scope: $permission_html<br>";
 	$report .=  "desc: ". $fb_data[$name]['desc'] ."<br>";
 	$report .=  "<br>";
 	print $report;
