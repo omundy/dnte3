@@ -1,3 +1,6 @@
 [submodule "inc/facebook-php-sdk-v4"]
 	path = inc/facebook-php-sdk-v4
 	url = https://github.com/facebook/facebook-php-sdk-v4.git
+[submodule "inc/alchemyapi_php"]
+	path = inc/alchemyapi_php
+	url = https://github.com/AlchemyAPI/alchemyapi_php
