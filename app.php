@@ -60,6 +60,35 @@ if ($fb_login_state){
 		} else {
 			print $arr['error'];
 		}
+	} else if ($q == "likes") {	
+		
+		// get all likes and likeids		
+		$likes = array();
+		$likeIds = array();
+		$arr = fb_generic_api_call($q);
+		if (!isset( $arr['error']) ) {
+			foreach( $arr['data'] as $key => $val ) {
+				$likes[$val->id] = array('id'=> $val->id, 'name'=> $val->name, 'category'=> $val->category);
+				$likeIds[] = $val->id;
+			}
+			
+			print '<h3>Magic sauce output</h3><pre>';
+			
+			include('inc/papi2-client-php/example.php');
+			$predictions = get_prediction('return');
+			
+			print_r($predictions);
+			print '</pre>';
+			
+			print '<h3>$likes array only</h3><pre>';
+			print_r($likes);
+			print '</pre>';
+			print '<h3>Everything</h3><pre>';
+			print_r($arr);
+			print '</pre>';
+		} else {
+			print $arr['error'];
+		}
 	} else if (array_key_exists($q,$fb_data) ) {
 		$arr = fb_generic_api_call($q);
 		if (!isset($arr['error'])){
@@ -120,26 +149,6 @@ if ($fb_login_state){
 		print_r($arr);
 		print '</pre>';
 
-
-		/*
-		// paging, not working yet
-
-		function paging($arr){
-			global $session;
-			if (isset($arr['paging']->cursors)) {
-				$arr2 = (array)$arr['paging']->next;
-				$url = $arr2[0];
-				print $url;
-				print 'hi';
-				$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
-				$response = $request->execute();
-				$arr3 = $response->getGraphObject()->asArray();
-				print_r($arr3);
-			}
-		}
-		paging($arr);
-
-		*/
 
 
 
