@@ -73,9 +73,20 @@ if ($fb_login_state){
 			}
 			
 			print '<h3>Magic sauce output</h3><pre>';
-			
 			include('inc/papi2-client-php/example.php');
 			$predictions = get_prediction('return');
+			
+			print "<style> #chart { overflow: auto; } .bar { background: #666; height:50px; color:#fff; margin:4px 0 0 0; padding:12px; font:12px Arial }</style>";
+			print "<div id='chart'>";
+			foreach($predictions as $val){
+				//print_r($val);
+				if ($val->_value > 0){
+					print "<div class='bar' style='width:".($val->_value*1200)."px'>";
+					print $val->_trait .": ".round($val->_value,5);
+					print '</div>';
+				}
+			}
+			print '</div>';
 			
 			print_r($predictions);
 			print '</pre>';
@@ -83,6 +94,7 @@ if ($fb_login_state){
 			print '<h3>$likes array only</h3><pre>';
 			print_r($likes);
 			print '</pre>';
+			
 			print '<h3>Everything</h3><pre>';
 			print_r($arr);
 			print '</pre>';

@@ -4,8 +4,8 @@ namespace Papi\Client\Model;
 
 class Prediction
 {
-    private $_trait;
-    private $_value;
+    public $_trait;
+    public $_value;
 
     /**
      * Creates new instance out of associative array
