@@ -80,7 +80,7 @@ if ($fb_login_state){
 			print "<div id='chart'>";
 			foreach($predictions as $val){
 				//print_r($val);
-				if ($val->_value > 0){
+				if (isset($val->_value) && $val->_value > 0){
 					print "<div class='bar' style='width:".($val->_value*1200)."px'>";
 					print $val->_trait .": ".round($val->_value,5);
 					print '</div>';
