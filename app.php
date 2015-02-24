@@ -60,31 +60,73 @@ if ($fb_login_state){
 		} else {
 			print $arr['error'];
 		}
+		
+		
+		
+		
+		
+		
 	} else if ($q == "likes") {	
 		
 		// get all likes and likeids		
 		$likes = array();
 		$likeIds = array();
 		$arr = fb_generic_api_call($q);
+		
 		if (!isset( $arr['error']) ) {
 			foreach( $arr['data'] as $key => $val ) {
 				$likes[$val->id] = array('id'=> $val->id, 'name'=> $val->name, 'category'=> $val->category);
 				$likeIds[] = $val->id;
 			}
 			
+			
 			print '<h3>Magic sauce output</h3><pre>';
+			// print just your likeids for magicsauce testing
+			//print implode(', ',$likeIds);
 			include('inc/papi2-client-php/example.php');
 			$predictions = get_prediction('return');
-			
-			print "<style> #chart { overflow: auto; } .bar { background: #666; height:50px; color:#fff; margin:4px 0 0 0; padding:12px; font:12px Arial }</style>";
+
+?> 
+
+
+<style> 
+#chart { overflow: auto; }
+.bar { background: #666; height:10px; margin:0 0 10px 0; font:12px Arial }
+.marker { background: #fff; width:5px; height: 10px; position: absolute }
+</style>
+
+
+<?php
 			print "<div id='chart'>";
-			foreach($predictions as $val){
-				//print_r($val);
-				if (isset($val->_value) && $val->_value > 0){
-					print "<div class='bar' style='width:".($val->_value*1200)."px'>";
-					print $val->_trait .": ".round($val->_value,5);
-					print '</div>';
-				}
+			
+			// sort
+			sort($predictions->_predictions);
+			
+			
+			foreach($predictions->_predictions as $val){
+				
+				if (isset($val->_trait) && $val->_value > 0){
+
+					
+					// REPORT AS PERCENTILE 
+					
+					// if BIG5_
+					if (strpos($val->_trait, "BIG5_") !== false ||
+						strpos($val->_trait, "Satisfaction_Life") !== false ||
+						strpos($val->_trait, "Intelligence") !== false){
+						print "<div>". $val->_trait .": ".round($val->_value,4) .' (PERCENTILE)</div>';
+						print "<div class='bar' style='width:920px'><div class='marker' style='left:". ($val->_value*920) ."px'> </div></div>";
+					}
+					else if (strpos($val->_trait, "Age") !== false){
+						print "<div>Age: ".round($val->_value,4) .' (PERCENTILE)</div>';
+					}
+					
+					//print_r($val);
+					else {
+						print "<div>". $val->_trait .": ".round($val->_value,4) .' (PROBABILITY)</div>';
+						print "<div class='bar' style='width:".($val->_value*920)."px'></div>";
+					}
+				}	
 			}
 			print '</div>';
 			
@@ -101,6 +143,12 @@ if ($fb_login_state){
 		} else {
 			print $arr['error'];
 		}
+		
+		
+		
+		
+		
+		
 	} else if (array_key_exists($q,$fb_data) ) {
 		$arr = fb_generic_api_call($q);
 		if (!isset($arr['error'])){

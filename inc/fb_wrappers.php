@@ -30,6 +30,37 @@ function fb_generic_api_call($name){
 	$q = $fb_data[$name]['call'];
 	$offset = 0;
 	$limit = 100;
+	$exit = false;
+	$arr = array('data'=>array());
+	
+	// adding paging just for likes
+	if ($q == '/me/likes'){
+		// paging
+		while ($exit == false){
+			$a = fb_call($q,$offset,$limit);
+			
+			if (isset($a['data'])){
+				foreach($a['data'] as $val){
+					$arr['data'][] = $val;
+				}
+		
+				if (isset($a['error'])){
+					return $a;
+				} else if (isset($a['paging']->next)){
+					$offset += $limit;
+				} else {
+					$exit = true;
+				}
+			}
+		}
+	} else {
+		$arr = fb_call($q,$offset,$limit);
+	}
+	return $arr;
+}
+
+function fb_call($q,$offset,$limit){
+	global $session;
 	try {
 		$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
 		$response = $request->execute();
@@ -39,6 +70,7 @@ function fb_generic_api_call($name){
 		return array('error' => $e->getMessage());
 	}
 }
+
 
 
 /**

@@ -1,4 +1,3 @@
-
 <?php
 
 use Papi\Client\Exception\NoPredictionException;
@@ -18,17 +17,91 @@ $uid = 1;
 
 
 
+
+
+// from http://applymagicsauce.com/documentation.html
+$traits = array(
+
+// Linear Traits
+	array("BIG5_Openness",.5),
+	array("BIG5_Conscientiousness",.5),
+	array("BIG5_Extraversion",.5),
+	array("BIG5_Agreeableness",.5),
+	array("BIG5_Neuroticism",.5),
+	
+	array("Satisfaction_Life",.17),
+	array("Intelligence",.47),
+	array("Age",.75),
+
+// Categories	
+	array("Female",.93),
+	array("Gay",.88),
+	array("Lesbian",.75),
+	
+	array("Concentration",.72),
+	array("Concentration_Art",.72),
+	array("Concentration_Biology",.72),
+	array("Concentration_Business",.72),
+	array("Concentration_IT",.72),
+	array("Concentration_Education",.72),
+	array("Concentration_Engineering",.72),
+	array("Concentration_Journalism",.72),
+	array("Concentration_Finance",.72),
+	array("Concentration_History",.72),
+	array("Concentration_Law",.72),
+	array("Concentration_Nursing",.72),
+	array("Concentration_Psychology",.72),
+	
+	array("Politics",.79),
+	array("Politics_Liberal",.79),
+	array("Politics_Conservative",.79),
+	array("Politics_Uninvolved",.79),
+	array("Politics_Libertanian",.79),
+	
+	array("Religion",.76),
+	array("Religion_None",.76),
+	array("Religion_Christian_Other",.76),
+	array("Religion_Catholic",.76),
+	array("Religion_Jewish",.76),
+	array("Religion_Lutheran",.76),
+	array("Religion_Mormon",.76),
+	
+	array("Relationship",.67),
+	array("Relationship_None",.67),
+	array("Relationship_Yes",.67),
+	array("Relationship_Married",.67)
+	
+);
+
+
+
+
+
 // Authentication. This token will be valid for at least one hour, so you want to store it
 // and re-use for further requests
 $token = $papiClient->getAuthResource()->requestToken($customerId, $apiKey);
 
 function get_prediction($output='print'){
-	global $papiClient, $token, $uid, $likeIds;
+	global $papiClient, $token, $uid, $likeIds, $traits;
 	
 	// Get predictions and print
 	try {
 	    $prediction = $papiClient->getPredictionResource()->getByLikeIds(
-	        array(TraitName::BIG5, TraitName::GAY), $token->getTokenString(), $uid, $likeIds);
+	        array(TraitName::BIG5, 
+	        TraitName::INTELLIGENCE,
+	        TraitName::SATISFACTION_WITH_LIFE, 
+	        TraitName::INTELLIGENCE, 
+	        TraitName::AGE, 
+	        
+	        TraitName::FEMALE, 
+	        TraitName::GAY, 
+	        TraitName::LESBIAN, 
+	        TraitName::CONCENTRATION,  
+	        TraitName::POLITICS, 
+	        TraitName::RELIGION, 
+	        TraitName::RELATIONSHIP
+	    ), $token->getTokenString(), $uid, $likeIds);
+	        
 	        
 	        if (count($likeIds) <1){
 		        // His like ids
@@ -43,7 +116,7 @@ $likeIds = array("7010901522", "7721750727", "7557552517", "8536905548", "772340
 		    print_r($prediction);
 		    print '</pre>';
 		} else if ($output == 'return'){
-			$return = $prediction->_predictions;
+			$return = $prediction;
 			return $return;
 		}
 	} catch (NoPredictionException $e) {
