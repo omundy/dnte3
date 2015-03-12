@@ -11,3 +11,34 @@
 .danger { background-color: #d9534f; }
 
 
+
+
+
+.print_display { width:100%; height:300px; }
+
+
+#likes_chart { overflow: auto; }
+#likes_chart .barbg { background: #ddd; height:14px; margin:0 0 10px 0; font:12px/14px Arial }
+#likes_chart .bar { background: #aaa; width:5px; height: 14px; }
+
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid black;
+	left:50%; height: 20px;
+	position: absolute;
+}
+
+/* The scrolling box with all the liked pages */
+
+.likes_pages { height: 300px; width: 600px; overflow-y: scroll; overflow-x:hidden;}
+.likes_pages_scroll { width:580px }
+.likes_pages_scroll div { clear: both; margin: 14px; }
+.likes_pages_scroll .img { padding: 0 6px 4px 0; float: left }
+.likes_pages_scroll .name { padding-top: 6px; }
+.likes_pages_scroll .about { padding: 0; }
+
+
+th { font-weight: normal; }

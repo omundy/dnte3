@@ -41,10 +41,49 @@ $permissions = array('public_profile');
 // login helper with redirect_uri
 $helper = new FacebookRedirectLoginHelper($login['login_url']);
 
+
+
+// better way: http://stackoverflow.com/a/24401716/441878
+
+if(isset($_SESSION['access_token'])) {
+    $access_token = $_SESSION['access_token'];
+    $session = new FacebookSession($access_token);
+
+} else {
+    unset($_SESSION['access_token']);
+    try {
+        $session = $helper->getSessionFromRedirect();
+        if($session){                  
+            $_SESSION['access_token'] = $session->getToken();
+		}
+    } catch(FacebookRequestException $ex) {
+        // When Facebook returns an error
+    } catch(Exception $ex) {
+        // When validation fails or other local issues
+    }
+}
+
+
+
+/*
 if (isset($_SESSION) && isset($_SESSION['fb_token'])) {
 	$session = new FacebookSession($_SESSION['fb_token']);
+	
+	
+	if(isset($_SESSION['access_token'])) {
+		
+		}
+	
+	
 	try {
+		print "<pre>";
+		print_r($_SESSION);
+		print "</pre>";
+		
+		
+		
 		$session->validate();
+	
 	} catch (FacebookRequestException $ex) {
 		$session = null;
 		$_SESSION = null;
@@ -58,7 +97,7 @@ if (isset($_SESSION) && isset($_SESSION['fb_token'])) {
 		echo $ex->message;
 	}
 }
-
+*/
 
 // logged in
 if (isset($session)) {

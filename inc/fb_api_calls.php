@@ -35,7 +35,7 @@ $fb_data = array(
 	'apprequests' 		=> array('name' => 'apprequests',
 							 'call' => 	'/me/apprequests',
 							 'scope' => 'granted',
-							 'desc' => 	'The requests received by this person from the app making the API call.'),
+							 'desc' => 	'The requests received by this person from the app making the API call.'),						 
 
 	'books' 		=> array('name' => 	'books',
 							 'call' => 	'/me/books',
@@ -193,7 +193,13 @@ $fb_data = array(
 							 'scope' => 'user_likes',
 							 'desc' => 	"The liked TV shows listed on someone's profile under TV Shows > Likes.",
 							 'approval' => true),
-
+	
+	'user_birthday' 	=> array('name' => 	'user_birthday',
+							 'call' => 	'/me?fields=birthday',
+							 'scope' => 'user_birthday',
+							 'desc' => 	'The date and month of a person\'s birthday.',
+							 'approval' => true),
+							 
 	'videos' 		=> array('name' => 	'videos',
 							 'call' => 	'/me/videos',
 							 'scope' => 'user_videos',

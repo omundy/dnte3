@@ -9,7 +9,9 @@ function fb_generic_api_call($name){
 	global $session, $fb_data, $permissions, $login, $fb_login_state;
 
 	$permissions = fb_get_permissions();
-
+	//var_dump($permissions);
+	
+	
 	// check for permission
 	if (isset($permissions[$name]) && $permissions[$name] == 'granted' ||
 		isset($permissions[$fb_data[$name]['scope']]) && $permissions[$fb_data[$name]['scope']] == 'granted'){
@@ -37,7 +39,7 @@ function fb_generic_api_call($name){
 	if ($q == '/me/likes'){
 		// paging
 		while ($exit == false){
-			$a = fb_call($q,$offset,$limit);
+			$a = fb_call_paging($q,$offset,$limit);
 			
 			if (isset($a['data'])){
 				foreach($a['data'] as $val){
@@ -54,12 +56,15 @@ function fb_generic_api_call($name){
 			}
 		}
 	} else {
-		$arr = fb_call($q,$offset,$limit);
+		$arr = fb_call_basic($q,$offset,$limit);
 	}
 	return $arr;
 }
 
-function fb_call($q,$offset,$limit){
+/**
+ *	Basic FB call for paging
+ */
+function fb_call_paging($q,$offset=0,$limit=100){
 	global $session;
 	try {
 		$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
@@ -70,6 +75,23 @@ function fb_call($q,$offset,$limit){
 		return array('error' => $e->getMessage());
 	}
 }
+
+/**
+ *	Nothing but the basics, ma'am
+ */
+function fb_call_basic($q,$offset=0,$limit=100){
+	global $session;
+	try {
+		$request = new FacebookRequest($session,'GET',$q);
+		$response = $request->execute();
+		$arr = $response->getGraphObject()->asArray();
+		return $arr;
+	} catch (Exception $e) {
+		return array('error' => $e->getMessage());
+	}
+}
+
+
 
 
 

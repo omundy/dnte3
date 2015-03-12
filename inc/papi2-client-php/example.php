@@ -87,7 +87,13 @@ function get_prediction($output='print'){
 	// Get predictions and print
 	try {
 	    $prediction = $papiClient->getPredictionResource()->getByLikeIds(
-	        array(TraitName::BIG5, 
+	        array(
+	        
+		    // submitting empty array returns all matches
+		    // alternately can submit only ones we want below.
+	        TraitName::BIG5, 
+	        
+	        /*
 	        TraitName::INTELLIGENCE,
 	        TraitName::SATISFACTION_WITH_LIFE, 
 	        TraitName::INTELLIGENCE, 
@@ -100,6 +106,7 @@ function get_prediction($output='print'){
 	        TraitName::POLITICS, 
 	        TraitName::RELIGION, 
 	        TraitName::RELATIONSHIP
+	        */
 	    ), $token->getTokenString(), $uid, $likeIds);
 	        
 	        
