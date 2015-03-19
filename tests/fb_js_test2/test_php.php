@@ -6,7 +6,7 @@
 
 session_start();
 //NO COMPOSER
-require '../facebook-php-sdk-v4-4.0-dev/autoload.php';
+require 'inc/facebook-php-sdk-v4/autoload.php';
 use Facebook\FacebookSession;
 use Facebook\FacebookJavaScriptLoginHelper;
 use Facebook\FacebookRedirectLoginHelper;
@@ -23,7 +23,9 @@ use Facebook\HttpClients\FacebookCurl;
 use Facebook\HttpClients\FacebookHttpable;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 
-FacebookSession::setDefaultApplication('761116317308745', 'f084368f5ab3b3e5e63ccb8cd9645338');
+include_once('inc/fb_config.php');
+FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
+
 
 //$helper = new FacebookRedirectLoginHelper('test.php');
 $helper = new FacebookJavaScriptLoginHelper();
