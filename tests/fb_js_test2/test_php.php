@@ -1,7 +1,7 @@
 <?php
 
-//$token = $_POST['token'];
-//print $token;
+$token = $_GET['token'];
+print "TOKEN: $token";
 
 
 session_start();
@@ -28,14 +28,15 @@ FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
 
 
 //$helper = new FacebookRedirectLoginHelper('test.php');
-$helper = new FacebookJavaScriptLoginHelper();
+//$helper = new FacebookJavaScriptLoginHelper();
 
 // Use the login url on a link or button to redirect to Facebook for authentication
 
 
 $helper = new FacebookJavaScriptLoginHelper();
 try {
-  $session = $helper->getSession();
+	$session = new FacebookSession($token);
+  //print_r($session);
 } catch(FacebookRequestException $ex) {
   // When Facebook returns an error
 } catch(\Exception $ex) {
@@ -49,7 +50,10 @@ if ($session) {
 $request = new FacebookRequest($session, 'GET', '/me');
 $response = $request->execute();
 $graphObject = $response->getGraphObject();
+print "<pre>";
 print_r($graphObject);
+print "</pre>";
 
 
 ?>
+

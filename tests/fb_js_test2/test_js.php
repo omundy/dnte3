@@ -118,10 +118,21 @@ function php_connect(_token){
 	})
 	.done(function( msg ) {
 		console.log( "RESPONSE FROM PHP: " + msg );
+		// update iframe
+		loadIframe('frame','test_php.php?token='+_token);
 	});
 }
 
 
+
+function loadIframe(iframeName, url) {
+    var $iframe = $('#' + iframeName);
+    if ( $iframe.length ) {
+        $iframe.attr('src',url);   
+        return false;
+    }
+    return true;
+}
 	
       
 $(document).ready(function(){
@@ -274,7 +285,7 @@ the FB.login() function when clicked.
 <div id="login_btn"></div>
 <div id="start_app"></div>
 <div id="data"></div>
-
+<iframe id="frame" src="test_php.php" style="width:800px; height: 500px"></iframe>
 
 </body>
 </html>
