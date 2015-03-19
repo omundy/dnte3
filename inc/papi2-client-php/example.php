@@ -87,7 +87,7 @@ if ( !isset($_SESSION['magic_token']) || !isset($_SESSION['magic_token_date']) )
 	$time = $_SESSION['magic_token_date'];
 	$curtime = time();
 	// 3600 seconds == one day
-	if(($curtime-$time) > 3000) { 
+	if(($curtime-$time) > 1000) { 
 		// it has been ~ one day, refresh token
 		$refresh_token = true;
 	} else {
@@ -96,11 +96,14 @@ if ( !isset($_SESSION['magic_token']) || !isset($_SESSION['magic_token_date']) )
 
 	
 }
+$refresh_token=true;
 if (isset($refresh_token)){
 	print "getting new token";
 	$token = $papiClient->getAuthResource()->requestToken($customerId, $apiKey);
-	$_SESSION['magic_token'] = $token->getTokenString();
+	$magic_token = $_SESSION['magic_token'] = $token->getTokenString();
 	$_SESSION['magic_token_date'] = $token->getExpires();
+} else {
+	$magic_token = $_SESSION['magic_token'];
 }
 
 

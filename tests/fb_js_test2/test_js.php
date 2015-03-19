@@ -15,7 +15,7 @@ document.domain = "dnt.dev";
 
 
 var login_status = false; 
-
+var accessToken = false;
 
 // 1. run after SDK loads. 
 window.fbAsyncInit = function() {
@@ -44,6 +44,11 @@ window.fbAsyncInit = function() {
 function checkLoginStatus(response) {
 	if(response && response.status == 'connected') {
 		console.log('user is logged in AND has authorized app');
+	
+	// first try to send access token to php	
+	accessToken = response.authResponse.accessToken;
+	
+	
 		logout_prompt();
 		start_app_prompt();
 	} else if (response.status === 'not_authorized') {
@@ -105,6 +110,17 @@ function start_app_prompt(){
 }
 
 
+function php_connect(_token){
+	$.ajax({
+		method: "POST",
+		url: "test_php.php",
+		data: { name: "owen", token: _token }
+	})
+	.done(function( msg ) {
+		console.log( "RESPONSE FROM PHP: " + msg );
+	});
+}
+
 
 	
       
@@ -127,6 +143,7 @@ $(document).ready(function(){
 function go(){
 	// show logout button
 	
+	
 
 	FB.api('/me', function(response) {
 		console.log('Successful login for: ' + response.name);
@@ -137,8 +154,16 @@ function go(){
 		console.log(response);
 	});
 	
-	FB.api('/me/likes','get', get_likes);
+	//FB.api('/me/likes','get', get_likes);
 	
+
+	
+	//console.log('accessToken: '+accessToken)
+	php_connect(accessToken)
+
+
+
+
 
 };
 var data =[];
@@ -162,8 +187,7 @@ function get_likes(response){
 			
 			
 			
-			magic_auth();
-			
+			//magic_auth();
 			//magic_likes(token,likes);
 			
 			$('#data').html(JSON.stringify(likes));
@@ -172,7 +196,7 @@ function get_likes(response){
 	
 	
 }
-
+/*
 function magic_auth(){
 	$.ajax({
 	    url: 'http://api-v2.applymagicsauce.com/auth/',
@@ -218,7 +242,7 @@ function magic_likes(token,likes){
 	    }
 	});
 }
-
+*/
 
 
 

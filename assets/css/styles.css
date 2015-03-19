@@ -42,3 +42,15 @@
 
 
 th { font-weight: normal; }
+
+
+
+
+.sepia {
+filter: saturate(50%);
+// Browser Specific
+-webkit-filter: saturate(50%);
+-moz-filter: saturate(50%);
+-o-filter: saturate(50%);
+-ms-filter: saturate(50%);
+}

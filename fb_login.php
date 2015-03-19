@@ -1,18 +1,17 @@
 <?php
 
 /**
- * wow!
  *	fb_login.php - Confirms user:
  *
  *	1. Is logged into FB
  *	2. Has given permission to our app
  *
  *	Otherwise attempts to route them to do so.
- *
  */
 
 global $session, $fb_login_state, $login_btn;
 
+// start a session for user
 session_start();
 
 require_once 'inc/facebook-php-sdk-v4/autoload.php';
@@ -32,25 +31,43 @@ use Facebook\HttpClients\FacebookHttpable;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 
 include_once('inc/fb_config.php');
-
 FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
 
-// requested permissions for the app - optional
+// requested default permissions for the app (optional)
 $permissions = array('public_profile');
 
 // login helper with redirect_uri
 $helper = new FacebookRedirectLoginHelper($login['login_url']);
 
-
-
-// better way: http://stackoverflow.com/a/24401716/441878
-
+// check if an access token exists
 if(isset($_SESSION['access_token'])) {
-    $access_token = $_SESSION['access_token'];
-    $session = new FacebookSession($access_token);
+			
+	// store FacebookSession object
+    $session = new FacebookSession($_SESSION['access_token']);
 
-} else {
+	// and validate the session
+	try {
+		$session->validate();
+	} catch (FacebookRequestException $ex) {
+		// session not valid, Graph API returned an exception with the reason.
+		//echo $ex->getMessage();
+		// set $session to false to prompt for login below
+		$session = false;
+	} catch (\Exception $ex) {
+		// Graph API returned info, but it may mismatch the current app or have expired.
+		//echo $ex->getMessage();
+		// set $session to false to prompt for login below
+		$session = false;
+	}
+}
+
+// if they are not logged in or if session didn't validate
+if ($session == false){
+	
+	// delete our current access token
     unset($_SESSION['access_token']);
+    
+    // try to connect and get new token
     try {
         $session = $helper->getSessionFromRedirect();
         if($session){                  
@@ -65,42 +82,9 @@ if(isset($_SESSION['access_token'])) {
 
 
 
-/*
-if (isset($_SESSION) && isset($_SESSION['fb_token'])) {
-	$session = new FacebookSession($_SESSION['fb_token']);
-	
-	
-	if(isset($_SESSION['access_token'])) {
-		
-		}
-	
-	
-	try {
-		print "<pre>";
-		print_r($_SESSION);
-		print "</pre>";
-		
-		
-		
-		$session->validate();
-	
-	} catch (FacebookRequestException $ex) {
-		$session = null;
-		$_SESSION = null;
-		echo $ex->getMessage();
-	}
-
-} else {
-	try {
-		$session = $helper->getSessionFromRedirect();
-	} catch (FacebookRequestException $ex) {
-		echo $ex->message;
-	}
-}
-*/
 
 // logged in
-if (isset($session)) {
+if (isset($session) && $session != false) {
 	$_SESSION['fb_token'] = $session->getToken();
 
 	// Create the logout URL (logout page should destroy the session)
@@ -112,7 +96,7 @@ if (isset($session)) {
 	// Get login URL
 	$loginUrl = $helper->getLoginUrl( $permissions );
 	$login_btn = '<a class="btn btn-default navbar-btn btn-xs" href="' . $loginUrl . '">login</a>';
-
+	$fb_login_state = false;
 }
 
 
