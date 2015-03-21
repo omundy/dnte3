@@ -1,0 +1,153 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+html, body { margin: 0; padding: 0;}
+body { font: 1.7em/1.9em 'Open Sans', sans-serif; color: #ddd; font-weight: 100; background:#0e0e0e;  }
+a { color: #09bc87; text-decoration: none }
+a:link, a:active, a:visited { color: #09bc87; text-decoration: none }
+a:hover { text-decoration: underline }
+
+
+
+
+.site-main.row { margin: 0 }
+.inner { min-height:100%;  }
+
+/* small viewport layout */
+@media (max-width:767px) { 
+    .sidebar-col, .content-col { height: auto!important }
+    .site-main { padding-bottom: 0px!important }
+}
+/* large viewport layout */
+@media (min-width:768px) { 
+    html, body { height: 100%; width: 100%; }
+    #page { height: 100%; height: auto !important; min-height: 100%; }
+    .site-main { height: 100%; padding:0 0px; }
+	.sidebar-col .inner { margin-top: 120px;  }
+}
+
+
+
+
+
+.sidebar-col { padding: 40px; }
+
+.product_name { min-width: 260px; max-width: 280px; }
+.callout { font-size: 150%; color:#09bc87; margin: 40px 0 20px 0; min-width: 260px; max-width: 280px; }
+.fb_btn, .fb_btn:focus, .fb_btn:active, .fb_btn:visited, .fb_btn:hover { margin: 20px 0; color:#ddd; background: #4864b4; font-size: 101%}
+.fb_btn img { padding: 4px 7px 2px 0}
+
+
+.nav_steps,.nav_footer { list-style: none; margin: 20px 0; padding: 0; }
+.nav_steps { border-bottom: 1px solid #222; max-width: 280px }
+.nav_steps li { border-top: 1px solid #222; padding: 3px 0; }
+.nav_steps li a { color: #ddd; text-decoration: none; display: block; }
+.nav_steps li a.selected, .nav_steps li a:hover { color: #09bc87; text-decoration: none }
+
+.nav_footer { margin-top: 50px; min-width: 260px; }
+.nav_footer li { float: left; margin-right: 18px; font-size: 80% }
+
+
+
+
+
+
+.content-col { 
+	background:#161616 url('../img/grid_100.png'); 
+	padding: 40px;
+}
+
+
+
+
+
+
+/*
+
+
+
+
+
+
+.sidebar {
+	height: 100%;
+   	z-index: 1000;
+
+}
+.content_wrapper {
+	
+	height: 100%;
+    min-height:100%;
+
+}
+
+
+
+
+
+@media(min-width:400px) {
+	.content_wrapper {
+
+        margin-right: 0;
+    }
+	
+}
+
+
+
+
+
+.circle {
+	display: inline-block;
+    border-radius: 50%;
+	width: 10px;
+	height: 10px;
+}
+.primary { background-color: darken(#428bca, 6.5%) }
+.success { background-color: #5cb85c }
+.info { background-color: #5bc0de }
+.warning { background-color: #f0ad4e }
+.danger { background-color: #d9534f; }
+
+
+
+
+
+.print_display { width:100%; height:300px; }
+
+
+#likes_chart { overflow: auto; }
+#likes_chart .barbg { background: #ddd; height:14px; margin:0 0 10px 0; font:12px/14px Arial }
+#likes_chart .bar { background: #aaa; width:5px; height: 14px; }
+
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid black;
+	left:50%; height: 20px;
+	position: absolute;
+}
+
+/* The scrolling box with all the liked pages */
+
+.likes_pages { height: 300px; width: 600px; overflow-y: scroll; overflow-x:hidden;}
+.likes_pages_scroll { width:580px }
+.likes_pages_scroll div { clear: both; margin: 14px; }
+.likes_pages_scroll .img { padding: 0 6px 4px 0; float: left }
+.likes_pages_scroll .name { padding-top: 6px; }
+.likes_pages_scroll .about { padding: 0; }
+
+
+th { font-weight: normal; }
+
+
+
+
+.sepia {
+filter: saturate(50%);
+// Browser Specific
+-webkit-filter: saturate(50%);
+-moz-filter: saturate(50%);
+-o-filter: saturate(50%);
+-ms-filter: saturate(50%);
+}
