@@ -1,14 +1,13 @@
 <?php
 
-
+//
 global $session, $fb_login_state, $login_btn;
 $fb_login_state = false;
-$q = (isset($_GET['q'])) ? $_GET['q']: 'profile';
+$q = (isset($_GET['q'])) ? $_GET['q']: '/me';
 $offset = 0;
 $limit = 100;
 
-include_once('fb_login.php');
-
+include_once('inc/fb_login.php');
 include_once('inc/fb_api_calls.php');
 include_once('inc/fb_functions.php');
 include_once('inc/fb_wrappers.php');
@@ -18,7 +17,6 @@ include_once('inc/om_functions.php');
 if ($fb_login_state){
 	// so store permissions
 	$permissions = fb_get_permissions();
-
 	// or maybe they are trying to remove all permissions
 	if (isset($_GET['revoke']) && isset($_GET['q'])){
 		if ($_GET['q'] == 'all'){
@@ -45,7 +43,11 @@ if ($fb_login_state){
 		
 	include_once('templates/sidebar.php');
 	print '<div class="col-md-10">';
-		
+	
+	
+	/**
+	 *	Example for getting all text from a data set
+	 */	
 	if ($q == "feed") {
 		$feed_text = "";
 		$arr = fb_generic_api_call($q);
@@ -69,7 +71,9 @@ if ($fb_login_state){
 		
 		
 		
-		
+	/**
+	 *	Working example of DNT illuminus.io application
+	 */	
 	} else if ($q == "likes") {	
 		
 		// get all likes and likeids		
@@ -693,7 +697,9 @@ if ($fb_login_state){
 		
 		
 		
-		
+	/**
+	 *	Default call
+	 */	
 	} else if (array_key_exists($q,$fb_data) ) {
 		$arr = fb_generic_api_call($q);
 		if (!isset($arr['error'])){
@@ -704,70 +710,9 @@ if ($fb_login_state){
 		} else {
 			print $arr['error'];
 		}
-	} else if ($q == '/me'){
-		try {
-			$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
-			$response = $request->execute();
-			$arr = $response->getGraphObject()->asArray();
-			print_r($arr);
-		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
-		}
-
-	} else if (strpos($q,'/me/') !== false){
-
-		$str = "";
-		$arr = array();
-		try {
-			$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
-			$response = $request->execute();
-			$arr2 = $response->getGraphObject()->asArray();
-			$str .= get_tags_likes($arr2);
-			$arr2d = $arr2['data'];
-			$arr = array_merge($arr,$arr2d);
-		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
-		}
-
-		// do another one
-		if (isset($arr2['paging']->cursors)) {
-			try {
-				$request = new FacebookRequest($session,'GET',$q.'/?offset=100&limit=100');
-				$response = $request->execute();
-				$arr2 = $response->getGraphObject()->asArray();
-				$str .= get_tags_likes($arr2);
-				$arr2d = $arr2['data'];
-				$arr = array_merge($arr,$arr2d);
-			} catch (Exception $e) {
-				echo 'Caught exception: ',  $e->getMessage(), "\n";
-			}
-		}
-
-
-		print '<h3>Tags ('. substr_count($str,' ') .')</h3>';
-		print '<form>';
-		print '<textarea rows="12" class="form-control">'. $str .'</textarea>';
-		print '</form>';
-
-		print '<h3>JSON</h3>';
-
-		print '<pre>';
-		print_r($arr);
-		print '</pre>';
-
-
-
-
-	} else if ($q == 'photo'){
-		// Graph API to request profile picture
-		$request = new FacebookRequest( $session, 'GET', '/me/picture?type=large&redirect=false' );
-		$response = $request->execute();
-		// Get response as an array
-		$picture = $response->getGraphObject()->asArray();
-		print_r( $picture );
-		print '<img src="'. $picture['url'] .'">';
-
 	}
+	
+	
 }
 else {
 	print_r($session);

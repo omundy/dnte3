@@ -10,7 +10,7 @@
 <div id='fb-root'></div>
 <script>
 
-document.domain = "dnt.dev";
+//document.domain = "dnt.dev";
 
 
 

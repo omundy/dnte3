@@ -89,7 +89,7 @@ if (isset($session) && $session != false) {
 
 	// Create the logout URL (logout page should destroy the session)
 	$logoutURL = $helper->getLogoutUrl( $session, '?logout=true' );
-	$login_btn = '<a class="btn btn-default navbar-btn btn-xs" href="./fb_logout.php">logout</a>';
+	$login_btn = '<a class="btn btn-default navbar-btn btn-xs" href="./inc/fb_logout.php">logout</a>';
 	$fb_login_state = true;
 
 } else {

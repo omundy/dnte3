@@ -9,7 +9,7 @@ function fb_generic_api_call($name){
 	global $session, $fb_data, $permissions, $login, $fb_login_state;
 
 	$permissions = fb_get_permissions();
-	print_r($permissions);
+	//print_r($permissions);
 	
 	
 	
