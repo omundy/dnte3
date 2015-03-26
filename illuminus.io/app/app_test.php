@@ -124,26 +124,26 @@ if ($fb_login_state){
 						print "<p>Wow, you have spent a lot of time on Facebook. Evaluating your data trail should be a breeze ...</p>";
 					}
 					
+
+$me = fb_call_basic('/me?fields=id,name,locale,birthday,gender,age_range');
+/*
+print "<pre>";
+print_r($me);
+print "</pre>";
+*/
 					
-					$me = fb_call_basic('/me?fields=id,name,locale,birthday,gender,age_range');
-					/*
-					print "<pre>";
-					print_r($me);
-					print "</pre>";
-					*/
-					
-					$user = array('id'=>$me['id'],'name'=>$me['name'],'locale'=>$me['locale'],'gender'=>'','age'=>0);
-					
-					if (isset($me['gender']) && $me['gender'] != ''){
-						$user['gender'] = $me['gender'];
-					} else {
-						$user['gender'] = 'NOT DECLARED';
-					}
-					if (isset($me['birthday']) && $me['birthday'] != ''){
-						$user['age'] = calculate_age($me['birthday']);
-					} else {
-						$user['age'] = 'NOT DECLARED';
-					}
+$user = array('id'=>$me['id'],'name'=>$me['name'],'locale'=>$me['locale'],'gender'=>'','age'=>0);
+
+if (isset($me['gender']) && $me['gender'] != ''){
+	$user['gender'] = $me['gender'];
+} else {
+	$user['gender'] = 'NOT DECLARED';
+}
+if (isset($me['birthday']) && $me['birthday'] != ''){
+	$user['age'] = calculate_age($me['birthday']);
+} else {
+	$user['age'] = 'NOT DECLARED';
+}
 					
 					
 					print '<p>It looks like we already know...';
@@ -700,7 +700,7 @@ if ($fb_login_state){
 	/**
 	 *	Default call
 	 */	
-	} else if (array_key_exists($q,$fb_data) ) {
+	} else if (array_key_exists($q,$fb_api_calls) ) {
 		$arr = fb_generic_api_call($q);
 		if (!isset($arr['error'])){
 			if ( count($arr) == 0) print "<p><b>No data returned</b></p>";

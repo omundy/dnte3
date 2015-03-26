@@ -2,7 +2,7 @@
 
 
 // a list of all fbapi tokens, permissions, descriptions
-$fb_data = array(
+$fb_api_calls = array(
 	'accounts' 		=> array('name' => 	'accounts',
 							 'call' => 	'/me/accounts',
 							 'scope' => 'manage_pages',

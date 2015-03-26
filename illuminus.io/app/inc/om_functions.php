@@ -2,6 +2,21 @@
 
 
 
+
+
+
+/**
+ *	Reporter
+ */
+function report($d){
+	print "<textarea style='width:100%; height:400px; color:#000; font-size:80%; font: 10px/12px monospace'>";
+	//print "<pre>";
+	print_r($d);
+	//print "</pre>";
+	print "</textarea>";
+}
+
+
 /**
  *	Limit number of words
  */

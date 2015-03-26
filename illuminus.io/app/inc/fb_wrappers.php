@@ -6,7 +6,7 @@ use Facebook\FacebookRequest;
  *	Generic API call
  */
 function fb_generic_api_call($name){
-	global $session, $fb_data, $permissions, $login, $fb_login_state;
+	global $session, $fb_api_calls, $permissions, $login, $fb_login_state;
 
 	$permissions = fb_get_permissions();
 	//print_r($permissions);
@@ -15,21 +15,21 @@ function fb_generic_api_call($name){
 	
 	
 	// check for permission
-	if (isset($permissions[$name]) && $permissions[$name] == 'granted' || isset($permissions[$fb_data[$name]['scope']]) && $permissions[$fb_data[$name]['scope']] == 'granted') {
+	if (isset($permissions[$name]) && $permissions[$name] == 'granted' || isset($permissions[$fb_api_calls[$name]['scope']]) && $permissions[$fb_api_calls[$name]['scope']] == 'granted') {
 		$permission_html =  '<button type="button" class="btn btn-success btn-xs disabled">';
-		$permission_html .=  $fb_data[$name]['scope'] .": permission granted</button> ";
-		$permission_html .=  "<a href='./app.php?revoke=".$fb_data[$name]['scope']."&q=$name'>revoke permission</a>";
+		$permission_html .=  $fb_api_calls[$name]['scope'] .": permission granted</button> ";
+		$permission_html .=  "<a href='./app.php?revoke=".$fb_api_calls[$name]['scope']."&q=$name'>revoke permission</a>";
 		$proceed = true;
 	} else {
 		$permission_html =  '<button type="button" class="btn btn-danger btn-xs disabled">';
-		$permission_html .= $fb_data[$name]['scope'] .": permission not granted or revoked</button>";
-		$permission_html .= ' <a href="https://www.facebook.com/dialog/oauth?client_id='.$login['app_id'].'&redirect_uri='.$login['login_url'].'?q='.$fb_data[$name]['name'].'&auth_type=rerequest&scope='. $fb_data[$name]['scope'] .'">enable permission</a>';
+		$permission_html .= $fb_api_calls[$name]['scope'] .": permission not granted or revoked</button>";
+		$permission_html .= ' <a href="https://www.facebook.com/dialog/oauth?client_id='.$login['app_id'].'&redirect_uri='.$login['login_url'].'?q='.$fb_api_calls[$name]['name'].'&auth_type=rerequest&scope='. $fb_api_calls[$name]['scope'] .'">enable permission</a>';
 		$proceed = false;
 	}
-	$report = "<h3>". $fb_data[$name]['name'] ."</h3>";
-	$report .= "call: ". $fb_data[$name]['call'] ."<br>";
+	$report = "<h3>". $fb_api_calls[$name]['name'] ."</h3>";
+	$report .= "call: ". $fb_api_calls[$name]['call'] ."<br>";
 	$report .=  "scope: $permission_html<br>";
-	$report .=  "desc: ". $fb_data[$name]['desc'] ."<br>";
+	$report .=  "desc: ". $fb_api_calls[$name]['desc'] ."<br>";
 	$report .=  "<br>";
 	print $report;
 	
@@ -37,7 +37,7 @@ function fb_generic_api_call($name){
 	
 	if ($proceed == true){
 		// define query
-		$q = $fb_data[$name]['call'];
+		$q = $fb_api_calls[$name]['call'];
 		$offset = 0;
 		$limit = 100;
 		$exit = false;

@@ -116,8 +116,8 @@ print "</pre>";
 */
 
 
-function get_prediction($output='print'){
-	global $papiClient, $magic_token, $uid, $likeIds, $traits;
+function get_prediction($output='print',$likeIds,$uid){
+	global $papiClient, $magic_token, $traits;
 	
 	// Get predictions and print
 	try {

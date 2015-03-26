@@ -1,6 +1,6 @@
 Chart.defaults.global = {
 	
-	animation: true,		// Boolean - Whether to animate the chart
+	animation: false,		// Boolean - Whether to animate the chart
 	animationSteps: 60,		// Number - Number of animation steps
 	animationEasing: "easeOutQuart",	// String - Animation easing effect
 	
@@ -51,7 +51,20 @@ Chart.defaults.global = {
 }
 
 
+var pie_chart_options = {
+    
+    segmentShowStroke : true,	// Boolean - Whether we should show a stroke on each segment
+    segmentStrokeColor : "#fff",	// String - The colour of each segment stroke
+    segmentStrokeWidth : 2,	// Number - The width of each segment stroke
+    percentageInnerCutout : 50, // Number - The percentage of the chart that we cut out of the middle. This is 0 for Pie charts
+    animationSteps : 100,	// Number - Amount of animation steps
+    animationEasing : "easeOutBounce",	// String - Animation easing effect
+    animateRotate : true,	// Boolean - Whether we animate the rotation of the Doughnut
+    animateScale : false,  // Boolean - Whether we animate scaling the Doughnut from the centre
+    //String - A legend template
+    legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
 
+}
 
 var polar_chart_options = {
 	scaleShowLabelBackdrop : true,	// Boolean - Show a backdrop to the scale label

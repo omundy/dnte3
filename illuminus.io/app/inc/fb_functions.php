@@ -7,7 +7,7 @@ use Facebook\FacebookRequest;
  *	@param $scope String - if set then will return a single permission (e.g. 'user_birthday')
  */
 function fb_get_permissions($scope=''){
-	global $session,$fb_data;
+	global $session,$fb_api_calls;
 	$arr = array();
 	// scope is all
 	$q = "/me/permissions";
@@ -16,7 +16,7 @@ function fb_get_permissions($scope=''){
 		$q .= "/$scope";
 	} else {
 		// include scopes that don't require permissions
-		foreach($fb_data as $a){
+		foreach($fb_api_calls as $a){
 			if ($a['scope'] == 'granted'){
 				$arr[$a['name']] = 'granted';
 			}

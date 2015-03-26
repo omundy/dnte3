@@ -14,6 +14,10 @@ $(window).on('load resize', function() {
 });
 */
 
+document.domain = "dnt.dev";
+
+
+
 
 var colors1 = [
 	'rgba(88,88,88,1)',
