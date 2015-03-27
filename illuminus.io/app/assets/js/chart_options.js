@@ -53,9 +53,9 @@ Chart.defaults.global = {
 
 var pie_chart_options = {
     
-    segmentShowStroke : true,	// Boolean - Whether we should show a stroke on each segment
+    segmentShowStroke : false,	// Boolean - Whether we should show a stroke on each segment
     segmentStrokeColor : "#fff",	// String - The colour of each segment stroke
-    segmentStrokeWidth : 2,	// Number - The width of each segment stroke
+    segmentStrokeWidth : .1,	// Number - The width of each segment stroke
     percentageInnerCutout : 50, // Number - The percentage of the chart that we cut out of the middle. This is 0 for Pie charts
     animationSteps : 100,	// Number - Amount of animation steps
     animationEasing : "easeOutBounce",	// String - Animation easing effect
@@ -84,3 +84,42 @@ var polar_chart_options = {
 	legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
 
 }
+
+
+
+var bar_chart_options = {
+    //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+    scaleBeginAtZero : true,
+
+    //Boolean - Whether grid lines are shown across the chart
+    scaleShowGridLines : true,
+
+    //String - Colour of the grid lines
+    scaleGridLineColor : "rgba(0,0,0,.05)",
+
+    //Number - Width of the grid lines
+    scaleGridLineWidth : 1,
+
+    //Boolean - Whether to show horizontal lines (except X axis)
+    scaleShowHorizontalLines: true,
+
+    //Boolean - Whether to show vertical lines (except Y axis)
+    scaleShowVerticalLines: true,
+
+    //Boolean - If there is a stroke on each bar
+    barShowStroke : true,
+
+    //Number - Pixel width of the bar stroke
+    barStrokeWidth : 2,
+
+    //Number - Spacing between each of the X value sets
+    barValueSpacing : 5,
+
+    //Number - Spacing between data sets within X values
+    barDatasetSpacing : 1,
+
+    //String - A legend template
+    legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+
+}
+

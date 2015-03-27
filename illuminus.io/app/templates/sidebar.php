@@ -1,21 +1,24 @@
-<div class="col-md-2">
-	<?php
-	foreach($fb_data as $key => $a){
-
-		if (isset($permissions[$a['scope']]) && $permissions[$a['scope']] == 'granted' ||
-				isset($permissions[$a['name']]) && $permissions[$a['name']] == 'granted'){
-			$title = 'permission is granted';
-			print '<span title="'.$title.'" class="circle success"></span> ';
-		} else {
-			$title = 'NO permissions granted';
-			print '<span title="'.$title.'" class="circle danger"></span> ';
-		}
-		print '<a title="'.$title.'" href="./app.php?q='.$a['name'].'" >'.$a['name'].'</a> ';
-		if (isset($a['approval'])){
-			print '<span class="text-danger" title="this permission requires approval!"><b>!!!</b></span> ';
-		}
-		print '<br>';
-	}
-	print "<br><br><br><a href='./app.php?revoke=true&q=all'>revoke all</a>";
-	?>
-</div>
+	<div class="col-sm-3 sidebar-col">
+		<div class="inner">
+			
+			<img src="assets/img/logo.png" alt="illuminus logo">
+			<div class="product_name">Future Present Risk Detection</div>
+			<div class="callout">Learn what we already know about you</div>
+			
+				
+			<ul class="nav_steps">
+				<li><a id="step0_link" href="#step0" class="selected">Welcome</a></li>
+				<li><a id="step1_link" href="#step1">Profile Data Sequencing</a></li>
+				<li><a id="step2_link" href="#step2">Health Risk Evaluation</a></li>
+				<li><a id="step3_link" href="#step3">Financial Risk Evaluation</a></li>
+			</ul>
+	
+	
+			<ul class="nav_footer">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="#">Logout</a></li>
+			</ul>
+			
+		</div>
+	</div>

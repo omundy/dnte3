@@ -5,27 +5,24 @@
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <style>
-html,body { margin: 0; padding: 0; background: #000}
-iframe { display:none; position: fixed; top:0px; left:0px; bottom:0px; right:0px; border: none; margin: 30px 0 0 0; padding: 0; overflow:hidden; z-index:999999; width: 100%; height: 100%; }
+html,body { margin: 0; padding: 0; background: #000; color: #ddd; font:11px/11px Arial}
+#infobar { background-color: rgba(0,0,0,.5); width: 100%; height: 20px; position: absolute; top:0; left: 0; z-index: 999999}
+iframe { display:none; position: fixed; top:0px; left:0px; bottom:0px; right:0px; border: none; margin: 0 0 0 0; padding: 0; overflow:hidden; z-index:999998; width: 100%; height: 100%; }
 </style>
 </head>
 <body>
 <div id='fb-root'></div>
-<div id="login_btn"></div>
+<div id="infobar">
+	<span id="login_btn"></span>
+	<span id="status"></span>
+</div>
 <iframe id="app_frame" src="app.php?start" frameBorder="0"></iframe>
 
-
-<!--
-<div id="status"></div>
-<div id="start_app"></div>
--->
 
 
 
 
 <script>
-
-
 
 
 document.domain = "dnt.dev";
@@ -81,8 +78,7 @@ function checkLoginStatus(response) {
 	
 	
 		logout_prompt();
-		// start_app_prompt();
-		go();
+		loadIframe();
 	} else if (response.status === 'not_authorized') {
 		console.log('user is logged in BUT has not authorized app');
 		login_prompt();
@@ -97,8 +93,7 @@ function login_user(_scope) {
 		// handle the response
 		if (response.authResponse) {
 			logout_prompt();
-			// start_app_prompt();
-			go();
+			loadIframe();
 		} else {
 			console.log('User cancelled login or did not fully authorize.');
 		}
@@ -122,60 +117,40 @@ function logout_user() {
 // show logout button / text
 function logout_prompt(){
 	// show login button
-	$('#login_btn').html('<input id="fb_logout_btn" type="button" value="Logout" />');
+	$('#login_btn').html('<input id="fb_logout_btn" type="button" value="logout" /><input id="reload_btn" type="button" value="reload" />');
 	$('#status').html('Welcome!!');
 	$("#app_frame").attr('src','');
 }
 // show login button / text
 function login_prompt(){
-	$('#login_btn').html('<input id="fb_login_btn" type="button" value="Login" />');
+	$('#login_btn').html('<input id="fb_login_btn" type="button" value="login" />');
 	$('#status').html('Please log into this app.');
-	$('#start_app').html('');
 	$("#app_frame").attr('src','');
 }
      
-
-// function start_app_prompt(){
-// 	$('#start_app').html('<input id="start_app_btn" type="button" value="Go" />');
-// 	$('#status').html('Click go to proceed.');
-	
-// }
-
-
-
 function loadIframe(url) {
     $("#app_frame")
     	.attr('src','app.php?v' + Math.random())
     	.css('display','block');
-    
+
 }
 	
-      
-$(document).ready(function(){
-	
-	$(document).on('click','#fb_login_btn',function() {
-		login_user('email,user_birthday,user_likes');
-	});
-	$(document).on('click','#fb_logout_btn',function() {
-		logout_user();
-	});	
-	
-	
+
+
+$(document).on('click','#fb_login_btn',function() {
+	login_user('email,user_birthday,user_likes');
 });
-	
-	
-	
-function go(){
-	// show logout button
+$(document).on('click','#reload_btn',function() {
+	loadIframe();
+});
+$(document).on('click','#fb_logout_btn',function() {
+	logout_user();
+});	
 
-	FB.api('/me', function(response) {
-		console.log('Successful login for: ' + response.name);
-		$('#status').html('Thanks for logging in, ' + response.name + '!');
-	});
-	
-	loadIframe()
 
-};
+
+	
+	
 
 	
 
