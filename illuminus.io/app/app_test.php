@@ -40,58 +40,58 @@ include_once('templates/header.php');
 <?php 
 
 if ($fb_login_state){	
-		
-	include_once('templates/sidebar.php');
-	print '<div class="col-md-10">';
-	
-	
-	/**
-	 *	Example for getting all text from a data set
-	 */	
-	if ($q == "feed") {
-		$feed_text = "";
-		$arr = fb_generic_api_call($q);
-		if (!isset( $arr['error']) ) {
-			print '<pre>';
-			foreach( $arr['data'] as $key => $val ) {
-				if ( isset( $val->message ) ) {
-					$feed_text .= $val->message . " ";
-				}
-				if ( isset( $val->description ) ) {
-					$feed_text .= $val->description . " ";
-				}
-			}
-			print($feed_text);
-			print '</pre>';
-		} else {
-			print $arr['error'];
-		}
-		
-		
-		
+
+include_once('templates/sidebar.php');
+print '<div class="col-md-10">';
+
+
+/**
+*	Example for getting all text from a data set
+*/	
+if ($q == "feed") {
+$feed_text = "";
+$arr = fb_generic_api_call($q);
+if (!isset( $arr['error']) ) {
+print '<pre>';
+foreach( $arr['data'] as $key => $val ) {
+	if ( isset( $val->message ) ) {
+		$feed_text .= $val->message . " ";
+	}
+	if ( isset( $val->description ) ) {
+		$feed_text .= $val->description . " ";
+	}
+}
+print($feed_text);
+print '</pre>';
+} else {
+print $arr['error'];
+}
+
 		
 		
-	/**
-	 *	Working example of DNT illuminus.io application
-	 */	
-	} else if ($q == "likes") {	
 		
-		// get all likes and likeids		
-		$likes = array();
-		$likeIds = array();
-	
-		if ($arr = fb_generic_api_call($q));
-		//print_r($arr);
-		//die('end');
-		if (!isset( $arr['error']) ) {
-			
-			if ( count($arr['data']) > 0 ) {
-			
-				// store all likes
-				foreach( $arr['data'] as $key => $val ) {
-					$likes[$val->id] = array('id'=> $val->id, 'name'=> $val->name, 'category'=> $val->category);
-					$likeIds[] = $val->id;
-				}
+		
+/**
+*	Working example of DNT illuminus.io application
+*/	
+} else if ($q == "likes") {	
+
+// get all likes and likeids		
+$likes = array();
+$likeIds = array();
+
+if ($arr = fb_generic_api_call($q));
+//print_r($arr);
+//die('end');
+if (!isset( $arr['error']) ) {
+
+if ( count($arr['data']) > 0 ) {
+
+// store all likes
+foreach( $arr['data'] as $key => $val ) {
+$likes[$val->id] = array('id'=> $val->id, 'name'=> $val->name, 'category'=> $val->category);
+$likeIds[] = $val->id;
+}
 				
 				
 				print "<pre>Following is the step by step of user walking through entire process.</pre>";
@@ -111,18 +111,18 @@ if ($fb_login_state){
 				 */
 				print '<hr><hr>';
 				print '<h3>STEP 1. WELCOME / SHOW THEIR DATA / INTRODUCE PERSONALITY TEST</h3>';
-				print '<h5>Welcome to Illuminus.</h5>';
-				print '<p>Please wait while we access your data...</p>';
-				print '<p>Data acquisition successful. </p>';
-				if (!isset($likes) || count($likes) < 10) {
-					print '<p>You don\'t have enough likes to participate :-( (show user a simple click through test)</p>';
-				} else {
-					
-					if (count($likes) < 100) {
-						print '<p>OK, it looks like you have enough data for us to evaluate. Analyzing your interests...</p>';
-					} else if (count($likes) >= 100) {
-						print "<p>Wow, you have spent a lot of time on Facebook. Evaluating your data trail should be a breeze ...</p>";
-					}
+print '<h5>Welcome to Illuminus.</h5>';
+print '<p>Please wait while we access your data...</p>';
+print '<p>Data acquisition successful. </p>';
+if (!isset($likes) || count($likes) < 10) {
+print '<p>You don\'t have enough likes to participate :-( (show user a simple click through test)</p>';
+} else {
+
+if (count($likes) < 100) {
+print '<p>OK, it looks like you have enough data for us to evaluate. Analyzing your interests...</p>';
+} else if (count($likes) >= 100) {
+print "<p>Wow, you have spent a lot of time on Facebook. Evaluating your data trail should be a breeze ...</p>";
+}
 					
 
 $me = fb_call_basic('/me?fields=id,name,locale,birthday,gender,age_range');
@@ -145,28 +145,28 @@ if (isset($me['birthday']) && $me['birthday'] != ''){
 	$user['age'] = 'NOT DECLARED';
 }
 					
-					
-					print '<p>It looks like we already know...';
-					
-					if (isset($user['name']) && $user['name'] != '')
-						print 'your name:</p><p><b>'. $user['name'] .'</b></p>';
-					
-					if (isset($user['gender']) && $user['gender'] != '' && $user['gender'] != 'NOT DECLARED')
-						print '<p>Your gender:</p><p><b>'. $user['gender'] .'</b></p>';
-					
-					if (isset($user['age']) && $user['age'] != '' && $user['age'] != 'NOT DECLARED')
-						print '<p>Your age:</p><p><b>'. $user['age'] .'</b></p>';
-					
+
+print '<p>It looks like we already know...';
+
+if (isset($user['name']) && $user['name'] != '')
+print 'your name:</p><p><b>'. $user['name'] .'</b></p>';
+
+if (isset($user['gender']) && $user['gender'] != '' && $user['gender'] != 'NOT DECLARED')
+print '<p>Your gender:</p><p><b>'. $user['gender'] .'</b></p>';
+
+if (isset($user['age']) && $user['age'] != '' && $user['age'] != 'NOT DECLARED')
+print '<p>Your age:</p><p><b>'. $user['age'] .'</b></p>';
+
 					
 					
 				
-						
-					// for testing
-					//$likes_pages = fb_call_basic('?ids=695641060487490,220779885077,9258148868&fields=name,about,link,likes,picture');
-					
-					// get all liked pages (FB has a limit of 50 for above type calls)
-					$likes_str = implode(',',array_slice($likeIds,0,49));
-					$likes_pages = fb_call_basic('?ids='. $likes_str .'&fields=name,about,link,likes,picture');
+
+// for testing
+//$likes_pages = fb_call_basic('?ids=695641060487490,220779885077,9258148868&fields=name,about,link,likes,picture');
+
+// get all liked pages (FB has a limit of 50 for above type calls)
+$likes_str = implode(',',array_slice($likeIds,0,49));
+$likes_pages = fb_call_basic('?ids='. $likes_str .'&fields=name,about,link,likes,picture');
 					
 					print '<p>We also know a quite a bit about you based on your interests like: ';
 					$i=0;
@@ -203,56 +203,56 @@ if (isset($me['birthday']) && $me['birthday'] != ''){
 					
 					//print $design.'</div>';
 					
-					/**
-					 *	STEP 1a. INTRODUCE PERSONALITY TEST
-					 */
-					print '<hr>';
-					print '<h3>NOW WE WILL ANALYZE YOU PERSONALITY ATTRIBUTES BASED ON YOUR FACEBOOK DATA....</h3>';	
-					print '<p>Very interesting results!!!</p>';
-					include('inc/big5_scores.php');
-					
-					include('inc/papi2-client-php/example.php');
-					$predictions = get_prediction('return');
-					sort($predictions->_predictions); // sort
-		
-					$big5_result = array();
-					print "<div id='likes_chart'>";
-					foreach($predictions->_predictions as $val){
-						
-						if (isset($val->_trait) && $val->_value > 0){
-		
-							
-							
-							// REPORT AS PERCENTILE 
-							
-							// if BIG5_
-							if (strpos($val->_trait, "BIG5_") !== false
-								// || strpos($val->_trait, "Satisfaction_Life") !== false
-								// || strpos($val->_trait, "Intelligence") !== false
-								){
-								print "<div>". $val->_trait .": ".$val->_value .' (PERCENTILE)</div>';
-								print "<div class='barbg' style='width:920px'><div class='bar' style='width:". ($val->_value*920) ."px'> </div></div>";
-								
-								// store for use below
-								$big5_result[$val->_trait] = $val->_value;
-							}
-							/*
-							else if (strpos($val->_trait, "Age") !== false){
-								print "<div>Age: ".$val->_value .' (PERCENTILE)</div>';
-							}
-							
-							//print_r($val);
-							else {
-								print "<div>". $val->_trait .": ".$val->_value .' (PROBABILITY)</div>';
-								print "<div class='barbg' style='width:".($val->_value*920)."px'></div>";
-							}
-							*/
-						}	
-					}
+/**
+*	STEP 1a. INTRODUCE PERSONALITY TEST
+*/
+print '<hr>';
+print '<h3>NOW WE WILL ANALYZE YOU PERSONALITY ATTRIBUTES BASED ON YOUR FACEBOOK DATA....</h3>';	
+print '<p>Very interesting results!!!</p>';
+include('inc/big5_scores.php');
+
+include('inc/papi2-client-php/example.php');
+$predictions = get_prediction('return');
+sort($predictions->_predictions); // sort
+
+$big5_result = array();
+print "<div id='likes_chart'>";
+foreach($predictions->_predictions as $val){
+
+if (isset($val->_trait) && $val->_value > 0){
+
+
+
+// REPORT AS PERCENTILE 
+
+// if BIG5_
+if (strpos($val->_trait, "BIG5_") !== false
+// || strpos($val->_trait, "Satisfaction_Life") !== false
+// || strpos($val->_trait, "Intelligence") !== false
+){
+print "<div>". $val->_trait .": ".$val->_value .' (PERCENTILE)</div>';
+print "<div class='barbg' style='width:920px'><div class='bar' style='width:". ($val->_value*920) ."px'> </div></div>";
+
+// store for use below
+$big5_result[$val->_trait] = $val->_value;
+}
+/*
+else if (strpos($val->_trait, "Age") !== false){
+print "<div>Age: ".$val->_value .' (PERCENTILE)</div>';
+}
+
+//print_r($val);
+else {
+print "<div>". $val->_trait .": ".$val->_value .' (PROBABILITY)</div>';
+print "<div class='barbg' style='width:".($val->_value*920)."px'></div>";
+}
+*/
+}	
+}
 					print "<div class='arrow-up'></div>";
 					print "<div class=''><p>Above values expressed as percentiles. </div>";
-					print "<div class=''><p>$big5_overview</p></div>";
-					print '</div>';
+print "<div class=''><p>$big5_overview</p></div>";
+print '</div>';
 					
 		
 					
@@ -269,38 +269,38 @@ if (isset($me['birthday']) && $me['birthday'] != ''){
 					
 					
 					
-					
-					
-					
-					
-					function get_risk_color($total){
-						$risk_color = '';
-						if ($total > 1){
-							$risk_color = '#ff1d00';
-						} else if ($total > .9){
-							$risk_color = '#ff3f0a';
-						} else if ($total > .8){
-							$risk_color = '#ff6f14';
-						} else if ($total > .7){
-							$risk_color = '#ffa51e';
-						} else if ($total > .6){
-							$risk_color = '#ffd828';
-						} else if ($total > .5){
-							$risk_color = '#f6fb30';
-						} else if ($total > .4){
-							$risk_color = '#cdfb32';
-						} else if ($total > .3){
-							$risk_color = '#a3fb34';
-						} else if ($total > .2){
-							$risk_color = '#7ffa35';
-						} else if ($total > .1){
-							$risk_color = '#5ffa36';
-						} else if ($total >= 0){
-							$risk_color = '#35fa38';
-						}
-						return $risk_color;
-					}
-					
+
+
+
+
+function get_risk_color($total){
+$risk_color = '';
+if ($total > 1){
+$risk_color = '#ff1d00';
+} else if ($total > .9){
+$risk_color = '#ff3f0a';
+} else if ($total > .8){
+$risk_color = '#ff6f14';
+} else if ($total > .7){
+$risk_color = '#ffa51e';
+} else if ($total > .6){
+$risk_color = '#ffd828';
+} else if ($total > .5){
+$risk_color = '#f6fb30';
+} else if ($total > .4){
+$risk_color = '#cdfb32';
+} else if ($total > .3){
+$risk_color = '#a3fb34';
+} else if ($total > .2){
+$risk_color = '#7ffa35';
+} else if ($total > .1){
+$risk_color = '#5ffa36';
+} else if ($total >= 0){
+$risk_color = '#35fa38';
+}
+return $risk_color;
+}
+
 					
 					
 						

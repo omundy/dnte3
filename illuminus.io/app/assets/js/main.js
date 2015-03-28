@@ -1,3 +1,6 @@
+document.domain = "dnt.dev";
+
+
 
 
 var current_step = 0;
@@ -127,7 +130,7 @@ $(window).on('load resize', function() {
 });
 */
 
-document.domain = "dnt.dev";
+
 
 
 
@@ -139,53 +142,6 @@ var colors1 = [
 	'rgba(30,30,30,1)',
 	'rgba(9,188,135,1)',
 ]
-
-
-var data = [
-    {
-        value: 300,
-        color: colors1[0],
-        highlight: colors1[4],
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: colors1[1],
-        highlight: colors1[4],
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: colors1[2],
-        highlight: colors1[4],
-        label: "Yellow"
-    },
-    {
-        value: 40,
-        color: colors1[3],
-        highlight: colors1[4],
-        label: "Grey"
-    },
-    {
-        value: 120,
-        color: colors1[4],
-        highlight: colors1[4],
-        label: "Dark Grey"
-    }
-
-];
-
-
-
-
-
-
-// Get the context of the canvas element we want to select
-var ctx = document.getElementById("myChart").getContext("2d");
-var myNewChart = new Chart(ctx).Doughnut(data,polar_chart_options);
-
-
-
 
 
 

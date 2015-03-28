@@ -1,10 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
 html, body { margin: 0; padding: 0;}
-body { font: 1.7em/1.9em 'Open Sans', sans-serif; color: #ddd; font-weight: 100; background:#0e0e0e;  }
+body { font: 1.7em/1.8em 'Open Sans', sans-serif; color: #ddd; font-weight: 100; background:#0e0e0e;  }
 a { color: #09bc87; text-decoration: none }
 a:link, a:active, a:visited { color: #09bc87; text-decoration: none }
 a:hover { text-decoration: underline }
-
+h1,h2,h3,h4,h5,h6 { font-weight: 100; color:#c4959c }
 
 
 
@@ -32,7 +32,7 @@ a:hover { text-decoration: underline }
 .sidebar-col { padding: 20px 40px; }
 
 .product_name { min-width: 260px; max-width: 280px; }
-.callout { font-size: 150%; color:#09bc87; margin: 40px 0 20px 0; padding-bottom: 40px; min-width: 260px; max-width: 280px; }
+.callout { font-size: 150%; margin: 40px 0 20px 0; padding-bottom: 40px; min-width: 260px; max-width: 280px; }
 .fb_btn, .fb_btn:focus, .fb_btn:active, .fb_btn:visited, .fb_btn:hover { margin: 20px 0; color:#ddd; background: #4864b4; font-size: 101%}
 .fb_btn img { padding: 4px 7px 2px 0}
 
@@ -50,7 +50,6 @@ a:hover { text-decoration: underline }
 
 
 
-
 .content-col { 
 	background:#161616 url('../img/grid_100.png'); 
 	padding: 40px;
@@ -58,7 +57,8 @@ a:hover { text-decoration: underline }
 
 .title { margin: 0 0 40px 0 }
 
-.chart { margin: 10px 0 10px 0 }
+.chart { margin: 10px 0 10px 0; background: rgba(20,20,20,.8);    }
+.chart canvas { background: rgba(20,20,20,.8);}
 .chart_caption { margin: 0 0 10px 0; font-size: 80%; color: #666 }
 
 
@@ -71,76 +71,14 @@ a:hover { text-decoration: underline }
 }
 
 
-
-
-
-/*
-
-
-
-
-
-
-.sidebar {
-	height: 100%;
-   	z-index: 1000;
-
-}
-.content_wrapper {
-	
-	height: 100%;
-    min-height:100%;
-
+/* text that is actually pulled from their data */
+.udata {
+	color: #c4959c;
 }
 
 
 
 
-
-@media(min-width:400px) {
-	.content_wrapper {
-
-        margin-right: 0;
-    }
-	
-}
-
-
-
-
-
-.circle {
-	display: inline-block;
-    border-radius: 50%;
-	width: 10px;
-	height: 10px;
-}
-.primary { background-color: darken(#428bca, 6.5%) }
-.success { background-color: #5cb85c }
-.info { background-color: #5bc0de }
-.warning { background-color: #f0ad4e }
-.danger { background-color: #d9534f; }
-
-
-
-
-
-.print_display { width:100%; height:300px; }
-
-
-#likes_chart { overflow: auto; }
-#likes_chart .barbg { background: #ddd; height:14px; margin:0 0 10px 0; font:12px/14px Arial }
-#likes_chart .bar { background: #aaa; width:5px; height: 14px; }
-
-.arrow-up {
-	width: 0; 
-	height: 0; 
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-bottom: 10px solid black;
-	left:50%; height: 20px;
-	position: absolute;
-}
 
 /* The scrolling box with all the liked pages */
 
@@ -156,12 +94,3 @@ th { font-weight: normal; }
 
 
 
-
-.sepia {
-filter: saturate(50%);
-// Browser Specific
--webkit-filter: saturate(50%);
--moz-filter: saturate(50%);
--o-filter: saturate(50%);
--ms-filter: saturate(50%);
-}
