@@ -3,9 +3,8 @@
 if(isset($_GET['start'])) die("Logging in");
 
 
-if(isset($_GET['step'])) {
-	$step = $_GET['step'];
-}
+
+
 
 // init session
 session_start();
@@ -381,7 +380,90 @@ include_once('templates/sidebar.php');
 			<div class="inner">
 		
 				
-	
+				<?php
+				
+				
+				
+				
+								
+				if(isset($_GET['lang']) && isset($_GET['step'])) { 
+					
+					$step = $_GET['step'];
+					$lang = $_GET['lang'];
+					
+					
+					
+					
+					$css = '<style>';
+					
+					$css .= '#step'.$step.' { display: block; }';
+					
+					//foreach()
+					
+					$css .= '</style>';
+					print $css;
+					
+				} else {
+					$step = 1;
+					$lang = 'EN';
+				}
+				
+				print "step: ".$step;
+				print "; lang: ".$lang; 
+				
+				$step_arr = array(
+					array(),
+					array(
+						'CA' => array(
+							'title' => '1. Séquençage de données',
+							'title_2' => 'Nous avons réussi à récupérer vos données.',
+						),
+						'DE' => array(
+							'title' => '1. Daten Sequencing',
+							'title_2' => 'Wir haben erfolgreich die Daten abgerufen.',
+						),
+						'EN' => array(
+							'title' => '1. Data Sequencing',
+							'title_2' => 'We have successfully retrieved your data.',
+						),
+						'FR' => array(
+							'title' => '1. Séquençage de données',
+							'title_2' => 'Nous avons réussi à récupérer vos données.',
+						),
+					),
+					array(
+						'CA' => array(
+							'title' => '2. Évaluation des risques de la santé',
+						),
+						'DE' => array(
+							'title' => '2. Gesundheit Risikobewertung',
+						),
+						'EN' => array(
+							'title' => '2. Health Risk Evaluation',
+						),
+						'FR' => array(
+							'title' => '2. Évaluation des risques de la santé',
+						),
+					),
+					array(
+						'CA' => array(
+							'title' => '3. Évaluation des risques financiers',
+						),
+						'DE' => array(
+							'title' => '3. Finanzrisikobewertung',
+						),
+						'EN' => array(
+							'title' => '3. Financial Risk Evaluation',
+						),
+						'FR' => array(
+							'title' => '3. Évaluation des risques financiers',
+						),
+					),
+				);
+				
+				
+				?>
+				
 				
 				
 				<!-- step0 -->
@@ -394,9 +476,8 @@ include_once('templates/sidebar.php');
 					<div class="row">
 						<div class="col-sm-12">
 							
-							<p>Please click below to get started.</p>
+							<p>Please log in to Facebook to get started.</p>
 							
-							<button class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> Log in with Facebook</button>
 							
 						</div>
 					</div>
@@ -411,8 +492,8 @@ include_once('templates/sidebar.php');
 				<div id="step1" class="step">
 					<div class="row">
 						<div class="col-sm-6 title">
-							<h3>1. Data Sequencing</h3>
-							<p>We have successfully retrieved your data. 
+							<h3><?php print $step_arr[1][$lang]['title'] ?></h3>
+							<p><?php print $step_arr[1][$lang]['title_2'] ?>
 							
 							<?php
 
@@ -697,7 +778,7 @@ include_once('templates/sidebar.php');
 				<div id="step2" class="step">
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3>Health Risk Evaluation</h3>
+							<h3><?php print $step_arr[2][$lang]['title'] ?></h3>
 							<p>The following health risk evaluation is based on an interpretation of your Facebook profile.</p>
 						</div>
 					</div>
@@ -785,7 +866,7 @@ include_once('templates/sidebar.php');
 				<div id="step3" class="step">	
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3>Financial Risk Evaluation</h3>
+							<h3><?php print $step_arr[3][$lang]['title'] ?></h3>
 							<p>The following xxx risk evaluation is based on an interpretation of your Facebook profile.</p>
 						</div>
 					</div>

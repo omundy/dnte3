@@ -5,6 +5,8 @@
 			<div class="product_name">Future Present Risk Detection</div>
 			<div class="callout">Learn what we already know about you</div>
 			
+
+			<button class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> Log in with Facebook</button>
 				
 			<ul class="nav_steps">
 				<li><a id="step0_link" href="#step0" class="selected">Welcome</a></li>
