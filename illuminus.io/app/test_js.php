@@ -15,20 +15,30 @@ iframe { display:none; position: fixed; top:0px; left:0px; bottom:0px; right:0px
 <div id="infobar">
 	<span id="login_btn"></span>
 	<span id="load_btns">
-		<input id="step1_CA" type="button" value="step1_CA" />
-		<input id="step1_DE" type="button" value="step1_DE" />
-		<input id="step1_EN" type="button" value="step1_EN" />
-		<input id="step1_FR" type="button" value="step1_FR" />
-		
-		<input id="step2_CA" type="button" value="step2_CA" />
-		<input id="step2_DE" type="button" value="step2_DE" />
-		<input id="step2_EN" type="button" value="step2_EN" />
-		<input id="step2_FR" type="button" value="step2_FR" />
-		
-		<input id="step3_CA" type="button" value="step3_CA" />
-		<input id="step3_DE" type="button" value="step3_DE" />
-		<input id="step3_EN" type="button" value="step3_EN" />
-		<input id="step3_FR" type="button" value="step3_FR" />
+		 - - 0: 
+		<input id="step0_CA" type="button" value="CA" />
+		<input id="step0_DE" type="button" value="DE" />
+		<input id="step0_EN" type="button" value="EN" />
+		<input id="step0_FR" type="button" value="FR" />
+		 - - 1: 
+		<input id="step1_CA" type="button" value="CA" />
+		<input id="step1_DE" type="button" value="DE" />
+		<input id="step1_EN" type="button" value="EN" />
+		<input id="step1_FR" type="button" value="FR" />
+		 - - 2: 
+		<input id="step2_CA" type="button" value="CA" />
+		<input id="step2_DE" type="button" value="DE" />
+		<input id="step2_EN" type="button" value="EN" />
+		<input id="step2_FR" type="button" value="FR" />
+		 - - 3: 
+		<input id="step3_CA" type="button" value="CA" />
+		<input id="step3_DE" type="button" value="DE" />
+		<input id="step3_EN" type="button" value="EN" />
+		<input id="step3_FR" type="button" value="FR" />
+		 - - - -  
+		<input id="standalone" type="button" value="standalone" />
+		<input id="player" type="button" value="player" />
+
 		
 	</span>
 	<span id="status"></span>
@@ -41,6 +51,24 @@ iframe { display:none; position: fixed; top:0px; left:0px; bottom:0px; right:0px
 
 <script>
 
+var player = 0;
+var step = 0;
+var lang = '';
+
+function setPlayer(t){
+	// 1
+	if (t){
+		$('#player').css('color','red') 
+		$('#standalone').css('color','black') 
+	} else {
+		$('#player').css('color','black') 
+		$('#standalone').css('color','red') 
+	}
+
+	player = t
+	loadIframe(step,lang)
+}
+setPlayer(0)
 
 document.domain = "dnt.dev";
 
@@ -147,7 +175,9 @@ function login_prompt(){
 	$("#app_frame").attr('src','');
 }
      
-function loadIframe(step,lang) {
+function loadIframe(_step,_lang) {
+	step = _step;
+	lang = _lang;
 	var params = '';
 	if (step > -1){
 		params += '&step='+step;
@@ -155,6 +185,8 @@ function loadIframe(step,lang) {
 	if (lang != ''){
 		params += '&lang='+lang;
 	}
+	
+	params += '&player='+player;
 	
     $("#app_frame")
     	.attr('src','app.php?v' + Math.random() + params)
@@ -166,6 +198,11 @@ function loadIframe(step,lang) {
 
 $(document).on('click','#fb_login_btn',function() { login_user('email,user_birthday,user_likes'); });
 $(document).on('click','#fb_logout_btn',function() { logout_user(); });
+		
+$(document).on('click','#step0_CA',function() { loadIframe(0,'CA'); });
+$(document).on('click','#step0_DE',function() { loadIframe(0,'DE'); });
+$(document).on('click','#step0_EN',function() { loadIframe(0,'EN'); });	
+$(document).on('click','#step0_FR',function() { loadIframe(0,'FR'); });	
 		
 $(document).on('click','#step1_CA',function() { loadIframe(1,'CA'); });
 $(document).on('click','#step1_DE',function() { loadIframe(1,'DE'); });
@@ -183,6 +220,8 @@ $(document).on('click','#step3_EN',function() { loadIframe(3,'EN'); });
 $(document).on('click','#step3_FR',function() { loadIframe(3,'FR'); });	
 
 
+$(document).on('click','#standalone',function() { setPlayer(0) });	
+$(document).on('click','#player',function() { setPlayer(1) });	
 
 
 	

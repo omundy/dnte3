@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100; color:#c4959c }
 .sidebar-col { padding: 20px 40px; }
 
 .product_name { min-width: 260px; max-width: 280px; }
-.callout { font-size: 150%; margin: 40px 0 20px 0; min-width: 260px; max-width: 280px; }
+.product_callout { font-size: 150%; margin: 40px 0 20px 0; min-width: 260px; max-width: 280px; }
 .fb_btn, .fb_btn:focus, .fb_btn:active, .fb_btn:visited, .fb_btn:hover { margin: 20px 0; color:#ddd; background: #4864b4; font-size: 101%}
 .fb_btn img { padding: 4px 7px 2px 0}
 
@@ -44,7 +44,7 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100; color:#c4959c }
 .nav_steps li a.selected, .nav_steps li a:hover { color: #09bc87; text-decoration: none }
 
 .nav_footer { margin-top: 50px; min-width: 260px; }
-.nav_footer li { float: left; margin-right: 18px; font-size: 80% }
+.nav_footer li { float: left; margin-right: 22px; font-size: 80% }
 
 
 

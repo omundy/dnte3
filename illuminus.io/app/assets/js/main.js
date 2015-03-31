@@ -1,4 +1,4 @@
-document.domain = "dnt.dev";
+
 
 
 
@@ -53,20 +53,10 @@ $('a[href^="#"]').on('click', function(event) {
 	$href = $(this).attr('href')
 	
 
-
-    if( target.length ) {
-        event.preventDefault();
-        // animate using scrollTop
-        $('body').animate({
-            scrollTop: target.offset().top
-        }, 800, function(){ // callback after complete
-	        // update current_step
-		    var current_step = $href.replace('#step','');
+     var current_step = $href.replace('#step','');
 		    // update nav
 			show_selected_nav($href)
 			show_step(current_step)
-        });
-    }
 
 });
   /*

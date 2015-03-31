@@ -168,15 +168,15 @@ print '<p>Your age:</p><p><b>'. $user['age'] .'</b></p>';
 $likes_str = implode(',',array_slice($likeIds,0,49));
 $likes_pages = fb_call_basic('?ids='. $likes_str .'&fields=name,about,link,likes,picture');
 					
-					print '<p>We also know a quite a bit about you based on your interests like: ';
-					$i=0;
-					foreach($likes_pages as $like_page){
-						if($i > 2) print ' and ';
-						print '<a href="'. $like_page->link .'" title="'. $like_page->name .'">'. $like_page->name .'</a>, ';
-						if($i++ > 2) break;
-					}
-					
-					print ' but there are many more interests. We can use these to tell us about you and predict your behavior.</p>';
+print '<p>We also know a quite a bit about you based on your interests like: ';
+$i=0;
+foreach($likes_pages as $like_page){
+if($i > 2) print ' and ';
+print '<a href="'. $like_page->link .'" title="'. $like_page->name .'">'. $like_page->name .'</a>, ';
+if($i++ > 2) break;
+}
+
+print ' but there are many more interests. We can use these to tell us about you and predict your behavior.</p>';
 					
 					//print "<pre>";
 					//print_r($likes_pages);
