@@ -18,7 +18,7 @@ function fb_generic_api_call($name){
 	if (isset($permissions[$name]) && $permissions[$name] == 'granted' || isset($permissions[$fb_api_calls[$name]['scope']]) && $permissions[$fb_api_calls[$name]['scope']] == 'granted') {
 		$permission_html =  '<button type="button" class="btn btn-success btn-xs disabled">';
 		$permission_html .=  $fb_api_calls[$name]['scope'] .": permission granted</button> ";
-		$permission_html .=  "<a href='./app.php?revoke=".$fb_api_calls[$name]['scope']."&q=$name'>revoke permission</a>";
+		$permission_html .=  "<a href='./index.php?revoke=".$fb_api_calls[$name]['scope']."&q=$name'>revoke permission</a>";
 		$proceed = true;
 	} else {
 		$permission_html =  '<button type="button" class="btn btn-danger btn-xs disabled">';

@@ -1,7 +1,38 @@
 <?php
+	
+// for reporting what is going on
+$control = array();
 
-if(isset($_GET['start'])) die("Logging in");
+// figure out what domain we're on
+if (isset($_SERVER['HTTP_HOST'])){
+	$search = array('https://','http://','www');
+	$control['domain'] = str_replace($search,'',$_SERVER['HTTP_HOST']);
+} else {
+	$control['domain'] = 'dnt.dev';
+}
 
+// get lang / step
+if(isset($_GET['lang']) && isset($_GET['step'])) { 
+	$control['step'] = $_GET['step'];
+	$control['lang'] = $_GET['lang'];
+} else {
+	$control['step'] = 'zero';
+	$control['lang'] = 'EN';
+}
+
+// get player
+if(isset($_GET['player']) && $_GET['player'] == 'yes'){
+	$control['player'] = 'yes';
+} else {
+	// standalone app
+	$control['player'] = 'no';
+}; 
+
+// store all scripts to include once html is loaded
+$scripts = '';
+$scripts .= "\n var step = '". $control['step'] ."';";
+$scripts .= "\n var lang = '". $control['lang'] ."';";
+$scripts .= "\n var player = '". $control['player'] ."'; \n\n";
 
 
 
@@ -10,13 +41,21 @@ if(isset($_GET['start'])) die("Logging in");
 session_start();
 // for all user data
 $user = array();
-// store all (chart) scripts to include once html is loaded
-$scripts = '';
 // all chart colors
 $chart_colors = 'fillColor: "rgba(100,100,100,1)", strokeColor: "rgba(0,0,0,0)", highlightFill: "rgba(10,188,136,.75)", highlightStroke: "rgba(0,0,0,0)", ';
 // global functions
 require_once('inc/om_functions.php');
 //report($_SESSION);
+
+// check if all user data is already in a session for testing
+if (isset($_SESSION['dnt_user'])){
+	$user = $_SESSION['dnt_user'];
+	$control['dnt_user_session'] = 'previous dnt_user session found';
+	//report($_SESSION);
+	//die();
+} else {	
+	$control['dnt_user_session'] = 'NO dnt_user session found';
+}
 
 // FB namespaces (cannot be put in conditional statement)
 use Facebook\FacebookSession;
@@ -35,22 +74,17 @@ use Facebook\HttpClients\FacebookCurl;
 use Facebook\HttpClients\FacebookHttpable;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 
+// now determine if we'd like to login
 
-// check if all user data is already in a session
-// testing or maybe production
-if (isset($_SESSION['dnt_user'])){
-	require_once('inc/om_functions.php');
-	$user = $_SESSION['dnt_user'];
-	//report($_SESSION);
-	//die();
-}
+
 // connect to FB, get data, analyze
-else {	
+if ($control['step'] == 'fb_get_data'){
+	$control['fb_get_data'] = 'true';
+		
 	require_once('inc/fb_config.php');
 	require_once('inc/fb_functions.php');
 	require_once('inc/fb_api_calls.php');
 	require_once('inc/facebook-php-sdk-v4/autoload.php');
-	$fb_login_state = false;
 		
 	// create Facebook
 	FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
@@ -64,10 +98,11 @@ else {
 	} catch(\Exception $ex) {
 		// When validation fails or other local issues
 	}
+	// if we were able to login
 	if (isset($session) && $session) {
 		
-		// logged in.
-		$fb_login_state = true;
+		$control['fb_login_state'] = 'yes';
+		
 		
 		/* GET ALL THE FB DATA WE NEED FOR THE APP */
 		
@@ -94,22 +129,29 @@ else {
 	
 		// LIKES, LIKE_IDS, LIKE_PAGES
 		if (isset($user['permissions']['user_likes'])){
-			$arr = fb_generic_api_call('/me/likes');
-			//report($arr);
 			
-			$user['likes'] = array();
-			$user['like_ids'] = array();
 			
-			// store all likes, like_ids
-			foreach( $arr['data'] as $key => $val ) {
-				$user['likes'][$val->id] = array('id'=> $val->id, 'name'=> $val->name, 'category'=> $val->category, 'created_time'=> $val->created_time);
-				$user['like_ids'][] = $val->id;
-			}
 			
-			// get all liked pages (FB has a limit of 50 for above type calls)
-			$likes_str = implode(',',array_slice($user['like_ids'],0,49));
-			$user['likes_pages'] = fb_call_basic('?ids='. $likes_str .'&fields=name,about,link,likes,picture');
 			
+			if ($arr = fb_generic_api_call('/me/likes')){
+				//report($arr);
+				
+				$user['likes'] = array();
+				$user['like_ids'] = array();
+				
+				// store all likes, like_ids
+				foreach( $arr['data'] as $key => $val ) {
+					$user['likes'][$val->id] = array('id'=> $val->id, 'name'=> $val->name, 'category'=> $val->category, 'created_time'=> $val->created_time);
+					$user['like_ids'][] = $val->id;
+				}
+				
+				// get all liked pages (FB has a limit of 50 for above type calls)
+				$likes_str = implode(',',array_slice($user['like_ids'],0,49));
+				$user['likes_pages'] = fb_call_basic('?ids='. $likes_str .'&fields=name,about,link,likes,picture');
+				
+				// report
+				$control['retrieve_fb_likes_data'] = 'true';
+			}	
 
 
 
@@ -147,28 +189,29 @@ else {
 			
 			include('inc/big5_scores.php');
 			include('inc/papi2-client-php/example.php');
-			$predictions = get_prediction('return',$user['like_ids'],$user['me']['id']);
-			sort($predictions->_predictions); // sort
-	
-			$big5_result = array();
-			//print "<div id='likes_chart'>";
-			foreach($predictions->_predictions as $val){
-				
-				if (isset($val->_trait) && $val->_value > 0){
-	
-					// if BIG5_
-					if (strpos($val->_trait, "BIG5_") !== false
-						// || strpos($val->_trait, "Satisfaction_Life") !== false
-						// || strpos($val->_trait, "Intelligence") !== false
-						){
-						
-						// store for use below
-						$big5_result[str_replace('BIG5_', '', $val->_trait)] = $val->_value;
-					}
-				}	
+			if ($predictions = get_prediction('return',$user['like_ids'],$user['me']['id'])){
+				sort($predictions->_predictions); // sort
+		
+				$big5_result = array();
+				//print "<div id='likes_chart'>";
+				foreach($predictions->_predictions as $val){
+					
+					if (isset($val->_trait) && $val->_value > 0){
+		
+						// if BIG5_
+						if (strpos($val->_trait, "BIG5_") !== false
+							// || strpos($val->_trait, "Satisfaction_Life") !== false
+							// || strpos($val->_trait, "Intelligence") !== false
+							){
+							
+							// store for use below
+							$big5_result[str_replace('BIG5_', '', $val->_trait)] = $val->_value;
+						}
+					}	
+				}
+				$user['big5'] = $big5_result;
+				$control['retrieve_big5_data'] = 'true';
 			}
-			$user['big5'] = $big5_result;
-			
 
 		}
 		
@@ -178,161 +221,163 @@ else {
 
 										
 						
+		if(isset($user['big5'])){		
+			
+			/**
+			 *	Create risk table for user using their Magic Sauce results and risk scores
+			 */
+			function compute_risk($big5_result, $big5_risk, $options='', $g='', $age=0){
 				
-			
-		/**
-		 *	Create risk table for user using their Magic Sauce results and risk scores
-		 */
-		function compute_risk($big5_result, $big5_risk, $options='', $g='', $age=0){
-			
-			//print '<p>$options='.$options.', $gender='.$g.', $age='.$age.'</p>';
-			
-			// hold data
-			$data = array(); 
-			
-			foreach($big5_result as $big5_name => $big5_score){	
-				// create new secondary arr
-				$data[$big5_name] = array(); 
-									
-				// loop through and insert score for each
-				foreach($big5_risk[$big5_name] as $risk_name => $big5_risk_score){
-					// convert to 0-1 range
-					//$risk_score = convertRange($big5_risk_score,-.31,.36,0,1); // original 
-					$risk_score = convertRange($big5_risk_score,-.33,.44,0,1); // tweak
-					
-					
-					// calc user risk for logged in user
-					if (strpos($options, 'calc_user_risk') === true){
-						$risk_score = ($risk_score + $big5_score) / 2;
-					} else {
-						// leave scores alone
+				//print '<p>$options='.$options.', $gender='.$g.', $age='.$age.'</p>';
+				
+				// hold data
+				$data = array(); 
+				
+				foreach($big5_result as $big5_name => $big5_score){	
+					// create new secondary arr
+					$data[$big5_name] = array(); 
+										
+					// loop through and insert score for each
+					foreach($big5_risk[$big5_name] as $risk_name => $big5_risk_score){
+						// convert to 0-1 range
+						//$risk_score = convertRange($big5_risk_score,-.31,.36,0,1); // original 
+						$risk_score = convertRange($big5_risk_score,-.33,.44,0,1); // tweak
+						
+						
+						// calc user risk for logged in user
+						if (strpos($options, 'calc_user_risk') === true){
+							$risk_score = ($risk_score + $big5_score) / 2;
+						} else {
+							// leave scores alone
+						}
+						
+						// calc user risk AND gender for logged in user
+						if ( $g === 'male' ){
+							if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
+								$risk_score *= 1.5; 
+							}
+						} else if ($g == 'female'){
+							if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
+								$risk_score *= 1.5; 
+							}
+						} else {
+							// leave scores alone
+						}
+						
+						
+						/*
+						// calc user risk AND gender for logged in user
+						if (strpos($options, 'calc_user_risk_gender') === true){
+							global $gender;
+							if ( $gender == 'male' && $risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
+								$risk_score *= 1.3; 
+							} else if ($gender == 'female' && $risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
+								$risk_score *= 1.3; 
+							}	
+						} 
+						
+						// testing male
+						if (strpos($options, 'calc_gender_risk_male') === true){
+							if ( $risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall' ){
+								$risk_score *= 1.3; 
+							}
+						} 
+						// testing female
+						if (strpos($options, 'calc_gender_risk_female') === true){
+							if ( $risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance' ){
+								$risk_score *= 1.3; 
+							}
+						}
+						*/
+						
+						
+						if ($age > 0){
+							if ($age < 20){
+								$risk_score *= 1.4; 
+							} else if ($age < 30){
+								$risk_score *= 1.3;  
+							} else if ($age < 40){
+								$risk_score *= 1.15;  
+							} else if ($age < 50){
+								$risk_score *= .9; 
+							} else if ($age < 60){
+								$risk_score *= .8; 
+							} else if ($age < 70){
+								$risk_score *= .7; 
+							} else if ($age < 80){
+								$risk_score *= .6; 
+							} else if ($age < 120){
+								$risk_score *= .5; 
+							}
+						}
+						
+						
+						$data[$big5_name][$risk_name] = round($risk_score,5);
 					}
-					
-					// calc user risk AND gender for logged in user
-					if ( $g === 'male' ){
-						if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
-							$risk_score *= 1.5; 
-						}
-					} else if ($g == 'female'){
-						if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
-							$risk_score *= 1.5; 
-						}
-					} else {
-						// leave scores alone
+				}
+				/*
+				// normalize all data
+				$max = 0;
+				$min = 100;
+				// get max / min values
+				foreach($data as $big5_name => $big5_arr){
+					if ( max($big5_arr) > $max ) $max = max($big5_arr);
+					if ( min($big5_arr) < $min ) $min = min($big5_arr);
+				}
+				print "<br>Pre-normalization values: $max (max) / $min (min)";
+				
+				foreach($data as $big5_name => $big5_arr){
+					foreach($big5_arr as $risk_name => $risk_score){
+						$data[$big5_name][$risk_name] = convertRange($risk_score,$min,$max,0,1);
 					}
-					
-					
-					/*
-					// calc user risk AND gender for logged in user
-					if (strpos($options, 'calc_user_risk_gender') === true){
-						global $gender;
-						if ( $gender == 'male' && $risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
-							$risk_score *= 1.3; 
-						} else if ($gender == 'female' && $risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
-							$risk_score *= 1.3; 
-						}	
-					} 
-					
-					// testing male
-					if (strpos($options, 'calc_gender_risk_male') === true){
-						if ( $risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall' ){
-							$risk_score *= 1.3; 
-						}
-					} 
-					// testing female
-					if (strpos($options, 'calc_gender_risk_female') === true){
-						if ( $risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance' ){
-							$risk_score *= 1.3; 
-						}
-					}
-					*/
-					
-					
-					if ($age > 0){
-						if ($age < 20){
-							$risk_score *= 1.4; 
-						} else if ($age < 30){
-							$risk_score *= 1.3;  
-						} else if ($age < 40){
-							$risk_score *= 1.15;  
-						} else if ($age < 50){
-							$risk_score *= .9; 
-						} else if ($age < 60){
-							$risk_score *= .8; 
-						} else if ($age < 70){
-							$risk_score *= .7; 
-						} else if ($age < 80){
-							$risk_score *= .6; 
-						} else if ($age < 120){
-							$risk_score *= .5; 
-						}
-					}
-					
-					
-					$data[$big5_name][$risk_name] = round($risk_score,5);
+				}
+				*/
+				return $data;
+			}
+			/**/
+			
+			$big5_risk = array(
+				'Neuroticism' 		 => array('Recreation' => -.16, 'Health' => .11, 'Career' => -.11, 'Finance' => -.14, 'Safety' => -.09, 'Social' => -.12, 'Overall' => -.18),
+				'Extraversion' 	   => array('Recreation' => .17, 'Health' => .17, 'Career' => .01, 'Finance' => .09, 'Safety' => .22, 'Social' => .22, 'Overall' => .26),
+				'Openness' 		    => array('Recreation' => .2, 'Health' => .06, 'Career' => .34, 'Finance' => .1, 'Safety' => .05, 'Social' => .32, 'Overall' => .36),
+				'Agreeableness' 	 => array('Recreation' => -.12, 'Health' => -.17, 'Career' => -.18, 'Finance' => -.21, 'Safety' => -.19, 'Social' => -.16, 'Overall' => -.31),
+				'Conscientiousness' => array('Recreation' => -.09, 'Health' => -.13, 'Career' => -.08, 'Finance' => -.17, 'Safety' => -.16, 'Social' => -.07, 'Overall' => -.2)
+			);
+			
+			
+			if (isset($user['me']['gender']) && $user['me']['gender'] != '' && $user['me']['gender'] != 'NOT DECLARED'){
+				$g = $user['me']['gender'];
+			} else {
+				$g = '';
+			}
+			if (isset($user['me']['age']) && $user['me']['age'] != '' && $user['me']['age'] != 'NOT DECLARED'){
+				$a = $user['me']['age'];
+			} else {
+				$a = 0;
+			}
+	
+			
+			$user['big5_risk_final'] = compute_risk($user['big5'], $big5_risk, $g, $a);
+			//report($user['big5_risk_final']);
+			
+			
+			
+			// order risk into separate domains					
+			$user['big5_risk_domains'] = array();
+			foreach($user['big5_risk_final'] as $key => $arr){
+				foreach($arr as $risk_domain => $val){
+					$user['big5_risk_domains'][$risk_domain][$key] = $val;
 				}
 			}
-			/*
-			// normalize all data
-			$max = 0;
-			$min = 100;
-			// get max / min values
-			foreach($data as $big5_name => $big5_arr){
-				if ( max($big5_arr) > $max ) $max = max($big5_arr);
-				if ( min($big5_arr) < $min ) $min = min($big5_arr);
-			}
-			print "<br>Pre-normalization values: $max (max) / $min (min)";
-			
-			foreach($data as $big5_name => $big5_arr){
-				foreach($big5_arr as $risk_name => $risk_score){
-					$data[$big5_name][$risk_name] = convertRange($risk_score,$min,$max,0,1);
-				}
-			}
-			*/
-			return $data;
-		}
-		/**/
-		
-		$big5_risk = array(
-			'Neuroticism' 		 => array('Recreation' => -.16, 'Health' => .11, 'Career' => -.11, 'Finance' => -.14, 'Safety' => -.09, 'Social' => -.12, 'Overall' => -.18),
-			'Extraversion' 	   => array('Recreation' => .17, 'Health' => .17, 'Career' => .01, 'Finance' => .09, 'Safety' => .22, 'Social' => .22, 'Overall' => .26),
-			'Openness' 		    => array('Recreation' => .2, 'Health' => .06, 'Career' => .34, 'Finance' => .1, 'Safety' => .05, 'Social' => .32, 'Overall' => .36),
-			'Agreeableness' 	 => array('Recreation' => -.12, 'Health' => -.17, 'Career' => -.18, 'Finance' => -.21, 'Safety' => -.19, 'Social' => -.16, 'Overall' => -.31),
-			'Conscientiousness' => array('Recreation' => -.09, 'Health' => -.13, 'Career' => -.08, 'Finance' => -.17, 'Safety' => -.16, 'Social' => -.07, 'Overall' => -.2)
-		);
-		
-		
-		if (isset($user['me']['gender']) && $user['me']['gender'] != '' && $user['me']['gender'] != 'NOT DECLARED'){
-			$g = $user['me']['gender'];
-		} else {
-			$g = '';
-		}
-		if (isset($user['me']['age']) && $user['me']['age'] != '' && $user['me']['age'] != 'NOT DECLARED'){
-			$a = $user['me']['age'];
-		} else {
-			$a = 0;
-		}
-
-		
-		$user['big5_risk_final'] = compute_risk($user['big5'], $big5_risk, $g, $a);
-		//report($user['big5_risk_final']);
-		
-		
-		
-		// order risk into separate domains					
-		$user['big5_risk_domains'] = array();
-		foreach($user['big5_risk_final'] as $key => $arr){
-			foreach($arr as $domain => $val){
-				$user['big5_risk_domains'][$domain][$key] = $val;
-			}
-		}
-		
+		}	
 		
 	
 		// store all user data in session
 		$_SESSION['dnt_user'] = $user;
 	}	
-	
+	else {
+		$control['fb_login_state'] = 'no';
+	}
 	
 }
 
@@ -340,23 +385,8 @@ else {
 //report($user['big5_risk_domains']);
 
 
-if(isset($_GET['lang']) && isset($_GET['step'])) { 
-	$step = $_GET['step'];
-	$lang = $_GET['lang'];
-} else {
-	$step = 0;
-	$lang = 'EN';
-}
 
-
-// player
-if(isset($_GET['player']) && $_GET['player'] == 1){
-	$player = true;
-} else {
-	// standalone app
-	$player = false;
-}; 
-
+	
 
 function get_risk_color($total){
 	$risk_color = '';
@@ -385,3 +415,10 @@ function get_risk_color($total){
 	}
 	return $risk_color;
 }
+
+
+
+
+?>
+
+<?php report($control); ?>

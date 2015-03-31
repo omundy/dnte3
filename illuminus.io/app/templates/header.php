@@ -37,10 +37,11 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 <script>
-document.domain = "dnt.dev";
+document.domain = "<?php print $control['domain'] ?>";	
 </script>
 </head>
 
 <body>
+<div id='fb-root'></div>
 <div id="page">
 	<div class="row site-main">

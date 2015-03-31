@@ -5,7 +5,7 @@ require_once('inc/fb_login.php');
 include_once('templates/header.php');
 
 
-if($player){
+if($control['player'] == 'yes'){
 	$content_col = 12;
 } else {
 	include_once('templates/sidebar.php');
@@ -24,32 +24,30 @@ if($player){
 						
 				// show correct step
 				$css = '<style>';
-				$css .= '#step'.$step.' { display: block; }';
+				$css .= '#step_'.$control['step'].' { display: block; }';
 				$css .= '</style>';
 				print $css;
-				print "step: ". $step ."; lang: ". $lang; 
 				
 				?>
 				
 				
 				
-				<!-- step0 -->
-				<div id="step0" class="step">
+				<!-- step_zero -->
+				<div id="step_zero" class="step">
+					<?php if($control['player'] == 'no'){ // put branding on step_zero ?>
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3>Welcome to Illuminus.</h3>							
 						</div>
 					</div>
+					<?php } ?>
 					<div class="row">
 						<div class="col-sm-12">
-							<?php 
+							<?php if($control['player'] == 'yes'){ // put branding on step_zero ?>
 							
-							if($player){
-								// put branding on step0
-							?>
 								<img src="assets/img/logo.png" alt="illuminus logo">
-								<div class="product_name"><?php print $text['meta'][$lang]['product_name'] ?></div>
-								<div class="product_callout"><?php print $text['meta'][$lang]['product_callout'] ?></div>
+								<div class="product_name"><?php print $text['meta'][$control['lang']]['product_name'] ?></div>
+								<div class="product_callout"><?php print $text['meta'][$control['lang']]['product_callout'] ?></div>
 							
 							<?php	
 							} else {
@@ -64,25 +62,28 @@ if($player){
 						</div>
 					</div>
 				</div>
-				<!-- /step0 -->
+				<!-- /step_zero -->
 	
 	
 				
 	
-	
-				<!-- step1 -->
-				<div id="step1" class="step">
+				
+				<!-- step_one -->
+				<?php if (isset($user['me'])){ ?>
+				<div id="step_one" class="step">
 					<div class="row">
+						
+						
 						<div class="col-sm-6 title">
-							<h3><?php print $text[1][$lang]['title'] ?></h3>
-							<p><?php print $text[1][$lang]['title_2'] ?>
+							<h3><?php print $text[1][$control['lang']]['title'] ?></h3>
+							<p><?php print $text[1][$control['lang']]['title_2'] ?>
 							
 							<?php
 
 							if (!isset($user['likes']) || count($user['likes']) < 5) {
 								print ' However, you do not have enough data to participate. Would you like to continue using Illuminus with Richard’s data?.</p>';
 								// stop, show button to use dummy data
-								die();
+								//die();
 							} else {
 								
 								if (count($user['likes']) < 100) {
@@ -142,8 +143,9 @@ if($player){
 					
 					
 						</div>
+						
 					</div>
-					
+					<?php } else { print '<p>No user data found</p>'; } ?>
 					
 					
 					
@@ -195,7 +197,6 @@ if($player){
 							<p>This graphic displays how many likes you have "deposited" in the Facebook databases. With each of these likes, Facebook (and others) know your interests, and personality better.</p>
 						</div>
 					</div>
-					<?php } ?>
 					
 					
 					
@@ -270,12 +271,13 @@ if($player){
 						</div>
 						
 					</div>
+					<?php } else { print '<p>No likes data found</p>'; } ?>
 					
 					
 					
 					
 					
-					<?php if ($user['big5']){ ?>
+					<?php if (isset($user['big5'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
 							<?php
@@ -348,7 +350,7 @@ if($player){
 						</div>
 						
 					</div>
-					<?php } ?>
+					<?php } else { print '<p>No Big5 data found</p>'; } ?>
 					
 					
 					
@@ -356,7 +358,7 @@ if($player){
 					
 					
 				</div>
-				<!-- /step1 -->
+				<!-- /step_one -->
 			
 			
 			
@@ -366,11 +368,11 @@ if($player){
 			
 
 
-				<!-- step2 -->
-				<div id="step2" class="step">	
+				<!-- step_two -->
+				<div id="step_two" class="step">	
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text[2][$lang]['title'] ?></h3>
+							<h3><?php print $text[2][$control['lang']]['title'] ?></h3>
 							<p>The following xxx risk evaluation is based on an interpretation of your Facebook profile.</p>
 						</div>
 					</div>
@@ -562,7 +564,7 @@ if($player){
 	
 
 				</div>
-				<!-- / step2 -->
+				<!-- / step_two -->
 	
 			
 			
@@ -571,11 +573,11 @@ if($player){
 						
 						
 			
-				<!-- step3 -->
-				<div id="step3" class="step">
+				<!-- step_three -->
+				<div id="step_three" class="step">
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text[3][$lang]['title'] ?></h3>
+							<h3><?php print $text[3][$control['lang']]['title'] ?></h3>
 							<p>The following health risk evaluation is based on an interpretation of your Facebook profile.</p>
 						</div>
 					</div>
@@ -775,7 +777,7 @@ if($player){
 					
 					
 				</div>
-				<!-- /step3 -->
+				<!-- /step_three -->
 
 
 
@@ -787,9 +789,107 @@ if($player){
 		</div>
 
 <?php
-
 	
 include_once('templates/footer.php');
 print "<script>$scripts</script>";
 
 ?>
+
+
+
+<script><?php 
+	
+// only include FB login for standalone app
+if($control['player'] == 'no'){ 
+	
+?>
+	
+
+/**
+ *	Facebook
+ */
+
+// load the Javascript SDK 
+(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// initialize Facebook
+window.fbAsyncInit = function() {
+	FB.init({
+		appId: 761116317308745,
+		cookie: true,	// enable cookies to allow the server to access the session
+		xfbml: true,	// parse social plugins on this page
+		version: 'v2.3' // use version 2.1
+	});
+	// check login
+	FB.getLoginStatus(checkLoginStatus);
+	
+};
+
+// check login status
+function checkLoginStatus(response) {
+	
+	// connected: Logged into your app
+	if(response && response.status == 'connected') {
+		var userID = response.authResponse.userID;
+		var accessToken = response.authResponse.accessToken;
+		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
+		$('#fb_login_btn').css('display','none')
+		
+	// not_authorized: Logged into Facebook, but not your app
+	} else if (response.status === 'not_authorized') {
+		console.log('APP: user is logged in BUT has not authorized app');
+		$('#fb_login_btn').css('display','block')
+	// [else]: Not logged into Facebook / can't tell if they are logged into app	
+	} else {
+		console.log('APP: user is not logged into Facebook');
+		$('#fb_login_btn').css('display','block')
+	}
+}
+
+// Login user
+function login_user(_scope) {
+	FB.login(function(response) {
+		// handle the response
+		if (response.authResponse) {
+			// redirect
+			window.location.replace("./?step=one&lang="+lang);
+		} else {
+			console.log('APP: User cancelled login or did not fully authorize.');
+		}
+	}, { scope: _scope });
+}
+// Logout user
+function logout_user() {
+	FB.api('/me/permissions', 'DELETE', function(res){
+	    if(res.success === true){
+	        console.log('APP: app deauthorized');
+			window.location.replace("./?step=zero&lang="+lang);
+	    } else if(res.error){
+	        console.log('APP: res.error');
+	        console.error('APP: ' + res.error.type + ': ' + res.error.message);
+	    } else {
+	        console.log('APP: '+res);
+	    }
+	}); 
+}
+
+
+
+$('#fb_login_btn').on('click',function() { login_user('email,user_birthday,user_likes'); });
+$('#fb_logout_btn').on('click',function() { logout_user(); });
+
+
+console.log('step: '+ step +' - lang: '+ lang); 
+
+
+<?php } ?></script>
+
+
+</body>
+</html>
