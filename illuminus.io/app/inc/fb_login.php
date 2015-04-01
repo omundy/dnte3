@@ -78,7 +78,9 @@ use Facebook\HttpClients\FacebookCurlHttpClient;
 
 
 // connect to FB, get data, analyze
-if ($control['step'] == 'fb_get_data'){
+if ($control['step'] == 'one'){
+//if ($control['step'] == 'blah'){
+	
 	$control['fb_get_data'] = 'true';
 		
 	require_once('inc/fb_config.php');
@@ -95,13 +97,16 @@ if ($control['step'] == 'fb_get_data'){
 		$session = $helper->getSession();
 	} catch(FacebookRequestException $ex) {
 		// When Facebook returns an error
+		//echo $ex->getMessage();
 	} catch(\Exception $ex) {
 		// When validation fails or other local issues
+		//echo $ex->getMessage();
 	}
 	// if we were able to login
 	if (isset($session) && $session) {
 		
 		$control['fb_login_state'] = 'yes';
+		
 		
 		
 		/* GET ALL THE FB DATA WE NEED FOR THE APP */
@@ -374,18 +379,19 @@ if ($control['step'] == 'fb_get_data'){
 	
 		// store all user data in session
 		$_SESSION['dnt_user'] = $user;
+		//header('Location: ./?step=one&lang='.$control['lang']);
 	}	
 	else {
 		$control['fb_login_state'] = 'no';
+		$scripts .= "console.log('Could not login.')";
 	}
 	
 }
 
-//report($user);
 //report($user['big5_risk_domains']);
-
-
-
+report($control);
+//report($_SESSION);
+//report($user);
 	
 
 function get_risk_color($total){
@@ -421,4 +427,4 @@ function get_risk_color($total){
 
 ?>
 
-<?php report($control); ?>
+

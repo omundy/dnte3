@@ -96,9 +96,10 @@ if ( !isset($_SESSION['magic_token']) || !isset($_SESSION['magic_token_date']) )
 
 	
 }
+// problems with code so getting a new one every time
 $refresh_token=true;
 if (isset($refresh_token)){
-	print "getting new token";
+	//print "getting new token";
 	$token = $papiClient->getAuthResource()->requestToken($customerId, $apiKey);
 	$magic_token = $_SESSION['magic_token'] = $token->getTokenString();
 	$_SESSION['magic_token_date'] = $token->getExpires();

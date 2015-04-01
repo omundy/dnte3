@@ -4,7 +4,7 @@ body { font: 1.7em/1.8em 'Open Sans', sans-serif; color: #ddd; font-weight: 100;
 a { color: #ccc; text-decoration: none }
 a:link, a:active, a:visited { color: #aaa; text-decoration: underline }
 a:hover { text-decoration: underline }
-h1,h2,h3,h4,h5,h6 { font-weight: 100;  }
+h1,h2,h3,h4,h5,h6 { font-weight: 100; color: #09bc87; }
 
 
 
@@ -32,10 +32,11 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100;  }
 .sidebar-col { padding: 20px 40px; }
 
 .product_name { min-width: 260px; max-width: 280px; }
-.product_callout { font-size: 150%; margin: 40px 0 20px 0; min-width: 260px; max-width: 280px; }
-.fb_btn, .fb_btn:focus, .fb_btn:active, .fb_btn:visited, .fb_btn:hover { margin: 20px 0; color:#ddd; background: #4864b4; font-size: 101%}
+.product_callout { font-size: 150%; margin: 40px 0 20px 0; min-width: 260px; max-width: 280px; color: #09bc87;  }
+.fb_btn, .fb_btn:focus, .fb_btn:active, .fb_btn:visited { margin: 20px 0; color:#ddd; background: #4864b4; font-size: 101%}
 .fb_btn img { padding: 4px 7px 2px 0}
 #fb_login_btn {display: none;}
+#fb_login_btn:hover { background: #5472c5; color: #ddd; }
 
 .nav_steps,.nav_footer { list-style: none; margin: 20px 0; padding: 0; }
 .nav_steps { border-bottom: 1px solid #222; max-width: 280px }

@@ -33,6 +33,7 @@ if($control['player'] == 'yes'){
 				
 				
 				<!-- step_zero -->
+				<?php if ($control['step'] = 'zero'){ ?>
 				<div id="step_zero" class="step">
 					<?php if($control['player'] == 'no'){ // put branding on step_zero ?>
 					<div class="row">
@@ -56,12 +57,13 @@ if($control['player'] == 'yes'){
 							
 							?>
 							
-							<p>Please log in to Facebook to get started.</p>
+							<p>Please log in to Facebook begin data sequencing.</p>
 							
 							
 						</div>
 					</div>
 				</div>
+				<?php } ?>
 				<!-- /step_zero -->
 	
 	
@@ -69,14 +71,23 @@ if($control['player'] == 'yes'){
 	
 				
 				<!-- step_one -->
-				<?php if (isset($user['me'])){ ?>
+				<?php if ($control['step'] = 'one'){ ?>
 				<div id="step_one" class="step">
+					
+					
 					<div class="row">
+						<div class="col-sm-12 title">
+							<h3><?php print $text[1][$control['lang']]['title'] ?></h3>
+							<p><?php print $text[1][$control['lang']]['title_2'] ?>
+						</div>
+					</div>
+					
+						
+					<?php if (isset($user['me'])){ ?>
+					<div class="row" class="step1_btn btn btn-default" id="step1_frame_1">
 						
 						
 						<div class="col-sm-6 title">
-							<h3><?php print $text[1][$control['lang']]['title'] ?></h3>
-							<p><?php print $text[1][$control['lang']]['title_2'] ?>
 							
 							<?php
 
@@ -141,7 +152,9 @@ if($control['player'] == 'yes'){
 							<p>but there are many more interests. We can use these to tell us about you and predict your behavior.</p>
 					
 					
-					
+							
+							<button class="step1_btn btn btn-default" id="step1_1_next_btn">Learn more</button>
+							
 						</div>
 						
 					</div>
@@ -151,7 +164,7 @@ if($control['player'] == 'yes'){
 					
 					
 					<?php if (isset($user['like_timeline'])){ ?>
-					<div class="row">
+					<div class="row" class="step1_btn btn btn-default" id="step1_frame_2">
 						<div class="col-sm-6">
 							
 							<?php
@@ -195,6 +208,9 @@ if($control['player'] == 'yes'){
 						<div class="col-sm-6">
 							<h4>A timeline of how you have been tracked</h4>
 							<p>This graphic displays how many likes you have "deposited" in the Facebook databases. With each of these likes, Facebook (and others) know your interests, and personality better.</p>
+							
+							<button class="step1_btn btn btn-default" id="step1_2_prev_btn">Previous page</button>
+							<button class="step1_btn btn btn-default" id="step1_2_next_btn">Learn more</button>
 						</div>
 					</div>
 					
@@ -202,10 +218,14 @@ if($control['player'] == 'yes'){
 					
 					
 					
-					<div class="row">
+					<div class="row" class="step1_btn btn btn-default" id="step1_frame_3">
 						<div class="col-sm-6">
 							<h4>Your interests</h4>
 							<p>Proin venenatis justo ac sapien congue volutpat vitae eget mi. Phasellus at mattis arcu. Morbi at pulvinar dui. Aenean eget lacus sagittis lectus pharetra imperdiet. Proin vel massa semper, consequat augue vel, imperdiet lorem. Nam libero turpis, efficitur non quam ut, lacinia sagittis erat. Proin ac ornare felis, pulvinar tempor mi. Suspendisse molestie lectus risus, id auctor velit condimentum ut. .</p>
+							
+							
+							<button class="step1_btn btn btn-default" id="step1_3_prev_btn">Previous page</button>
+							<button class="step1_btn btn btn-default" id="step1_3_next_btn">Learn more</button>
 						</div>
 						<div class="col-sm-6">
 							<?php
@@ -278,7 +298,7 @@ if($control['player'] == 'yes'){
 					
 					
 					<?php if (isset($user['big5'])){ ?>
-					<div class="row">
+					<div class="row" class="step1_btn btn btn-default" id="step1_frame_4">
 						<div class="col-sm-6">
 							<?php
 								
@@ -347,17 +367,22 @@ if($control['player'] == 'yes'){
 							<p>Very interesting results!!!</p>							
 							
 							<p>Psychologists often use the "big five" traits – extroversion, openness to experience, conscientiousness, agreeableness and neuroticism – to describe personality. A person who scores high in extroversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking.</p>
+							
+							
+							
+							<button class="step1_btn btn btn-default" id="step1_4_prev_btn">Previous page</button>
 						</div>
 						
 					</div>
 					<?php } else { print '<p>No Big5 data found</p>'; } ?>
 					
 					
-					
+				
 					
 					
 					
 				</div>
+				<?php } ?>
 				<!-- /step_one -->
 			
 			
@@ -369,7 +394,11 @@ if($control['player'] == 'yes'){
 
 
 				<!-- step_two -->
+				<?php if ($control['step'] = 'two'){ ?>
 				<div id="step_two" class="step">	
+					
+					
+					
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[2][$control['lang']]['title'] ?></h3>
@@ -382,6 +411,7 @@ if($control['player'] == 'yes'){
 					
 					
 					
+					<?php if (isset($user['big5_risk_domains'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
 							<h4>Career Risk</h4>
@@ -561,12 +591,16 @@ if($control['player'] == 'yes'){
 							?>
 						</div>
 					</div>
+					<?php } else { print '<p>No Big5 risk data found</p>'; } ?>
 	
 
 				</div>
+				<?php } ?>
 				<!-- / step_two -->
 	
-			
+				
+	
+				
 			
 			
 				
@@ -574,7 +608,10 @@ if($control['player'] == 'yes'){
 						
 			
 				<!-- step_three -->
+				<?php if ($control['step'] = 'three'){ ?>
 				<div id="step_three" class="step">
+					
+					
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[3][$control['lang']]['title'] ?></h3>
@@ -584,6 +621,7 @@ if($control['player'] == 'yes'){
 					
 					
 					
+					<?php if (isset($user['big5_risk_domains'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
 							<h4>Health Risk</h4>
@@ -774,9 +812,11 @@ if($control['player'] == 'yes'){
 					</div>
 					
 					
+					<?php } else { print '<p>No Big5 risk data found</p>'; } ?>
 					
 					
 				</div>
+				<?php } ?>
 				<!-- /step_three -->
 
 
@@ -827,17 +867,28 @@ window.fbAsyncInit = function() {
 		version: 'v2.3' // use version 2.1
 	});
 	// check login
-	FB.getLoginStatus(checkLoginStatus);
+	FB.getLoginStatus(checkLoginStatus, true);
 	
 };
 
 // check login status
 function checkLoginStatus(response) {
+	//console.log(response);
 	
 	// connected: Logged into your app
 	if(response && response.status == 'connected') {
 		var userID = response.authResponse.userID;
 		var accessToken = response.authResponse.accessToken;
+		
+		// confirm accessToken works
+		/*
+		var call ='/debug_token?input_token='+accessToken+'&access_token=761116317308745';
+		console.log(call)
+		FB.api(call, 'GET', function(response){
+				console.log(JSON.stringify(response));
+		}); 
+		*/
+		
 		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
 		$('#fb_login_btn').css('display','none')
 		
@@ -888,7 +939,42 @@ $('#fb_logout_btn').on('click',function() { logout_user(); });
 console.log('step: '+ step +' - lang: '+ lang); 
 
 
+// Called when someone finishes with the Login Button. See the onlogin handler attached to it in the sample code.
+function checkLoginState() {
+	FB.getLoginStatus(function(response) {
+		statusChangeCallback(response);
+	});
+}
+
 <?php } ?></script>
+
+
+<script>
+				
+function step1_frames_event(frame){
+	// hide
+	for(var i=1; i<=4; i++){
+		$('#step1_frame_'+i).css('display','none');
+	}
+	if (!frame){
+		frame = 1;
+	}
+	$('#step1_frame_'+frame).css('display','block');
+}	
+step1_frames_event();
+
+
+$('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });
+$('#step1_2_prev_btn').on('click',function(){ step1_frames_event(1) });
+$('#step1_2_next_btn').on('click',function(){ step1_frames_event(3) });
+$('#step1_3_prev_btn').on('click',function(){ step1_frames_event(2) });
+$('#step1_3_next_btn').on('click',function(){ step1_frames_event(4) });
+$('#step1_4_prev_btn').on('click',function(){ step1_frames_event(3) });
+
+
+
+</script>
+
 
 
 </body>

@@ -47,9 +47,6 @@ iframe { display:none; position: fixed; top:0px; left:0px; bottom:0px; right:0px
 		<input id="step_three_DE" type="button" value="DE" />
 		<input id="step_three_EN" type="button" value="EN" />
 		<input id="step_three_FR" type="button" value="FR" />
-		 - - - -  
-		<input id="standalone" type="button" value="standalone" />
-		<input id="player" type="button" value="player" />
 
 		
 	</span>
@@ -69,19 +66,6 @@ var player = 'yes';
 var step = 'zero';
 var lang = 'EN';
 
-function setPlayer(state){
-	// 1
-	if (state == 'yes'){
-		$('#player').css('color','red') 
-		$('#standalone').css('color','black') 
-	} else {
-		$('#player').css('color','black') 
-		$('#standalone').css('color','red') 
-	}
-
-	player = state
-	loadIframe(step,lang)
-}
 
 	
 /**
@@ -118,8 +102,8 @@ function checkLoginStatus(response) {
 		var accessToken = response.authResponse.accessToken;
 		console.log('IFRAME: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
 		logout_prompt();
-		loadIframe();
-		
+			loadIframe('zero','EN');
+
 	// not_authorized: Logged into Facebook, but not your app
 	} else if (response.status === 'not_authorized') {
 		console.log('IFRAME: user is logged in BUT has not authorized app');
@@ -131,21 +115,13 @@ function checkLoginStatus(response) {
 	}
 }
 
-
-
-
-
-
-
-
-
 // Login user
 function login_user(_scope) {
 	FB.login(function(response) {
 		// handle the response
 		if (response.authResponse) {
 			logout_prompt();
-			loadIframe();
+			loadIframe('one','EN');
 		} else {
 			console.log('IFRAME: User cancelled login or did not fully authorize.');
 		}
@@ -186,10 +162,9 @@ function loadIframe(_step,_lang) {
 	step = _step;
 	lang = _lang;
 	var params = '';
-	
 	params += '&step='+step;
 	params += '&lang='+lang;
-	params += '&player='+player;
+	params += '&player=yes';
 	
     $("#app_frame")
     	.attr('src','index.php?v' + Math.random() + params)
@@ -223,8 +198,6 @@ $(document).on('click','#step_three_EN',function() { loadIframe('three','EN'); }
 $(document).on('click','#step_three_FR',function() { loadIframe('three','FR'); });	
 
 
-$(document).on('click','#standalone',function() { setPlayer('no') });	
-$(document).on('click','#player',function() { setPlayer('yes') });	
 
 
 	
