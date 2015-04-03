@@ -2,53 +2,64 @@
 
 
 $text = array(
+	
+	// step 0 - landing page for standalone only
 	array(),
+	
+	// step 1 - Personality Assessment
 	array(
 		'CA' => array(
-			'title' => '1. Séquençage de données',
+			'title' => 'Séquençage de données',
 			'title_2' => 'Nous avons réussi à récupérer vos données.',
 		),
 		'DE' => array(
-			'title' => '1. Daten Sequencing',
+			'title' => 'Daten Sequencing',
 			'title_2' => 'Wir haben erfolgreich die Daten abgerufen.',
 		),
 		'EN' => array(
-			'title' => '1. Data Sequencing',
+			'title' => 'Personality Assessment',
 			'title_2' => 'We have successfully retrieved your data.',
 		),
 		'FR' => array(
-			'title' => '1. Séquençage de données',
+			'title' => 'Séquençage de données',
 			'title_2' => 'Nous avons réussi à récupérer vos données.',
 		),
 	),
+	
+	// step 2 - Financial Risk Evaluation
 	array(
 		'CA' => array(
-			'title' => '2. Évaluation des risques financiers',
+			'title' => 'Évaluation des risques financiers',
 		),
 		'DE' => array(
-			'title' => '2. Finanzrisikobewertung',
+			'title' => 'Finanzrisikobewertung',
 		),
 		'EN' => array(
-			'title' => '2. Financial Risk Evaluation',
+			'title' => 'Financial Risk Evaluation',
 		),
 		'FR' => array(
-			'title' => '2. Évaluation des risques financiers',
+			'title' => 'Évaluation des risques financiers',
 		),
 	),
+	
+	// step 2 - Health Risk Evaluation
 	array(
 		'CA' => array(
-			'title' => '3. Évaluation des risques de la santé',
+			'title' => 'Évaluation des risques de la santé',
 		),
 		'DE' => array(
-			'title' => '3. Gesundheit Risikobewertung',
+			'title' => 'Gesundheit Risikobewertung',
 		),
 		'EN' => array(
-			'title' => '3. Health Risk Evaluation',
+			'title' => 'Health Risk Evaluation',
 		),
 		'FR' => array(
-			'title' => '3. Évaluation des risques de la santé',
+			'title' => 'Évaluation des risques de la santé',
 		),
 	),
+	
+	
+	
 	'meta' => array(
 		'CA' => array(
 			'product_name' => 'Future Present Risk Detection',

@@ -23,7 +23,7 @@ if($control['player'] == 'yes'){
 				<?php
 						
 				// show correct step
-				$css = '<style>';
+				$css = '<style scoped media="all" type="text/css">';
 				$css .= '#step_'.$control['step'].' { display: block; }';
 				$css .= '</style>';
 				print $css;
@@ -57,7 +57,7 @@ if($control['player'] == 'yes'){
 							
 							?>
 							
-							<p>Please log in to Facebook begin data sequencing.</p>
+							<p>Please log in to Facebook begin risk assessment.</p>
 							
 							
 						</div>
@@ -68,13 +68,13 @@ if($control['player'] == 'yes'){
 	
 	
 				
-	
+				<div id="step_one_cover"></div>
 				
 				<!-- step_one -->
 				<?php if ($control['step'] = 'one'){ ?>
 				<div id="step_one" class="step">
 					
-					
+									
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[1][$control['lang']]['title'] ?></h3>
@@ -84,12 +84,13 @@ if($control['player'] == 'yes'){
 					
 						
 					<?php if (isset($user['me'])){ ?>
-					<div class="row" class="step1_btn btn btn-default" id="step1_frame_1">
+					<div class="row" id="step1_frame_1">
 						
 						
 						<div class="col-sm-6 title">
 							
 							<?php
+							print '<p>';
 
 							if (!isset($user['likes']) || count($user['likes']) < 5) {
 								print ' However, you do not have enough data to participate. Would you like to continue using Illuminus with Richard’s data?.</p>';
@@ -122,7 +123,6 @@ if($control['player'] == 'yes'){
 								if (isset($user['likes'])){
 									print ' We also know many details about the seemingly boring data that Facebook has been tracking. We know that you have "liked" <span class="udata">'. count($user['likes']) .'</span> things on Facebook. Let\'s take a look at some of them now. ';
 								}
-								print '</p>';
 								
 								
 								//report($user['likes']);
@@ -131,6 +131,7 @@ if($control['player'] == 'yes'){
 								
 								
 							}	
+							print '</p>';
 							
 							?>
 
@@ -158,13 +159,14 @@ if($control['player'] == 'yes'){
 						</div>
 						
 					</div>
+					<script> $('#step1_frame_1').hide(); </script>
 					<?php } else { print '<p>No user data found</p>'; } ?>
 					
 					
 					
 					
 					<?php if (isset($user['like_timeline'])){ ?>
-					<div class="row" class="step1_btn btn btn-default" id="step1_frame_2">
+					<div class="row" id="step1_frame_2">
 						<div class="col-sm-6">
 							
 							<?php
@@ -196,12 +198,13 @@ if($control['player'] == 'yes'){
 								}
 								$str .= ']}]};';
 								$str .= "var ctx = document.getElementById('bar_like_timeline').getContext('2d');
-										 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options);";
+										 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options); $('#step1_frame_2').hide();\n\n\n";
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<div class='chart'><canvas id='bar_like_timeline' width='300px' height='200px'></canvas></div>
-									   <div class='chart_caption'>Your likes over time</div>";
+								print "<div class='chart'><canvas id='bar_like_timeline'></canvas></div>
+									   <div class='chart_caption'>Your likes over time</div>\n
+									   ";
 	
 							?>
 						</div>
@@ -217,8 +220,7 @@ if($control['player'] == 'yes'){
 					
 					
 					
-					
-					<div class="row" class="step1_btn btn btn-default" id="step1_frame_3">
+					<div class="row" id="step1_frame_3">
 						<div class="col-sm-6">
 							<h4>Your interests</h4>
 							<p>Proin venenatis justo ac sapien congue volutpat vitae eget mi. Phasellus at mattis arcu. Morbi at pulvinar dui. Aenean eget lacus sagittis lectus pharetra imperdiet. Proin vel massa semper, consequat augue vel, imperdiet lorem. Nam libero turpis, efficitur non quam ut, lacinia sagittis erat. Proin ac ornare felis, pulvinar tempor mi. Suspendisse molestie lectus risus, id auctor velit condimentum ut. .</p>
@@ -279,11 +281,11 @@ if($control['player'] == 'yes'){
 								}
 								$str .= '];';
 								$str .= "var ctx = document.getElementById('donut_like_category').getContext('2d');
-										 var donut_like_category = new Chart(ctx).Doughnut(donut_like_category_data, pie_chart_options);";
+										 var donut_like_category = new Chart(ctx).Doughnut(donut_like_category_data, pie_chart_options); $('#step1_frame_3').hide();";
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<canvas id='donut_like_category' class='chart' width='400px' height='300px'></canvas>
+								print "<div class='chart'><canvas id='donut_like_category'></canvas></div>
 									   <div class='chart_caption'>Your likes categories</div>";
       
 							?>
@@ -291,6 +293,7 @@ if($control['player'] == 'yes'){
 						</div>
 						
 					</div>
+					<script>  </script>
 					<?php } else { print '<p>No likes data found</p>'; } ?>
 					
 					
@@ -298,7 +301,7 @@ if($control['player'] == 'yes'){
 					
 					
 					<?php if (isset($user['big5'])){ ?>
-					<div class="row" class="step1_btn btn btn-default" id="step1_frame_4">
+					<div class="row" id="step1_frame_4">
 						<div class="col-sm-6">
 							<?php
 								
@@ -346,11 +349,12 @@ if($control['player'] == 'yes'){
 								polar_chart_options.scaleStartValue = 0; 
 								
 								var ctx = document.getElementById('polar_big5').getContext('2d');
-										 var polar_big5 = new Chart(ctx).Radar(polar_big5_data, polar_chart_options);";
+										 var polar_big5 = new Chart(ctx).Radar(polar_big5_data, polar_chart_options);
+										 $('#step1_frame_4').hide();";
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<canvas id='polar_big5' class='chart' width='400px' height='300px'></canvas>
+								print "<div class='chart'><canvas id='polar_big5'></canvas></div>
 									   <div class='chart_caption'>Your Big5 personality analysis</div>";
       
       
@@ -374,6 +378,7 @@ if($control['player'] == 'yes'){
 						</div>
 						
 					</div>
+					<script>  </script>
 					<?php } else { print '<p>No Big5 data found</p>'; } ?>
 					
 					
@@ -464,7 +469,7 @@ if($control['player'] == 'yes'){
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<canvas id='bar_risk_career' class='chart' width='400px' height='200px'></canvas>
+								print "<div class='chart'><canvas id='bar_risk_career'></canvas></div>
 									   <div class='chart_caption'>Career Risk</div>";
 	
 							?>
@@ -523,7 +528,7 @@ if($control['player'] == 'yes'){
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<canvas id='bar_risk_finance' class='chart' width='400px' height='200px'></canvas>
+								print "<div class='chart'><canvas id='bar_risk_finance'></canvas></div>
 									   <div class='chart_caption'>Career Risk</div>";
 	
 							?>
@@ -585,7 +590,7 @@ if($control['player'] == 'yes'){
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<canvas id='bar_risk_social' class='chart' width='400px' height='200px'></canvas>
+								print "<div class='chart'><canvas id='bar_risk_social'></canvas></div>
 									   <div class='chart_caption'>Social Risk</div>";
 	
 							?>
@@ -679,7 +684,7 @@ if($control['player'] == 'yes'){
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<canvas id='bar_risk_health' class='chart' width='400px' height='200px'></canvas>
+								print "<div class='chart'><canvas id='bar_risk_health'></canvas></div>
 									   <div class='chart_caption'>Health Risk</div>";
 	
 							?>
@@ -741,7 +746,7 @@ if($control['player'] == 'yes'){
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<canvas id='bar_risk_safety' class='chart' width='400px' height='200px'></canvas>
+								print "<div class='chart'><canvas id='bar_risk_safety'></canvas></div>
 									   <div class='chart_caption'>Safety Risk</div>";
 	
 							?>
@@ -803,7 +808,7 @@ if($control['player'] == 'yes'){
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
-								print "<canvas id='bar_risk_recreation' class='chart' width='400px' height='200px'></canvas>
+								print "<div class='chart'><canvas id='bar_risk_recreation'></canvas></div>
 									   <div class='chart_caption'>Recreation Risk</div>";
 	
 							?>
@@ -825,8 +830,8 @@ if($control['player'] == 'yes'){
 
 	
 	
-			
-		</div>
+			</div><!-- /.inner -->
+		</div><!-- /.content-col -->
 
 <?php
 	
@@ -836,8 +841,11 @@ print "<script>$scripts</script>";
 ?>
 
 
+<script>
 
-<script><?php 
+	
+	
+<?php 
 	
 // only include FB login for standalone app
 if($control['player'] == 'no'){ 
@@ -954,12 +962,14 @@ function checkLoginState() {
 function step1_frames_event(frame){
 	// hide
 	for(var i=1; i<=4; i++){
-		$('#step1_frame_'+i).css('display','none');
+		//$('#step1_frame_'+i).css('display','none');
+		$('#step1_frame_'+i).hide()
 	}
 	if (!frame){
 		frame = 1;
 	}
-	$('#step1_frame_'+frame).css('display','block');
+	//$('#step1_frame_'+frame).css('display','block');
+	$('#step1_frame_'+frame).show();
 }	
 step1_frames_event();
 
@@ -971,7 +981,7 @@ $('#step1_3_prev_btn').on('click',function(){ step1_frames_event(2) });
 $('#step1_3_next_btn').on('click',function(){ step1_frames_event(4) });
 $('#step1_4_prev_btn').on('click',function(){ step1_frames_event(3) });
 
-
+$('#step_one_cover').hide();
 
 </script>
 

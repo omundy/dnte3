@@ -78,8 +78,8 @@ use Facebook\HttpClients\FacebookCurlHttpClient;
 
 
 // connect to FB, get data, analyze
-if ($control['step'] == 'one'){
-//if ($control['step'] == 'blah'){
+//if ($control['step'] == 'one'){
+if ($control['step'] == 'blah'){
 	
 	$control['fb_get_data'] = 'true';
 		
@@ -389,7 +389,7 @@ if ($control['step'] == 'one'){
 }
 
 //report($user['big5_risk_domains']);
-report($control);
+//report($control);
 //report($_SESSION);
 //report($user);
 	
