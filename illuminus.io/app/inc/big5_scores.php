@@ -37,71 +37,43 @@ $big5_risk = array(
 $big5_overview = 'Psychologists often use the "big five" traits – extroversion, openness to experience, conscientiousness, agreeableness and neuroticism – to describe personality. A person who scores high in extroversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking.';
 
 
-// high score == positive effect on health, financial situation
-// low score == increased risk
 $big5 = array(
-	'BIG5_Extraversion' => array(
-		'meta' => array(
-			'name' => 'Extraversion',
-			'keywords' => 'outgoing, friendly, lively, active, talkative',
-			'opposite' => 'Introversion',
-			'opposite_keywords' => 'shy, reserved',
-			'desc' => '',
-		),
-		'health-social-well-being' => .75,
-		'health-smoking' => .0,
-		'health-drinking' => .0,
+	'Extraversion' => array(
+		'name' => 'Extraversion',
+		'keywords' => 'outgoing, friendly, lively, active, talkative',
+		'opposite' => 'Introversion',
+		'opposite_keywords' => 'shy, reserved',
+		'desc' => ''
 	),
-	'BIG5_Openness' => array(
-		'meta' => array(
-			'name' => 'Openness',
-			'keywords' => 'creative, imaginative, intelligent, curious, broad-minded, sophisticated, adventurous',
-			'opposite' => 'Closedmindedness',
-			'opposite_keywords' => 'closed-minded, unintellectual',
-			'desc' => '',
-		),
-		'health-social-well-being' => .75,
-		'health-smoking' => .0,
-		'health-drinking' => .0,
+	'Openness' => array(
+		'name' => 'Openness',
+		'keywords' => 'creative, imaginative, intelligent, curious, broad-minded, sophisticated, adventurous',
+		'opposite' => 'Closedmindedness',
+		'opposite_keywords' => 'closed-minded, unintellectual',
+		'desc' => ''
 	),
-	'BIG5_Conscientiousness' => array(
-		'meta' => array(
-			'name' => 'Conscientiousness',
-			'keywords' => 'organized, responsible, hardworking, thorough',
-			'opposite' => 'Impulsivity',
-			'opposite_keywords' => 'careless, unreliable, impulsive',
-			'desc' => '',
-		),
-		'health-social-well-being' => .75,
-		'health-smoking' => .0,
-		'health-drinking' => .0,
+	'Conscientiousness' => array(
+		'name' => 'Conscientiousness',
+		'keywords' => 'organized, responsible, hardworking, thorough',
+		'opposite' => 'Impulsivity',
+		'opposite_keywords' => 'careless, unreliable, impulsive',
+		'desc' => ''
 	),
-	'BIG5_Agreeableness' => array(
-		'meta' => array(
-			'name' => 'Agreeableness',
-			'keywords' => 'helpful, warm, caring, softhearted, sympathetic',
-			'opposite' => 'Hostility',
-			'opposite_keywords' => 'hostile, unfriendly',
-			'desc' => '',
-		),
-		'health-social-well-being' => .75,
-		'health-smoking' => .0,
-		'health-drinking' => .0,
+	'Agreeableness' => array(
+		'name' => 'Agreeableness',
+		'keywords' => 'helpful, warm, caring, softhearted, sympathetic',
+		'opposite' => 'Hostility',
+		'opposite_keywords' => 'hostile, unfriendly',
+		'desc' => ''
 	),
-	'BIG5_Neuroticism' => array(
-		'meta' => array(
-			'name' => 'Neuroticism',
-			'keywords' => 'calm, cool, collected',
-			'opposite' => 'Emotional Stability',
-			'opposite_keywords' => 'moody, worrying, nervous',
-			'desc' => '',
-		),
-		'health-social-well-being' => .0,
-		'health-smoking' => .75,
-		'health-drinking' => .75,
+	'Neuroticism' => array(
+		'name' => 'Neuroticism',
+		'keywords' => 'calm, cool, collected',
+		'opposite' => 'Emotional Stability',
+		'opposite_keywords' => 'moody, worrying, nervous',
+		'desc' => ''
 	)
 );
-
 
 $big5_defs = array(
 	'health-social-well-being' => array(
