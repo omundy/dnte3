@@ -78,8 +78,8 @@ use Facebook\HttpClients\FacebookCurlHttpClient;
 
 
 // connect to FB, get data, analyze
-//if ($control['step'] == 'one'){
-if ($control['step'] == 'blah'){
+if ($control['step'] == 'one'){
+//if ($control['step'] == 'blah'){
 	
 	$control['fb_get_data'] = 'true';
 		

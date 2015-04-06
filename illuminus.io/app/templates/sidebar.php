@@ -17,7 +17,6 @@
 	
 	
 			<ul class="nav_footer">
-				<li><a href="#"><?php print $text['meta'][$control['lang']]['nav_footer_link_home'] ?></a></li>
 				<li><a href="#"><?php print $text['meta'][$control['lang']]['nav_footer_link_privacy'] ?></a></li>
 				<li><a href="#"><?php print $text['meta'][$control['lang']]['nav_footer_link_credits'] ?></a></li>
 				<li><a id="fb_logout_btn" href="#"><?php print $text['meta'][$control['lang']]['nav_footer_link_logout'] ?></a></li>

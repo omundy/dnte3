@@ -4,7 +4,7 @@ use Facebook\FacebookRequest;
 
 /**
  *	Generic API call
- */
+
 function fb_generic_api_call($name){
 	global $session, $fb_api_calls, $permissions, $login, $fb_login_state;
 
@@ -60,12 +60,6 @@ function fb_generic_api_call($name){
 				
 		
 		
-		
-		/*
-		print "<pre>";
-		print_r($a);
-		print "</pre>";
-*/
 					
 					
 					
@@ -80,7 +74,7 @@ function fb_generic_api_call($name){
 					} else {
 						$exit = true;
 					}
-					/**/
+					
 					
 				} else {
 					$exit = true;
@@ -89,19 +83,13 @@ function fb_generic_api_call($name){
 		} else {
 			$arr = fb_call_basic($q,$offset,$limit);
 		}
-		/*
-		print count($arr['data']);
-		print "<pre>";
-		print_r($arr);
-		print "</pre>";
-		*/
 		return $arr;
 	} else {
 		return false;
 	}
 	
 }
-
+ */
 /**
  *	Basic FB call for paging
  */

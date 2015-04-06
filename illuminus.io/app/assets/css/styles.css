@@ -25,11 +25,11 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100; color: #09bc87; }
     
 	
 	.sidebar-col {  background: #0e0e0e; margin: 0; padding: 0;  }
-	.sidebar-col .inner { padding: 120px 20px; margin: 0; background: #0e0e0e; width:23%; padding-left: 3%; min-width:240px; height: 100% !important;  position: fixed }
+	.sidebar-col .inner { padding: 80px 20px; margin: 0; background: #0e0e0e; width:23%; padding-left: 3%; min-width:240px; height: 100% !important;  position: fixed }
 	
 	
 	
-	.content-col { height: 100% !important; padding: 50px 30px;}
+	.content-col { height: 100% !important; padding: 10px 30px;}
 	.content-col .inner { margin-top: 60px; height: 100% !important;  }
 }
 

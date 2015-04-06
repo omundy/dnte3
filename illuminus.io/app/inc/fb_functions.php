@@ -22,10 +22,17 @@ function fb_generic_api_call($name){
 	// start paging loop and continue until 'error' isset
 	while ($exit == false){
 		
+
 		// get data
 		$a = fb_call_paging($q,$offset,$limit);
 		
+		//report($a);
+		
+		
 		if (isset($a['data'])){
+
+
+			
 
 			foreach($a['data'] as $val){
 				$arr['data'][] = $val;
@@ -33,27 +40,26 @@ function fb_generic_api_call($name){
 		
 	
 			if (isset($a['error'])){
+				report('ERROR: '. $a['error']);
 				$exit = true;
 				return $a;
 			} else if (isset($a['paging']->next)){
-				//print_r($a['paging']->next);
+				//report('NEXT: '. $a['paging']->next);
 				$offset += $limit;
 			} else {
 				$exit = true;
 			}
-			/**/
+			
 			
 		} else {
 			$exit = true;
 		}
 	}
 
-	/*
-	print count($arr['data']);
-	print "<pre>";
-	print_r($arr);
-	print "</pre>";
-	*/
+	/**/
+	//print count($arr['data']);
+	//report($arr);
+	
 	return $arr;
 
 	
@@ -62,7 +68,7 @@ function fb_generic_api_call($name){
 /**
  *	Basic FB call for paging
  */
-function fb_call_paging($q,$offset=0,$limit=100){
+function fb_call_paging($q,$offset=10,$limit=100){
 	global $session;
 	try {
 		$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
@@ -183,7 +189,7 @@ function fb_photo_thumb_url(){
 			'redirect' => false,
 			'height' => '200',
 			'type' => 'normal',
-			'width' => '200',
+			'width' => '200'
 		)
 	);
 	$response = $request->execute();
