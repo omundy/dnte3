@@ -19,41 +19,46 @@ function fb_generic_api_call($name){
 	$exit = false;
 	$arr = array('data'=>array());
 	
-	// start paging loop and continue until 'error' isset
-	while ($exit == false){
-		
-
-		// get data
-		$a = fb_call_paging($q,$offset,$limit);
-		
-		//report($a);
-		
-		
-		if (isset($a['data'])){
-
-
-			
-
-			foreach($a['data'] as $val){
-				$arr['data'][] = $val;
-			}
-		
 	
+	// get data
+	$a = fb_call_paging($q,$offset,$limit);
+	//report("$q,$offset,$limit");
+	//report($a);
+	
+	// if data returned
+	if (isset($a['data'])){
+	
+		// start paging loop and continue until 'error' isset
+		while ($exit == false){
+			
+			//report($a);
+			
+			// store it			
+			if(isset($a['data'])){
+				// store first and subsequent calls
+				foreach($a['data'] as $val){
+					$arr['data'][] = $val;
+				}
+			}
+			
+			// look to see if paging var was found
 			if (isset($a['error'])){
 				report('ERROR: '. $a['error']);
 				$exit = true;
-				return $a;
+				//return $a;
 			} else if (isset($a['paging']->next)){
 				//report('NEXT: '. $a['paging']->next);
-				$offset += $limit;
+				
+				// get next as JSON obj, convert to Array
+				$a = (Array)JSON_decode(file_get_contents($a['paging']->next));
+				
 			} else {
 				$exit = true;
 			}
 			
-			
-		} else {
-			$exit = true;
 		}
+	
+	
 	}
 
 	/**/
@@ -71,7 +76,7 @@ function fb_generic_api_call($name){
 function fb_call_paging($q,$offset=10,$limit=100){
 	global $session;
 	try {
-		$request = new FacebookRequest($session,'GET',$q."/?offset=$offset&limit=$limit");
+		$request = new FacebookRequest($session,'GET',$q."?offset=$offset&limit=$limit");
 		$response = $request->execute();
 		$arr = $response->getGraphObject()->asArray();
 		return $arr;

@@ -54,7 +54,7 @@ $text = array(
 			'1_1_p1_10' => 'Our system uses the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce</a> personality evaluation system developed by the world’s leading scientists.', 
 			'1_1_p1_11' => 'It may surprise you that your interest in', 
 			// [likes]
-			'1_1_p1_12' => 'helped us decide who you really are. And these aren’t the only things you’ve liked.', 
+			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
 			'1_1_p1_next' => 'Discover what we know about your interests',
 			// page 2
 			'1_2_heading' => 'Your Interests',
