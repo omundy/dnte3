@@ -232,7 +232,8 @@ print $css;
 									$str .= ']}]};';
 									$str .= "var ctx = document.getElementById('bar_like_timeline').getContext('2d');
 											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options); 
-											 $('#step1_frame_1').hide();\n\n\n";
+											 $('#step1_frame_1').hide();
+											 \n\n\n";
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
@@ -320,11 +321,12 @@ print $css;
 									
 									$colors0 = array('#09bc87','#E5F9E0','#A3F7B5','#40C9A2','#664147');
 									$colors1 = array('#09bc87','#DEE5E5','#9DC5BB','#5E807F','#082D0F');
-									$colors2 = array('#444','#E0BAD7','#555','#61D095','#666','#48BF84','#777','#F5E3E0','#888','#E8B4BC','#999','#D282A6');
-									$colors3 = array('#444','#555','#666','#777','#888','#999');
+									$colors2 = array('#444444','#E0BAD7','#555555','#61D095','#666666','#48BF84','#777777','#F5E3E0','#888888','#E8B4BC','#999999','#D282A6');
+									$colors3 = array('#444444','#555555','#666666','#777777','#888888','#999999');
 									$c = 0;
 									
 									$str = 'var donut_like_category_data = [';
+									$str .= "\n";
 									$delimiter = '';
 									foreach($user['like_categories'] as $key => $val){
 										$str .= $delimiter."{";
@@ -333,14 +335,19 @@ print $css;
 										$str .= "color: '". $colors3[$c++] ."', ";
 										//$str .= "color: '". $colors2[rand(0,count($colors2)-1)] ."', "; // random
 										$str .= "highlight: '#09bc87', ";
-										$str .= "label: '$key', ";
-										$str .= "}";
+										$str .= "label: '$key'";
+										$str .= "}\n";
 										$delimiter = ', ';
 									}
 									$str .= '];';
-									$str .= "var ctx = document.getElementById('donut_like_category').getContext('2d');
-											 var donut_like_category = new Chart(ctx).Doughnut(donut_like_category_data, pie_chart_options); 
-											 $('#step1_frame_3').hide(); \n\n";
+
+
+
+									$str .= "\n 
+											var donut_chart = document.getElementById('donut_like_category').getContext('2d');
+											var donut_like_category = new Chart(donut_chart).Doughnut(donut_like_category_data, pie_chart_options);
+											$('#step1_frame_2').hide();
+											\n\n";
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
@@ -393,7 +400,8 @@ print $css;
 								print ' '. $text[1][$control['lang']]['1_3_3'] .' ';
 								print ' <span class="udata">'. $traits[1] .'</span>.';
 								
-							?></p>
+								?>
+								</p>
 								
 								<div><br>
 									<button class="step1_btn btn btn-custom" id="step1_3_prev_btn"><?php print $text[1][$control['lang']]['1_2_p1_back']; ?></button>
@@ -403,7 +411,7 @@ print $css;
 							
 								<?php
 									
-									############### BIG5_POLAR ###############
+									############### BIG5_RADAR ###############
 									/*
 									foreach($user['big5'] as $key => $val){
 										$newkey = str_replace('BIG5_', '', $key);
@@ -420,7 +428,7 @@ print $css;
 									$c = 0;
 									
 									
-									$str = 'var polar_big5_data = {';
+									$str = "\n\n var radar_big5_data = {";
 									// make labels
 									$str .= 'labels: [';
 									$delimiter = '';
@@ -441,18 +449,19 @@ print $css;
 									$str .= ']}]};';
 									$str .= "
 									
-									polar_chart_options.scaleOverride = true;
-									polar_chart_options.scaleSteps = 2;
-									polar_chart_options.scaleStepWidth = .5;
-									polar_chart_options.scaleStartValue = 0; 
-									
-									var ctx = document.getElementById('polar_big5').getContext('2d');
-											 var polar_big5 = new Chart(ctx).Radar(polar_big5_data, polar_chart_options);
-											 //$('#step1_frame_3').hide();\n\n";
+											radar_chart_options.scaleOverride = true;
+											radar_chart_options.scaleSteps = 2;
+											radar_chart_options.scaleStepWidth = .5;
+											radar_chart_options.scaleStartValue = 0; 
+											
+											var ctx = document.getElementById('radar_big5').getContext('2d');
+											var radar_big5 = new Chart(ctx).Radar(radar_big5_data, radar_chart_options);
+											$('#step1_frame_3').hide();
+											\n\n";
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
-									print "<div class='chart'><canvas id='polar_big5'></canvas></div>
+									print "<div class='chart'><canvas id='radar_big5'></canvas></div>
 										   <div class='chart_caption'>Your Big5 personality analysis</div>";
 	      
 	      
@@ -925,7 +934,7 @@ print $css;
 <?php
 	
 include_once('templates/footer.php');
-print "<script>$scripts</script>";
+
 
 ?>
 
@@ -935,6 +944,12 @@ print "<script>$scripts</script>";
 	
 	
 <?php 
+	
+print $scripts;
+
+
+
+	
 	
 // only include FB login for standalone app
 if($control['player'] == 'no'){ 
@@ -1058,7 +1073,7 @@ function step1_frames_event(frame){
 	}
 	$('#step1_frame_'+frame).show();
 }	
-step1_frames_event();
+step1_frames_event(1);
 
 
 $('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });

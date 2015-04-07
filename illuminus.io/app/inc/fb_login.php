@@ -78,8 +78,8 @@ use Facebook\HttpClients\FacebookCurlHttpClient;
 
 
 // connect to FB, get data, analyze
-if ($control['step'] == 'one'){
-//if ($control['step'] == 'blah'){
+//if ($control['step'] == 'one'){
+if ($control['step'] == 'blah'){
 	
 	$control['fb_get_data'] = 'true';
 		
@@ -396,28 +396,26 @@ if ($control['step'] == 'one'){
 
 function get_risk_color($total){
 	$risk_color = '';
-	if ($total > 1){
+	if ($total > .9){
 		$risk_color = '#ff1d00';
-	} else if ($total > .9){
-		$risk_color = '#ff3f0a';
 	} else if ($total > .8){
-		$risk_color = '#ff6f14';
+		$risk_color = '#ff3f0a';
 	} else if ($total > .7){
-		$risk_color = '#ffa51e';
+		$risk_color = '#ff6f14';
 	} else if ($total > .6){
-		$risk_color = '#ffd828';
+		$risk_color = '#ffa51e';
 	} else if ($total > .5){
-		$risk_color = '#f6fb30';
+		$risk_color = '#ffd828';
 	} else if ($total > .4){
-		$risk_color = '#cdfb32';
+		$risk_color = '#f6fb30';
 	} else if ($total > .3){
-		$risk_color = '#a3fb34';
+		$risk_color = '#cdfb32';
 	} else if ($total > .2){
-		$risk_color = '#7ffa35';
+		$risk_color = '#a3fb34';
 	} else if ($total > .1){
+		$risk_color = '#7ffa35';
+	} else if ($total > .0){
 		$risk_color = '#5ffa36';
-	} else if ($total >= 0){
-		$risk_color = '#35fa38';
 	}
 	return $risk_color;
 }
