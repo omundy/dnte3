@@ -2,7 +2,7 @@
 
 
 $text = array(
-	
+
 	// step 0 - landing page for standalone only
 	array(
 		'CA' => array(
@@ -22,7 +22,7 @@ $text = array(
 			'title_2' => '',
 		),
 	),
-	
+
 	// step 1 - Personality Assessment
 	array(
 		'CA' => array(
@@ -37,33 +37,33 @@ $text = array(
 			'1_1_heading' => 'Personality Assessment',
 			'1_1_subheading' => 'We have successfully retrieved your data.',
 			'1_1_p1_1' => 'Your social activity reveals a lot about you.',
-			'1_1_p1_2' => 'Your profile for instance says that', 
-			'1_1_p1_3' => 'your age is', 
-			// insert [age] 
-			'1_1_p1_4' => 'and', 
-			// insert [age] 
-			'1_1_p1_5' => 'your gender is', 
-			// insert [GENDER] 
+			'1_1_p1_2' => 'Your profile for instance says that',
+			'1_1_p1_3' => 'your age is',
+			// insert [age]
+			'1_1_p1_4' => 'and',
+			// insert [age]
+			'1_1_p1_5' => 'your gender is',
+			// insert [GENDER]
 			'1_1_p1_6' => 'But the real gold mine is your Facebook data over time.',
-			'1_1_p1_7' => 'By analyzing the at least', 
-			// insert [NUMBER OF LIKES] 
-			'1_1_p1_8' => 'things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in ', 
+			'1_1_p1_7' => 'By analyzing the at least',
+			// insert [NUMBER OF LIKES]
+			'1_1_p1_8' => 'things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in ',
 			// insert [BIG5 CATEGORIES]
-			'1_1_p1_9' => 'which indicates you are', 
+			'1_1_p1_9' => 'which indicates you are',
 			// insert [BIG5 TRAITS]
-			'1_1_p1_10' => 'Our system uses the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce</a> personality evaluation system developed by the world’s leading scientists.', 
-			'1_1_p1_11' => 'It may surprise you that your interest in', 
+			'1_1_p1_10' => 'Our system uses the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce</a> personality evaluation system developed by the world’s leading scientists.',
+			'1_1_p1_11' => 'It may surprise you that your interest in',
 			// [likes]
-			'1_1_p1_12' => 'helped us decide who you really are. And these aren’t the only things you’ve liked.', 
+			'1_1_p1_12' => 'helped us decide who you really are. And these aren’t the only things you’ve liked.',
 			'1_1_p1_next' => 'Discover what we know about your interests',
 			// page 2
 			'1_2_heading' => 'Your Interests',
 			'1_2_subheading' => 'How you are categorized',
 			'1_2_p1_1' => 'We’ve sorted your interests on Facebook into the following categories. We run this database that you have deposited on Facebook through an algorithm to determine your personality.',
-			
+
 			'1_2_p1_back' => '<<',
 			'1_2_p1_next' => 'Click here to reveal your personality analysis',
-			
+
 			// page 3
 			'1_3_heading' => 'Personality Analysis',
 			'1_3_subheading' => ' ',
@@ -72,14 +72,14 @@ $text = array(
 			// insert [BIG5 CATEGORY]
 			'1_3_3' => 'and',
 			// insert [BIG5 CATEGORY]
-			
+
 		),
 		'FR' => array(
 			'1_1_heading' => 'Personality Analysis',
 			'1_1_subheading' => '',
 		),
 	),
-	
+
 	// step 2 - Financial Risk Evaluation
 	array(
 		'CA' => array(
@@ -95,7 +95,7 @@ $text = array(
 			'title' => 'Financial Risk Evaluation',
 		),
 	),
-	
+
 	// step 3 - Health Risk Evaluation
 	array(
 		'CA' => array(
@@ -111,8 +111,8 @@ $text = array(
 			'title' => 'Health Risk Evaluation',
 		),
 	),
-	
-	
+
+
 	// meta - links, etc.
 	'meta' => array(
 		'CA' => array(
@@ -167,11 +167,11 @@ $text = array(
 			'nav_footer_link_credits' => 'Credits',
 			'nav_footer_link_logout' => 'Logout',
 		),
-		
-		
+
+
 	),
-	
-	
+
+
 	'big5' => array(
 		'CA' => array(
 			'Extraversion' => array(
@@ -321,10 +321,10 @@ $text = array(
 				'desc' => ''
 			)
 		),
-	
+
 	),
-	
-	
+
+
 );
 
 
