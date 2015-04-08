@@ -22,7 +22,7 @@ Chart.defaults.global = {
 	scaleFontStyle: "normal",	// String - Scale label font weight style
 	scaleFontColor: "#666",		// String - Scale label font colour
 	
-	responsive: false,			// Boolean - whether or not the chart should be responsive and resize when the browser does.
+	responsive: true,			// Boolean - whether or not the chart should be responsive and resize when the browser does.
 	maintainAspectRatio: true,	// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
 
 	showTooltips: true,				// Boolean - Determines whether to draw tooltips on the canvas or not

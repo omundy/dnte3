@@ -5,6 +5,11 @@ require_once('inc/fb_login.php');
 include_once('templates/header.php');
 
 
+
+// all chart colors
+$chart_colors = 'fillColor: "rgba(100,100,100,1)", strokeColor: "rgba(0,0,0,0)", highlightFill: "rgba(10,188,136,.75)", highlightStroke: "rgba(0,0,0,0)", ';
+
+
 if($control['player'] == 'yes'){
 	$content_col = 12;
 } else {
@@ -34,7 +39,7 @@ print $css;
 					<?php if($control['player'] == 'no'){ // put branding on step_zero ?>
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text[0][$control['lang']]['title'] ?></h3>							
+							<h3><?php print $text[0][$control['lang']]['0_heading'] ?></h3>							
 						</div>
 					</div>
 					<?php } ?>
@@ -340,9 +345,6 @@ print $css;
 										$delimiter = ', ';
 									}
 									$str .= '];';
-
-
-
 									$str .= "\n 
 											var donut_chart = document.getElementById('donut_like_category').getContext('2d');
 											var donut_like_category = new Chart(donut_chart).Doughnut(donut_like_category_data, pie_chart_options);
@@ -448,11 +450,12 @@ print $css;
 									}
 									$str .= ']}]};';
 									$str .= "
-									
+											if (!radar_chart_options) var radar_chart_options = {};
 											radar_chart_options.scaleOverride = true;
 											radar_chart_options.scaleSteps = 2;
 											radar_chart_options.scaleStepWidth = .5;
 											radar_chart_options.scaleStartValue = 0; 
+											//radar_big5_data.datasets[0].fillColor = 'rgba(255,255,255,.3)';
 											
 											var ctx = document.getElementById('radar_big5').getContext('2d');
 											var radar_big5 = new Chart(ctx).Radar(radar_big5_data, radar_chart_options);
@@ -480,13 +483,15 @@ print $css;
 					<?php } else { print '<p>No Big5 data found</p>'; } ?>
 					
 					
-				
-					
-					
 					
 				</div>
 				<?php } ?>
 				<!-- /step_one -->
+			
+			
+			
+			
+			
 			
 			
 			
@@ -504,8 +509,40 @@ print $css;
 					
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text[2][$control['lang']]['title'] ?></h3>
-							<p>The following xxx risk evaluation is based on an interpretation of your Facebook profile.</p>
+							<h3><?php print $text[2][$control['lang']]['2_heading'] ?></h3>
+							<p><?php 
+								
+								print $text[2][$control['lang']]['2_1'];
+								print ' <span class="udata">';
+								
+								
+								function overall_risk(){
+									global $user;
+									foreach ($user['big5_risk_domains'] as $key => $risk_arr){
+										if ($key == 'Career' || $key == 'Finance' || $key == 'Social'){
+											$score = 0;
+											foreach ($risk_arr as $risk_score){
+												//$score += $risk_score;
+												if ($risk_score > .5) {
+													return true;
+												}
+											}
+											//print "<p>". $score / count($risk_arr);
+										}
+									}
+									
+								}
+								if (overall_risk()){
+									print " not a good ";
+								} else {
+									print " a good ";
+								}
+								print '</span> ';
+								print $text[2][$control['lang']]['2_2'];
+								
+								?>
+							</p>
+							<p><?php print $text[2][$control['lang']]['2_3'] ?></p>
 						</div>
 					</div>
 					
@@ -517,8 +554,67 @@ print $css;
 					<?php if (isset($user['big5_risk_domains'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
-							<h4>Career Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
+							<h4><?php print $text[2][$control['lang']]['2_career_heading'] ?></h4>
+							
+							
+							<p><?php
+								
+								
+								
+								
+								
+								function eval_risk($risk_name){
+									
+									global $user, $control, $text;
+									
+									
+									
+									
+									if (isset($user['me']['gender'])){
+										
+										// calc user risk AND gender for logged in user
+										if ( $user['me']['gender'] === 'male' ){
+											if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
+												//$risk_score *= 1.5; 
+											}
+										} else if ($user['me']['gender'] == 'female'){
+											if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
+												//$risk_score *= 1.5; 
+											}
+										} else {
+											// leave scores alone
+										}
+										
+									}
+									
+									$arr = $user['big5_risk_domains'][$risk_name];
+									arsort($arr);
+									//return($arr);
+									$keys=array_keys($arr);
+									
+
+									print 'Your high scores in ';
+									print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[0]]) .'">'. $keys[0] .'</span> ('. $arr[$keys[0]] .') ';
+									print ' and ';
+									print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[1]]) .'">'. $keys[1] .'</span> ('. $arr[$keys[1]] .') ';
+									print ' indicates a ';
+										
+									$r = floor( ($arr[$keys[0]] * 10)/2 );	
+									print $text['meta'][$control['lang']]['risk_words'][ $r ];
+									//print ' ('.$r.') ';
+									print ' potential for risk-taking behavior in your ';
+									print strtolower($risk_name);
+									print ' decisions. ';
+									
+									foreach($arr as $personality => $score ){
+										
+									}	
+								}
+								eval_risk('Career');
+								
+								//report($user['big5_risk_domains']);
+								
+							?></p>
 							
 						</div>
 						<div class="col-sm-6">
@@ -579,8 +675,8 @@ print $css;
 					
 					<div class="row">
 						<div class="col-sm-6">
-							<h4>Finance Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
+							<h4><?php print $text[2][$control['lang']]['2_finance_heading'] ?></h4>
+							<p><?php eval_risk('Finance'); ?></p>
 							
 						</div>
 						<div class="col-sm-6">
@@ -638,8 +734,8 @@ print $css;
 					
 					<div class="row">
 						<div class="col-sm-6">
-							<h4>Social Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
+							<h4><?php print $text[2][$control['lang']]['2_social_heading'] ?></h4>
+							<p><?php eval_risk('Social'); ?></p>
 							
 						</div>
 						<div class="col-sm-6">
@@ -704,6 +800,10 @@ print $css;
 				
 	
 				
+				
+				
+				
+				
 			
 			
 				
@@ -717,8 +817,38 @@ print $css;
 					
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text[3][$control['lang']]['title'] ?></h3>
-							<p>The following health risk evaluation is based on an interpretation of your Facebook profile.</p>
+							<h3><?php print $text[3][$control['lang']]['3_heading'] ?></h3>
+							<p><?php 
+								
+								print $text[3][$control['lang']]['3_1'];
+								print ' <span class="udata">';
+								
+								
+								function overall_risk2(){
+									global $user;
+									foreach ($user['big5_risk_domains'] as $key => $risk_arr){
+										if ($key == 'Health' || $key == 'Safety' || $key == 'Recreation'){
+											$score = 0;
+											foreach ($risk_arr as $risk_score){
+												//$score += $risk_score;
+												if ($risk_score > .5) {
+													return true;
+												}
+											}
+											//print "<p>". $score / count($risk_arr);
+										}
+									}
+									
+								}
+								if (overall_risk()){
+									//print " not a good ";
+								} else {
+									//print " a good ";
+								}
+								print '</span> ';
+								
+								?>
+							</p>
 						</div>
 					</div>
 					
@@ -727,8 +857,8 @@ print $css;
 					<?php if (isset($user['big5_risk_domains'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
-							<h4>Health Risk</h4>
-							<p>Your Openness score indicates a high risk for sexually transmitted diseases and other bad things. You are 37% more likely to be friendly to a stranger. Your predisposition to risky behavior will likely have bad effects on our bottom line.</p>
+							<h4><?php print $text[3][$control['lang']]['3_health_heading'] ?></h4>
+							<p><?php eval_risk('Health'); ?></p>
 							
 						</div>
 						<div class="col-sm-6">
@@ -794,8 +924,8 @@ print $css;
 					
 					<div class="row">
 						<div class="col-sm-6">
-							<h4>Safety Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
+							<h4><?php print $text[3][$control['lang']]['3_safety_heading'] ?></h4>
+							<p><?php eval_risk('Safety'); ?></p>
 							
 						</div>
 						<div class="col-sm-6">
@@ -856,8 +986,8 @@ print $css;
 					
 					<div class="row">
 						<div class="col-sm-6">
-							<h4>Recreation Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
+							<h4><?php print $text[3][$control['lang']]['3_recreation_heading'] ?></h4>
+							<p><?php eval_risk('Recreation'); ?></p>
 							
 						</div>
 						<div class="col-sm-6">

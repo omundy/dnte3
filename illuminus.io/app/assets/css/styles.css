@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100; color: #09bc87; }
 
 
 .product_name { min-width: 210px; max-width: 280px; }
-.product_callout { font-size: 150%; margin: 40px 0 20px 0; min-width: 210px; max-width: 280px; color: #09bc87;	}
+.product_callout { font-size: 140%; margin: 40px 0 20px 0; min-width: 220px; max-width: 280px; color: #09bc87;	}
 .fb_btn, .fb_btn:focus, .fb_btn:active, .fb_btn:visited { margin: 40px 0; color:#ddd; background: #4864b4; font-size: 101%}
 .fb_btn img { padding: 4px 7px 2px 0}
 #fb_login_btn {display: none;}

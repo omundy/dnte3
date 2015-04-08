@@ -6,20 +6,16 @@ $text = array(
 	// step 0 - landing page for standalone only
 	array(
 		'CA' => array(
-			'title' => 'Welcome to Illuminus.',
-			'title_2' => '',
+			'0_heading' => 'Welcome to Illuminus.',
 		),
 		'DE' => array(
-			'title' => 'Welcome to Illuminus.',
-			'title_2' => '',
+			'0_heading' => 'Welcome to Illuminus.',
 		),
 		'EN' => array(
-			'title' => 'Welcome to Illuminus.',
-			'title_2' => '',
+			'0_heading' => 'Welcome to Illuminus.',
 		),
 		'FR' => array(
-			'title' => 'Welcome to Illuminus.',
-			'title_2' => '',
+			'0_heading' => 'Welcome to Illuminus.',
 		),
 	),
 	
@@ -83,32 +79,65 @@ $text = array(
 	// step 2 - Financial Risk Evaluation
 	array(
 		'CA' => array(
-			'title' => 'Financial Risk Evaluation',
+			'2_heading' => 'Financial Risk Evaluation',
 		),
 		'DE' => array(
-			'title' => 'Financial Risk Evaluation',
+			'2_heading' => 'Financial Risk Evaluation',
 		),
 		'EN' => array(
-			'title' => 'Financial Risk Evaluation',
+			'2_heading' => 'Financial Risk Evaluation',
+			'2_1' => 'Our advanced algorithm has determined that you are ',
+			// [POOR/GOOD]
+			'2_2' => 'candidate for us to lend money to.',
+			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			
+			'2_career_heading' => 'Career Risk',
+			
+			
+			'2_finance_heading' => 'Finance Risk',
+			
+			
+			'2_social_heading' => 'Social Risk',
+
+			
+			
 		),
 		'FR' => array(
-			'title' => 'Financial Risk Evaluation',
+			'2_heading' => 'Financial Risk Evaluation',
 		),
 	),
 	
 	// step 3 - Health Risk Evaluation
 	array(
 		'CA' => array(
-			'title' => 'Health Risk Evaluation',
+			'3_heading' => 'Health Risk Evaluation',
 		),
 		'DE' => array(
-			'title' => 'Health Risk Evaluation',
+			'3_heading' => 'Health Risk Evaluation',
 		),
 		'EN' => array(
-			'title' => 'Health Risk Evaluation',
+			'3_heading' => 'Health Risk Evaluation',
+			'3_1' => 'Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports.  Your predisposition to risky behavior could have bad effects on our bottom line. To help us understand how dangerous you are, we consulted the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			
+			
+			
+			
+			
+			
+			
+			'3_health_heading' => 'Health Risk',
+			
+			
+			'3_safety_heading' => 'Safety Risk',
+			
+			
+			'3_recreation_heading' => 'Recreation Risk',
+
+			
+			
 		),
 		'FR' => array(
-			'title' => 'Health Risk Evaluation',
+			'3_heading' => 'Health Risk Evaluation',
 		),
 	),
 	
@@ -127,6 +156,7 @@ $text = array(
 			'nav_footer_link_privacy' => 'Privacy Policy',
 			'nav_footer_link_credits' => 'Credits',
 			'nav_footer_link_logout' => 'Logout',
+			'risk_words' => array('mild','moderate','significant','severe','extreme'),
 		),
 		'DE' => array(
 			'product_name' => 'Future Present Risk Detection',
@@ -140,6 +170,7 @@ $text = array(
 			'nav_footer_link_privacy' => 'Privacy Policy',
 			'nav_footer_link_credits' => 'Credits',
 			'nav_footer_link_logout' => 'Logout',
+			'risk_words' => array('mild','moderate','significant','severe','extreme'),
 		),
 		'EN' => array(
 			'product_name' => 'Future Present Risk Detection',
@@ -153,6 +184,7 @@ $text = array(
 			'nav_footer_link_privacy' => 'Privacy Policy',
 			'nav_footer_link_credits' => 'Credits',
 			'nav_footer_link_logout' => 'Logout',
+			'risk_words' => array('mild','moderate','significant','severe','extreme'),
 		),
 		'FR' => array(
 			'product_name' => 'Future Present Risk Detection',
@@ -166,8 +198,8 @@ $text = array(
 			'nav_footer_link_privacy' => 'Privacy Policy',
 			'nav_footer_link_credits' => 'Credits',
 			'nav_footer_link_logout' => 'Logout',
+			'risk_words' => array('mild','moderate','significant','severe','extreme'),
 		),
-		
 		
 	),
 	

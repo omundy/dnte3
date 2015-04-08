@@ -41,20 +41,22 @@ $scripts .= "\n var player = '". $control['player'] ."'; \n\n";
 session_start();
 // for all user data
 $user = array();
-// all chart colors
-$chart_colors = 'fillColor: "rgba(100,100,100,1)", strokeColor: "rgba(0,0,0,0)", highlightFill: "rgba(10,188,136,.75)", highlightStroke: "rgba(0,0,0,0)", ';
 // global functions
 require_once('inc/om_functions.php');
 //report($_SESSION);
 
 // check if all user data is already in a session for testing
-if (isset($_SESSION['dnt_user'])){
+if (!isset($_SESSION['dnt_user'])){
 	$user = $_SESSION['dnt_user'];
+	
 	$control['dnt_user_session'] = 'previous dnt_user session found';
 	//report($_SESSION);
 	//die();
 } else {	
 	$control['dnt_user_session'] = 'NO dnt_user session found';
+	
+	$json = file_get_contents('inc/default_user.json');
+	report(json_decode($user));
 }
 
 // FB namespaces (cannot be put in conditional statement)
