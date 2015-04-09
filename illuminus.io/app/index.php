@@ -24,19 +24,85 @@ $css .= '#step_'.$control['step'].' { display: block; }';
 $css .= '</style>';
 print $css;
 
+
+$branding = '';
+$branding .= "<img src='assets/img/logo.png' alt='illuminus logo'>";
+$branding .= "<div class='product_name'>". $text['meta'][$control['lang']]['product_name'] ."</div>";
+$branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['product_callout'] ."</div>";
+
+
+
 ?>	
 
 		<div class="col-sm-<?php print $content_col; ?> content-col">
 			<div class="inner">
 		
+		
+		
+				
+				<!-- privacy -->
+				<?php if ($control['step'] == 'privacy'){ ?>
+				<div id="" class="step">
+					<div class="row">
+						<div class="col-sm-12 title">
+							<h3><?php print $text['privacy'][$control['lang']]['0_heading'] ?></h3>							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							
+							
+							<p>??</p>
+							
+							
+							
+						</div>
+					</div>
+				</div>
+				<?php } ?>
+				<!-- /credits -->
+				
+				
+				
+				
+				
+				<!-- credits -->
+				<?php if ($control['step'] == 'credits'){ ?>
+				<div id="" class="step">
+					<div class="row">
+						<div class="col-sm-12 title">
+							<h3><?php print $text['credits'][$control['lang']]['0_heading'] ?></h3>							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							
+							
+							<h4><?php print $text['credits'][$control['lang']]['1_thankyou'] ?></h4>
+							
+							<p><br>
+							<a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a><br>
+							Dr Michal Kosinski<br>
+							Vesselin Popov<br>
+							Dr David Stillwell<br>
+							Bartosz Kielczewski<br>
+							</p>
+							
+							
+						</div>
+					</div>
+				</div>
+				<?php } ?>
+				<!-- /credits -->
+				
 				
 				
 				
 				
 				<!-- step_zero -->
-				<?php if ($control['step'] = 'zero'){ ?>
+				<?php if ($control['step'] == 'zero'){ ?>
 				<div id="step_zero" class="step">
-					<?php if($control['player'] == 'no'){ // put branding on step_zero ?>
+					<?php if($control['player'] == 'no'){ // put branding on step zero ?>
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[0][$control['lang']]['0_heading'] ?></h3>							
@@ -45,13 +111,12 @@ print $css;
 					<?php } ?>
 					<div class="row">
 						<div class="col-sm-12">
-							<?php if($control['player'] == 'yes'){ // put branding on step_zero ?>
+							<?php 
 							
-							<img src="assets/img/logo.png" alt="illuminus logo">
-							<div class="product_name"><?php print $text['meta'][$control['lang']]['product_name'] ?></div>
-							<div class="product_callout"><?php print $text['meta'][$control['lang']]['product_callout'] ?></div>
-							
-							<?php	
+							if($control['player'] == 'yes'){ // put branding on step_zero
+								
+								print $branding;	
+									
 							} else {
 								
 							}
@@ -79,7 +144,7 @@ print $css;
 				
 				<!-- step_one -->
 				<div id="step_one_cover"></div>
-				<?php if ($control['step'] = 'one'){ ?>
+				<?php if ($control['step'] == 'one'){ ?>
 				<div id="step_one" class="step">
 					
 					
@@ -491,18 +556,81 @@ print $css;
 			
 			
 			
+<?php			
 			
+function overall_risk(){
+	global $user;
+	foreach ($user['big5_risk_domains'] as $key => $risk_arr){
+		if ($key == 'Career' || $key == 'Finance' || $key == 'Social'){
+			$score = 0;
+			foreach ($risk_arr as $risk_score){
+				//$score += $risk_score;
+				if ($risk_score > .5) {
+					return true;
+				}
+			}
+			//print "<p>". $score / count($risk_arr);
+		}
+	}
+	
+}	
+
+function eval_risk($risk_name){
+									
+	global $user, $control, $text;
+	
+	
+	
+	
+	if (isset($user['me']['gender'])){
+		
+		// calc user risk AND gender for logged in user
+		if ( $user['me']['gender'] === 'male' ){
+			if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
+				//$risk_score *= 1.5; 
+			}
+		} else if ($user['me']['gender'] == 'female'){
+			if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
+				//$risk_score *= 1.5; 
+			}
+		} else {
+			// leave scores alone
+		}
+		
+	}
+	
+	$arr = $user['big5_risk_domains'][$risk_name];
+	arsort($arr);
+	//return($arr);
+	$keys=array_keys($arr);
+	
+
+	print 'Your high scores in ';
+	print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[0]]) .'">'. $keys[0] .'</span> ('. $arr[$keys[0]] .') ';
+	print ' and ';
+	print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[1]]) .'">'. $keys[1] .'</span> ('. $arr[$keys[1]] .') ';
+	print ' indicates a ';
+		
+	$r = floor( ($arr[$keys[0]] * 10)/2 );	
+	print $text['meta'][$control['lang']]['risk_words'][ $r ];
+	//print ' ('.$r.') ';
+	print ' potential for risk-taking behavior in your ';
+	print strtolower($risk_name);
+	print ' decisions. ';
+	
+	foreach($arr as $personality => $score ){
+		
+	}	
+}
+		
 			
-			
-			
-			
-			
+?>			
 			
 			
 
 
 				<!-- step_two -->
-				<?php if ($control['step'] = 'two'){ ?>
+				<?php if ($control['step'] == 'two'){ ?>
 				<div id="step_two" class="step">	
 					
 					
@@ -516,22 +644,7 @@ print $css;
 								print ' <span class="udata">';
 								
 								
-								function overall_risk(){
-									global $user;
-									foreach ($user['big5_risk_domains'] as $key => $risk_arr){
-										if ($key == 'Career' || $key == 'Finance' || $key == 'Social'){
-											$score = 0;
-											foreach ($risk_arr as $risk_score){
-												//$score += $risk_score;
-												if ($risk_score > .5) {
-													return true;
-												}
-											}
-											//print "<p>". $score / count($risk_arr);
-										}
-									}
-									
-								}
+								
 								if (overall_risk()){
 									print " not a good ";
 								} else {
@@ -559,57 +672,6 @@ print $css;
 							
 							<p><?php
 								
-								
-								
-								
-								
-								function eval_risk($risk_name){
-									
-									global $user, $control, $text;
-									
-									
-									
-									
-									if (isset($user['me']['gender'])){
-										
-										// calc user risk AND gender for logged in user
-										if ( $user['me']['gender'] === 'male' ){
-											if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
-												//$risk_score *= 1.5; 
-											}
-										} else if ($user['me']['gender'] == 'female'){
-											if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
-												//$risk_score *= 1.5; 
-											}
-										} else {
-											// leave scores alone
-										}
-										
-									}
-									
-									$arr = $user['big5_risk_domains'][$risk_name];
-									arsort($arr);
-									//return($arr);
-									$keys=array_keys($arr);
-									
-
-									print 'Your high scores in ';
-									print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[0]]) .'">'. $keys[0] .'</span> ('. $arr[$keys[0]] .') ';
-									print ' and ';
-									print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[1]]) .'">'. $keys[1] .'</span> ('. $arr[$keys[1]] .') ';
-									print ' indicates a ';
-										
-									$r = floor( ($arr[$keys[0]] * 10)/2 );	
-									print $text['meta'][$control['lang']]['risk_words'][ $r ];
-									//print ' ('.$r.') ';
-									print ' potential for risk-taking behavior in your ';
-									print strtolower($risk_name);
-									print ' decisions. ';
-									
-									foreach($arr as $personality => $score ){
-										
-									}	
-								}
 								eval_risk('Career');
 								
 								//report($user['big5_risk_domains']);
@@ -811,7 +873,7 @@ print $css;
 						
 			
 				<!-- step_three -->
-				<?php if ($control['step'] = 'three'){ ?>
+				<?php if ($control['step'] == 'three'){ ?>
 				<div id="step_three" class="step">
 					
 					
@@ -1132,16 +1194,16 @@ function checkLoginStatus(response) {
 		*/
 		
 		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
-		$('#fb_login_btn').css('display','none')
+		$('#fb_login_btn').hide()
 		
 	// not_authorized: Logged into Facebook, but not your app
 	} else if (response.status === 'not_authorized') {
 		console.log('APP: user is logged in BUT has not authorized app');
-		$('#fb_login_btn').css('display','block')
+		$('#fb_login_btn').show()
 	// [else]: Not logged into Facebook / can't tell if they are logged into app	
 	} else {
 		console.log('APP: user is not logged into Facebook');
-		$('#fb_login_btn').css('display','block')
+		$('#fb_login_btn').show()
 	}
 }
 

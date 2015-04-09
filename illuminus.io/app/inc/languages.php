@@ -47,7 +47,7 @@ $text = array(
 			// insert [BIG5 CATEGORIES]
 			'1_1_p1_9' => 'which indicates you are', 
 			// insert [BIG5 TRAITS]
-			'1_1_p1_10' => 'Our system uses the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce</a> personality evaluation system developed by the world’s leading scientists.', 
+			'1_1_p1_10' => 'Our personality evaluation system uses Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>.', 
 			'1_1_p1_11' => 'It may surprise you that your interest in', 
 			// [likes]
 			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
@@ -201,6 +201,44 @@ $text = array(
 			'risk_words' => array('mild','moderate','significant','severe','extreme'),
 		),
 		
+	),
+	
+	
+	// PRIVACY
+	'privacy' => array(
+		'CA' => array(
+			'0_heading' => 'Privacy Policy',
+		),
+		'DE' => array(
+			'0_heading' => 'Privacy Policy',
+		),
+		'EN' => array(
+			'0_heading' => 'Privacy Policy',
+		),
+		'FR' => array(
+			'0_heading' => 'Privacy Policy',
+		),
+	),
+	
+	
+	// CREDITS
+	'credits' => array(
+		'CA' => array(
+			'0_heading' => 'Credits',
+			'1_thankyou' => 'Thank you',
+		),
+		'DE' => array(
+			'0_heading' => 'Credits',
+			'1_thankyou' => 'Thank you',
+		),
+		'EN' => array(
+			'0_heading' => 'Credits',
+			'1_thankyou' => 'Thank you',
+		),
+		'FR' => array(
+			'0_heading' => 'Credits',
+			'1_thankyou' => 'Thank you',
+		),
 	),
 	
 	

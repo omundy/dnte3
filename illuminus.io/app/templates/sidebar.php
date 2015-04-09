@@ -17,8 +17,8 @@
 	
 	
 			<ul class="nav_footer">
-				<li><a href="#"><?php print $text['meta'][$control['lang']]['nav_footer_link_privacy'] ?></a></li>
-				<li><a href="#"><?php print $text['meta'][$control['lang']]['nav_footer_link_credits'] ?></a></li>
+				<li><a href="./?step=privacy&lang=<?php print $control['lang'] ?>"><?php print $text['meta'][$control['lang']]['nav_footer_link_privacy'] ?></a></li>
+				<li><a href="./?step=credits&lang=<?php print $control['lang'] ?>"><?php print $text['meta'][$control['lang']]['nav_footer_link_credits'] ?></a></li>
 				<li><a id="fb_logout_btn" href="#"><?php print $text['meta'][$control['lang']]['nav_footer_link_logout'] ?></a></li>
 			</ul>
 			
