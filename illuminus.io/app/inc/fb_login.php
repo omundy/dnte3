@@ -1,5 +1,8 @@
 <?php
-	
+
+
+
+
 // FB namespaces (cannot be put in conditional statement)
 use Facebook\FacebookSession;
 use Facebook\FacebookJavaScriptLoginHelper;
@@ -47,15 +50,6 @@ if(isset($_GET['lang']) && isset($_GET['step'])) {
 	$control['lang'] = 'EN';
 }
 
-// get refresh
-if(isset($_GET['refresh']) && $_GET['refresh'] == 'yes'){
-	// try to refresh FB data
-	$control['refresh'] = 'yes';
-} else {
-	// do not refresh
-	$control['refresh'] = 'no';
-}; 
-
 // get player
 if(isset($_GET['player']) && $_GET['player'] == 'yes'){
 	// app is loaded in player
@@ -70,27 +64,36 @@ if(isset($_GET['player']) && $_GET['player'] == 'yes'){
 
 
 
-$control['show_alt_data_option'] = false;
 $control['show_alt_data_reason'] = '';
 
 
-$control['fb_get_data'] = 'no';
 $control['fb_error'] = '';
 
 // store all scripts to include once html is loaded
 $scripts = '';
 $scripts .= "var step = '". $control['step'] ."';\n ";
 $scripts .= "var lang = '". $control['lang'] ."';\n ";
-$scripts .= "var refresh = '". $control['refresh'] ."';\n ";
 $scripts .= "var player = '". $control['player'] ."'; \n\n";
 
 
 
 
+/*
+	
+
+1. First run, no data_set	
+
+illuminus.io/app/?data_set=user&step=zero&lang=EN
+
+
+*/
+
 
 // init session
 session_start();
 //report($_SESSION);
+
+//unset($_SESSION['dnt_user']);
 
 // for all user data
 $user = array();
@@ -104,70 +107,33 @@ require_once('inc/fb_functions.php');
 require_once('inc/fb_api_calls.php');
 require_once('inc/facebook-php-sdk-v4/autoload.php');
 
-// for testing without internet connection
-$control['connected'] = true;
-if ($control['connected'] == true){
+// create Facebook
+FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
 
-	// create Facebook
-	FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
-	
-	// JavaScriptLoginHelper for including app in iframe
-	$helper = new FacebookJavaScriptLoginHelper();
-	try {
-		$session = $helper->getSession();
-	} catch(FacebookRequestException $ex) {
-		// When Facebook returns an error
-		$control['fb_error'] = $ex->getMessage();
-		$control['show_alt_data_option'] = true;
-		$control['show_alt_data_reason'] = 'notloggedin';
-	} catch(\Exception $ex) {
-		// When validation fails or other local issues
-		$control['fb_error'] = $ex->getMessage();
-		$control['show_alt_data_option'] = true;
-		$control['show_alt_data_reason'] = 'notloggedin';
-	}
-	
-	// if FB session
-	if (isset($session) && $session) {
-		$control['fb_login_state'] = 'yes';
-	} else {
-		$control['fb_login_state'] = 'no';
-		$control['show_alt_data_option'] = true;
-		$control['show_alt_data_reason'] = 'notloggedin';
-		$scripts .= "console.log('Could not login: ". $control['fb_error'] ."'); \n";
-	}
-	
+// JavaScriptLoginHelper for including app in iframe
+$helper = new FacebookJavaScriptLoginHelper();
+try {
+	$session = $helper->getSession();
+} catch(FacebookRequestException $ex) {
+	// When Facebook returns an error
+	$control['fb_error'] = $ex->getMessage();
+	$control['show_alt_data_reason'] = 'notloggedin';
+} catch(\Exception $ex) {
+	// When validation fails or other local issues
+	$control['fb_error'] = $ex->getMessage();
+	$control['show_alt_data_reason'] = 'notloggedin';
+}
+
+// if FB session
+if (isset($session) && $session) {
+	$control['fb_login_state'] = 'yes';
 } else {
 	$control['fb_login_state'] = 'no';
-	$control['show_alt_data_option'] = true;
 	$control['show_alt_data_reason'] = 'notloggedin';
-
+	$scripts .= "console.log('Could not login: ". $control['fb_error'] ."'); \n";
 }
 
 
-
-
-
-
-
-// check if all user data is already in a session
-if (isset($_SESSION['dnt_user'])){
-	
-	$control['dnt_user_session'] = 'previous dnt_user session FOUND';
-	//$user = $_SESSION['dnt_user'];
-	
-	//report($user);
-	//die();
-	
-	// for saving user data
-	//report(JSON_encode($user));
-	//die();
-	
-} else {
-	$control['dnt_user_session'] = 'previous dnt_user session NOT FOUND';
-	
-	
-}
 
 
 
@@ -188,19 +154,27 @@ else if ($control['fb_login_state'] == 'yes') {
 
 
 
-report($control);	
+//report($control,150);	
 	
 
-if ($control['data_set'] == 'sample'){
+
+// attempt to get sample data
+if ( $control['step'] == 'load_data_sample'){
 	
 	// use sample user data
 	$json = file_get_contents('inc/default_user.json');
 	$user = (Array)json_decode($json,true);
-	
-	report($user);
+
+	// make that the user
+	$_SESSION['dnt_user'] = $user;
+
+	//report($user);
 	//exit();
+	header('Location: ./?data_set=sample&step=one&lang='.$control['lang'].'&player='.$control['player']);
+
 }
-else if ( $control['data_set'] == 'user' && $control['fb_get_data'] == 'true'){
+// attempt to get FB data
+else if ( $control['step'] == 'load_data_fb'){
 	
 	// if we were able to login
 	if (isset($session) && $session) {
@@ -216,6 +190,10 @@ else if ( $control['data_set'] == 'user' && $control['fb_get_data'] == 'true'){
 		// make sure birthday was granted
 		if (isset($user['permissions']['user_birthday']) == 'granted') $str .= ',birthday';
 		$user['me'] = fb_call_basic($str);
+		
+		// get photo
+		$user['me']['photo'] = fb_photo_thumb_url();
+		
 		
 		// GENDER
 		if ( !isset($user['me']['gender']) ){
@@ -314,16 +292,13 @@ else if ( $control['data_set'] == 'user' && $control['fb_get_data'] == 'true'){
 					$user['big5'] = $big5_result;
 					$control['retrieve_big5_data'] = 'true';
 				} else {
-					$control['show_alt_data_option'] = true;			
 					$control['show_alt_data_reason'] = 'big5prediction';
 				}
 			} else {
-				$control['show_alt_data_option'] = true;			
 				$control['show_alt_data_reason'] = 'nodata';
 			}	
 
 		} else {
-			$control['show_alt_data_option'] = true;			
 			$control['show_alt_data_reason'] = 'app_permissions';
 		}
 		
@@ -482,18 +457,16 @@ else if ( $control['data_set'] == 'user' && $control['fb_get_data'] == 'true'){
 				}
 			}
 		} else {
-			$control['show_alt_data_option'] = true;			
 			$control['show_alt_data_reason'] = 'big5prediction';
 		}	
 		
 	
 		// store all user data in session
 		$_SESSION['dnt_user'] = $user;
-		//header('Location: ./?step=one&lang='.$control['lang']);
+		header('Location: ./?data_set=user&step=one&lang='.$control['lang'].'&player='.$control['player']);
 	}	
 	else {
 		$control['fb_login_state'] = 'no';
-		$control['show_alt_data_option'] = true; 
 		$control['show_alt_data_reason'] = 'notloggedin';
 		$scripts .= "console.log('Could not login.'); \n";
 	}
@@ -503,15 +476,37 @@ else if ( $control['data_set'] == 'user' && $control['fb_get_data'] == 'true'){
 
 
 
-}
+} else {
+	
+	
+		
+	
+	// check if all user data is already in a session
+	if (isset($_SESSION['dnt_user'])){
+		
+		$control['dnt_user_session'] = 'previous dnt_user session FOUND';
+		$user = $_SESSION['dnt_user'];
+		
+		//report($user);
+		//die();
+		
+		// for saving user data
+		//report(JSON_encode($user));
+		//die();
+		
+	} else {
+		$control['dnt_user_session'] = 'previous dnt_user session NOT FOUND';
+		
+		
+	}
+	
+
 
 
 
 
 	
-
-
-
+}
 
 
 

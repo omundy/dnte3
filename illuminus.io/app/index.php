@@ -45,13 +45,104 @@ print $css . '</style>';
 						<div class='product_name' style="float: left; margin: 18px 0 0 20px;"><?php print $text['meta'][$control['lang']]['product_name']?> </div>
 					</div>
 					<div class="col-sm-2 ">
-							<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button>
-						
+						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button>
 					</div>
 				</div>
 				<?php } ?>
 		
 		
+<?php
+
+$pic = 'assets/img/fb_profile_img.png';
+						
+if (isset($_SESSION['dnt_user'])){
+	
+	if ( isset($user['me']['photo'])){
+		$pic = $user['me']['photo'];
+	} 
+}
+
+?>		
+		
+		
+		
+				
+				<!-- load_data -->
+				<?php if ($control['step'] == 'load_data'){ ?>
+				<div id="" class="step">
+					<div class="row">
+						<div class="col-sm-12 title">
+							<h3><?php print $text['load_data'][$control['lang']]['0_heading'] ?></h3>							
+						</div>
+						<?php
+							
+							/*<div class="col-sm-2 title">
+						<img src="<?php print $pic ?>" class="img-rounded" style="width:40px; height: 40px"><?php print $user['me']['name'] ?>			
+						</div>*/
+						?>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							
+							
+							
+							
+							
+							<?php
+							
+							if (isset($_SESSION['dnt_user'])){
+																
+							?>
+								<p><?php print $text['meta'][$control['lang']]['get_current_data_set']; ?></p>
+								<div class="profile_box">
+									<div class="profile_img"><img src="<?php print $pic ?>" class="img-rounded profile-pic"></div>
+									<div class="profile_txt">
+										<div class="profile_name"><?php print $user['me']['name'] ?></div>
+										<div class="profile_age"><?php print $user['me']['gender'] ?></div>
+										<div class="profile_gender"><?php print $user['me']['age'] ?> years</div>
+									</div>	
+								</div>
+								
+								<br>
+								
+								<p><?php print $text[0][$control['lang']]['select_assessment'] ?></p>
+								
+								
+								
+							<?php } else { ?>
+							
+							<img src="assets/img/illuminus_cover_img.jpg">							
+						
+							<?php } ?>
+								
+			<h4 style="clear: both; margin: 30px 0 0 0"><?php print $text['meta'][$control['lang']]['get_select_a_data_set']; ?></h4>
+										
+			<p>
+			<?php if( $control['fb_login_state'] == 'no' ){ ?>
+			<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
+			<?php print $text['meta'][$control['lang']]['login_with_facebook'] ?>
+			<?php } else { ?>
+			<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
+			<?php print $text['meta'][$control['lang']]['get_fb_data_btn']; ?>
+			<?php } ?>
+			</button>
+
+			<p>... <?php print $text['meta'][$control['lang']]['get_select_or']; ?> ...
+
+			<p><button id="get_sample_data_btn" class="btn btn-large btn-custom"><?php print $text['meta'][$control['lang']]['get_sample_data_btn']; ?></button>				
+							
+							
+
+							
+							
+						</div>
+					</div>
+				</div>
+				<?php } ?>
+				<!-- /load_data -->
+				
+				
+				
 				
 				<!-- privacy -->
 				<?php if ($control['step'] == 'privacy'){ ?>
@@ -64,14 +155,77 @@ print $css . '</style>';
 					<div class="row">
 						<div class="col-sm-12">
 							
-							
-							<p>??</p>
+
+<p>Illuminus is a satirical website created for the documentary series Do Not Track (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  When you log in via Facebook, we access information you have shared on Facebook to build the Illuminus website.  </p>
+
+<p>When you use Illuminus, it will create a "personality profile" for you.  If you access Illuminus while watching an episode of Do Not Track, and you create an account on Do Not Track, we will store this information on your profile.  This profile will only contain the information you gave authorization for us to access. If you access Illuminus at <a href="https://illuminus.io">illuminus.io</a> your personal information will not be saved.</p>
+
+<p>When you use <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>, we do request some information from you, such as your email address, as well as aspects of your browsing history.  If you volunteer that information, the terms below describe your rights and our responsibilities.
+
+<h4>Your data</h4>
+
+<p>The Producers guarantee that they are the sole recipients of the data collected and that it will be used exclusively for the Project and will neither be passed on, nor accessible, nor sold to any third party whatsoever. The Producers implement technical and organizational security measures to ensure that its users’ personal data is protected against loss, fraudulent alterations, or unauthorized access by third parties. The transmission of data collected during registration is carried out in an encrypted manner, as is subsequent communication between the server and the Project.</p>
+
+<p>The producers will use your email address for the following purposes:
+<ul>
+<li>keep you abreast of the broadcast of upcoming episodes of the Project,</li>
+<li>invite you to follow the Project’s news</li>
+<li>offer personalized content</li>
+</ul>
+
+Your personal data will be stored within the Project database and retained for the life of the Project (3 years).</p>
+
+<p>You have the right to access, modify, correct, and delete your information. To exercise this right, or to opt out, write to: data@donottrack-doc.com</p>
+
+<h4>INFORMATICS AND LIBERTY</h4>
+
+<p>According to French law n°78-17 of 6th January 1978 on informatics, files and liberties, every user who made a contribution has the right of opposition (art. 38), access (art. 39, 41, 42) and rectification (art.40) of his contents.</p>
+
+<p>He thus can require his contribution to be corrected, completed, clarified, updated or erased if it is incorrect, incomplete, false, obsolete or if its collection, use, communication and conservation are prohibited.</p>
+
+<p>Every user can assert this right by writing to the following address: data@donottrack-doc.com</p>
+
+<h4>COOKIES</h4>
+
+<p>The site http://donottrack-doc.com/ utilizes Google Analytics & Xiti.</p>
+
+<p>Google Analytics, a web analytics service allows Do Not Track to study your usage of the site.</p>
+
+<p>The data generated by these navigation analysis cookies regarding your usage of the site: sites visited, frequency, number and repeat of visits, navigation time, research carried out, browser used, operator providing the service, location relative to the IP address.</p>
+
+<p>They are generally transmitted to and stored by Google on servers located in the United States.</p>
+
+<p>If you choose to make your IP address anonymous on this site, your IP address will be nonetheless handed over to Google, yet truncated within the Member States of the European Union or among other signatory states of the European Economic Area Agreement. Only in exceptional circumstances will your IP address be fully transmitted to a Google server in the USA, and truncated there.</p>
+
+<p>Along with other data captured by Google, Google will not shorten your transmitted IP address within Google Analytics. Google will use this information to evaluate your usage of the website, compile for Do Not Track reports on website activity and Internet usage: measures and analyses navigation and user behavior, development of anonymous navigation profiles, areas for improvement based on the analysis of usage data collected.</p>
+
+<p>For more information, see Google’s privacy policy.</p>
+
+<p>In addition to blocking cookies in the browser, you can disable Google Analytics while browsing through a module provided by Google.</p>
+
+<p>Xiti is a web audience measurement tool offered by AT Internet company. In order to establish visitor statistics, Xiti leaves a cookie to track a visitor's journey. For example, this allows avoiding doubling up on the visitor count as if new when reloading the page. Additionally, Xiti prevents website publishers from exaggerating their own statistics when they reload a page. In order to provide reports and services in connection with the usage of the site and the Internet, Xiti uses information collected by its cookies at the request of Do Not Track. Xiti will not capture your IP address with any data it holds.</p>
+
+<p>For more information, see Xiti’s Privacy Statement.</p>
+
+<h4>For more information</h4>
+
+<p>To obtain further information about cookies and the use of these analysis tools, the Internet user can visit the CNIL website.</p>
+
+
+<h4>Terms of Service URL</h4>
+
+User Support Email: <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a><br>
+User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.donottrack-doc.com/en/about/</a>
+
+
+
+
 							
 						</div>
 					</div>
 				</div>
 				<?php } ?>
-				<!-- /credits -->
+				<!-- /privacy -->
 				
 				
 				
@@ -110,37 +264,62 @@ print $css . '</style>';
 				
 				
 				
+				<!-- error -->
+				<?php if ($control['step'] == 'error'){ ?>
+				<div id="" class="step">
+					<div class="row">
+						<div class="col-sm-12 title">
+							<h3><?php print $text['meta'][$control['lang']]['alt_data_heading'] ?></h3>					
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							
+							<p><?php 
+								print $text['meta'][$control['lang']]['alt_data_p1'] .' ';
+								print $text['meta'][$control['lang']]['alt_data_reasons'][$control['show_alt_data_reason']]  .'. ';
+								print '</p><p>';
+								print '<a href="?data_set='.$control['data_set'].'&amp;step=one&amp;lang='. $control['lang'] .'" class="step1_btn btn btn-custom">' . $text['meta'][$control['lang']]['alt_data_click'] .'</a> ';
+								print $text['meta'][$control['lang']]['alt_data_p2'];
+							?></p>
+							
+						</div>
+					</div>
+				</div>
+				<?php } ?>
+				<!-- /error -->
+				
+				
+				
+
+							
+							
+							
+							
+				
+				
+				
+				
 				<!-- step_zero -->
 				<?php if ($control['step'] == 'zero'){ ?>
 				<div id="step_zero" class="step">
 					<?php if($control['player'] == 'no'){ ?>
 					<div class="row">
 						<div class="col-sm-12 title">
-														
-						</div>
-					</div>
-					<?php } ?>
-					<div class="row">
-						<div class="col-sm-5">
-							<img src="assets/img/network.png" alt="network" class="img-responsive">
-						</div>
-						<div class="col-sm-7">
+							
 							
 							<p><?php print $text[0][$control['lang']]['0_heading'] ?></p>
+
+							
+							<video autoplay>
+							<source src="https://dl.dropboxusercontent.com/u/7968133/illuminus%20promo.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+							</video>	
+							
 							<h1><?php print $text[0][$control['lang']]['callout'] ?></h1>
 							
 							
 							<?php 
-							
-							if($control['player'] == 'yes'){ 
-								
-								
-									
-							} else {
-								
-							}
-							
-							
 							
 							if (isset($session)) {
 								print '<p>'. $text[0][$control['lang']]['select_assessment'] .'.</p>';									
@@ -150,6 +329,26 @@ print $css . '</style>';
 							}
 							
 							?>
+							
+								
+							
+							
+						</div>
+					</div>
+					<?php } ?>
+					<div class="row">
+						<div class="col-sm-7">
+							
+							
+							
+						</div>
+						<div class="col-sm-5">
+							<!--<img src="assets/img/network.png" alt="network" class="img-responsive">
+							<p><?php print $text[0][$control['lang']]['0_heading'] ?></p>
+							<h1><?php print $text[0][$control['lang']]['callout'] ?></h1>-->
+							
+							
+							
 							
 							
 						</div>
@@ -174,40 +373,23 @@ print $css . '</style>';
 				<?php if ($control['step'] == 'one'){ ?>
 				<div id="step_one" class="step">
 					
+		
 					
-					<?php if ($control['show_alt_data_option'] == true){ ?>
-						
-						<div id="step1_frame_altdata">
-							
-							
-
-							<h3><?php print $text['meta'][$control['lang']]['alt_data_heading'] ?></h3>
-							<p><?php 
-								print $text['meta'][$control['lang']]['alt_data_p1'] .' ';
-								print $text['meta'][$control['lang']]['alt_data_reasons'][$control['show_alt_data_reason']]  .'. ';
-								print '</p><p>';
-								print '<a href="?data_set='.$control['data_set'].'&amp;step=one&amp;lang='. $control['lang'] .'" class="step1_btn btn btn-custom">' . $text['meta'][$control['lang']]['alt_data_click'] .'</a> ';
-								print $text['meta'][$control['lang']]['alt_data_p2'];
-							?></p>
-							
-							
-							
-							
-							
-						</div>
-						
-						
-					<?php } else if (isset($user['like_timeline'])){ ?>
 					<div id="step1_frame_1">
 						
 											
 						<div class="row">
 							<div class="col-sm-12 title">
 								<h3><?php print $text[1][$control['lang']]['1_1_heading'] ?></h3>
+								
+								
+								<?php if (isset($user['like_timeline'])){ ?>
 								<p><?php print $text[1][$control['lang']]['1_1_subheading'] ?>
+								<?php } ?>
 							</div>
 						</div>
 						
+						<?php if (isset($user['like_timeline'])){ ?>
 						<div class="row">
 							<div class="col-sm-6 left">
 								
@@ -364,7 +546,7 @@ print $css . '</style>';
 							
 							
 						</div><!-- row -->
-							
+						<?php } ?>	
 						
 					</div>
 					
@@ -378,7 +560,7 @@ print $css . '</style>';
 					
 					
 					
-					
+					<?php if (isset($user['like_timeline'])){ ?>
 					<div id="step1_frame_2">
 						
 						
@@ -473,8 +655,7 @@ print $css . '</style>';
 						</div>
 						
 					</div>
-					<script>  </script>
-					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
+					<?php }  ?>
 					
 					
 					
@@ -684,6 +865,9 @@ function eval_risk($risk_name){
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[2][$control['lang']]['2_heading'] ?></h3>
+							
+							
+							<?php if (isset($user['big5_risk_domains'])){ ?>
 							<p><?php 
 								
 								print $text[2][$control['lang']]['2_1'];
@@ -702,6 +886,8 @@ function eval_risk($risk_name){
 								?>
 							</p>
 							<p><?php print $text[2][$control['lang']]['2_3'] ?></p>
+							<?php } ?>
+							
 						</div>
 					</div>
 					
@@ -936,6 +1122,9 @@ function eval_risk($risk_name){
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[3][$control['lang']]['3_heading'] ?></h3>
+							
+							
+							<?php if (isset($user['big5_risk_domains'])){ ?>
 							<p><?php 
 								
 								print $text[3][$control['lang']]['3_1'];
@@ -967,6 +1156,9 @@ function eval_risk($risk_name){
 								
 								?>
 							</p>
+							<?php } ?>
+							
+							
 						</div>
 					</div>
 					
@@ -1201,16 +1393,8 @@ include_once('templates/footer.php');
 	
 print $scripts;
 
-
-
-	
-	
-// only include FB login for standalone app
-if($control['player'] == 'no'){ 
-	if($control['connected'] == true){ 
-	
 ?>
-	
+
 
 /**
  *	Facebook
@@ -1238,6 +1422,8 @@ window.fbAsyncInit = function() {
 	
 };
 
+
+
 // check login status
 function checkLoginStatus(response) {
 	//console.log(response);
@@ -1257,16 +1443,13 @@ function checkLoginStatus(response) {
 		*/
 		
 		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
-		//$('#fb_login_btn').hide()
 		
 	// not_authorized: Logged into Facebook, but not your app
 	} else if (response.status === 'not_authorized') {
 		console.log('APP: user is logged in BUT has not authorized app');
-		//$('#fb_login_btn').show()
 	// [else]: Not logged into Facebook / can't tell if they are logged into app	
 	} else {
 		console.log('APP: user is not logged into Facebook');
-		//$('#fb_login_btn').show()
 	}
 }
 
@@ -1276,7 +1459,7 @@ function login_user(_scope) {
 		// handle the response
 		if (response.authResponse) {
 			// redirect
-			window.location.replace("./?data_set=<?php print $control['data_set']?>&amp;step=one&lang="+lang);
+			window.location.replace("./?data_set=user&step=load_data_fb&lang="+lang+"&player="+player);
 		} else {
 			console.log('APP: User cancelled login or did not fully authorize.');
 		}
@@ -1287,7 +1470,7 @@ function logout_user() {
 	FB.api('/me/permissions', 'DELETE', function(res){
 	    if(res.success === true){
 	        console.log('APP: app deauthorized');
-			window.location.replace("./?data_set=<?php print $control['data_set']?>&amp;step=zero&lang="+lang);
+			window.location.replace("./?data_set=<?php print $control['data_set']?>&amp;step=zero&lang="+lang+"&player="+player);
 	    } else if(res.error){
 	        console.log('APP: res.error');
 	        console.error('APP: ' + res.error.type + ': ' + res.error.message);
@@ -1299,8 +1482,7 @@ function logout_user() {
 
 
 
-$('#fb_login_btn').on('click',function() { login_user('email,user_birthday,user_likes'); });
-$('#fb_logout_btn').on('click',function() { logout_user(); });
+
 
 
 console.log('step: '+ step +' - lang: '+ lang); 
@@ -1313,10 +1495,8 @@ function checkLoginState() {
 	});
 }
 
-<?php }} ?></script>
 
 
-<script>
 				
 function step1_frames_event(frame){
 	// hide
@@ -1335,11 +1515,21 @@ $('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });
 $('#step1_2_prev_btn').on('click',function(){ step1_frames_event(1) });
 $('#step1_2_next_btn').on('click',function(){ step1_frames_event(3) });
 $('#step1_3_prev_btn').on('click',function(){ step1_frames_event(2) });
-$('#load_alt_data_btn').on('click',function(){  });
 
+
+$('#get_sample_data_btn').on('click',function(){ window.location.replace("./?data_set=sample&step=load_data_sample&lang="+lang+"&player="+player); });
+$('#get_fb_data_btn').on('click',function(){ window.location.replace("./?data_set=user&step=load_data_fb&lang="+lang+"&player="+player); });
+
+$('#fb_login_btn').on('click',function() { login_user('email,user_birthday,user_likes'); });
+$('#fb_logout_btn').on('click',function() { logout_user(); });
 
 
 $('#step_one_cover').hide();
+
+
+$("video").bind("ended", function() {
+   window.location.replace("./?step=load_data&lang="+lang+"&player="+player);
+});
 
 </script>
 

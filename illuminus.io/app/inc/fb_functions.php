@@ -186,10 +186,11 @@ function get_tags_likes($arr){
 /**
  *	Return user thumb url
  */
-function fb_photo_thumb_url(){
+function fb_photo_thumb_url($id=''){
 	global $session;
+	if ($id == '') $id = 'me';
 	$request = new FacebookRequest(
-		$session,'GET','/me/picture',
+		$session,'GET',"/$id/picture",
 		array (
 			'redirect' => false,
 			'height' => '200',

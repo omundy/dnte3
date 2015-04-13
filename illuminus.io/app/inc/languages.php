@@ -206,11 +206,7 @@ $text = array(
 			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
 			
 			'2_career_heading' => 'Career Risk',
-			
-			
 			'2_finance_heading' => 'Finance Risk',
-			
-			
 			'2_social_heading' => 'Social Risk',
 		),
 		'DE' => array(
@@ -221,11 +217,7 @@ $text = array(
 			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
 			
 			'2_career_heading' => 'Career Risk',
-			
-			
 			'2_finance_heading' => 'Finance Risk',
-			
-			
 			'2_social_heading' => 'Social Risk',
 		),
 		'EN' => array(
@@ -236,15 +228,9 @@ $text = array(
 			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
 			
 			'2_career_heading' => 'Career Risk',
-			
-			
 			'2_finance_heading' => 'Finance Risk',
-			
-			
 			'2_social_heading' => 'Social Risk',
 
-			
-			
 		),
 		'FR' => array(
 			'2_heading' => 'Financial Risk Evaluation',
@@ -254,14 +240,14 @@ $text = array(
 			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
 			
 			'2_career_heading' => 'Career Risk',
-			
-			
 			'2_finance_heading' => 'Finance Risk',
-			
-			
 			'2_social_heading' => 'Social Risk',
 		),
 	),
+	
+	
+	
+	
 	
 	// step 3 - Health Risk Evaluation
 	array(
@@ -282,9 +268,6 @@ $text = array(
 			
 			
 			'3_recreation_heading' => 'Recreation Risk',
-
-			
-			
 		),
 		'FR' => array(
 			'3_heading' => 'Health Risk Evaluation',
@@ -299,36 +282,7 @@ $text = array(
 			'product_callout' => 'Learn what we already know about you',
 			'login_with_facebook' => 'Log in with Facebook',
 			'nav_link_zero' => 'Welcome',
-			'nav_link_one' => 'Personality Assessment',
-			'nav_link_two' => 'Financial Risk Evaluation',
-			'nav_link_three' => 'Health Risk Evaluation',
-			'nav_footer_link_home' => 'Home',
-			'nav_footer_link_privacy' => 'Privacy Policy',
-			'nav_footer_link_credits' => 'Credits',
-			'nav_footer_link_logout' => 'Logout',
-			'risk_words' => array('mild','moderate','significant','severe','extreme'),
-			'resume_video' => 'Back to the video',
-		),
-		'DE' => array(
-			'product_name' => 'Future Present Risk Detection',
-			'product_callout' => 'Learn what we already know about you',
-			'login_with_facebook' => 'Log in with Facebook',
-			'nav_link_zero' => 'Welcome',
-			'nav_link_one' => 'Personality Assessment',
-			'nav_link_two' => 'Financial Risk Evaluation',
-			'nav_link_three' => 'Health Risk Evaluation',
-			'nav_footer_link_home' => 'Home',
-			'nav_footer_link_privacy' => 'Privacy Policy',
-			'nav_footer_link_credits' => 'Credits',
-			'nav_footer_link_logout' => 'Logout',
-			'risk_words' => array('mild','moderate','significant','severe','extreme'),
-			'resume_video' => 'Back to the video',
-		),
-		'EN' => array(
-			'product_name' => 'Future Present Risk Detection',
-			'product_callout' => 'Learn what we already know about you',
-			'login_with_facebook' => 'Log in with Facebook',
-			'nav_link_zero' => 'Welcome',
+			'nav_link_load_data' => 'Get Started',
 			'nav_link_one' => 'Personality Assessment',
 			'nav_link_two' => 'Financial Risk Evaluation',
 			'nav_link_three' => 'Health Risk Evaluation',
@@ -361,12 +315,24 @@ $text = array(
 			'alt_data_click' => 'Click here',
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
+			
+			
+			
+			
+			'get_current_data_set' => 'You are currently evaluating this profile',
+			'get_select_a_data_set' => 'Select a data set to use',
+			'get_select_or' => 'or',
+			'get_sample_data_btn' => 'Use a sample data set',
+			'get_fb_data_btn' => 'Use your Facebook data',
+			'get_started_btn' => 'Get started',
+			
 		),
-		'FR' => array(
+		'DE' => array(
 			'product_name' => 'Future Present Risk Detection',
 			'product_callout' => 'Learn what we already know about you',
 			'login_with_facebook' => 'Log in with Facebook',
 			'nav_link_zero' => 'Welcome',
+			'nav_link_load_data' => 'Get Started',
 			'nav_link_one' => 'Personality Assessment',
 			'nav_link_two' => 'Financial Risk Evaluation',
 			'nav_link_three' => 'Health Risk Evaluation',
@@ -376,8 +342,159 @@ $text = array(
 			'nav_footer_link_logout' => 'Logout',
 			'risk_words' => array('mild','moderate','significant','severe','extreme'),
 			'resume_video' => 'Back to the video',
+			'alt_data_heading' => 'Uh oh',
+			'alt_data_p1' => 'There was a problem accessing your Facebook data. It looks like ',
+			'alt_data_reasons' => array(
+				'notloggedin' => 'you are not logged into Facebook',
+				'app_permissions' => 'you didn\'t give the app permission',
+				'nodata' => 'you don\'t have enough data to participate or you may have manually increased the privacy of your data.
+				
+				
+					To make Likes public:
+					<ul>
+					<li>Go to your Facebook profile</li>
+					<li>Click <b>more</b> next to photos in the header tab under your cover photo</li>
+					<li>Click <b>Likes</b></li>
+					<li>In the top right-hand corner, click the pen icon titled <b>Manage</b></li>
+					<li>Select <b>edit privacy</b></li>
+					<li>Then you can edit the privacy of different sections of Likes</li>
+					</ul>
+				',
+				'big5prediction' => 'there was an error with the Apply Magic Sauce API',
+			),
+			'alt_data_click' => 'Click here',
+			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
+			'no_data_found' => 'No data found',
+			
+			
+			
+			
+			'get_current_data_set' => 'You are currently evaluating this profile',
+			'get_select_a_data_set' => 'Select a data set to use',
+			'get_select_or' => 'or',
+			'get_sample_data_btn' => 'Use a sample data set',
+			'get_fb_data_btn' => 'Use your Facebook data',
+			'get_started_btn' => 'Get started',
+			
+		),
+		'EN' => array(
+			'product_name' => 'Future Present Risk Detection',
+			'product_callout' => 'Learn what we already know about you',
+			'login_with_facebook' => 'Log in with Facebook',
+			'nav_link_zero' => 'Welcome',
+			'nav_link_load_data' => 'Get Started',
+			'nav_link_one' => 'Personality Assessment',
+			'nav_link_two' => 'Financial Risk Evaluation',
+			'nav_link_three' => 'Health Risk Evaluation',
+			'nav_footer_link_home' => 'Home',
+			'nav_footer_link_privacy' => 'Privacy Policy',
+			'nav_footer_link_credits' => 'Credits',
+			'nav_footer_link_logout' => 'Logout',
+			'risk_words' => array('mild','moderate','significant','severe','extreme'),
+			'resume_video' => 'Back to the video',
+			'alt_data_heading' => 'Uh oh',
+			'alt_data_p1' => 'There was a problem accessing your Facebook data. It looks like ',
+			'alt_data_reasons' => array(
+				'notloggedin' => 'you are not logged into Facebook',
+				'app_permissions' => 'you didn\'t give the app permission',
+				'nodata' => 'you don\'t have enough data to participate or you may have manually increased the privacy of your data.
+				
+				
+					To make Likes public:
+					<ul>
+					<li>Go to your Facebook profile</li>
+					<li>Click <b>more</b> next to photos in the header tab under your cover photo</li>
+					<li>Click <b>Likes</b></li>
+					<li>In the top right-hand corner, click the pen icon titled <b>Manage</b></li>
+					<li>Select <b>edit privacy</b></li>
+					<li>Then you can edit the privacy of different sections of Likes</li>
+					</ul>
+				',
+				'big5prediction' => 'there was an error with the Apply Magic Sauce API',
+			),
+			'alt_data_click' => 'Click here',
+			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
+			'no_data_found' => 'No data found',
+			
+			
+			
+			
+			'get_current_data_set' => 'You are currently evaluating this profile',
+			'get_select_a_data_set' => 'Select a data set to use',
+			'get_select_or' => 'or',
+			'get_sample_data_btn' => 'Use a sample data set',
+			'get_fb_data_btn' => 'Use your Facebook data',
+			'get_started_btn' => 'Get started',
+			
+		),
+		'FR' => array(
+			'product_name' => 'Future Present Risk Detection',
+			'product_callout' => 'Learn what we already know about you',
+			'login_with_facebook' => 'Log in with Facebook',
+			'nav_link_zero' => 'Welcome',
+			'nav_link_load_data' => 'Get Started',
+			'nav_link_one' => 'Personality Assessment',
+			'nav_link_two' => 'Financial Risk Evaluation',
+			'nav_link_three' => 'Health Risk Evaluation',
+			'nav_footer_link_home' => 'Home',
+			'nav_footer_link_privacy' => 'Privacy Policy',
+			'nav_footer_link_credits' => 'Credits',
+			'nav_footer_link_logout' => 'Logout',
+			'risk_words' => array('mild','moderate','significant','severe','extreme'),
+			'resume_video' => 'Back to the video',
+			'alt_data_heading' => 'Uh oh',
+			'alt_data_p1' => 'There was a problem accessing your Facebook data. It looks like ',
+			'alt_data_reasons' => array(
+				'notloggedin' => 'you are not logged into Facebook',
+				'app_permissions' => 'you didn\'t give the app permission',
+				'nodata' => 'you don\'t have enough data to participate or you may have manually increased the privacy of your data.
+				
+				
+					To make Likes public:
+					<ul>
+					<li>Go to your Facebook profile</li>
+					<li>Click <b>more</b> next to photos in the header tab under your cover photo</li>
+					<li>Click <b>Likes</b></li>
+					<li>In the top right-hand corner, click the pen icon titled <b>Manage</b></li>
+					<li>Select <b>edit privacy</b></li>
+					<li>Then you can edit the privacy of different sections of Likes</li>
+					</ul>
+				',
+				'big5prediction' => 'there was an error with the Apply Magic Sauce API',
+			),
+			'alt_data_click' => 'Click here',
+			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
+			'no_data_found' => 'No data found',
+			
+			
+			
+			
+			'get_current_data_set' => 'You are currently evaluating this profile',
+			'get_select_a_data_set' => 'Select a data set to use',
+			'get_select_or' => 'or',
+			'get_sample_data_btn' => 'Use a sample data set',
+			'get_fb_data_btn' => 'Use your Facebook data',
+			'get_started_btn' => 'Get started',
+			
 		),
 		
+	),
+	
+	
+	// LOAD_DATA
+	'load_data' => array(
+		'CA' => array(
+			'0_heading' => 'Get started',
+		),
+		'DE' => array(
+			'0_heading' => 'Get started',
+		),
+		'EN' => array(
+			'0_heading' => 'Get started',
+		),
+		'FR' => array(
+			'0_heading' => 'Get started',
+		),
 	),
 	
 	
