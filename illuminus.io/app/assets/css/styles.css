@@ -162,8 +162,22 @@ fieldset[disabled] .btn-custom.active {
 	max-width: 1150px;
 	margin: 0 auto;
 	text-align: center;
+	color: #fff;
 }
 
+.pad-top {
+	padding-top: 40px;
+}
+
+@media(min-width:768px){
+	.left {
+		text-align: left;
+	}
+
+	.right {
+		text-align: right;
+	}
+}
 .bkg-black {
 	background-color: #000;
 	padding: 50px 0 100px 0;
@@ -190,4 +204,92 @@ fieldset[disabled] .btn-custom.active {
 .bkg-darkgray {
 	background-color: #2b2b2b;
 	padding: 100px 0 100px 0;
+}
+
+.menu a {
+	font-size: 17px;
+	text-decoration: none;
+	color: #fff;
+	margin-left: 10px;
+	line-height: 60px;
+}
+
+.menu a:hover {
+	text-decoration: none;
+	color: #09bc87;
+}
+
+.unlocking-content {
+	font-size: 34px;
+	line-height: 48px;
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
+
+.med a, .unlocking-content a {
+	font-size: 19px;
+	background-color: #ed6d06;
+	color: #fff;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding: 7px 16px;
+	text-decoration: none;
+	border: 1px solid #000;
+}
+
+.med a:hover, .unlocking-content a:hover {
+	border: 1px solid #fff;
+}
+
+.services {
+	font-size: 34px;
+	line-height: 75px;
+	padding: 0 0 40px 0;
+	color: #fff;
+}
+
+.med {
+	font-size: 20px;
+}
+
+.sm {
+	font-size: 14px;
+}
+
+
+
+@media (max-width:767px) {
+	.services-kids div {
+		padding: 40px 0;
+		border-bottom: 1px solid #fff;
+		height: 100%;
+	}
+
+	.services-kids div:last-of-type {
+		border-bottom: none;
+		padding-bottom: none;
+	}
+
+	.services-kids div:first-of-type {
+		padding-top: none;
+		margin-top: -20px;
+	}
+}
+
+@media (min-width:768px) {
+	.services-kids div {
+		border-right: 1px solid #fff;
+		height: 100%;
+	}
+
+	.services-kids div:last-of-type {
+		border-right: none;
+	}
+}
+
+@media (max-width:767px) {
+	.risk img {
+		width: 100%;
+		padding-top: 40px;
+	}
 }
