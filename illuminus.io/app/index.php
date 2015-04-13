@@ -6,29 +6,29 @@ include_once('templates/header.php');
 
 
 
+
+// show correct step
+$css = '<style scoped media="all" type="text/css">';
+$css .= '#step_'.$control['step'].' { display: block; }';
+
 // all chart colors
 $chart_colors = 'fillColor: "rgba(100,100,100,1)", strokeColor: "rgba(0,0,0,0)", highlightFill: "rgba(10,188,136,.75)", highlightStroke: "rgba(0,0,0,0)", ';
 
 
 if($control['player'] == 'yes'){
+	$scripts .= "\n $('#backtovideo_btn').on('click',function(){ parent.resumeVideo() }); \n";
 	$content_col = 12;
+	$css .= '.content-col .inner { margin-top: 10px; }';
 } else {
 	include_once('templates/sidebar.php');
 	$content_col = 9;
 }
 
 
-// show correct step
-$css = '<style scoped media="all" type="text/css">';
-$css .= '#step_'.$control['step'].' { display: block; }';
-$css .= '</style>';
-print $css;
+
+print $css . '</style>';
 
 
-$branding = '';
-$branding .= "<img src='assets/img/logo.png' alt='illuminus logo'>";
-$branding .= "<div class='product_name'>". $text['meta'][$control['lang']]['product_name'] ."</div>";
-$branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['product_callout'] ."</div>";
 
 
 
@@ -37,6 +37,19 @@ $branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['p
 		<div class="col-sm-<?php print $content_col; ?> content-col">
 			<div class="inner">
 		
+		
+				<?php if($control['player'] == 'yes'){ ?>
+				<div class="row">
+					<div class="col-sm-10 ">
+						<img src='assets/img/logo.png' alt='illuminus logo' style="float: left; margin: 0 0 20px 0;">
+						<div class='product_name' style="float: left; margin: 18px 0 0 20px;"><?php print $text['meta'][$control['lang']]['product_name']?> </div>
+					</div>
+					<div class="col-sm-2 ">
+							<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button>
+						
+					</div>
+				</div>
+				<?php } ?>
 		
 		
 				
@@ -53,8 +66,6 @@ $branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['p
 							
 							
 							<p>??</p>
-							
-							
 							
 						</div>
 					</div>
@@ -102,28 +113,43 @@ $branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['p
 				<!-- step_zero -->
 				<?php if ($control['step'] == 'zero'){ ?>
 				<div id="step_zero" class="step">
-					<?php if($control['player'] == 'no'){ // put branding on step zero ?>
+					<?php if($control['player'] == 'no'){ ?>
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text[0][$control['lang']]['0_heading'] ?></h3>							
+														
 						</div>
 					</div>
 					<?php } ?>
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-5">
+							<img src="assets/img/network.png" alt="network" class="img-responsive">
+						</div>
+						<div class="col-sm-7">
+							
+							<p><?php print $text[0][$control['lang']]['0_heading'] ?></p>
+							<h1><?php print $text[0][$control['lang']]['callout'] ?></h1>
+							
+							
 							<?php 
 							
-							if($control['player'] == 'yes'){ // put branding on step_zero
+							if($control['player'] == 'yes'){ 
 								
-								print $branding;	
+								
 									
 							} else {
 								
 							}
 							
-							?>
 							
-							<p>Please log in to Facebook begin risk assessment.</p>
+							
+							if (isset($session)) {
+								print '<p>'. $text[0][$control['lang']]['select_assessment'] .'.</p>';									
+							} else {
+								
+								print '<p>'. $text[0][$control['lang']]['please_login'] .'.</p>';
+							}
+							
+							?>
 							
 							
 						</div>
@@ -138,6 +164,7 @@ $branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['p
 	
 	
 	
+		
 	
 	
 				
@@ -148,11 +175,30 @@ $branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['p
 				<div id="step_one" class="step">
 					
 					
-					
-					
-					<?php if (isset($user['like_timeline'])){ ?>
-					<div id="step1_frame_1">
+					<?php if ($control['show_alt_data_option'] == true){ ?>
 						
+						<div id="step1_frame_altdata">
+							
+							
+
+							<h3><?php print $text['meta'][$control['lang']]['alt_data_heading'] ?></h3>
+							<p><?php 
+								print $text['meta'][$control['lang']]['alt_data_p1'] .' ';
+								print $text['meta'][$control['lang']]['alt_data_reasons'][$control['show_alt_data_reason']]  .'. ';
+								print '</p><p>';
+								print '<a href="?data_set='.$control['data_set'].'&amp;step=one&amp;lang='. $control['lang'] .'" class="step1_btn btn btn-custom">' . $text['meta'][$control['lang']]['alt_data_click'] .'</a> ';
+								print $text['meta'][$control['lang']]['alt_data_p2'];
+							?></p>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+					<?php } else if (isset($user['like_timeline'])){ ?>
+					<div id="step1_frame_1">
 						
 											
 						<div class="row">
@@ -428,7 +474,7 @@ $branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['p
 						
 					</div>
 					<script>  </script>
-					<?php } else { print '<p>No likes data found</p>'; } ?>
+					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
 					
 					
 					
@@ -545,7 +591,7 @@ $branding .= "<div class='product_callout'>". $text['meta'][$control['lang']]['p
 						
 					</div>
 					<script>  </script>
-					<?php } else { print '<p>No Big5 data found</p>'; } ?>
+					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
 					
 					
 					
@@ -852,8 +898,18 @@ function eval_risk($risk_name){
 							?>
 						</div>
 					</div>
-					<?php } else { print '<p>No Big5 risk data found</p>'; } ?>
+					
+					
+					
+					
+					
+					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
 	
+	
+					<div><br>
+						<?php if($control['player'] == 'yes'){ ?>
+						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button><?php } ?>
+					</div>
 
 				</div>
 				<?php } ?>
@@ -1107,8 +1163,14 @@ function eval_risk($risk_name){
 					</div>
 					
 					
-					<?php } else { print '<p>No Big5 risk data found</p>'; } ?>
 					
+					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
+					
+					
+					<div><br>
+						<?php if($control['player'] == 'yes'){ ?>
+						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button><?php } ?>
+					</div>
 					
 				</div>
 				<?php } ?>
@@ -1145,6 +1207,7 @@ print $scripts;
 	
 // only include FB login for standalone app
 if($control['player'] == 'no'){ 
+	if($control['connected'] == true){ 
 	
 ?>
 	
@@ -1194,16 +1257,16 @@ function checkLoginStatus(response) {
 		*/
 		
 		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
-		$('#fb_login_btn').hide()
+		//$('#fb_login_btn').hide()
 		
 	// not_authorized: Logged into Facebook, but not your app
 	} else if (response.status === 'not_authorized') {
 		console.log('APP: user is logged in BUT has not authorized app');
-		$('#fb_login_btn').show()
+		//$('#fb_login_btn').show()
 	// [else]: Not logged into Facebook / can't tell if they are logged into app	
 	} else {
 		console.log('APP: user is not logged into Facebook');
-		$('#fb_login_btn').show()
+		//$('#fb_login_btn').show()
 	}
 }
 
@@ -1213,7 +1276,7 @@ function login_user(_scope) {
 		// handle the response
 		if (response.authResponse) {
 			// redirect
-			window.location.replace("./?step=one&lang="+lang);
+			window.location.replace("./?data_set=<?php print $control['data_set']?>&amp;step=one&lang="+lang);
 		} else {
 			console.log('APP: User cancelled login or did not fully authorize.');
 		}
@@ -1224,7 +1287,7 @@ function logout_user() {
 	FB.api('/me/permissions', 'DELETE', function(res){
 	    if(res.success === true){
 	        console.log('APP: app deauthorized');
-			window.location.replace("./?step=zero&lang="+lang);
+			window.location.replace("./?data_set=<?php print $control['data_set']?>&amp;step=zero&lang="+lang);
 	    } else if(res.error){
 	        console.log('APP: res.error');
 	        console.error('APP: ' + res.error.type + ': ' + res.error.message);
@@ -1250,7 +1313,7 @@ function checkLoginState() {
 	});
 }
 
-<?php } ?></script>
+<?php }} ?></script>
 
 
 <script>
@@ -1272,6 +1335,9 @@ $('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });
 $('#step1_2_prev_btn').on('click',function(){ step1_frames_event(1) });
 $('#step1_2_next_btn').on('click',function(){ step1_frames_event(3) });
 $('#step1_3_prev_btn').on('click',function(){ step1_frames_event(2) });
+$('#load_alt_data_btn').on('click',function(){  });
+
+
 
 $('#step_one_cover').hide();
 
