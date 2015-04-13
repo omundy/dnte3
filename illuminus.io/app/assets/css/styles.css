@@ -40,7 +40,8 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100; color: #09bc87; }
 
 .fb_btn, .fb_btn:focus, .fb_btn:active, .fb_btn:visited { margin: 30px 0 20px 0; color:#ddd; background: #4864b4; font-size: 101%}
 .fb_btn img { padding: 4px 7px 2px 0}
-#fb_login_btn:hover { background: #5472c5; color: #ddd; }
+#fb_login_btn:hover,#get_fb_data_btn:hover { background: #5472c5; color: #ddd; }
+
 
 .nav_steps,.nav_footer { list-style: none; margin: 30px 0; padding: 0; }
 .nav_steps { border-bottom: 1px solid #222; max-width: 280px }
