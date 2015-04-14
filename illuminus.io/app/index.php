@@ -32,10 +32,15 @@ print $css . '</style>';
 
 
 
-?>	
+?>
+
+
+<div id="page">
+	<div class="row site-main">
 
 		<div class="col-sm-<?php print $content_col; ?> content-col">
 			<div class="inner">
+<<<<<<< HEAD
 		
 		
 				<?php if($control['player'] == 'yes'){ ?>
@@ -150,10 +155,25 @@ if (isset($_SESSION['dnt_user'])){
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text['privacy'][$control['lang']]['0_heading'] ?></h3>							
+=======
+
+
+
+
+
+				<!-- step_zero -->
+				<?php if ($control['step'] = 'zero'){ ?>
+				<div id="step_zero" class="step">
+					<?php if($control['player'] == 'no'){ // put branding on step_zero ?>
+					<div class="row">
+						<div class="col-sm-12 title">
+							<h3><?php print $text[0][$control['lang']]['title'] ?></h3>
+>>>>>>> master
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
+<<<<<<< HEAD
 							
 
 <p>Illuminus is a satirical website created for the documentary series Do Not Track (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  When you log in via Facebook, we access information you have shared on Facebook to build the Illuminus website.  </p>
@@ -326,9 +346,21 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 							} else {
 								
 								print '<p>'. $text[0][$control['lang']]['please_login'] .'.</p>';
+=======
+							<?php if($control['player'] == 'yes'){ // put branding on step_zero ?>
+
+							<img src="assets/img/logo.png" alt="illuminus logo">
+							<div class="product_name"><?php print $text['meta'][$control['lang']]['product_name'] ?></div>
+							<div class="product_callout"><?php print $text['meta'][$control['lang']]['product_callout'] ?></div>
+
+							<?php
+							} else {
+
+>>>>>>> master
 							}
-							
+
 							?>
+<<<<<<< HEAD
 							
 								
 							
@@ -351,11 +383,18 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 							
 							
 							
+=======
+
+							<p>Please log in to Facebook begin risk assessment.</p>
+
+
+>>>>>>> master
 						</div>
 					</div>
 				</div>
 				<?php } ?>
 				<!-- /step_zero -->
+<<<<<<< HEAD
 	
 	
 	
@@ -368,16 +407,41 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	
 				
 				
+=======
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> master
 				<!-- step_one -->
 				<div id="step_one_cover"></div>
 				<?php if ($control['step'] == 'one'){ ?>
 				<div id="step_one" class="step">
+<<<<<<< HEAD
 					
 		
 					
 					<div id="step1_frame_1">
 						
 											
+=======
+
+
+
+
+					<?php if (isset($user['like_timeline'])){ ?>
+					<div id="step1_frame_1">
+
+
+
+>>>>>>> master
 						<div class="row">
 							<div class="col-sm-12 title">
 								<h3><?php print $text[1][$control['lang']]['1_1_heading'] ?></h3>
@@ -388,74 +452,78 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 								<?php } ?>
 							</div>
 						</div>
+<<<<<<< HEAD
 						
 						<?php if (isset($user['like_timeline'])){ ?>
+=======
+
+>>>>>>> master
 						<div class="row">
 							<div class="col-sm-6 left">
-								
-								
+
+
 								<?php
-									
-								// Your social activity reveals a lot about you.	
+
+								// Your social activity reveals a lot about you.
 								print "<p>". $text[1][$control['lang']]['1_1_p1_1'];
-								
+
 								if ( isset($user['me']['age']) || isset($user['me']['gender']) ){
-									
-									// Your profile for instance says that 
+
+									// Your profile for instance says that
 									print " ". $text[1][$control['lang']]['1_1_p1_2'];
-								
+
 									// AGE
 									if ( isset($user['me']['age']) ){
 										// your age is
 										print " ". $text[1][$control['lang']]['1_1_p1_3'];
-										// [AGE] 
+										// [AGE]
 										print ' <span class="udata">'. $user['me']['age'] .'</span>';
 									}
-									
+
 									// and
 									if ( isset($user['me']['age']) && isset($user['me']['gender']) ) print " ". $text[1][$control['lang']]['1_1_p1_4'] ." ";
-									
+
 									// GENDER
 									if ( isset($user['me']['gender']) ){
 										// your gender is
 										print " ". $text[1][$control['lang']]['1_1_p1_5'];
-										// [GENDER] 
+										// [GENDER]
 										print ' <span class="udata">'. $user['me']['gender'] .'</span>';
 									}
-									
+
 									print '.';
 								}
-								
-								
+
+
 								if ( isset($user['likes']) && count($user['likes']) > 0 && isset($user['big5']) ){
 									//report($big5_temp_high);
-									
+
 									// But the real gold mine is your Facebook data over time.
 									print " ". $text[1][$control['lang']]['1_1_p1_6'];
-									
+
 									// By analyzing the [NUMBER OF LIKES]
 									print "<p>". $text[1][$control['lang']]['1_1_p1_7'] . ' <span class="udata">'. count($user['likes']) ."</span> ";
-									
-									// things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in 
+
+									// things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in
 									print $text[1][$control['lang']]['1_1_p1_8'];
-									
+
 									// insert [BIG5]
 									// sort big 5 by value high > low
 									$big5_temp_high = $user['big5'];
 									arsort( $big5_temp_high );
 									$big5_highest = key($big5_temp_high);
 									print ' <span class="udata">'. $big5_highest .'</span>';
-									
+
 									// which indicates you are
 									print " ". $text[1][$control['lang']]['1_1_p1_9'];
-									
+
 									// insert [BIG5 TRAITS]
 									$traits = explode(',',$text['big5'][$control['lang']][$big5_highest]['keywords']);
 									for($i=0; $i<count($traits); $i++){
 										print ' <span class="udata">'. $traits[$i] .'</span>';
 										if ($i < count($traits)-2){
 											print ", ";
-										} else if ($i == count($traits)-2){ 
+										} else if ($i == count($traits)-2){
 											print ", and ";
 										}
 									}
@@ -465,18 +533,18 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 
 									// It may surprise you that your interest in
 									print '<p>'. $text[1][$control['lang']]['1_1_p1_11'];
-									
+
 									$i=0;
 									//report($user['likes']);
 									foreach($user['likes'] as $like_arr){
-									
+
 										if (isset( $like_arr )){
 											print ' <span class="udata">'. $like_arr['name'] .'</span>';
 											if ($i < 2){
 												print ", ";
-											} else if ($i < 3){ 
+											} else if ($i < 3){
 												print ", and ";
-											} else { 
+											} else {
 												break;
 											}
 										}
@@ -484,31 +552,31 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									}
 									// helped us decide who you really are. And these aren’t the only things you’ve liked.
 									print ' '. $text[1][$control['lang']]['1_1_p1_12'];
-									
-									
+
+
 								}
 								//report($user['big5']);
 
 								?>
-								
+
 								<div><br>
 									<button class="step1_btn btn btn-custom" id="step1_1_next_btn"><?php print $text[1][$control['lang']]['1_1_p1_next']; ?></button>
 								</div>
-								
+
 							</div>
-							
-							
+
+
 							<div class="col-sm-6">
-								
+
 								<?php
-																	
+
 									############### LIKE_TIMELINE ###############
-									
+
 									//arsort($user['like_timeline']); // sort by frequency
 									//report($user['like_timeline']);
 									// sort by key
 									ksort($user['like_timeline']); // sort by key
-									
+
 									$str = 'var bar_like_timeline_data = {';
 									// make labels
 									$str .= 'labels: [';
@@ -529,23 +597,29 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									}
 									$str .= ']}]};';
 									$str .= "var ctx = document.getElementById('bar_like_timeline').getContext('2d');
+<<<<<<< HEAD
 											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options); 
 											 $('#step1_frame_1').hide();
 											 \n\n\n";
+=======
+											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options);
+											 $('#step1_frame_1').hide();\n\n\n";
+>>>>>>> master
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
 									print "<div class='chart'><canvas id='bar_like_timeline'></canvas></div>
 										   <div class='chart_caption'>Your likes over time</div>\n
 										   ";
-		
+
 								?>
 							</div>
-							
-							
-							
-							
+
+
+
+
 						</div><!-- row -->
+<<<<<<< HEAD
 						<?php } ?>	
 						
 					</div>
@@ -561,40 +635,57 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 					
 					
 					<?php if (isset($user['like_timeline'])){ ?>
+=======
+
+
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> master
 					<div id="step1_frame_2">
-						
-						
+
+
 						<div class="row">
 							<div class="col-sm-12 title">
 								<h3><?php print $text[1][$control['lang']]['1_2_heading'] ?></h3>
 								<p><?php print $text[1][$control['lang']]['1_2_subheading'] ?>
 							</div>
-						</div>	
-						
-												
-						
+						</div>
+
+
+
 						<div class="row">
 							<div class="col-sm-6 left">
-							
+
 							<p><?php print $text[1][$control['lang']]['1_2_p1_1'] ?></p>
-							
-							
+
+
 							<div><br>
 								<button class="step1_btn btn btn-custom" id="step1_2_prev_btn"><?php print $text[1][$control['lang']]['1_2_p1_back']; ?></button>
 								<button class="step1_btn btn btn-custom" id="step1_2_next_btn"><?php print $text[1][$control['lang']]['1_2_p1_next']; ?></button>
 							</div>
-							
-							
+
+
 							</div>
 							<div class="col-sm-6">
 								<?php
-									
+
 									############### LIKE_CATEGORIES ###############
-									
+
 									arsort($user['like_categories']); // sort by frequency
 									//report($user['like_categories']);
 									//ksort($user['like_categories']); // sort by key
-									
+
 									// create other category
 									if(!array_key_exists('Other',$user['like_categories'])) {
 										$user['like_categories']['Other'] = 0;
@@ -616,13 +707,13 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									$val = $user['like_categories']['Other'];
 									unset($user['like_categories']['Other']);
 									$user['like_categories']['Other'] = $val;
-									
+
 									$colors0 = array('#09bc87','#E5F9E0','#A3F7B5','#40C9A2','#664147');
 									$colors1 = array('#09bc87','#DEE5E5','#9DC5BB','#5E807F','#082D0F');
 									$colors2 = array('#444444','#E0BAD7','#555555','#61D095','#666666','#48BF84','#777777','#F5E3E0','#888888','#E8B4BC','#999999','#D282A6');
 									$colors3 = array('#444444','#555555','#666666','#777777','#888888','#999999');
 									$c = 0;
-									
+
 									$str = 'var donut_like_category_data = [';
 									$str .= "\n";
 									$delimiter = '';
@@ -638,23 +729,30 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 										$delimiter = ', ';
 									}
 									$str .= '];';
+<<<<<<< HEAD
 									$str .= "\n 
 											var donut_chart = document.getElementById('donut_like_category').getContext('2d');
 											var donut_like_category = new Chart(donut_chart).Doughnut(donut_like_category_data, pie_chart_options);
 											$('#step1_frame_2').hide();
 											\n\n";
+=======
+									$str .= "var ctx = document.getElementById('donut_like_category').getContext('2d');
+											 var donut_like_category = new Chart(ctx).Doughnut(donut_like_category_data, pie_chart_options);
+											 $('#step1_frame_3').hide(); \n\n";
+>>>>>>> master
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
 									print "<div class='chart'><canvas id='donut_like_category'></canvas></div>
 										   <div class='chart_caption'>Your likes categories</div>";
-	      
+
 								?>
-								
+
 							</div>
 						</div>
-						
+
 					</div>
+<<<<<<< HEAD
 					<?php }  ?>
 					
 					
@@ -665,64 +763,94 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 					
 					
 					
+=======
+					<script>  </script>
+					<?php } else { print '<p>No likes data found</p>'; } ?>
+
+
+
+
+
+
+
+
+
+>>>>>>> master
 					<?php if (isset($user['big5'])){ ?>
 					<div id="step1_frame_3">
-						
-											
+
+
 						<div class="row">
 							<div class="col-sm-12 title">
 								<h3><?php print $text[1][$control['lang']]['1_3_heading'] ?></h3>
 								<p><?php print $text[1][$control['lang']]['1_3_subheading'] ?>
 							</div>
 						</div>
-						
-						
-						
+
+
+
 						<div class="row">
-							
-							
+
+
 							<div class="col-sm-6">
-		
+
 								<p><?php print $text[1][$control['lang']]['1_3_1'] ?></p>
-								
-								<p><?php 
-								
+
+								<p><?php
+
 								print $text[1][$control['lang']]['1_3_2'];
-								
+
 								print ' <span class="udata">'. $traits[0] .'</span>';
-								// and 
+								// and
 								print ' '. $text[1][$control['lang']]['1_3_3'] .' ';
 								print ' <span class="udata">'. $traits[1] .'</span>.';
+<<<<<<< HEAD
 								
 								?>
 								</p>
 								
+=======
+
+							?></p>
+
+>>>>>>> master
 								<div><br>
 									<button class="step1_btn btn btn-custom" id="step1_3_prev_btn"><?php print $text[1][$control['lang']]['1_2_p1_back']; ?></button>
 								</div>
 							</div>
 							<div class="col-sm-6 left">
-							
+
 								<?php
+<<<<<<< HEAD
 									
 									############### BIG5_RADAR ###############
+=======
+
+									############### BIG5_POLAR ###############
+>>>>>>> master
 									/*
 									foreach($user['big5'] as $key => $val){
 										$newkey = str_replace('BIG5_', '', $key);
 										$user['big5'][$newkey] = $user['big5'][$oldkey];
 										unset($arr[$oldkey]);
-										
-										
+
+
 										print $key;
-										
+
 									}
 									*/
 									$colors0 = array('#09bc87','#E5F9E0','#A3F7B5','#40C9A2','#664147');
 									$colors1 = array('#09bc87','#DEE5E5','#9DC5BB','#5E807F','#082D0F');
 									$c = 0;
+<<<<<<< HEAD
 									
 									
 									$str = "\n\n var radar_big5_data = {";
+=======
+
+
+									$str = 'var polar_big5_data = {';
+>>>>>>> master
 									// make labels
 									$str .= 'labels: [';
 									$delimiter = '';
@@ -742,6 +870,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									}
 									$str .= ']}]};';
 									$str .= "
+<<<<<<< HEAD
 											if (!radar_chart_options) var radar_chart_options = {};
 											radar_chart_options.scaleOverride = true;
 											radar_chart_options.scaleSteps = 2;
@@ -753,25 +882,37 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 											var radar_big5 = new Chart(ctx).Radar(radar_big5_data, radar_chart_options);
 											$('#step1_frame_3').hide();
 											\n\n";
+=======
+
+									polar_chart_options.scaleOverride = true;
+									polar_chart_options.scaleSteps = 2;
+									polar_chart_options.scaleStepWidth = .5;
+									polar_chart_options.scaleStartValue = 0;
+
+									var ctx = document.getElementById('polar_big5').getContext('2d');
+											 var polar_big5 = new Chart(ctx).Radar(polar_big5_data, polar_chart_options);
+											 //$('#step1_frame_3').hide();\n\n";
+>>>>>>> master
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
 									print "<div class='chart'><canvas id='radar_big5'></canvas></div>
 										   <div class='chart_caption'>Your Big5 personality analysis</div>";
-	      
-	      
-	            
+
+
+
 								?>
-								
-								
-								
+
+
+
 							</div>
-							
-						</div>	
-								
-						
+
+						</div>
+
+
 					</div>
 					<script>  </script>
+<<<<<<< HEAD
 					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
 					
 					
@@ -862,6 +1003,33 @@ function eval_risk($risk_name){
 					
 					
 					
+=======
+					<?php } else { print '<p>No Big5 data found</p>'; } ?>
+
+
+
+
+
+
+				</div>
+				<?php } ?>
+				<!-- /step_one -->
+
+
+
+
+
+
+
+
+
+				<!-- step_two -->
+				<?php if ($control['step'] = 'two'){ ?>
+				<div id="step_two" class="step">
+
+
+
+>>>>>>> master
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[2][$control['lang']]['2_heading'] ?></h3>
@@ -890,15 +1058,16 @@ function eval_risk($risk_name){
 							
 						</div>
 					</div>
-					
-					
-					
-					
-					
-					
+
+
+
+
+
+
 					<?php if (isset($user['big5_risk_domains'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
+<<<<<<< HEAD
 							<h4><?php print $text[2][$control['lang']]['2_career_heading'] ?></h4>
 							
 							
@@ -910,13 +1079,18 @@ function eval_risk($risk_name){
 								
 							?></p>
 							
+=======
+							<h4>Career Risk</h4>
+							<p>Your ____ score indicates a ___ risk for ...</p>
+
+>>>>>>> master
 						</div>
 						<div class="col-sm-6">
-							
+
 							<?php
-																
+
 								############### RISK_Career ###############
-								
+
 								$str = 'var bar_risk_career_data = {';
 								// make labels
 								$str .= 'labels: [';
@@ -936,49 +1110,55 @@ function eval_risk($risk_name){
 								foreach($user['big5_risk_domains']['Career'] as $key => $val){
 									$str .= $delimiter.$val;
 									$delimiter = ', ';
-									$str_color_change_str .= "bar_risk_career.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';"; 
-									$str_color_change_str .= "bar_risk_career.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';"; 
+									$str_color_change_str .= "bar_risk_career.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';";
+									$str_color_change_str .= "bar_risk_career.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';";
 								}
 								$str .= ']}]};';
 								$str .= "
-										
+
 										var ctx = document.getElementById('bar_risk_career').getContext('2d');
 										var bar_risk_career = new Chart(ctx).Bar(bar_risk_career_data,{
 										    scaleOverride: true,
 										    scaleSteps: 2,
 										    scaleStepWidth: .5,
-										    scaleStartValue: 0 
+										    scaleStartValue: 0
 										});
-										$str_color_change_str 
+										$str_color_change_str
 										bar_risk_career.update();
-										";		 
-										 
-										 
+										";
+
+
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_career'></canvas></div>
 									   <div class='chart_caption'>Career Risk</div>";
-	
+
 							?>
 						</div>
 					</div>
-					
-					
-					
-					
+
+
+
+
 					<div class="row">
 						<div class="col-sm-6">
+<<<<<<< HEAD
 							<h4><?php print $text[2][$control['lang']]['2_finance_heading'] ?></h4>
 							<p><?php eval_risk('Finance'); ?></p>
 							
+=======
+							<h4>Finance Risk</h4>
+							<p>Your ____ score indicates a ___ risk for ...</p>
+
+>>>>>>> master
 						</div>
 						<div class="col-sm-6">
-							
+
 							<?php
-																
+
 								############### RISK_Finance ###############
-								
+
 								$str = 'var bar_risk_finance_data = {';
 								// make labels
 								$str .= 'labels: [';
@@ -998,8 +1178,8 @@ function eval_risk($risk_name){
 								foreach($user['big5_risk_domains']['Finance'] as $key => $val){
 									$str .= $delimiter.$val;
 									$delimiter = ', ';
-									$str_color_change_str .= "bar_risk_finance.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';"; 
-									$str_color_change_str .= "bar_risk_finance.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';"; 
+									$str_color_change_str .= "bar_risk_finance.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';";
+									$str_color_change_str .= "bar_risk_finance.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';";
 								}
 								$str .= ']}]};';
 								$str .= "var ctx = document.getElementById('bar_risk_finance').getContext('2d');
@@ -1007,37 +1187,43 @@ function eval_risk($risk_name){
 										    scaleOverride: true,
 										    scaleSteps: 2,
 										    scaleStepWidth: .5,
-										    scaleStartValue: 0 
+										    scaleStartValue: 0
 										});
-										$str_color_change_str 
+										$str_color_change_str
 										bar_risk_finance.update();
-										";		 
-										 
+										";
+
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_finance'></canvas></div>
 									   <div class='chart_caption'>Career Risk</div>";
-	
+
 							?>
 						</div>
 					</div>
 
-					
-					
-					
+
+
+
 					<div class="row">
 						<div class="col-sm-6">
+<<<<<<< HEAD
 							<h4><?php print $text[2][$control['lang']]['2_social_heading'] ?></h4>
 							<p><?php eval_risk('Social'); ?></p>
 							
+=======
+							<h4>Social Risk</h4>
+							<p>Your ____ score indicates a ___ risk for ...</p>
+
+>>>>>>> master
 						</div>
 						<div class="col-sm-6">
-							
+
 							<?php
-																
+
 								############### RISK_SOCIAL ###############
-								
+
 								$str = 'var bar_risk_social_data = {';
 								// make labels
 								$str .= 'labels: [';
@@ -1057,33 +1243,34 @@ function eval_risk($risk_name){
 								foreach($user['big5_risk_domains']['Social'] as $key => $val){
 									$str .= $delimiter.$val;
 									$delimiter = ', ';
-									$str_color_change_str .= "bar_risk_social.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';"; 
-									$str_color_change_str .= "bar_risk_social.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';"; 
+									$str_color_change_str .= "bar_risk_social.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';";
+									$str_color_change_str .= "bar_risk_social.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';";
 								}
 								$str .= ']}]};';
 								$str .= "
-										
+
 										var ctx = document.getElementById('bar_risk_social').getContext('2d');
 										var bar_risk_social = new Chart(ctx).Bar(bar_risk_social_data,{
 										    scaleOverride: true,
 										    scaleSteps: 2,
 										    scaleStepWidth: .5,
-										    scaleStartValue: 0 
+										    scaleStartValue: 0
 										});
-										$str_color_change_str 
+										$str_color_change_str
 										bar_risk_social.update();
-										";		 
-										 
-										 
+										";
+
+
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_social'></canvas></div>
 									   <div class='chart_caption'>Social Risk</div>";
-	
+
 							?>
 						</div>
 					</div>
+<<<<<<< HEAD
 					
 					
 					
@@ -1096,10 +1283,15 @@ function eval_risk($risk_name){
 						<?php if($control['player'] == 'yes'){ ?>
 						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button><?php } ?>
 					</div>
+=======
+					<?php } else { print '<p>No Big5 risk data found</p>'; } ?>
+
+>>>>>>> master
 
 				</div>
 				<?php } ?>
 				<!-- / step_two -->
+<<<<<<< HEAD
 	
 				
 	
@@ -1114,11 +1306,23 @@ function eval_risk($risk_name){
 						
 						
 			
+=======
+
+
+
+
+
+
+
+
+
+
+>>>>>>> master
 				<!-- step_three -->
 				<?php if ($control['step'] == 'three'){ ?>
 				<div id="step_three" class="step">
-					
-					
+
+
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[3][$control['lang']]['3_heading'] ?></h3>
@@ -1161,27 +1365,33 @@ function eval_risk($risk_name){
 							
 						</div>
 					</div>
-					
-					
-					
+
+
+
 					<?php if (isset($user['big5_risk_domains'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
+<<<<<<< HEAD
 							<h4><?php print $text[3][$control['lang']]['3_health_heading'] ?></h4>
 							<p><?php eval_risk('Health'); ?></p>
 							
+=======
+							<h4>Health Risk</h4>
+							<p>Your Openness score indicates a high risk for sexually transmitted diseases and other bad things. You are 37% more likely to be friendly to a stranger. Your predisposition to risky behavior will likely have bad effects on our bottom line.</p>
+
+>>>>>>> master
 						</div>
 						<div class="col-sm-6">
-							
+
 							<?php
-																
+
 								############### RISK_HEALTH ###############
-								
+
 								//arsort($user['big5_risk_domains']['Health']); // sort by frequency
 								//report($user['big5_risk_domains']['Health']);
 								// sort by key
 								//ksort($user['big5_risk_domains']['Health']); // sort by key
-								
+
 								$str = 'var bar_risk_health_data = {';
 								// make labels
 								$str .= 'labels: [';
@@ -1201,49 +1411,55 @@ function eval_risk($risk_name){
 								foreach($user['big5_risk_domains']['Health'] as $key => $val){
 									$str .= $delimiter.$val;
 									$delimiter = ', ';
-									$str_color_change_str .= "bar_risk_health.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';"; 
-									$str_color_change_str .= "bar_risk_health.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';"; 
+									$str_color_change_str .= "bar_risk_health.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';";
+									$str_color_change_str .= "bar_risk_health.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';";
 								}
 								$str .= ']}]};';
 								$str .= "
-										
+
 										var ctx = document.getElementById('bar_risk_health').getContext('2d');
 										var bar_risk_health = new Chart(ctx).Bar(bar_risk_health_data,{
 										    scaleOverride: true,
 										    scaleSteps: 2,
 										    scaleStepWidth: .5,
-										    scaleStartValue: 0 
+										    scaleStartValue: 0
 										});
-										$str_color_change_str 
+										$str_color_change_str
 										bar_risk_health.update();
-										";		 
-										 
-										 
+										";
+
+
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_health'></canvas></div>
 									   <div class='chart_caption'>Health Risk</div>";
-	
+
 							?>
-						
+
 						</div>
 					</div>
-					
-					
-					
+
+
+
 					<div class="row">
 						<div class="col-sm-6">
+<<<<<<< HEAD
 							<h4><?php print $text[3][$control['lang']]['3_safety_heading'] ?></h4>
 							<p><?php eval_risk('Safety'); ?></p>
 							
+=======
+							<h4>Safety Risk</h4>
+							<p>Your ____ score indicates a ___ risk for ...</p>
+
+>>>>>>> master
 						</div>
 						<div class="col-sm-6">
-							
+
 							<?php
-																
+
 								############### RISK_SAFETY ###############
-								
+
 								$str = 'var bar_risk_safety_data = {';
 								// make labels
 								$str .= 'labels: [';
@@ -1263,49 +1479,55 @@ function eval_risk($risk_name){
 								foreach($user['big5_risk_domains']['Safety'] as $key => $val){
 									$str .= $delimiter.$val;
 									$delimiter = ', ';
-									$str_color_change_str .= "bar_risk_safety.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';"; 
-									$str_color_change_str .= "bar_risk_safety.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';"; 
+									$str_color_change_str .= "bar_risk_safety.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';";
+									$str_color_change_str .= "bar_risk_safety.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';";
 								}
 								$str .= ']}]};';
 								$str .= "
-										
+
 										var ctx = document.getElementById('bar_risk_safety').getContext('2d');
 										var bar_risk_safety = new Chart(ctx).Bar(bar_risk_safety_data,{
 										    scaleOverride: true,
 										    scaleSteps: 2,
 										    scaleStepWidth: .5,
-										    scaleStartValue: 0 
+										    scaleStartValue: 0
 										});
-										$str_color_change_str 
+										$str_color_change_str
 										bar_risk_safety.update();
-										";		 
-										 
-										 
+										";
+
+
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_safety'></canvas></div>
 									   <div class='chart_caption'>Safety Risk</div>";
-	
+
 							?>
-						
+
 						</div>
 					</div>
-					
-					
-					
+
+
+
 					<div class="row">
 						<div class="col-sm-6">
+<<<<<<< HEAD
 							<h4><?php print $text[3][$control['lang']]['3_recreation_heading'] ?></h4>
 							<p><?php eval_risk('Recreation'); ?></p>
 							
+=======
+							<h4>Recreation Risk</h4>
+							<p>Your ____ score indicates a ___ risk for ...</p>
+
+>>>>>>> master
 						</div>
 						<div class="col-sm-6">
-							
+
 							<?php
-																
+
 								############### RISK_recreation ###############
-								
+
 								$str = 'var bar_risk_recreation_data = {';
 								// make labels
 								$str .= 'labels: [';
@@ -1325,34 +1547,35 @@ function eval_risk($risk_name){
 								foreach($user['big5_risk_domains']['Recreation'] as $key => $val){
 									$str .= $delimiter.$val;
 									$delimiter = ', ';
-									$str_color_change_str .= "bar_risk_recreation.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';"; 
-									$str_color_change_str .= "bar_risk_recreation.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';"; 
+									$str_color_change_str .= "bar_risk_recreation.datasets[0].bars[".$i."].fillColor = '". get_risk_color($val) ."';";
+									$str_color_change_str .= "bar_risk_recreation.datasets[0].bars[".$i++."].highlightFill = '". get_risk_color($val) ."';";
 								}
 								$str .= ']}]};';
 								$str .= "
-										
+
 										var ctx = document.getElementById('bar_risk_recreation').getContext('2d');
 										var bar_risk_recreation = new Chart(ctx).Bar(bar_risk_recreation_data,{
 										    scaleOverride: true,
 										    scaleSteps: 2,
 										    scaleStepWidth: .5,
-										    scaleStartValue: 0 
+										    scaleStartValue: 0
 										});
-										$str_color_change_str 
+										$str_color_change_str
 										bar_risk_recreation.update();
-										";		 
-										 
-										 
+										";
+
+
 								// store script for printing below
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_recreation'></canvas></div>
 									   <div class='chart_caption'>Recreation Risk</div>";
-	
+
 							?>
-						
+
 						</div>
 					</div>
+<<<<<<< HEAD
 					
 					
 					
@@ -1364,6 +1587,13 @@ function eval_risk($risk_name){
 						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button><?php } ?>
 					</div>
 					
+=======
+
+
+					<?php } else { print '<p>No Big5 risk data found</p>'; } ?>
+
+
+>>>>>>> master
 				</div>
 				<?php } ?>
 				<!-- /step_three -->
@@ -1372,13 +1602,13 @@ function eval_risk($risk_name){
 
 
 
-	
-	
+
+
 			</div><!-- /.inner -->
 		</div><!-- /.content-col -->
 
 <?php
-	
+
 include_once('templates/footer.php');
 
 
@@ -1387,11 +1617,20 @@ include_once('templates/footer.php');
 
 <script>
 
+<<<<<<< HEAD
 	
 	
 <?php 
 	
 print $scripts;
+=======
+
+
+<?php
+
+// only include FB login for standalone app
+if($control['player'] == 'no'){
+>>>>>>> master
 
 ?>
 
@@ -1400,7 +1639,7 @@ print $scripts;
  *	Facebook
  */
 
-// load the Javascript SDK 
+// load the Javascript SDK
 (function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) return;
@@ -1419,7 +1658,7 @@ window.fbAsyncInit = function() {
 	});
 	// check login
 	FB.getLoginStatus(checkLoginStatus, true);
-	
+
 };
 
 
@@ -1427,27 +1666,37 @@ window.fbAsyncInit = function() {
 // check login status
 function checkLoginStatus(response) {
 	//console.log(response);
-	
+
 	// connected: Logged into your app
 	if(response && response.status == 'connected') {
 		var userID = response.authResponse.userID;
 		var accessToken = response.authResponse.accessToken;
-		
+
 		// confirm accessToken works
 		/*
 		var call ='/debug_token?input_token='+accessToken+'&access_token=761116317308745';
 		console.log(call)
 		FB.api(call, 'GET', function(response){
 				console.log(JSON.stringify(response));
-		}); 
+		});
 		*/
-		
+
 		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
+<<<<<<< HEAD
 		
 	// not_authorized: Logged into Facebook, but not your app
 	} else if (response.status === 'not_authorized') {
 		console.log('APP: user is logged in BUT has not authorized app');
 	// [else]: Not logged into Facebook / can't tell if they are logged into app	
+=======
+		$('#fb_login_btn').css('display','none')
+
+	// not_authorized: Logged into Facebook, but not your app
+	} else if (response.status === 'not_authorized') {
+		console.log('APP: user is logged in BUT has not authorized app');
+		$('#fb_login_btn').css('display','block')
+	// [else]: Not logged into Facebook / can't tell if they are logged into app
+>>>>>>> master
 	} else {
 		console.log('APP: user is not logged into Facebook');
 	}
@@ -1477,7 +1726,7 @@ function logout_user() {
 	    } else {
 	        console.log('APP: '+res);
 	    }
-	}); 
+	});
 }
 
 
@@ -1485,7 +1734,7 @@ function logout_user() {
 
 
 
-console.log('step: '+ step +' - lang: '+ lang); 
+console.log('step: '+ step +' - lang: '+ lang);
 
 
 // Called when someone finishes with the Login Button. See the onlogin handler attached to it in the sample code.
@@ -1497,7 +1746,12 @@ function checkLoginState() {
 
 
 
+<<<<<<< HEAD
 				
+=======
+<script>
+
+>>>>>>> master
 function step1_frames_event(frame){
 	// hide
 	for(var i=1; i<=3; i++){
@@ -1507,8 +1761,13 @@ function step1_frames_event(frame){
 		frame = 1;
 	}
 	$('#step1_frame_'+frame).show();
+<<<<<<< HEAD
 }	
 step1_frames_event(1);
+=======
+}
+step1_frames_event();
+>>>>>>> master
 
 
 $('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });
