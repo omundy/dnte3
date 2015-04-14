@@ -131,17 +131,12 @@ $text = array(
 			// insert [BIG5 CATEGORIES]
 			'1_1_p1_9' => 'which indicates you are',
 			// insert [BIG5 TRAITS]
-<<<<<<< HEAD
+
 			'1_1_p1_10' => 'Our personality evaluation system uses Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>.', 
 			'1_1_p1_11' => 'It may surprise you that your interest in', 
 			// [likes]
 			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-=======
-			'1_1_p1_10' => 'Our system uses the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce</a> personality evaluation system developed by the world’s leading scientists.',
-			'1_1_p1_11' => 'It may surprise you that your interest in',
-			// [likes]
-			'1_1_p1_12' => 'helped us decide who you really are. And these aren’t the only things you’ve liked.',
->>>>>>> master
+
 			'1_1_p1_next' => 'Discover what we know about your interests',
 			// page 2
 			'1_2_heading' => 'Your Interests',
@@ -251,15 +246,11 @@ $text = array(
 			'2_social_heading' => 'Social Risk',
 		),
 	),
-<<<<<<< HEAD
-	
-	
-	
-	
-	
-=======
 
->>>>>>> master
+
+
+
+
 	// step 3 - Health Risk Evaluation
 	array(
 		'CA' => array(
@@ -488,7 +479,7 @@ $text = array(
 			'get_started_btn' => 'Get started',
 			
 		),
-<<<<<<< HEAD
+
 		
 	),
 	
@@ -545,10 +536,7 @@ $text = array(
 			'0_heading' => 'Credits',
 			'1_thankyou' => 'Thank you',
 		),
-=======
 
-
->>>>>>> master
 	),
 
 

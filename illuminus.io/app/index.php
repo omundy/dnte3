@@ -40,7 +40,7 @@ print $css . '</style>';
 
 		<div class="col-sm-<?php print $content_col; ?> content-col">
 			<div class="inner">
-<<<<<<< HEAD
+
 		
 		
 				<?php if($control['player'] == 'yes'){ ?>
@@ -155,25 +155,12 @@ if (isset($_SESSION['dnt_user'])){
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text['privacy'][$control['lang']]['0_heading'] ?></h3>							
-=======
 
-
-
-
-
-				<!-- step_zero -->
-				<?php if ($control['step'] = 'zero'){ ?>
-				<div id="step_zero" class="step">
-					<?php if($control['player'] == 'no'){ // put branding on step_zero ?>
-					<div class="row">
-						<div class="col-sm-12 title">
-							<h3><?php print $text[0][$control['lang']]['title'] ?></h3>
->>>>>>> master
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-<<<<<<< HEAD
+
 							
 
 <p>Illuminus is a satirical website created for the documentary series Do Not Track (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  When you log in via Facebook, we access information you have shared on Facebook to build the Illuminus website.  </p>
@@ -346,21 +333,11 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 							} else {
 								
 								print '<p>'. $text[0][$control['lang']]['please_login'] .'.</p>';
-=======
-							<?php if($control['player'] == 'yes'){ // put branding on step_zero ?>
 
-							<img src="assets/img/logo.png" alt="illuminus logo">
-							<div class="product_name"><?php print $text['meta'][$control['lang']]['product_name'] ?></div>
-							<div class="product_callout"><?php print $text['meta'][$control['lang']]['product_callout'] ?></div>
-
-							<?php
-							} else {
-
->>>>>>> master
 							}
 
 							?>
-<<<<<<< HEAD
+
 							
 								
 							
@@ -383,31 +360,12 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 							
 							
 							
-=======
 
-							<p>Please log in to Facebook begin risk assessment.</p>
-
-
->>>>>>> master
 						</div>
 					</div>
 				</div>
 				<?php } ?>
 				<!-- /step_zero -->
-<<<<<<< HEAD
-	
-	
-	
-	
-	
-	
-	
-		
-	
-	
-				
-				
-=======
 
 
 
@@ -419,29 +377,17 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 
 
 
->>>>>>> master
 				<!-- step_one -->
 				<div id="step_one_cover"></div>
 				<?php if ($control['step'] == 'one'){ ?>
 				<div id="step_one" class="step">
-<<<<<<< HEAD
+
 					
 		
 					
 					<div id="step1_frame_1">
 						
-											
-=======
 
-
-
-
-					<?php if (isset($user['like_timeline'])){ ?>
-					<div id="step1_frame_1">
-
-
-
->>>>>>> master
 						<div class="row">
 							<div class="col-sm-12 title">
 								<h3><?php print $text[1][$control['lang']]['1_1_heading'] ?></h3>
@@ -452,12 +398,10 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 								<?php } ?>
 							</div>
 						</div>
-<<<<<<< HEAD
+
 						
 						<?php if (isset($user['like_timeline'])){ ?>
-=======
 
->>>>>>> master
 						<div class="row">
 							<div class="col-sm-6 left">
 
@@ -597,14 +541,11 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									}
 									$str .= ']}]};';
 									$str .= "var ctx = document.getElementById('bar_like_timeline').getContext('2d');
-<<<<<<< HEAD
+
 											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options); 
 											 $('#step1_frame_1').hide();
 											 \n\n\n";
-=======
-											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options);
-											 $('#step1_frame_1').hide();\n\n\n";
->>>>>>> master
+
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
@@ -619,7 +560,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 
 
 						</div><!-- row -->
-<<<<<<< HEAD
+
 						<?php } ?>	
 						
 					</div>
@@ -635,23 +576,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 					
 					
 					<?php if (isset($user['like_timeline'])){ ?>
-=======
 
-
-					</div>
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> master
 					<div id="step1_frame_2">
 
 
@@ -729,17 +654,13 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 										$delimiter = ', ';
 									}
 									$str .= '];';
-<<<<<<< HEAD
+
 									$str .= "\n 
 											var donut_chart = document.getElementById('donut_like_category').getContext('2d');
 											var donut_like_category = new Chart(donut_chart).Doughnut(donut_like_category_data, pie_chart_options);
 											$('#step1_frame_2').hide();
 											\n\n";
-=======
-									$str .= "var ctx = document.getElementById('donut_like_category').getContext('2d');
-											 var donut_like_category = new Chart(ctx).Doughnut(donut_like_category_data, pie_chart_options);
-											 $('#step1_frame_3').hide(); \n\n";
->>>>>>> master
+
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
@@ -752,7 +673,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 						</div>
 
 					</div>
-<<<<<<< HEAD
+
 					<?php }  ?>
 					
 					
@@ -762,20 +683,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 					
 					
 					
-					
-=======
-					<script>  </script>
-					<?php } else { print '<p>No likes data found</p>'; } ?>
 
-
-
-
-
-
-
-
-
->>>>>>> master
 					<?php if (isset($user['big5'])){ ?>
 					<div id="step1_frame_3">
 
@@ -804,16 +712,12 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 								// and
 								print ' '. $text[1][$control['lang']]['1_3_3'] .' ';
 								print ' <span class="udata">'. $traits[1] .'</span>.';
-<<<<<<< HEAD
+
 								
 								?>
 								</p>
 								
-=======
 
-							?></p>
-
->>>>>>> master
 								<div><br>
 									<button class="step1_btn btn btn-custom" id="step1_3_prev_btn"><?php print $text[1][$control['lang']]['1_2_p1_back']; ?></button>
 								</div>
@@ -821,13 +725,10 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 							<div class="col-sm-6 left">
 
 								<?php
-<<<<<<< HEAD
+
 									
 									############### BIG5_RADAR ###############
-=======
 
-									############### BIG5_POLAR ###############
->>>>>>> master
 									/*
 									foreach($user['big5'] as $key => $val){
 										$newkey = str_replace('BIG5_', '', $key);
@@ -842,15 +743,11 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									$colors0 = array('#09bc87','#E5F9E0','#A3F7B5','#40C9A2','#664147');
 									$colors1 = array('#09bc87','#DEE5E5','#9DC5BB','#5E807F','#082D0F');
 									$c = 0;
-<<<<<<< HEAD
+
 									
 									
 									$str = "\n\n var radar_big5_data = {";
-=======
 
-
-									$str = 'var polar_big5_data = {';
->>>>>>> master
 									// make labels
 									$str .= 'labels: [';
 									$delimiter = '';
@@ -870,7 +767,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									}
 									$str .= ']}]};';
 									$str .= "
-<<<<<<< HEAD
+
 											if (!radar_chart_options) var radar_chart_options = {};
 											radar_chart_options.scaleOverride = true;
 											radar_chart_options.scaleSteps = 2;
@@ -882,17 +779,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 											var radar_big5 = new Chart(ctx).Radar(radar_big5_data, radar_chart_options);
 											$('#step1_frame_3').hide();
 											\n\n";
-=======
 
-									polar_chart_options.scaleOverride = true;
-									polar_chart_options.scaleSteps = 2;
-									polar_chart_options.scaleStepWidth = .5;
-									polar_chart_options.scaleStartValue = 0;
-
-									var ctx = document.getElementById('polar_big5').getContext('2d');
-											 var polar_big5 = new Chart(ctx).Radar(polar_big5_data, polar_chart_options);
-											 //$('#step1_frame_3').hide();\n\n";
->>>>>>> master
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
@@ -912,7 +799,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 
 					</div>
 					<script>  </script>
-<<<<<<< HEAD
+
 					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
 					
 					
@@ -1003,33 +890,7 @@ function eval_risk($risk_name){
 					
 					
 					
-=======
-					<?php } else { print '<p>No Big5 data found</p>'; } ?>
 
-
-
-
-
-
-				</div>
-				<?php } ?>
-				<!-- /step_one -->
-
-
-
-
-
-
-
-
-
-				<!-- step_two -->
-				<?php if ($control['step'] = 'two'){ ?>
-				<div id="step_two" class="step">
-
-
-
->>>>>>> master
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[2][$control['lang']]['2_heading'] ?></h3>
@@ -1067,7 +928,7 @@ function eval_risk($risk_name){
 					<?php if (isset($user['big5_risk_domains'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
-<<<<<<< HEAD
+
 							<h4><?php print $text[2][$control['lang']]['2_career_heading'] ?></h4>
 							
 							
@@ -1079,11 +940,7 @@ function eval_risk($risk_name){
 								
 							?></p>
 							
-=======
-							<h4>Career Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
 
->>>>>>> master
 						</div>
 						<div class="col-sm-6">
 
@@ -1143,15 +1000,11 @@ function eval_risk($risk_name){
 
 					<div class="row">
 						<div class="col-sm-6">
-<<<<<<< HEAD
+
 							<h4><?php print $text[2][$control['lang']]['2_finance_heading'] ?></h4>
 							<p><?php eval_risk('Finance'); ?></p>
 							
-=======
-							<h4>Finance Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
 
->>>>>>> master
 						</div>
 						<div class="col-sm-6">
 
@@ -1208,15 +1061,11 @@ function eval_risk($risk_name){
 
 					<div class="row">
 						<div class="col-sm-6">
-<<<<<<< HEAD
+
 							<h4><?php print $text[2][$control['lang']]['2_social_heading'] ?></h4>
 							<p><?php eval_risk('Social'); ?></p>
 							
-=======
-							<h4>Social Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
 
->>>>>>> master
 						</div>
 						<div class="col-sm-6">
 
@@ -1270,7 +1119,7 @@ function eval_risk($risk_name){
 							?>
 						</div>
 					</div>
-<<<<<<< HEAD
+
 					
 					
 					
@@ -1283,15 +1132,12 @@ function eval_risk($risk_name){
 						<?php if($control['player'] == 'yes'){ ?>
 						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button><?php } ?>
 					</div>
-=======
-					<?php } else { print '<p>No Big5 risk data found</p>'; } ?>
 
->>>>>>> master
 
 				</div>
 				<?php } ?>
 				<!-- / step_two -->
-<<<<<<< HEAD
+
 	
 				
 	
@@ -1306,18 +1152,7 @@ function eval_risk($risk_name){
 						
 						
 			
-=======
 
-
-
-
-
-
-
-
-
-
->>>>>>> master
 				<!-- step_three -->
 				<?php if ($control['step'] == 'three'){ ?>
 				<div id="step_three" class="step">
@@ -1371,15 +1206,11 @@ function eval_risk($risk_name){
 					<?php if (isset($user['big5_risk_domains'])){ ?>
 					<div class="row">
 						<div class="col-sm-6">
-<<<<<<< HEAD
+
 							<h4><?php print $text[3][$control['lang']]['3_health_heading'] ?></h4>
 							<p><?php eval_risk('Health'); ?></p>
 							
-=======
-							<h4>Health Risk</h4>
-							<p>Your Openness score indicates a high risk for sexually transmitted diseases and other bad things. You are 37% more likely to be friendly to a stranger. Your predisposition to risky behavior will likely have bad effects on our bottom line.</p>
 
->>>>>>> master
 						</div>
 						<div class="col-sm-6">
 
@@ -1444,15 +1275,11 @@ function eval_risk($risk_name){
 
 					<div class="row">
 						<div class="col-sm-6">
-<<<<<<< HEAD
+
 							<h4><?php print $text[3][$control['lang']]['3_safety_heading'] ?></h4>
 							<p><?php eval_risk('Safety'); ?></p>
 							
-=======
-							<h4>Safety Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
 
->>>>>>> master
 						</div>
 						<div class="col-sm-6">
 
@@ -1512,15 +1339,11 @@ function eval_risk($risk_name){
 
 					<div class="row">
 						<div class="col-sm-6">
-<<<<<<< HEAD
+
 							<h4><?php print $text[3][$control['lang']]['3_recreation_heading'] ?></h4>
 							<p><?php eval_risk('Recreation'); ?></p>
 							
-=======
-							<h4>Recreation Risk</h4>
-							<p>Your ____ score indicates a ___ risk for ...</p>
 
->>>>>>> master
 						</div>
 						<div class="col-sm-6">
 
@@ -1575,7 +1398,7 @@ function eval_risk($risk_name){
 
 						</div>
 					</div>
-<<<<<<< HEAD
+
 					
 					
 					
@@ -1587,13 +1410,7 @@ function eval_risk($risk_name){
 						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta'][$control['lang']]['resume_video']; ?></button><?php } ?>
 					</div>
 					
-=======
 
-
-					<?php } else { print '<p>No Big5 risk data found</p>'; } ?>
-
-
->>>>>>> master
 				</div>
 				<?php } ?>
 				<!-- /step_three -->
@@ -1617,20 +1434,13 @@ include_once('templates/footer.php');
 
 <script>
 
-<<<<<<< HEAD
+
 	
 	
 <?php 
 	
 print $scripts;
-=======
 
-
-<?php
-
-// only include FB login for standalone app
-if($control['player'] == 'no'){
->>>>>>> master
 
 ?>
 
@@ -1682,21 +1492,13 @@ function checkLoginStatus(response) {
 		*/
 
 		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
-<<<<<<< HEAD
+
 		
 	// not_authorized: Logged into Facebook, but not your app
 	} else if (response.status === 'not_authorized') {
 		console.log('APP: user is logged in BUT has not authorized app');
 	// [else]: Not logged into Facebook / can't tell if they are logged into app	
-=======
-		$('#fb_login_btn').css('display','none')
 
-	// not_authorized: Logged into Facebook, but not your app
-	} else if (response.status === 'not_authorized') {
-		console.log('APP: user is logged in BUT has not authorized app');
-		$('#fb_login_btn').css('display','block')
-	// [else]: Not logged into Facebook / can't tell if they are logged into app
->>>>>>> master
 	} else {
 		console.log('APP: user is not logged into Facebook');
 	}
@@ -1746,12 +1548,9 @@ function checkLoginState() {
 
 
 
-<<<<<<< HEAD
-				
-=======
-<script>
 
->>>>>>> master
+				
+
 function step1_frames_event(frame){
 	// hide
 	for(var i=1; i<=3; i++){
@@ -1761,13 +1560,10 @@ function step1_frames_event(frame){
 		frame = 1;
 	}
 	$('#step1_frame_'+frame).show();
-<<<<<<< HEAD
+
 }	
 step1_frames_event(1);
-=======
-}
-step1_frames_event();
->>>>>>> master
+
 
 
 $('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });
