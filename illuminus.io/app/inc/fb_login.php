@@ -1,61 +1,7 @@
 <?php
-	
-// for reporting what is going on
-$control = array();
-
-// figure out what domain we're on
-if (isset($_SERVER['HTTP_HOST'])){
-	$search = array('https://','http://','www');
-	$control['domain'] = str_replace($search,'',$_SERVER['HTTP_HOST']);
-} else {
-	$control['domain'] = 'dnt.dev';
-}
-
-// get lang / step
-if(isset($_GET['lang']) && isset($_GET['step'])) { 
-	$control['step'] = $_GET['step'];
-	$control['lang'] = $_GET['lang'];
-} else {
-	$control['step'] = 'zero';
-	$control['lang'] = 'EN';
-}
-
-// get player
-if(isset($_GET['player']) && $_GET['player'] == 'yes'){
-	$control['player'] = 'yes';
-} else {
-	// standalone app
-	$control['player'] = 'no';
-}; 
-
-// store all scripts to include once html is loaded
-$scripts = '';
-$scripts .= "\n var step = '". $control['step'] ."';";
-$scripts .= "\n var lang = '". $control['lang'] ."';";
-$scripts .= "\n var player = '". $control['player'] ."'; \n\n";
 
 
 
-
-// init session
-session_start();
-// for all user data
-$user = array();
-// all chart colors
-$chart_colors = 'fillColor: "rgba(100,100,100,1)", strokeColor: "rgba(0,0,0,0)", highlightFill: "rgba(10,188,136,.75)", highlightStroke: "rgba(0,0,0,0)", ';
-// global functions
-require_once('inc/om_functions.php');
-//report($_SESSION);
-
-// check if all user data is already in a session for testing
-if (isset($_SESSION['dnt_user'])){
-	$user = $_SESSION['dnt_user'];
-	$control['dnt_user_session'] = 'previous dnt_user session found';
-	//report($_SESSION);
-	//die();
-} else {	
-	$control['dnt_user_session'] = 'NO dnt_user session found';
-}
 
 // FB namespaces (cannot be put in conditional statement)
 use Facebook\FacebookSession;
@@ -74,40 +20,165 @@ use Facebook\HttpClients\FacebookCurl;
 use Facebook\HttpClients\FacebookHttpable;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 
-// now determine if we'd like to login
+
+// for reporting / recording states
+$control = array();
+
+// figure out what domain we're on
+if (isset($_SERVER['HTTP_HOST'])){
+	$search = array('https://','http://','www');
+	$control['domain'] = str_replace($search,'',$_SERVER['HTTP_HOST']);
+} else {
+	$control['domain'] = 'dnt.dev';
+}
 
 
+// which data_set to show
+if(isset($_GET['data_set'])){
+	$control['data_set'] = $_GET['data_set'];
+} else {
+	// default to sample
+	$control['data_set'] = 'sample';
+}; 
+
+// get lang / step
+if(isset($_GET['lang']) && isset($_GET['step'])) { 
+	$control['step'] = $_GET['step'];
+	$control['lang'] = $_GET['lang'];
+} else {
+	$control['step'] = 'zero';
+	$control['lang'] = 'EN';
+}
+
+// get player
+if(isset($_GET['player']) && $_GET['player'] == 'yes'){
+	// app is loaded in player
+	$control['player'] = 'yes';
+} else {
+	// standalone app
+	$control['player'] = 'no';
+}; 
+
+
+
+
+
+
+$control['show_alt_data_reason'] = '';
+
+
+$control['fb_error'] = '';
+
+// store all scripts to include once html is loaded
+$scripts = '';
+$scripts .= "var step = '". $control['step'] ."';\n ";
+$scripts .= "var lang = '". $control['lang'] ."';\n ";
+$scripts .= "var player = '". $control['player'] ."'; \n\n";
+
+
+
+
+/*
+	
+
+1. First run, no data_set	
+
+illuminus.io/app/?data_set=user&step=zero&lang=EN
+
+
+*/
+
+
+// init session
+session_start();
+//report($_SESSION);
+
+//unset($_SESSION['dnt_user']);
+
+// for all user data
+$user = array();
+
+// global functions
+require_once('inc/om_functions.php');
+
+// CHECK IF THEY ARE LOGGED INTO APP
+require_once('inc/fb_config.php');
+require_once('inc/fb_functions.php');
+require_once('inc/fb_api_calls.php');
+require_once('inc/facebook-php-sdk-v4/autoload.php');
+
+// create Facebook
+FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
+
+// JavaScriptLoginHelper for including app in iframe
+$helper = new FacebookJavaScriptLoginHelper();
+try {
+	$session = $helper->getSession();
+} catch(FacebookRequestException $ex) {
+	// When Facebook returns an error
+	$control['fb_error'] = $ex->getMessage();
+	$control['show_alt_data_reason'] = 'notloggedin';
+} catch(\Exception $ex) {
+	// When validation fails or other local issues
+	$control['fb_error'] = $ex->getMessage();
+	$control['show_alt_data_reason'] = 'notloggedin';
+}
+
+// if FB session
+if (isset($session) && $session) {
+	$control['fb_login_state'] = 'yes';
+} else {
+	$control['fb_login_state'] = 'no';
+	$control['show_alt_data_reason'] = 'notloggedin';
+	$scripts .= "console.log('Could not login: ". $control['fb_error'] ."'); \n";
+}
+
+
+
+
+
+
+
+	
+		
+
+if ( $control['step'] == 'credits' ){
+	// do nothing
+} else if ( $control['step'] == 'privacy' ){
+	// do nothing
+} 
 // connect to FB, get data, analyze
-if ($control['step'] == 'one'){
-//if ($control['step'] == 'blah'){
+else if ($control['fb_login_state'] == 'yes') {
+
+}
+
+
+
+//report($control,150);	
 	
-	$control['fb_get_data'] = 'true';
-		
-	require_once('inc/fb_config.php');
-	require_once('inc/fb_functions.php');
-	require_once('inc/fb_api_calls.php');
-	require_once('inc/facebook-php-sdk-v4/autoload.php');
-		
-	// create Facebook
-	FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
+
+
+// attempt to get sample data
+if ( $control['step'] == 'load_data_sample'){
 	
-	// JavaScriptLoginHelper for including app in iframe
-	$helper = new FacebookJavaScriptLoginHelper();
-	try {
-		$session = $helper->getSession();
-	} catch(FacebookRequestException $ex) {
-		// When Facebook returns an error
-		//echo $ex->getMessage();
-	} catch(\Exception $ex) {
-		// When validation fails or other local issues
-		//echo $ex->getMessage();
-	}
+	// use sample user data
+	$json = file_get_contents('inc/default_user.json');
+	$user = (Array)json_decode($json,true);
+
+	// make that the user
+	$_SESSION['dnt_user'] = $user;
+
+	//report($user);
+	//exit();
+	header('Location: ./?data_set=sample&step=one&lang='.$control['lang'].'&player='.$control['player']);
+
+}
+// attempt to get FB data
+else if ( $control['step'] == 'load_data_fb'){
+	
 	// if we were able to login
 	if (isset($session) && $session) {
-		
-		$control['fb_login_state'] = 'yes';
-		
-		
+
 		
 		/* GET ALL THE FB DATA WE NEED FOR THE APP */
 		
@@ -119,6 +190,10 @@ if ($control['step'] == 'one'){
 		// make sure birthday was granted
 		if (isset($user['permissions']['user_birthday']) == 'granted') $str .= ',birthday';
 		$user['me'] = fb_call_basic($str);
+		
+		// get photo
+		$user['me']['photo'] = fb_photo_thumb_url();
+		
 		
 		// GENDER
 		if ( !isset($user['me']['gender']) ){
@@ -156,68 +231,75 @@ if ($control['step'] == 'one'){
 				
 				// report
 				$control['retrieve_fb_likes_data'] = 'true';
+				
+	
+	
+	
+	
+				// COUNT LIKES
+						
+				// like timeline
+				$user['like_timeline'] = array();
+				// like categories
+				$user['like_categories'] = array();
+				
+				// loop through likes
+				foreach ($user['likes'] as $key => $arr){
+					
+					$time = strtotime($arr['created_time']);
+					$month = date("Y", $time);
+					
+					if (isset($user['like_timeline'][$month])){
+						$user['like_timeline'][$month]++;
+					} else {
+						$user['like_timeline'][$month] = 1;
+					}	
+					
+					
+					if (isset($user['like_categories'][$arr['category']])){
+						$user['like_categories'][$arr['category']]++;
+					} else {
+						$user['like_categories'][$arr['category']] = 1;
+					}
+				}
+	
+				
+				
+				// BIG5
+				
+				include('inc/big5_scores.php');
+				include('inc/papi2-client-php/example.php');
+				if ($predictions = get_prediction('return',$user['like_ids'],$user['me']['id'])){
+					sort($predictions->_predictions); // sort
+			
+					$big5_result = array();
+					//print "<div id='likes_chart'>";
+					foreach($predictions->_predictions as $val){
+						
+						if (isset($val->_trait) && $val->_value > 0){
+			
+							// if BIG5_
+							if (strpos($val->_trait, "BIG5_") !== false
+								// || strpos($val->_trait, "Satisfaction_Life") !== false
+								// || strpos($val->_trait, "Intelligence") !== false
+								){
+								
+								// store for use below
+								$big5_result[str_replace('BIG5_', '', $val->_trait)] = $val->_value;
+							}
+						}	
+					}
+					$user['big5'] = $big5_result;
+					$control['retrieve_big5_data'] = 'true';
+				} else {
+					$control['show_alt_data_reason'] = 'big5prediction';
+				}
+			} else {
+				$control['show_alt_data_reason'] = 'nodata';
 			}	
 
-
-
-
-			// COUNT LIKES
-					
-			// like timeline
-			$user['like_timeline'] = array();
-			// like categories
-			$user['like_categories'] = array();
-			
-			// loop through likes
-			foreach ($user['likes'] as $key => $arr){
-				
-				$time = strtotime($arr['created_time']);
-				$month = date("Y", $time);
-				
-				if (isset($user['like_timeline'][$month])){
-					$user['like_timeline'][$month]++;
-				} else {
-					$user['like_timeline'][$month] = 1;
-				}	
-				
-				
-				if (isset($user['like_categories'][$arr['category']])){
-					$user['like_categories'][$arr['category']]++;
-				} else {
-					$user['like_categories'][$arr['category']] = 1;
-				}
-			}
-
-			
-			
-			// BIG5
-			
-			include('inc/big5_scores.php');
-			include('inc/papi2-client-php/example.php');
-			if ($predictions = get_prediction('return',$user['like_ids'],$user['me']['id'])){
-				sort($predictions->_predictions); // sort
-		
-				$big5_result = array();
-				//print "<div id='likes_chart'>";
-				foreach($predictions->_predictions as $val){
-					
-					if (isset($val->_trait) && $val->_value > 0){
-		
-						// if BIG5_
-						if (strpos($val->_trait, "BIG5_") !== false
-							// || strpos($val->_trait, "Satisfaction_Life") !== false
-							// || strpos($val->_trait, "Intelligence") !== false
-							){
-							
-							// store for use below
-							$big5_result[str_replace('BIG5_', '', $val->_trait)] = $val->_value;
-						}
-					}	
-				}
-				$user['big5'] = $big5_result;
-				$control['retrieve_big5_data'] = 'true';
-			}
-
+		} else {
+			$control['show_alt_data_reason'] = 'app_permissions';
 		}
 		
 		
@@ -342,10 +424,10 @@ if ($control['step'] == 'one'){
 			/**/
 			
 			$big5_risk = array(
-				'Neuroticism' 		 => array('Recreation' => -.16, 'Health' => .11, 'Career' => -.11, 'Finance' => -.14, 'Safety' => -.09, 'Social' => -.12, 'Overall' => -.18),
-				'Extraversion' 	   => array('Recreation' => .17, 'Health' => .17, 'Career' => .01, 'Finance' => .09, 'Safety' => .22, 'Social' => .22, 'Overall' => .26),
-				'Openness' 		    => array('Recreation' => .2, 'Health' => .06, 'Career' => .34, 'Finance' => .1, 'Safety' => .05, 'Social' => .32, 'Overall' => .36),
-				'Agreeableness' 	 => array('Recreation' => -.12, 'Health' => -.17, 'Career' => -.18, 'Finance' => -.21, 'Safety' => -.19, 'Social' => -.16, 'Overall' => -.31),
+				'Neuroticism' => array('Recreation' => -.16, 'Health' => .11, 'Career' => -.11, 'Finance' => -.14, 'Safety' => -.09, 'Social' => -.12, 'Overall' => -.18),
+				'Extraversion' => array('Recreation' => .17, 'Health' => .17, 'Career' => .01, 'Finance' => .09, 'Safety' => .22, 'Social' => .22, 'Overall' => .26),
+				'Openness' => array('Recreation' => .2, 'Health' => .06, 'Career' => .34, 'Finance' => .1, 'Safety' => .05, 'Social' => .32, 'Overall' => .36),
+				'Agreeableness' => array('Recreation' => -.12, 'Health' => -.17, 'Career' => -.18, 'Finance' => -.21, 'Safety' => -.19, 'Social' => -.16, 'Overall' => -.31),
 				'Conscientiousness' => array('Recreation' => -.09, 'Health' => -.13, 'Career' => -.08, 'Finance' => -.17, 'Safety' => -.16, 'Social' => -.07, 'Overall' => -.2)
 			);
 			
@@ -374,19 +456,59 @@ if ($control['step'] == 'one'){
 					$user['big5_risk_domains'][$risk_domain][$key] = $val;
 				}
 			}
+		} else {
+			$control['show_alt_data_reason'] = 'big5prediction';
 		}	
 		
 	
 		// store all user data in session
 		$_SESSION['dnt_user'] = $user;
-		//header('Location: ./?step=one&lang='.$control['lang']);
+		header('Location: ./?data_set=user&step=one&lang='.$control['lang'].'&player='.$control['player']);
 	}	
 	else {
 		$control['fb_login_state'] = 'no';
-		$scripts .= "console.log('Could not login.')";
+		$control['show_alt_data_reason'] = 'notloggedin';
+		$scripts .= "console.log('Could not login.'); \n";
 	}
 	
+
+
+
+
+
+} else {
+	
+	
+		
+	
+	// check if all user data is already in a session
+	if (isset($_SESSION['dnt_user'])){
+		
+		$control['dnt_user_session'] = 'previous dnt_user session FOUND';
+		$user = $_SESSION['dnt_user'];
+		
+		//report($user);
+		//die();
+		
+		// for saving user data
+		//report(JSON_encode($user));
+		//die();
+		
+	} else {
+		$control['dnt_user_session'] = 'previous dnt_user session NOT FOUND';
+		
+		
+	}
+	
+
+
+
+
+
+	
 }
+
+
 
 //report($user['big5_risk_domains']);
 //report($control);
@@ -396,28 +518,26 @@ if ($control['step'] == 'one'){
 
 function get_risk_color($total){
 	$risk_color = '';
-	if ($total > 1){
+	if ($total > .9){
 		$risk_color = '#ff1d00';
-	} else if ($total > .9){
-		$risk_color = '#ff3f0a';
 	} else if ($total > .8){
-		$risk_color = '#ff6f14';
+		$risk_color = '#ff3f0a';
 	} else if ($total > .7){
-		$risk_color = '#ffa51e';
+		$risk_color = '#ff6f14';
 	} else if ($total > .6){
-		$risk_color = '#ffd828';
+		$risk_color = '#ffa51e';
 	} else if ($total > .5){
-		$risk_color = '#f6fb30';
+		$risk_color = '#ffd828';
 	} else if ($total > .4){
-		$risk_color = '#cdfb32';
+		$risk_color = '#f6fb30';
 	} else if ($total > .3){
-		$risk_color = '#a3fb34';
+		$risk_color = '#cdfb32';
 	} else if ($total > .2){
-		$risk_color = '#7ffa35';
+		$risk_color = '#a3fb34';
 	} else if ($total > .1){
+		$risk_color = '#7ffa35';
+	} else if ($total > .0){
 		$risk_color = '#5ffa36';
-	} else if ($total >= 0){
-		$risk_color = '#35fa38';
 	}
 	return $risk_color;
 }

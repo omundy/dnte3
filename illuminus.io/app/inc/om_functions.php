@@ -8,8 +8,8 @@
 /**
  *	Reporter
  */
-function report($d){
-	print "<textarea style='width:100%; height:110px; color:#fff; background:rgba(50,50,50,.5); font-size:80%; font: 10px/12px monospace; position:relative; '>";
+function report($d,$h=110){
+	print "<textarea style='width:100%; height:$h; color:#fff; background:rgba(50,50,50,.5); font-size:80%; font: 10px/12px monospace; position:relative; '>";
 	//print "<pre>";
 	print_r($d);
 	//print "</pre>";

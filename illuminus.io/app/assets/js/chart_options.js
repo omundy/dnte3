@@ -65,7 +65,7 @@ var pie_chart_options = {
 
 }
 
-var polar_chart_options = {
+var radar_chart_options = {
 	//Boolean - Whether to show lines for each scale point
     scaleShowLine : true,
 
