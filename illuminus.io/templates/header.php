@@ -37,9 +37,7 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 <script src="app/assets/js/jquery.min.js"></script>
-<script>
-document.domain = "<?php print $control['domain'] ?>";
-</script>
+
 </head>
 
 <body>

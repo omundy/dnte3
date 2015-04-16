@@ -1,4 +1,4 @@
-<?php
+<?php ob_start(); 
 
 
 
@@ -65,6 +65,7 @@ if(isset($_GET['player']) && $_GET['player'] == 'yes'){
 
 
 $control['show_alt_data_reason'] = '';
+$control['fb_data_problems'] = false;
 
 
 $control['fb_error'] = '';
@@ -158,20 +159,31 @@ else if ($control['fb_login_state'] == 'yes') {
 	
 
 
+if ( $control['step'] == 'load_data_fb' && $control['fb_login_state'] != 'yes' ){
+
+	$control['step'] = 'load_data_sample';
+}
+
+
 // attempt to get sample data
 if ( $control['step'] == 'load_data_sample'){
+	
+	$control['show_alt_data_reason'] = '!!';
+	
 	
 	// use sample user data
 	$json = file_get_contents('inc/default_user.json');
 	$user = (Array)json_decode($json,true);
+	$user['fb_data_problems'] = true;
 
 	// make that the user
 	$_SESSION['dnt_user'] = $user;
 
 	//report($user);
 	//exit();
-	header('Location: ./?data_set=sample&step=one&lang='.$control['lang'].'&player='.$control['player']);
-
+	header('Location: ./?data_set=sample&step=one&lang='.$control['lang'].'&player='.$control['player'], true, 303);
+	ob_end_clean();
+	exit();
 }
 // attempt to get FB data
 else if ( $control['step'] == 'load_data_fb'){
@@ -209,8 +221,6 @@ else if ( $control['step'] == 'load_data_fb'){
 	
 		// LIKES, LIKE_IDS, LIKE_PAGES
 		if (isset($user['permissions']['user_likes'])){
-			
-			
 			
 			
 			if ($arr = fb_generic_api_call('/me/likes')){
@@ -299,6 +309,7 @@ else if ( $control['step'] == 'load_data_fb'){
 			}	
 
 		} else {
+			$control['fb_data_problems'] = true;
 			$control['show_alt_data_reason'] = 'app_permissions';
 		}
 		
@@ -457,15 +468,20 @@ else if ( $control['step'] == 'load_data_fb'){
 				}
 			}
 		} else {
+			$control['fb_data_problems'] = true;
 			$control['show_alt_data_reason'] = 'big5prediction';
 		}	
 		
-	
-		// store all user data in session
-		$_SESSION['dnt_user'] = $user;
-		header('Location: ./?data_set=user&step=one&lang='.$control['lang'].'&player='.$control['player']);
+		if ($control['fb_data_problems'] != true){
+			// store all user data in session
+			$_SESSION['dnt_user'] = $user;
+			header('Location: ./?data_set=user&step=one&lang='.$control['lang'].'&player='.$control['player'], true, 303);
+			ob_end_clean();
+			exit();
+		}
 	}	
 	else {
+		$control['fb_data_problems'] = true;
 		$control['fb_login_state'] = 'no';
 		$control['show_alt_data_reason'] = 'notloggedin';
 		$scripts .= "console.log('Could not login.'); \n";
@@ -501,11 +517,28 @@ else if ( $control['step'] == 'load_data_fb'){
 	}
 	
 
-
-
-
-
 	
+}
+
+
+// attempt to get sample data
+if ( $control['fb_data_problems'] == true){
+	
+	$control['show_alt_data_reason'] = '!!';
+	
+	// use sample user data
+	$json = file_get_contents('inc/default_user.json');
+	$user = (Array)json_decode($json,true);
+	$user['fb_data_problems'] = true;
+
+	// make that the user
+	$_SESSION['dnt_user'] = $user;
+
+	//report($user);
+	//exit();
+	header('Location: ./?data_set=sample&step=one&lang='.$control['lang'].'&player='.$control['player'], true, 303);
+	ob_end_clean();
+	exit();
 }
 
 
@@ -516,31 +549,6 @@ else if ( $control['step'] == 'load_data_fb'){
 //report($user);
 	
 
-function get_risk_color($total){
-	$risk_color = '';
-	if ($total > .9){
-		$risk_color = '#ff1d00';
-	} else if ($total > .8){
-		$risk_color = '#ff3f0a';
-	} else if ($total > .7){
-		$risk_color = '#ff6f14';
-	} else if ($total > .6){
-		$risk_color = '#ffa51e';
-	} else if ($total > .5){
-		$risk_color = '#ffd828';
-	} else if ($total > .4){
-		$risk_color = '#f6fb30';
-	} else if ($total > .3){
-		$risk_color = '#cdfb32';
-	} else if ($total > .2){
-		$risk_color = '#a3fb34';
-	} else if ($total > .1){
-		$risk_color = '#7ffa35';
-	} else if ($total > .0){
-		$risk_color = '#5ffa36';
-	}
-	return $risk_color;
-}
 
 
 

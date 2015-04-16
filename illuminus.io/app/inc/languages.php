@@ -35,86 +35,7 @@ $text = array(
 	array(
 		'CA' => array(
 			'1_1_heading' => 'Personality Assessment',
-			'1_1_subheading' => 'We have successfully retrieved your data.',
-			'1_1_p1_1' => 'Your social activity reveals a lot about you.',
-			'1_1_p1_2' => 'Your profile for instance says that', 
-			'1_1_p1_3' => 'your age is', 
-			// insert [age] 
-			'1_1_p1_4' => 'and', 
-			// insert [age] 
-			'1_1_p1_5' => 'your gender is', 
-			// insert [GENDER] 
-			'1_1_p1_6' => 'But the real gold mine is your Facebook data over time.',
-			'1_1_p1_7' => 'By analyzing the at least', 
-			// insert [NUMBER OF LIKES] 
-			'1_1_p1_8' => 'things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in ', 
-			// insert [BIG5 CATEGORIES]
-			'1_1_p1_9' => 'which indicates you are', 
-			// insert [BIG5 TRAITS]
-			'1_1_p1_10' => 'Our personality evaluation system uses Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>.', 
-			'1_1_p1_11' => 'It may surprise you that your interest in', 
-			// [likes]
-			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-			'1_1_p1_next' => 'Discover what we know about your interests',
-			// page 2
-			'1_2_heading' => 'Your Interests',
-			'1_2_subheading' => 'How you are categorized',
-			'1_2_p1_1' => 'We’ve sorted your interests on Facebook into the following categories. We run this database that you have deposited on Facebook through an algorithm to determine your personality.',
-			
-			'1_2_p1_back' => '<<',
-			'1_2_p1_next' => 'Click here to reveal your personality analysis',
-			
-			// page 3
-			'1_3_heading' => 'Personality Analysis',
-			'1_3_subheading' => ' ',
-			'1_3_1' => 'Psychologists believe that each human belongs to one of the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five Personality Traits</a>:  extroversion, openness to experience, conscientiousness, agreeableness and neuroticism. A person who scores high in extraversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking. ',
-			'1_3_2' => 'After crunching the numbers, we have determined that you are:',
-			// insert [BIG5 CATEGORY]
-			'1_3_3' => 'and',
-			// insert [BIG5 CATEGORY]
-		),
-		'DE' => array(
-			'1_1_heading' => 'Personality Assessment',
-			'1_1_subheading' => 'We have successfully retrieved your data.',
-			'1_1_p1_1' => 'Your social activity reveals a lot about you.',
-			'1_1_p1_2' => 'Your profile for instance says that', 
-			'1_1_p1_3' => 'your age is', 
-			// insert [age] 
-			'1_1_p1_4' => 'and', 
-			// insert [age] 
-			'1_1_p1_5' => 'your gender is', 
-			// insert [GENDER] 
-			'1_1_p1_6' => 'But the real gold mine is your Facebook data over time.',
-			'1_1_p1_7' => 'By analyzing the at least', 
-			// insert [NUMBER OF LIKES] 
-			'1_1_p1_8' => 'things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in ', 
-			// insert [BIG5 CATEGORIES]
-			'1_1_p1_9' => 'which indicates you are', 
-			// insert [BIG5 TRAITS]
-			'1_1_p1_10' => 'Our personality evaluation system uses Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>.', 
-			'1_1_p1_11' => 'It may surprise you that your interest in', 
-			// [likes]
-			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-			'1_1_p1_next' => 'Discover what we know about your interests',
-			// page 2
-			'1_2_heading' => 'Your Interests',
-			'1_2_subheading' => 'How you are categorized',
-			'1_2_p1_1' => 'We’ve sorted your interests on Facebook into the following categories. We run this database that you have deposited on Facebook through an algorithm to determine your personality.',
-			
-			'1_2_p1_back' => '<<',
-			'1_2_p1_next' => 'Click here to reveal your personality analysis',
-			
-			// page 3
-			'1_3_heading' => 'Personality Analysis',
-			'1_3_subheading' => ' ',
-			'1_3_1' => 'Psychologists believe that each human belongs to one of the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five Personality Traits</a>:  extroversion, openness to experience, conscientiousness, agreeableness and neuroticism. A person who scores high in extraversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking. ',
-			'1_3_2' => 'After crunching the numbers, we have determined that you are:',
-			// insert [BIG5 CATEGORY]
-			'1_3_3' => 'and',
-			// insert [BIG5 CATEGORY]
-		),
-		'EN' => array(
-			'1_1_heading' => 'Personality Assessment',
+			'1_1_welcome' => 'Welcome to Illuminus',
 			'1_1_subheading' => 'We have successfully retrieved your data.',
 			'1_1_p1_1' => 'Your social activity reveals a lot about you.',
 			'1_1_p1_2' => 'Your profile for instance says that',
@@ -137,37 +58,45 @@ $text = array(
 			'1_1_p1_11' => 'It may surprise you that your interest in', 
 			// [likes]
 			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-
 			'1_1_p1_next' => 'Discover what we know about your interests',
+			'1_1_chartcaption' => 'Your likes over time',
+			
 			// page 2
 			'1_2_heading' => 'Your Interests',
 			'1_2_subheading' => 'How you are categorized',
-			'1_2_p1_1' => 'We’ve sorted your interests on Facebook into the following categories. We run this database that you have deposited on Facebook through an algorithm to determine your personality.',
+			'1_2_p1_1' => 'We have also sorted your interests on Facebook into the following categories. These interests, especially the top ones like',
+			'1_2_p1_2' => 'and',
+			'1_2_p1_3' => 'determine which advertisements you see.', 
+			'1_2_p1_4' => 'Next, we run this database that you have deposited on Facebook through an algorithm to determine your personality traits.',
 
 			'1_2_p1_back' => '<<',
 			'1_2_p1_next' => 'Click here to reveal your personality analysis',
+			'1_2_chartcaption' => 'Your likes categorized',
+			
 
 			// page 3
 			'1_3_heading' => 'Personality Analysis',
 			'1_3_subheading' => ' ',
 			'1_3_1' => 'Psychologists believe that each human belongs to one of the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five Personality Traits</a>:  extroversion, openness to experience, conscientiousness, agreeableness and neuroticism. A person who scores high in extraversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking. ',
-			'1_3_2' => 'After crunching the numbers, we have determined that you are:',
+			'1_3_2' => 'After crunching the numbers, we have determined that your two highest Big Five traits are:',
 			// insert [BIG5 CATEGORY]
 			'1_3_3' => 'and',
 			// insert [BIG5 CATEGORY]
-
+			'1_3_chartcaption' => 'Your Big Five personality analysis',
+			'1_3_click_on_risk' => 'Click on one of the risk evaluations to learn how your data can be used to make decisions about your potential risk.',
 		),
-		'FR' => array(
+		'DE' => array(
 			'1_1_heading' => 'Personality Assessment',
+			'1_1_welcome' => 'Welcome to Illuminus',
 			'1_1_subheading' => 'We have successfully retrieved your data.',
 			'1_1_p1_1' => 'Your social activity reveals a lot about you.',
-			'1_1_p1_2' => 'Your profile for instance says that', 
-			'1_1_p1_3' => 'your age is', 
-			// insert [age] 
-			'1_1_p1_4' => 'and', 
-			// insert [age] 
-			'1_1_p1_5' => 'your gender is', 
-			// insert [GENDER] 
+			'1_1_p1_2' => 'Your profile for instance says that',
+			'1_1_p1_3' => 'your age is',
+			// insert [age]
+			'1_1_p1_4' => 'and',
+			// insert [age]
+			'1_1_p1_5' => 'your gender is',
+			// insert [GENDER]
 
 			'1_1_p1_6' => 'But the real gold mine is your Facebook data over time.',
 			'1_1_p1_7' => 'By analyzing the at least',
@@ -181,25 +110,137 @@ $text = array(
 			'1_1_p1_11' => 'It may surprise you that your interest in', 
 			// [likes]
 			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-
 			'1_1_p1_next' => 'Discover what we know about your interests',
+			'1_1_chartcaption' => 'Your likes over time',
+			
 			// page 2
 			'1_2_heading' => 'Your Interests',
 			'1_2_subheading' => 'How you are categorized',
-			'1_2_p1_1' => 'We’ve sorted your interests on Facebook into the following categories. We run this database that you have deposited on Facebook through an algorithm to determine your personality.',
+			'1_2_p1_1' => 'We have also sorted your interests on Facebook into the following categories. These interests, especially the top ones like',
+			'1_2_p1_2' => 'and',
+			'1_2_p1_3' => 'determine which advertisements you see.', 
+			'1_2_p1_4' => 'Next, we run this database that you have deposited on Facebook through an algorithm to determine your personality traits.',
 
 			'1_2_p1_back' => '<<',
 			'1_2_p1_next' => 'Click here to reveal your personality analysis',
+			'1_2_chartcaption' => 'Your likes categorized',
+			
 
 			// page 3
 			'1_3_heading' => 'Personality Analysis',
 			'1_3_subheading' => ' ',
 			'1_3_1' => 'Psychologists believe that each human belongs to one of the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five Personality Traits</a>:  extroversion, openness to experience, conscientiousness, agreeableness and neuroticism. A person who scores high in extraversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking. ',
-			'1_3_2' => 'After crunching the numbers, we have determined that you are:',
+			'1_3_2' => 'After crunching the numbers, we have determined that your two highest Big Five traits are:',
 			// insert [BIG5 CATEGORY]
 			'1_3_3' => 'and',
 			// insert [BIG5 CATEGORY]
+			'1_3_chartcaption' => 'Your Big Five personality analysis',
+			'1_3_click_on_risk' => 'Click on one of the risk evaluations to learn how your data can be used to make decisions about your potential risk.',
+		),
+		'EN' => array(
+			'1_1_heading' => 'Personality Assessment',
+			'1_1_welcome' => 'Welcome to Illuminus',
+			'1_1_subheading' => 'We have successfully retrieved your data.',
+			'1_1_p1_1' => 'Your social activity reveals a lot about you.',
+			'1_1_p1_2' => 'Your profile for instance says that',
+			'1_1_p1_3' => 'your age is',
+			// insert [age]
+			'1_1_p1_4' => 'and',
+			// insert [age]
+			'1_1_p1_5' => 'your gender is',
+			// insert [GENDER]
 
+			'1_1_p1_6' => 'But the real gold mine is your Facebook data over time.',
+			'1_1_p1_7' => 'By analyzing the at least',
+			// insert [NUMBER OF LIKES]
+			'1_1_p1_8' => 'things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in ',
+			// insert [BIG5 CATEGORIES]
+			'1_1_p1_9' => 'which indicates you are',
+			// insert [BIG5 TRAITS]
+
+			'1_1_p1_10' => 'Our personality evaluation system uses Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>.', 
+			'1_1_p1_11' => 'It may surprise you that your interest in', 
+			// [likes]
+			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
+			'1_1_p1_next' => 'Discover what we know about your interests',
+			'1_1_chartcaption' => 'Your likes over time',
+			
+			// page 2
+			'1_2_heading' => 'Your Interests',
+			'1_2_subheading' => 'How you are categorized',
+			'1_2_p1_1' => 'We have also sorted your interests on Facebook into the following categories. These interests, especially the top ones like',
+			'1_2_p1_2' => 'and',
+			'1_2_p1_3' => 'determine which advertisements you see.', 
+			'1_2_p1_4' => 'Next, we run this database that you have deposited on Facebook through an algorithm to determine your personality traits.',
+
+			'1_2_p1_back' => '<<',
+			'1_2_p1_next' => 'Click here to reveal your personality analysis',
+			'1_2_chartcaption' => 'Your likes categorized',
+			
+
+			// page 3
+			'1_3_heading' => 'Personality Analysis',
+			'1_3_subheading' => ' ',
+			'1_3_1' => 'Psychologists believe that each human belongs to one of the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five Personality Traits</a>:  extroversion, openness to experience, conscientiousness, agreeableness and neuroticism. A person who scores high in extraversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking. ',
+			'1_3_2' => 'After crunching the numbers, we have determined that your two highest Big Five traits are:',
+			// insert [BIG5 CATEGORY]
+			'1_3_3' => 'and',
+			// insert [BIG5 CATEGORY]
+			'1_3_chartcaption' => 'Your Big Five personality analysis',
+			'1_3_click_on_risk' => 'Click on one of the risk evaluations to learn how your data can be used to make decisions about your potential risk.',
+			
+		),
+		'FR' => array(
+			'1_1_heading' => 'Personality Assessment',
+			'1_1_welcome' => 'Welcome to Illuminus',
+			'1_1_subheading' => 'We have successfully retrieved your data.',
+			'1_1_p1_1' => 'Your social activity reveals a lot about you.',
+			'1_1_p1_2' => 'Your profile for instance says that',
+			'1_1_p1_3' => 'your age is',
+			// insert [age]
+			'1_1_p1_4' => 'and',
+			// insert [age]
+			'1_1_p1_5' => 'your gender is',
+			// insert [GENDER]
+
+			'1_1_p1_6' => 'But the real gold mine is your Facebook data over time.',
+			'1_1_p1_7' => 'By analyzing the at least',
+			// insert [NUMBER OF LIKES]
+			'1_1_p1_8' => 'things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in ',
+			// insert [BIG5 CATEGORIES]
+			'1_1_p1_9' => 'which indicates you are',
+			// insert [BIG5 TRAITS]
+
+			'1_1_p1_10' => 'Our personality evaluation system uses Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>.', 
+			'1_1_p1_11' => 'It may surprise you that your interest in', 
+			// [likes]
+			'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
+			'1_1_p1_next' => 'Discover what we know about your interests',
+			'1_1_chartcaption' => 'Your likes over time',
+			
+			// page 2
+			'1_2_heading' => 'Your Interests',
+			'1_2_subheading' => 'How you are categorized',
+			'1_2_p1_1' => 'We have also sorted your interests on Facebook into the following categories. These interests, especially the top ones like',
+			'1_2_p1_2' => 'and',
+			'1_2_p1_3' => 'determine which advertisements you see.', 
+			'1_2_p1_4' => 'Next, we run this database that you have deposited on Facebook through an algorithm to determine your personality traits.',
+
+			'1_2_p1_back' => '<<',
+			'1_2_p1_next' => 'Click here to reveal your personality analysis',
+			'1_2_chartcaption' => 'Your likes categorized',
+			
+
+			// page 3
+			'1_3_heading' => 'Personality Analysis',
+			'1_3_subheading' => ' ',
+			'1_3_1' => 'Psychologists believe that each human belongs to one of the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five Personality Traits</a>:  extroversion, openness to experience, conscientiousness, agreeableness and neuroticism. A person who scores high in extraversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking. ',
+			'1_3_2' => 'After crunching the numbers, we have determined that your two highest Big Five traits are:',
+			// insert [BIG5 CATEGORY]
+			'1_3_3' => 'and',
+			// insert [BIG5 CATEGORY]
+			'1_3_chartcaption' => 'Your Big Five personality analysis',
+			'1_3_click_on_risk' => 'Click on one of the risk evaluations to learn how your data can be used to make decisions about your potential risk.',
 		),
 	),
 
@@ -207,10 +248,10 @@ $text = array(
 	array(
 		'CA' => array(
 			'2_heading' => 'Financial Risk Evaluation',
-			'2_1' => 'Our advanced algorithm has determined that you are ',
+			'2_1' => 'Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that you are ',
 			// [POOR/GOOD]
-			'2_2' => 'candidate for us to lend money to.',
-			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			'2_2' => 'candidate for a loan.',
+			'2_3' => '',
 			
 			'2_career_heading' => 'Career Risk',
 			'2_finance_heading' => 'Finance Risk',
@@ -218,10 +259,10 @@ $text = array(
 		),
 		'DE' => array(
 			'2_heading' => 'Financial Risk Evaluation',
-			'2_1' => 'Our advanced algorithm has determined that you are ',
+			'2_1' => 'Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that you are ',
 			// [POOR/GOOD]
-			'2_2' => 'candidate for us to lend money to.',
-			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			'2_2' => 'candidate for a loan.',
+			'2_3' => '',
 			
 			'2_career_heading' => 'Career Risk',
 			'2_finance_heading' => 'Finance Risk',
@@ -229,22 +270,21 @@ $text = array(
 		),
 		'EN' => array(
 			'2_heading' => 'Financial Risk Evaluation',
-			'2_1' => 'Our advanced algorithm has determined that you are ',
+			'2_1' => 'Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that you are ',
 			// [POOR/GOOD]
-			'2_2' => 'candidate for us to lend money to.',
-			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			'2_2' => 'candidate for a loan.',
+			'2_3' => '',
 			
 			'2_career_heading' => 'Career Risk',
 			'2_finance_heading' => 'Finance Risk',
 			'2_social_heading' => 'Social Risk',
-
 		),
 		'FR' => array(
 			'2_heading' => 'Financial Risk Evaluation',
-			'2_1' => 'Our advanced algorithm has determined that you are ',
+			'2_1' => 'Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that you are ',
 			// [POOR/GOOD]
-			'2_2' => 'candidate for us to lend money to.',
-			'2_3' => 'By looking at your age, your gender, as well as what your Facebook likes say about your openness and your conscientiousness, we have built a computer model that determines whether or not you’ll pay us back.  In determining your creditworthiness, we have used scientific research from a study published in 2005 in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			'2_2' => 'candidate for a loan.',
+			'2_3' => '',
 			
 			'2_career_heading' => 'Career Risk',
 			'2_finance_heading' => 'Finance Risk',
@@ -260,24 +300,35 @@ $text = array(
 	array(
 		'CA' => array(
 			'3_heading' => 'Health Risk Evaluation',
+			'3_1' => 'Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports. Your predisposition to risky behavior could mean higher medical costs for us. To help us understand how dangerous you are, we compared your personality analysis to results from a study on risk in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			
+			'3_health_heading' => 'Health Risk',
+			'3_safety_heading' => 'Safety Risk',
+			'3_recreation_heading' => 'Recreation Risk',
 		),
 		'DE' => array(
 			'3_heading' => 'Health Risk Evaluation',
+			'3_1' => 'Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports. Your predisposition to risky behavior could mean higher medical costs for us. To help us understand how dangerous you are, we compared your personality analysis to results from a study on risk in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			
+			'3_health_heading' => 'Health Risk',
+			'3_safety_heading' => 'Safety Risk',
+			'3_recreation_heading' => 'Recreation Risk',
 		),
 		'EN' => array(
 			'3_heading' => 'Health Risk Evaluation',
-			'3_1' => 'Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports.  Your predisposition to risky behavior could have bad effects on our bottom line. To help us understand how dangerous you are, we consulted the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			'3_1' => 'Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports. Your predisposition to risky behavior could mean higher medical costs for us. To help us understand how dangerous you are, we compared your personality analysis to results from a study on risk in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
 			
 			'3_health_heading' => 'Health Risk',
-			
-			
 			'3_safety_heading' => 'Safety Risk',
-			
-			
 			'3_recreation_heading' => 'Recreation Risk',
 		),
 		'FR' => array(
 			'3_heading' => 'Health Risk Evaluation',
+			'3_1' => 'Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports. Your predisposition to risky behavior could mean higher medical costs for us. To help us understand how dangerous you are, we compared your personality analysis to results from a study on risk in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.',
+			
+			'3_health_heading' => 'Health Risk',
+			'3_safety_heading' => 'Safety Risk',
+			'3_recreation_heading' => 'Recreation Risk',
 		),
 	),
 
@@ -323,8 +374,7 @@ $text = array(
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
 			
-			
-			
+			'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using the data from Richard’s Facebook account instead.',
 			
 			'get_current_data_set' => 'You are currently evaluating this profile',
 			'get_select_a_data_set' => 'Select a data set to use',
@@ -373,8 +423,7 @@ $text = array(
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
 			
-			
-			
+			'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using the data from Richard’s Facebook account instead.',
 			
 			'get_current_data_set' => 'You are currently evaluating this profile',
 			'get_select_a_data_set' => 'Select a data set to use',
@@ -423,8 +472,7 @@ $text = array(
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
 			
-			
-			
+			'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using the data from Richard’s Facebook account instead.',
 			
 			'get_current_data_set' => 'You are currently evaluating this profile',
 			'get_select_a_data_set' => 'Select a data set to use',
@@ -473,8 +521,7 @@ $text = array(
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
 			
-			
-			
+			'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using the data from Richard’s Facebook account instead.',
 			
 			'get_current_data_set' => 'You are currently evaluating this profile',
 			'get_select_a_data_set' => 'Select a data set to use',

@@ -23,9 +23,18 @@
 <link rel="icon" type="image/png" sizes="96x96" href="assets/img/icons/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon-16x16.png">
 <link rel="manifest" href="assets/img/icons/manifest.json">
+
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+
+<!-- FB -->
+<meta property="og:title" content="Find out what we already know about you" />
+<meta property="og:site_name" content="Illuminus"/>
+<meta property="og:url" content="http://www.myfavnews.com/2013/1/1/workday-price-range" />
+<meta property="og:description" content="" />
+<meta property="fb:app_id" content="761116317308745" />
+<meta property="og:type" content="website" />
 
 <!-- CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
