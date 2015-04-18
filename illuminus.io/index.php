@@ -1,6 +1,9 @@
 <?php
 require_once('app/inc/languages.php');
 include_once('templates/header.php');
+$control = array();
+$control['lang'] = 'EN';
+
 ?>
 <style>
 
@@ -26,11 +29,13 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-5 menu home" style="text-align: left">
 							<!--<a href="#about">About</a>-->
-							<a href="#services">Services</a>
-							<a href="app/?data_set=sample&step=privacy&lang=EN">Privacy</a>
-							<a href="#contact">Contact</a>
+							<a href="#services"><?php print $text['homepage'][$control['lang']]['services'] ?></a>
+							<a href="app/?data_set=sample&step=privacy&lang=EN"><?php print $text['homepage'][$control['lang']]['privacy'] ?></a>
+							<a href="#contact"><?php print $text['homepage'][$control['lang']]['contact'] ?></a>
 						</div>
 					</div>
+
+
 					
 					<div class="row shim">
 						
@@ -74,8 +79,8 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							</script>
 							
 							
-							<div class="unlocking-content left">Unlocking the power of you<br>
-							<a href="./app">Get started</a></div>
+							<div class="unlocking-content left"><?php print $text['homepage'][$control['lang']]['unlocking'] ?><br>
+							<a href="./app"><?php print $text['homepage'][$control['lang']]['get_started_btn'] ?></a></div>
 						</div>
 					</div>
 					
@@ -83,12 +88,13 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 				</div>
 			</div>
 
+
 			<!-- green -->
 			<div class="row bkg-green">
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="row shim">
 						<div class="col-xs-12 col-sm-12 col-md-12 services" id="services">
-							Our Services
+							<?php print $text['homepage'][$control['lang']]['our_services'] ?>
 						</div>
 					</div>
 					<div class="row shim services-kids">
@@ -96,24 +102,24 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							<a href="#risk">
 								<img src="app/assets/img/risk.png">
 								<br>
-								<span class="med">Risk Assessment</span>
+								<span class="med"><?php print $text['homepage'][$control['lang']]['risk_assessment'] ?></span>
 								<br>
-								<span class="sm">Your past determines your future</span>
+								<span class="sm"><?php print $text['homepage'][$control['lang']]['future'] ?></span>
 							</a>
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-4">
 							<img src="app/assets/img/liveforever.png">
 							<br>
-							<span class="med">LiveForever&trade;</span>
+							<span class="med"><?php print $text['homepage'][$control['lang']]['liveforever'] ?>&trade;</span>
 							<br>
-							<span class="sm">DNA backup<br>[coming soon]</span>
+							<span class="sm"><?php print $text['homepage'][$control['lang']]['dna_backup'] ?><br>[<?php print $text['homepage'][$control['lang']]['coming_soon'] ?>]</span>
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-4">
 							<img src="app/assets/img/socialintegration.png">
 							<br>
-							<span class="med">Social Media Integration</span>
+							<span class="med"><?php print $text['homepage'][$control['lang']]['social_media'] ?></span>
 							<br>
-							<span class="sm">You have no idea what we know<br>[coming soon]</span>
+							<span class="sm"><?php print $text['homepage'][$control['lang']]['you_have_no_idea'] ?><br>[<?php print $text['homepage'][$control['lang']]['coming_soon'] ?>]</span>
 						</div>
 					</div>
 				</div>
@@ -124,11 +130,11 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="row shim">
 						<div class="col-xs-12 col-sm-6 col-md-6" id="risk">
-							<div class="unlocking-content left">Future Present Risk Detection</div>
+							<div class="unlocking-content left"><?php print $text['homepage'][$control['lang']]['future_present'] ?></div>
 							<div class="med left">
-								Learn what we already know about you
+								<?php print $text['homepage'][$control['lang']]['learn_what'] ?>
 								<br><br>
-							<a href="./app">Launch risk assessment tool</a></div>
+							<a href="./app"><?php print $text['homepage'][$control['lang']]['launch_btn'] ?></a></div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<img src="app/assets/img/riskgraph.png">
@@ -143,7 +149,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="row shim">
 						<div class="col-xs-12 col-sm-12 col-md-12 services" id="contact">
-							Contact
+							<?php print $text['homepage'][$control['lang']]['contact'] ?>
 						</div>
 					</div>
 					<div class="row shim">
@@ -179,10 +185,10 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<img src="app/assets/img/logo_footer.png">
 							<div class="menu"> 
-								<a href="#top">Home</a>
-								<a href="#services">Services</a>
-								<a href="app/?data_set=sample&step=privacy&lang=EN">Privacy</a>
-								<a href="#contact">Contact</a>
+								<a href="#top"><?php print $text['homepage'][$control['lang']]['home'] ?></a>
+								<a href="#services"><?php print $text['homepage'][$control['lang']]['services'] ?></a>
+								<a href="app/?data_set=sample&step=privacy&lang=EN"><?php print $text['homepage'][$control['lang']]['privacy'] ?></a>
+								<a href="#contact"><?php print $text['homepage'][$control['lang']]['contact'] ?></a>
 							</div>
 						</div>
 					</div>

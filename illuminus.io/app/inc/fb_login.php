@@ -75,6 +75,7 @@ $scripts = '';
 $scripts .= "var step = '". $control['step'] ."';\n ";
 $scripts .= "var lang = '". $control['lang'] ."';\n ";
 $scripts .= "var player = '". $control['player'] ."'; \n\n";
+$scripts .= "var data_set = '". $control['data_set'] ."'; \n\n";
 
 
 
@@ -188,10 +189,11 @@ if ( $control['step'] == 'load_data_sample'){
 // attempt to get FB data
 else if ( $control['step'] == 'load_data_fb'){
 	
+
+
 	// if we were able to login
 	if (isset($session) && $session) {
 
-		
 		/* GET ALL THE FB DATA WE NEED FOR THE APP */
 		
 		// PERMISSIONS
@@ -218,11 +220,12 @@ else if ( $control['step'] == 'load_data_fb'){
 		} else {
 			$user['me']['age'] = 'NOT DECLARED';
 		}
+
 	
 		// LIKES, LIKE_IDS, LIKE_PAGES
 		if (isset($user['permissions']['user_likes'])){
 			
-			
+	
 			if ($arr = fb_generic_api_call('/me/likes')){
 				//report($arr);
 				
@@ -302,9 +305,11 @@ else if ( $control['step'] == 'load_data_fb'){
 					$user['big5'] = $big5_result;
 					$control['retrieve_big5_data'] = 'true';
 				} else {
+					$control['fb_data_problems'] = true;
 					$control['show_alt_data_reason'] = 'big5prediction';
 				}
 			} else {
+				$control['fb_data_problems'] = true;
 				$control['show_alt_data_reason'] = 'nodata';
 			}	
 
@@ -473,6 +478,10 @@ else if ( $control['step'] == 'load_data_fb'){
 		}	
 		
 		if ($control['fb_data_problems'] != true){
+			
+			//report($control);
+			//exit();
+			
 			// store all user data in session
 			$_SESSION['dnt_user'] = $user;
 			header('Location: ./?data_set=user&step=one&lang='.$control['lang'].'&player='.$control['player'], true, 303);
@@ -526,6 +535,9 @@ if ( $control['fb_data_problems'] == true){
 	
 	$control['show_alt_data_reason'] = '!!';
 	
+	//report($control);
+	//exit();
+
 	// use sample user data
 	$json = file_get_contents('inc/default_user.json');
 	$user = (Array)json_decode($json,true);
@@ -545,9 +557,10 @@ if ( $control['fb_data_problems'] == true){
 
 //report($user['big5_risk_domains']);
 //report($control);
+//exit();
 //report($_SESSION);
 //report($user);
-	
+
 
 
 

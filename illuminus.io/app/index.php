@@ -117,25 +117,24 @@ if (isset($_SESSION['dnt_user'])){
 							<img src="assets/img/illuminus_cover_img.jpg">							
 						
 							<?php } ?>
-								
-			<h4 style="clear: both; margin: 30px 0 0 0"><?php print $text['meta'][$control['lang']]['get_select_a_data_set']; ?></h4>
-										
-			<p>
-			<?php if( $control['fb_login_state'] == 'no' ){ ?>
-			<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
-			<?php print $text['meta'][$control['lang']]['login_with_facebook'] ?>
-			<?php } else { ?>
-			<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
-			<?php print $text['meta'][$control['lang']]['get_fb_data_btn']; ?>
-			<?php } ?>
-			</button>
-
-			<p>... <?php print $text['meta'][$control['lang']]['get_select_or']; ?> ...
-
-			<p><button id="get_sample_data_btn" class="btn btn-large btn-custom"><?php print $text['meta'][$control['lang']]['get_sample_data_btn']; ?></button>				
 							
 							
-
+												
+							<h4 style="clear: both; margin: 30px 0 0 0"><?php print $text['meta'][$control['lang']]['get_select_a_data_set']; ?></h4>
+														
+							<p>
+							<?php if( $control['fb_login_state'] == 'no' ){ ?>
+							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
+							<?php print $text['meta'][$control['lang']]['login_with_facebook'] ?>
+							<?php } else { ?>
+							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
+							<?php print $text['meta'][$control['lang']]['get_fb_data_btn']; ?>
+							<?php } ?>
+							</button>
+				
+							<p>... <?php print $text['meta'][$control['lang']]['get_select_or']; ?> ...
+				
+							<p><button id="get_sample_data_btn" class="btn btn-large btn-custom"><?php print $text['meta'][$control['lang']]['get_sample_data_btn']; ?></button>				
 							
 							
 						</div>
@@ -158,74 +157,7 @@ if (isset($_SESSION['dnt_user'])){
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-
-							
-
-<p>Illuminus is a satirical website created for the documentary series Do Not Track (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  When you log in via Facebook, we access information you have shared on Facebook to build the Illuminus website.  </p>
-
-<p>When you use Illuminus, it will create a "personality profile" for you.  If you access Illuminus while watching an episode of Do Not Track, and you create an account on Do Not Track, we will store this information on your profile.  This profile will only contain the information you gave authorization for us to access. If you access Illuminus at <a href="https://illuminus.io">illuminus.io</a> your personal information will not be saved.</p>
-
-<p>When you use <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>, we do request some information from you, such as your email address, as well as aspects of your browsing history.  If you volunteer that information, the terms below describe your rights and our responsibilities.
-
-<h4>Your data</h4>
-
-<p>The Producers guarantee that they are the sole recipients of the data collected and that it will be used exclusively for the Project and will neither be passed on, nor accessible, nor sold to any third party whatsoever. The Producers implement technical and organizational security measures to ensure that its users’ personal data is protected against loss, fraudulent alterations, or unauthorized access by third parties. The transmission of data collected during registration is carried out in an encrypted manner, as is subsequent communication between the server and the Project.</p>
-
-<p>The producers will use your email address for the following purposes:
-<ul>
-<li>keep you abreast of the broadcast of upcoming episodes of the Project,</li>
-<li>invite you to follow the Project’s news</li>
-<li>offer personalized content</li>
-</ul>
-
-Your personal data will be stored within the Project database and retained for the life of the Project (3 years).</p>
-
-<p>You have the right to access, modify, correct, and delete your information. To exercise this right, or to opt out, write to: data@donottrack-doc.com</p>
-
-<h4>INFORMATICS AND LIBERTY</h4>
-
-<p>According to French law n°78-17 of 6th January 1978 on informatics, files and liberties, every user who made a contribution has the right of opposition (art. 38), access (art. 39, 41, 42) and rectification (art.40) of his contents.</p>
-
-<p>He thus can require his contribution to be corrected, completed, clarified, updated or erased if it is incorrect, incomplete, false, obsolete or if its collection, use, communication and conservation are prohibited.</p>
-
-<p>Every user can assert this right by writing to the following address: data@donottrack-doc.com</p>
-
-<h4>COOKIES</h4>
-
-<p>The site http://donottrack-doc.com/ utilizes Google Analytics & Xiti.</p>
-
-<p>Google Analytics, a web analytics service allows Do Not Track to study your usage of the site.</p>
-
-<p>The data generated by these navigation analysis cookies regarding your usage of the site: sites visited, frequency, number and repeat of visits, navigation time, research carried out, browser used, operator providing the service, location relative to the IP address.</p>
-
-<p>They are generally transmitted to and stored by Google on servers located in the United States.</p>
-
-<p>If you choose to make your IP address anonymous on this site, your IP address will be nonetheless handed over to Google, yet truncated within the Member States of the European Union or among other signatory states of the European Economic Area Agreement. Only in exceptional circumstances will your IP address be fully transmitted to a Google server in the USA, and truncated there.</p>
-
-<p>Along with other data captured by Google, Google will not shorten your transmitted IP address within Google Analytics. Google will use this information to evaluate your usage of the website, compile for Do Not Track reports on website activity and Internet usage: measures and analyses navigation and user behavior, development of anonymous navigation profiles, areas for improvement based on the analysis of usage data collected.</p>
-
-<p>For more information, see Google’s privacy policy.</p>
-
-<p>In addition to blocking cookies in the browser, you can disable Google Analytics while browsing through a module provided by Google.</p>
-
-<p>Xiti is a web audience measurement tool offered by AT Internet company. In order to establish visitor statistics, Xiti leaves a cookie to track a visitor's journey. For example, this allows avoiding doubling up on the visitor count as if new when reloading the page. Additionally, Xiti prevents website publishers from exaggerating their own statistics when they reload a page. In order to provide reports and services in connection with the usage of the site and the Internet, Xiti uses information collected by its cookies at the request of Do Not Track. Xiti will not capture your IP address with any data it holds.</p>
-
-<p>For more information, see Xiti’s Privacy Statement.</p>
-
-<h4>For more information</h4>
-
-<p>To obtain further information about cookies and the use of these analysis tools, the Internet user can visit the CNIL website.</p>
-
-
-<h4>Terms of Service URL</h4>
-
-User Support Email: <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a><br>
-User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.donottrack-doc.com/en/about/</a>
-
-
-
-
-							
+							<?php print $text['privacy'][$control['lang']]['policy']; ?>
 						</div>
 					</div>
 				</div>
@@ -235,6 +167,46 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 				
 				
 				
+				
+				<!-- faq -->
+				<?php if ($control['step'] == 'faq'){ ?>
+				<div id="" class="step">
+					<div class="row">
+						<div class="col-sm-12 title">
+							<h3><?php print $text['faq'][$control['lang']]['0_heading'] ?></h3>							
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							
+							
+							<h4><?php print $text['faq'][$control['lang']]['what_heading'] ?></h4>	
+							<p><?php print $text['faq'][$control['lang']]['what_text'] ?>.</p>		
+							
+							<h4><?php print $text['faq'][$control['lang']]['who_heading'] ?></h4>	
+							<p><?php print $text['faq'][$control['lang']]['who_text1'] ?>
+								<a href="?data_set=<?php print $control['data_set'] ?>&amp;step=one&amp;lang=<?php print $control['lang'] ?>&amp;player=<?php print $control['player'] ?>">
+								<?php print $text['faq'][$control['lang']]['who_text2'] ?></a>.</p>	
+								
+							<h4><?php print $text['faq'][$control['lang']]['fberror_heading'] ?></h4>	
+							<p><?php print $text['faq'][$control['lang']]['fberror_text'] ?></p>		
+							
+							<h4><?php print $text['faq'][$control['lang']]['bugs_heading'] ?></h4>	
+							<p><?php print $text['faq'][$control['lang']]['bugs_text'] ?>.</p>		
+							
+							
+						</div>
+					</div>
+				</div>
+				<?php } ?>
+				<!-- /faq -->
+				
+
+
+
+
+
 				
 				<!-- credits -->
 				<?php if ($control['step'] == 'credits'){ ?>
@@ -249,16 +221,30 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 						<div class="col-sm-12">
 
 							
+							<h4><?php print $text['credits'][$control['lang']]['1_creators'] ?></h4>
 							
-							<h4><?php print $text['credits'][$control['lang']]['1_thankyou'] ?></h4>
+							<p>Owen Mundy, Brett Gaylor, Tim Schwartz, Sébastien Brothier, Christiane Miethge, and Eric Drier</p>
 							
-							<p><br>
-							<a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a><br>
+							<br>
+							
+							
+							
+							<h4><?php print $text['credits'][$control['lang']]['1_predictions'] ?></h4>
+							
+							<p>
+							<?php print $text['credits'][$control['lang']]['cambridge'] ?><br>
 							Dr Michal Kosinski<br>
 							Vesselin Popov<br>
 							Dr David Stillwell<br>
 							Bartosz Kielczewski<br>
 							</p>
+							
+							<br>
+							
+							
+							<h4><?php print $text['credits'][$control['lang']]['1_thankyou'] ?></h4>
+							
+							<p>Richard Gutjahr, Margaux Missika, Auriane Meilhon, Maxime Quintard, Nicolas Menetand, and Gregory Trowbridge</p>
 							
 							
 						</div>
@@ -319,10 +305,10 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 
 							
 							<div align="center" class="embed-responsive embed-responsive-16by9">
-							<video autoplay class="embed-responsive-item">
-							<source src="https://illuminus.io/video/illuminus_promo.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-							</video>
+								<video autoplay class="embed-responsive-item">
+									<source src="https://illuminus.io/video/illuminus_promo.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
 							</div>
 
 			
@@ -349,9 +335,6 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 							<?php } ?>
 							</button>
 
-
-							
-								
 
 						</div>
 					</div>
@@ -397,9 +380,25 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 						<div class="row">
 							<div class="col-sm-12 title">
 								<h3><?php print $text[1][$control['lang']]['1_1_heading'] ?></h3>
+								<?php
+									
+								//report($user);	
+									
+								if ( isset($user['fb_data_problems']) && $user['fb_data_problems'] == true ){
+									
+									//print '<p>'. $control['show_alt_data_reason'];
+									//print '<p>'. $control['fb_error'];
+									print '<p class="well">'. $text['meta'][$control['lang']]['no_data_found_statement'] .'</p>';
+									
+									// use sample user data
+									$json = file_get_contents('inc/default_user.json');
+									$user = (Array)json_decode($json,true);
+									$user['fb_data_problems'] = true;
+									// make that the user
+									$_SESSION['dnt_user'] = $user;
+								}
 								
-								
-								
+								?>
 							</div>
 						</div>
 
@@ -410,25 +409,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 						<div class="row">
 							<div class="col-sm-6 left">
 
-								<?php
-									
-								//report($user);	
-									
-								if ( isset($user['fb_data_problems']) && $user['fb_data_problems'] == true ){
-									
-									//print '<p>'. $control['show_alt_data_reason'];
-									//print '<p>'. $control['fb_error'];
-									print '<p class="well alert-danger">'. $text['meta'][$control['lang']]['no_data_found_statement'] .'</p>';
-									// use sample user data
-									$json = file_get_contents('inc/default_user.json');
-									$user = (Array)json_decode($json,true);
-									$user['fb_data_problems'] = true;
-									
-									// make that the user
-									$_SESSION['dnt_user'] = $user;
-								}
 								
-								?>
 								
 								<p>
 								
@@ -493,7 +474,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									print ' <span class="udata">'. $big5_highest .'</span>';
 
 									// which indicates you are
-									print " ". $text[1][$control['lang']]['1_1_p1_9'];
+									print " ". $text[1][$control['lang']]['1_1_p1_9_pos'];
 
 									// insert [BIG5 TRAITS]
 									$traits = explode(',',$text['big5'][$control['lang']][$big5_highest]['keywords']);
@@ -729,7 +710,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
-									print "<div class='chart'><canvas id='donut_like_category' style='width:400px; height:300px;'></canvas></div>
+									print "<div class='chart'><canvas id='donut_like_category' style='width:500px; height:400px;'></canvas></div>
 										   <div class='chart_caption'>". $text[1][$control['lang']]['1_2_chartcaption']."</div>";
 
 								?>
@@ -796,28 +777,44 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									//report($big5_temp_high);
 									//$big5_highest = key($big5_temp_high);
 									
-									print '';
+									print '<p>';
 									
 									$c = 0;
 									foreach ($big5_temp_high as $key => $val){
 										
 										//print '<p>'.$c .' '. $key .'<p>';
 										
-										print ' <span class="udata">'. $key .'</span>';
+										print '<span class="udata" style="font-weight:bold">'. $key .'</span>';
 
 										// which indicates you are
-										print " ". $text[1][$control['lang']]['1_1_p1_9'];
+										print " ". $text[1][$control['lang']]['1_1_p1_9_pos'];
 	
-										// insert [BIG5 TRAITS]
+	
+										// insert POSITIVE [BIG5 TRAITS]
 										$traits = explode(',',$text['big5'][$control['lang']][$key]['keywords']);
 										for($i=0; $i<count($traits); $i++){
 											print ' <span class="udata">'. $traits[$i] .'</span>';
 											if ($i < count($traits)-2){
 												print ", ";
 											} else if ($i == count($traits)-2){
-												print ", and ";
+												print " ". $text[1][$control['lang']]['1_1_p1_9_and'] ." ";
 											}
 										}
+										
+										
+										print " ". $text[1][$control['lang']]['1_1_p1_9_neg'];
+										
+										// insert NEGATIVE [BIG5 TRAITS]
+										$traits = explode(',',$text['big5'][$control['lang']][$key]['opposite_keywords']);
+										for($i=0; $i<count($traits); $i++){
+											print ' <span class="udata">'. $traits[$i] .'</span>';
+											if ($i == count($traits)-2){
+												print " ". $text[1][$control['lang']]['1_1_p1_9_and'] ." ";
+											}
+										}
+										
+										
+										
 										
 										if (++$c > 1) break;
 										print ' '. $text[1][$control['lang']]['1_3_3'] .' ';
@@ -842,6 +839,9 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 
 								<div><br>
 									<button class="step1_btn btn btn-custom" id="step1_3_prev_btn"><?php print $text[1][$control['lang']]['1_2_p1_back']; ?></button>
+									<?php if($control['player'] != 'yes'){ ?>
+									<button class="step1_btn btn btn-custom" id="step1_3_gorisk_btn"><?php print $text[1][$control['lang']]['1_3_gorisk_btn']; ?></button>
+									<?php } ?>
 								</div>
 							</div>
 							<div class="col-sm-6 left">
@@ -908,7 +908,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 									// store script for printing below
 									$scripts .= $str;
 									// div to hold chart
-									print "<div class='chart'><canvas id='radar_big5' style='width:400px; height:300px;'></canvas></div>
+									print "<div class='chart'><canvas id='radar_big5' style='width:400px; height:400px;'></canvas></div>
 										   <div class='chart_caption'>". $text[1][$control['lang']]['1_3_chartcaption']."</div>";
 
 
@@ -938,23 +938,33 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 			
 			
 <?php			
-			
-function overall_risk(){
-	global $user;
+	
+$health_domains = array('Health', 'Safety', 'Recreation');
+$financial_domains = array('Career', 'Finance', 'Social');
+
+
+function overall_risk($domain){
+	global $user, $health_domains, $financial_domains;
+	$score = 0;
+	
+	if ($domain = 'health') $arr = $health_domains;
+	if ($domain = 'financial') $arr = $financial_domains;
+	
 	foreach ($user['big5_risk_domains'] as $key => $risk_arr){
-		if ($key == 'Career' || $key == 'Finance' || $key == 'Social'){
-			$score = 0;
+		if (in_array($key,$arr)){
 			foreach ($risk_arr as $risk_score){
-				//$score += $risk_score;
-				if ($risk_score > .5) {
-					return true;
-				}
+				$score += $risk_score;
+				//if ($risk_score > .5) {
+				//	return true;
+				//}
 			}
-			//print "<p>". $score / count($risk_arr);
+			return $score / count($risk_arr);
 		}
 	}
 	
-}	
+}
+
+
 
 function get_risk_color($total){
 	$risk_color = '';
@@ -985,9 +995,8 @@ function get_risk_color($total){
 
 
 
-function eval_risk_overview($risk_name){
-									
-	global $user, $control, $text;
+function eval_risk_overview($risk_name, $overall_domain_risk){
+	global $user, $control, $text, $health_domains, $financial_domains;
 	//report($user);
 	
 	if (isset($user['me']['gender']) && $user['me']['gender'] != 'NOT DECLARED' && isset($user['me']['age']) && $user['me']['age'] != 'NOT DECLARED'){
@@ -995,45 +1004,73 @@ function eval_risk_overview($risk_name){
 		print '<ul>';
 		
 		if ( isset($user['me']['gender']) && $user['me']['gender'] != 'NOT DECLARED'){
+						
+			print '<li>';
+			// In addition to your seemingly boring Facebook data, your
+			print $text[2][$control['lang']]['eval_risk_overview_1'];
+			// gender
+			print ' <span class="udata">'. $user['me']['gender'];
+			print ' '. $text[2][$control['lang']]['eval_risk_overview_2'] .' ';
+			print '</span> ';
 			
 			
-			print '<li>In addition to your seemingly boring Facebook data, your <span class="udata">gender ('. $user['me']['gender'] .') ';
 			
 			if ( $user['me']['gender'] === 'male' ){
 				if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
-					print ' likely contributed ';
+					// greatly contributed
+					print ' <span style="color: '. get_risk_color(.7) .'">'. $text[2][$control['lang']]['eval_risk_overview_adj_1_1'] .'</span> ';
+				} else if ( $overall_domain_risk > .3) {
+					// likely contributed
+					print ' <span style="color: '. get_risk_color(.5) .'">'. $text[2][$control['lang']]['eval_risk_overview_adj_1_2'] .'</span> ';
 				} else {
-					print ' <b>did not</b> contribute ';
+					// did not contribute
+					print ' <span style="color: '. get_risk_color(.2) .'">'. $text[2][$control['lang']]['eval_risk_overview_adj_1_3'] .'</span> ';
 				}
 			} else if ($user['me']['gender'] == 'female'){
 				if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
-					print ' <b>likely</b> contributed ';
+					// greatly contributed
+					print ' <span style="color: '. get_risk_color(.7) .'">'. $text[2][$control['lang']]['eval_risk_overview_adj_1_1'] .'</span> ';
+				} else if ( $overall_domain_risk > .3) {
+					// likely contributed
+					print ' <span style="color: '. get_risk_color(.5) .'">'. $text[2][$control['lang']]['eval_risk_overview_adj_1_2'] .'</span> ';
 				} else {
-					print ' <b>did not</b> contribute ';
+					// did not contribute
+					print ' <span style="color: '. get_risk_color(.2) .'">'. $text[2][$control['lang']]['eval_risk_overview_adj_1_3'] .'</span> ';
 				}
 			} else {
-				print ' <b>did not</b> contribute ';
+				print ' '. $text[2][$control['lang']]['eval_risk_overview_adj_1_3'] .' ';
 			}
 			
-			print '</span> to your estimated risk as "<em>Men reported significantly greater risk taking than women in four domains, including the health and safety-oriented domains, and in the overall risk-taking scale. Women, however, took greater risks in the career and social domains.</em>" (Nicholson, 163)</li>';
 			
-			/*			
-			// calc user risk AND gender for logged in user
-			if ( $user['me']['gender'] === 'male' ){
-				if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
-					//$risk_score *= 1.5; 
-					print '<li>In addition to your seemingly boring Facebook data, your <span class="udata">gender</span> likely contributed to your risk as "<em><span class="udata">Men</span> reported significantly greater risk taking than women in four domains, including the health and safety-oriented domains</em>" (Nicholson, 163)</li>';
-				}
-			} else if ($user['me']['gender'] == 'female'){
-				if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
-					//$risk_score *= 1.5; 
-					print '<li>In addition to your seemingly boring Facebook data, your <span class="udata">gender</span> likely contributed to this high risk factor as "<em><span class="udata">Women</span> reported significantly greater risk taking than men in the career and social domains</em>" (Nicholson, 163)</li>';
-					
-				}
-			} else {
-				// leave scores alone
-			}
-			*/
+			// to your estimated risk as
+			print ' '. $text[2][$control['lang']]['eval_risk_overview_3'] .' '. ' "<em>';
+
+
+
+
+			// financial - men
+			if ( strtolower($risk_name) == 'financial' && $user['me']['gender'] === 'male' ){
+				// Men reported significantly greater risk taking than women in the overall risk-taking scale
+				print ' '. $text[2][$control['lang']]['eval_risk_overview_3_1'];
+			} 
+			// financial - women
+			else if ( strtolower($risk_name) == 'financial' && $user['me']['gender'] === 'female' ){
+				print ' '. $text[2][$control['lang']]['eval_risk_overview_3_2'];
+			} 
+			// health - men
+			else if ( strtolower($risk_name) == 'health' && $user['me']['gender'] === 'male' ){
+				print ' '. $text[2][$control['lang']]['eval_risk_overview_3_3'];
+			} 
+			// health - women
+			else if ( strtolower($risk_name) == 'health' && $user['me']['gender'] === 'female' ){
+				print ' '. $text[2][$control['lang']]['eval_risk_overview_3_4'];
+			} 
+			else {
+				print ' '. $text[2][$control['lang']]['eval_risk_overview_3_5'];
+			} 
+			 
+			print '.</em>" (Nicholson, 163)</li>';
+				
 			
 			
 		}
@@ -1047,9 +1084,9 @@ function eval_risk_overview($risk_name){
 				if ($age < 20){
 					$risk_score *= 1.4; 
 				} else if ($age < 30){
-					$risk_score *= 1.3;  
+					$risk_score *= 1.3; 
 				} else if ($age < 40){
-					$risk_score *= 1.15;  
+					$risk_score *= 1.15; 
 				} else if ($age < 50){
 					$risk_score *= .9; 
 				} else if ($age < 60){
@@ -1062,14 +1099,41 @@ function eval_risk_overview($risk_name){
 					$risk_score *= .5; 
 				}
 			}
-				
-			print '<li>Your <span class="udata">age ';
-			if ($age < 49){
-				print ' <b>possibly</b> contributed ';
+			
+			
+			// Your ... age
+			print '<li>'. $text[2][$control['lang']]['eval_risk_overview_age_1'] .' <span class="udata">'. $text[2][$control['lang']]['eval_risk_overview_age_2'] .' ('. $user['me']['age'] .')';
+			if ($age < 29){
+				// greatly contributed
+				print ' <span style="color: '. get_risk_color(.9) .'">'. $text[2][$control['lang']]['eval_risk_overview_age_2_greatly'] .'</span> ';
+			} else if ($age < 49){
+				// likely contributed
+				print ' <span style="color: '. get_risk_color(.6) .'">'. $text[2][$control['lang']]['eval_risk_overview_age_2_likely'] .'</span> ';
 			} else {
-				print ' <b>did not</b> contribute ';
+				// did not contribute
+				print ' <span style="color: '. get_risk_color(.2) .'">'. $text[2][$control['lang']]['eval_risk_overview_age_2_didnot'] .'</span> ';
 			}
-			print '</span> to your estimated risk as "<em>Risk taking decreased with age in every domain.</em>" (Nicholson, 164) Meaning, the younger you are, the more likely you are to engage in risky behavior, which may affect our bottom line.</li>';
+			
+			
+			
+			// to your estimated risk as
+			print '</span> '. $text[2][$control['lang']]['eval_risk_overview_age_3'] .' "<em>';
+			// Risk taking decreased with age in every domain
+			print ' '. $text[2][$control['lang']]['eval_risk_overview_age_4'] ;
+			print '.</em>" (Nicholson, 164)';
+			
+			
+				
+			if ( $risk_name == 'financial'){
+				// nothing
+			} else if ( $risk_name == 'health'){
+				// Meaning, the younger you are, the more likely you are to engage in risky behavior, which may affect our bottom line
+				print ' '. $text[2][$control['lang']]['eval_risk_overview_age_5'];
+			}
+			
+			print '.</li>';
+			
+			
 				
 		
 			
@@ -1091,28 +1155,29 @@ function eval_risk($risk_name){
 	//return($arr);
 	$keys=array_keys($arr);
 	
-	if ( floor($arr[$keys[0]] * 10) > 5 ) print '<img src="assets/img/warning_risk_'. floor($arr[$keys[0]] * 10) .'.png" style="height:22px; margin-right:5px">';
-	print 'Your high scores in ';
+	if ( floor($arr[$keys[0]] * 10) > 4 ) print '<img src="assets/img/warning_risk_'. floor($arr[$keys[0]] * 10) .'.png" style="height:22px; margin-right:5px">';
+		
+			
+	// Your high scores in
+	print $text[2][$control['lang']]['eval_risk_1']. ' ';
 	// this one colors the words
 	//print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[0]]) .'">'. $keys[0] .'</span> ('. $arr[$keys[0]] .') ';
-	print ' <span class="udata">'. $keys[0] .'</span> ('. $arr[$keys[0]] .') ';
+	print ' <span class="udata">'. $keys[0] .' ('. $arr[$keys[0]] .')</span> ';
 	print ' and ';
 	// this one colors the words
 	//print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[1]]) .'">'. $keys[1] .'</span> ('. $arr[$keys[1]] .') ';
-	print ' <span class="udata">'. $keys[1] .'</span> ('. $arr[$keys[1]] .') ';
-	print ' indicate ';
+	print ' <span class="udata">'. $keys[1] .' ('. $arr[$keys[1]] .')</span> ';
+	// indicate
+	print ' '. $text[2][$control['lang']]['eval_risk_2'] .' ';
 		
 	$r = floor( ($arr[$keys[0]] * 10)/2 );	
 	print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[0]]) .'">'. $text['meta'][$control['lang']]['risk_words'][ $r ] .'</span>';
 	//print ' ('.$r.') ';
-	print ' potential for risk-taking behavior in your ';
+	// potential for risk-taking behavior in your
+	print ' '. $text[2][$control['lang']]['eval_risk_3'] .' ';
 	print strtolower($risk_name);
-	print ' decisions. ';
-	
-	
-	
-	
-		
+	// decisions
+	print ' '. $text[2][$control['lang']]['eval_risk_4'] .' ';
 }
 		
 			
@@ -1136,25 +1201,30 @@ function eval_risk($risk_name){
 							<?php if (isset($user['big5_risk_domains'])){ ?>
 							<p><?php 
 								
+								// Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that 
 								print $text[2][$control['lang']]['2_1'];
-								print ' <span class="udata">';
 								
+								// get overall financial risk
+								$overall_financial_risk = overall_risk('financial');
 								
-								
-								if (overall_risk()){
-									print " not a good ";
+								if ( $overall_financial_risk > .7 ){
+									// you may be an unreliable candidate for a loan
+									print ' <span class="udata" style="color: '. get_risk_color(.8) .'">';
+									print ' '. $text[2][$control['lang']]['2_2_unreliable'] .'</span>. ';
+								} else if ( $overall_financial_risk > .3 ){
+									// you may be a mediocre candidate for a loan
+									print ' <span class="udata" style="color: '. get_risk_color(.5) .'">';
+									print ' '. $text[2][$control['lang']]['2_2_mediocre'] .'</span>. ';
 								} else {
-									print " a good ";
+									// you may be a good candidate for a loan
+									print ' <span class="udata" style="color: '. get_risk_color(.1) .'">';
+									print ' '. $text[2][$control['lang']]['2_2_good'] .'</span>. ';
 								}
-								print '</span> ';
-								print $text[2][$control['lang']]['2_2'];
 								
 								?>
 							</p>
-							<p><?php print $text[2][$control['lang']]['2_3'] ?></p>
 							
-							
-							<?php eval_risk_overview('Career') ?>
+							<?php eval_risk_overview('financial', $overall_financial_risk) ?>
 							
 							
 							<?php } ?>
@@ -1172,18 +1242,16 @@ function eval_risk($risk_name){
 						<div class="col-sm-5">
 
 
-							<h4><?php print $text[2][$control['lang']]['2_career_heading'] ?></h4>
+							<h4><?php print $text[2][$control['lang']]['2_career_heading'] ?> </h4>
+							
+							<p><?php eval_risk('Career'); ?> (<em><?php print $text[2][$control['lang']]['2_career_risk_eg'] ?></em>).</p>
 							
 							
-							<p><?php
-								
-								eval_risk('Career');
-								
-								//report($user['big5_risk_domains']);
-								
-							?></p>
+							<?php /*
+							<button id="career_info_btn" class="btn btn-custom"><?php print $text[2][$control['lang']]['2_career_risk_more'] ?></button>
+							<blockquote class="more_info" id="career_info">"<em><?php print $text[2][$control['lang']]['2_career_risk_more_text'] ?>.</em>" (Nicholson, 164) </blockquote>
+							*/ ?>
 							
-
 						</div>
 						<div class="col-sm-7">
 
@@ -1232,7 +1300,7 @@ function eval_risk($risk_name){
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_career'></canvas></div>
-									   <div class='chart_caption'>Career Risk</div>";
+									   <div class='chart_caption'>". $text[2][$control['lang']]['2_career_heading'] ."</div>";
 
 							?>
 						</div>
@@ -1246,7 +1314,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[2][$control['lang']]['2_finance_heading'] ?></h4>
-							<p><?php eval_risk('Finance'); ?></p>
+							<p><?php eval_risk('Finance'); ?> (<em><?php print $text[2][$control['lang']]['2_finance_risk_eg'] ?></em>).</p>
 							
 
 						</div>
@@ -1294,7 +1362,7 @@ function eval_risk($risk_name){
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_finance'></canvas></div>
-									   <div class='chart_caption'>Career Risk</div>";
+									   <div class='chart_caption'>". $text[2][$control['lang']]['2_finance_heading'] ."k</div>";
 
 							?>
 						</div>
@@ -1308,7 +1376,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[2][$control['lang']]['2_social_heading'] ?></h4>
-							<p><?php eval_risk('Social'); ?></p>
+							<p><?php eval_risk('Social'); ?> (<em><?php print $text[2][$control['lang']]['2_social_risk_eg'] ?></em>).</p>
 							
 
 						</div>
@@ -1359,7 +1427,7 @@ function eval_risk($risk_name){
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_social'></canvas></div>
-									   <div class='chart_caption'>Social Risk</div>";
+									   <div class='chart_caption'>". $text[2][$control['lang']]['2_social_heading'] ."</div>";
 
 							?>
 						</div>
@@ -1410,40 +1478,44 @@ function eval_risk($risk_name){
 							
 							
 							<?php if (isset($user['big5_risk_domains'])){ ?>
+							
 							<p><?php 
 								
+								// Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports. Your predisposition to risky behavior could mean higher medical costs for us. To help us understand how dangerous you are, we compared your personality analysis to results from a study on risk in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.
 								print $text[3][$control['lang']]['3_1'];
-								print ' <span class="udata">';
 								
+								// get overall health risk
+								$overall_health_risk = overall_risk('health');
 								
-								function overall_risk2(){
-									global $user;
-									foreach ($user['big5_risk_domains'] as $key => $risk_arr){
-										if ($key == 'Health' || $key == 'Safety' || $key == 'Recreation'){
-											$score = 0;
-											foreach ($risk_arr as $risk_score){
-												//$score += $risk_score;
-												if ($risk_score > .5) {
-													return true;
-												}
-											}
-											//print "<p>". $score / count($risk_arr);
-										}
-									}
-									
-								}
-								if (overall_risk()){
-									//print " not a good ";
+								if ( $overall_health_risk > .7 ){
+									// your risk level is too extreme to make you a candidate for health insurance
+									print ' <span class="udata" style="color: '. get_risk_color(.8) .'">';
+									print ' '. $text[3][$control['lang']]['2_3_extreme'] .'</span>. ';
+								} else if ( $overall_health_risk > .4 ){
+									// your risk level is too high to make you a candidate for health insurance
+									print ' <span class="udata" style="color: '. get_risk_color(.6) .'">';
+									print ' '. $text[3][$control['lang']]['2_3_high'] .'</span>. ';
+								} else if ( $overall_health_risk > .3 ){
+									// your risk level is moderate which may barely qualify you for health insurance
+									print ' <span class="udata" style="color: '. get_risk_color(.3) .'">';
+									print ' '. $text[3][$control['lang']]['2_3_moderate'] .'</span>. ';
 								} else {
-									//print " a good ";
+									// your risk level is low which makes you a good candidate for health insurance
+									print ' <span class="udata" style="color: '. get_risk_color(.1) .'">';
+									print ' '. $text[3][$control['lang']]['2_3_low'] .'</span>. ';
 								}
-								print '</span> ';
 								
 								?>
-								
-								<?php eval_risk_overview('Health') ?>
-								
 							</p>
+							
+							<?php eval_risk_overview('Health', $overall_health_risk) ?>
+							
+							
+							
+							
+								
+								
+							
 							<?php } ?>
 							
 							
@@ -1458,7 +1530,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[3][$control['lang']]['3_health_heading'] ?></h4>
-							<p><?php eval_risk('Health'); ?></p>
+							<p><?php eval_risk('Health'); ?> (<em><?php print $text[3][$control['lang']]['3_health_risk_eg'] ?></em>).</p>
 							
 
 						</div>
@@ -1514,7 +1586,7 @@ function eval_risk($risk_name){
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_health'></canvas></div>
-									   <div class='chart_caption'>Health Risk</div>";
+									   <div class='chart_caption'>". $text[3][$control['lang']]['3_health_heading'] ."</div>";
 
 							?>
 
@@ -1528,7 +1600,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[3][$control['lang']]['3_safety_heading'] ?></h4>
-							<p><?php eval_risk('Safety'); ?></p>
+							<p><?php eval_risk('Safety'); ?> (<em><?php print $text[3][$control['lang']]['3_safety_risk_eg'] ?></em>).</p>
 							
 
 						</div>
@@ -1579,7 +1651,7 @@ function eval_risk($risk_name){
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_safety'></canvas></div>
-									   <div class='chart_caption'>Safety Risk</div>";
+									   <div class='chart_caption'>". $text[3][$control['lang']]['3_safety_heading'] ."</div>";
 
 							?>
 
@@ -1593,7 +1665,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[3][$control['lang']]['3_recreation_heading'] ?></h4>
-							<p><?php eval_risk('Recreation'); ?></p>
+							<p><?php eval_risk('Recreation'); ?> (<em><?php print $text[3][$control['lang']]['3_recreation_risk_eg'] ?></em>).</p>
 							
 
 						</div>
@@ -1644,7 +1716,7 @@ function eval_risk($risk_name){
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_recreation'></canvas></div>
-									   <div class='chart_caption'>Recreation Risk</div>";
+									   <div class='chart_caption'>". $text[3][$control['lang']]['3_recreation_heading'] ."</div>";
 
 							?>
 
@@ -1826,6 +1898,7 @@ $('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });
 $('#step1_2_prev_btn').on('click',function(){ step1_frames_event(1) });
 $('#step1_2_next_btn').on('click',function(){ step1_frames_event(3) });
 $('#step1_3_prev_btn').on('click',function(){ step1_frames_event(2) });
+$('#step1_3_gorisk_btn').on('click',function(){ window.location.replace("./?data_set="+data_set+"&step=two&lang="+lang+"&player="+player); });
 
 
 $('#get_sample_data_btn').on('click',function(){ window.location.replace("./?data_set=sample&step=load_data_sample&lang="+lang+"&player="+player); });
@@ -1842,8 +1915,18 @@ $("video").bind("ended", function() {
    window.location.replace("./?step=load_data&lang="+lang+"&player="+player);
 });
 
-</script>
 
+
+
+$( "#career_info_btn" ).click(function() {
+	$( "#career_info" ).slideToggle( "slow", function() {
+		// Animation complete.
+	});
+});
+$( "#career_info" ).hide()
+
+
+</script>
 
 
 </body>

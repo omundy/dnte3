@@ -79,7 +79,7 @@ var radar_chart_options = {
     scaleBeginAtZero : true,
 
     //String - Colour of the angle line
-    angleLineColor : "rgba(0,0,0,.1)",
+    angleLineColor : "rgba(39,165,130,.1)",
 
     //Number - Pixel width of the angle line
     angleLineWidth : 1,
@@ -87,8 +87,8 @@ var radar_chart_options = {
     
     pointLabelFontFamily : "'Arial'",	//String - Point label font declaration 
     pointLabelFontStyle : "normal",		//String - Point label font weight
-    pointLabelFontSize : 10,			//Number - Point label font size in pixels
-    pointLabelFontColor : "#666",		//String - Point label font colour
+    pointLabelFontSize : 13,			//Number - Point label font size in pixels
+    pointLabelFontColor : "#999",		//String - Point label font colour
 
     //Boolean - Whether to show a dot for each point
     pointDot : true,
