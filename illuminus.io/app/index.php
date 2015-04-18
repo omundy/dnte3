@@ -182,11 +182,11 @@ if (isset($_SESSION['dnt_user'])){
 							
 							
 							<h4><?php print $text['faq'][$control['lang']]['what_heading'] ?></h4>	
-							<p><?php print $text['faq'][$control['lang']]['what_text'] ?>.</p>		
+							<p><?php print $text['faq'][$control['lang']]['what_text'] ?></p>		
 							
 							<h4><?php print $text['faq'][$control['lang']]['who_heading'] ?></h4>	
 							<p><?php print $text['faq'][$control['lang']]['who_text1'] ?>
-								<a href="?data_set=<?php print $control['data_set'] ?>&amp;step=one&amp;lang=<?php print $control['lang'] ?>&amp;player=<?php print $control['player'] ?>">
+								<a href="?data_set=<?php print $control['data_set'] ?>&amp;step=credits&amp;lang=<?php print $control['lang'] ?>&amp;player=<?php print $control['player'] ?>">
 								<?php print $text['faq'][$control['lang']]['who_text2'] ?></a>.</p>	
 								
 							<h4><?php print $text['faq'][$control['lang']]['fberror_heading'] ?></h4>	

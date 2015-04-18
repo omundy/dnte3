@@ -1090,12 +1090,16 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	),
 	
 	
+	
+	
+	
+	
 	// FAQ
 	'faq' => array(
 		'CA' => array(
 			'0_heading' => 'FAQ',
 			'what_heading' => 'What is Illuminus',
-			'what_text' => 'Illuminus is a satirical corporation and web application created for the documentary series Do Not Track (www.donottrack-doc.com).',
+			'what_text' => 'Illuminus is a fantasy corporation that analyses your Facebook likes to build a character profile.  It is a work of satire to accompany Do Not Track, a personalized documentary series about tracking and the web economy. Illuminus uses a fictional scenario of a corporation deciding your financial services to uncover real-life techniques of data analysis.',
 			'who_heading' => 'Who created Illuminus',
 			'who_text1' => 'Please see the ',
 			'who_text2' => 'credits page',
@@ -1121,7 +1125,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 		'DE' => array(
 			'0_heading' => 'FAQ',
 			'what_heading' => 'What is Illuminus',
-			'what_text' => 'Illuminus is a satirical corporation and web application created for the documentary series Do Not Track (www.donottrack-doc.com).',
+			'what_text' => 'Illuminus is a fantasy corporation that analyses your Facebook likes to build a character profile.  It is a work of satire to accompany Do Not Track, a personalized documentary series about tracking and the web economy. Illuminus uses a fictional scenario of a corporation deciding your financial services to uncover real-life techniques of data analysis.',
 			'who_heading' => 'Who created Illuminus',
 			'who_text1' => 'Please see the ',
 			'who_text2' => 'credits page',
@@ -1147,7 +1151,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 		'EN' => array(
 			'0_heading' => 'FAQ',
 			'what_heading' => 'What is Illuminus',
-			'what_text' => 'Illuminus is a satirical corporation and web application created for the documentary series Do Not Track (www.donottrack-doc.com).',
+			'what_text' => 'Illuminus is a fantasy corporation that analyses your Facebook likes to build a character profile.  It is a work of satire to accompany Do Not Track, a personalized documentary series about tracking and the web economy. Illuminus uses a fictional scenario of a corporation deciding your financial services to uncover real-life techniques of data analysis.',
 			'who_heading' => 'Who created Illuminus',
 			'who_text1' => 'Please see the ',
 			'who_text2' => 'credits page',
@@ -1173,7 +1177,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 		'FR' => array(
 			'0_heading' => 'FAQ',
 			'what_heading' => 'What is Illuminus',
-			'what_text' => 'Illuminus is a satirical corporation and web application created for the documentary series Do Not Track (www.donottrack-doc.com).',
+			'what_text' => 'Illuminus is a fantasy corporation that analyses your Facebook likes to build a character profile. It is a work of satire to accompany Do Not Track, a personalized documentary series about tracking and the web economy. Illuminus uses a fictional scenario of a corporation deciding your financial services to uncover real-life techniques of data analysis.',
 			'who_heading' => 'Who created Illuminus',
 			'who_text1' => 'Please see the ',
 			'who_text2' => 'credits page',
