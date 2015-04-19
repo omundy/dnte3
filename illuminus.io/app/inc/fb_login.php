@@ -63,7 +63,6 @@ if(isset($_GET['player']) && $_GET['player'] == 'yes'){
 
 
 
-
 $control['show_alt_data_reason'] = '';
 $control['fb_data_problems'] = false;
 
@@ -95,7 +94,15 @@ illuminus.io/app/?data_set=user&step=zero&lang=EN
 session_start();
 //report($_SESSION);
 
-//unset($_SESSION['dnt_user']);
+
+if ($control['step'] == 'logout'){
+	if ( isset($_SESSION['dnt_user']) ){
+		unset($_SESSION['dnt_user']);
+	}
+	header('Location: ./?data_set=user&step=load_data&lang='.$control['lang'].'&player='.$control['player'], true, 303);
+	exit();
+}
+
 
 // for all user data
 $user = array();
@@ -556,7 +563,7 @@ if ( $control['fb_data_problems'] == true){
 
 
 //report($user['big5_risk_domains']);
-//report($control);
+report($control,180);
 //exit();
 //report($_SESSION);
 //report($user);

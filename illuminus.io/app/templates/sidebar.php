@@ -24,7 +24,7 @@
 				<li><a href="./?data_set=<?php print $control['data_set']; ?>&amp;step=privacy&lang=<?php print $control['lang'] ?>"><?php print $text['meta'][$control['lang']]['nav_footer_link_privacy'] ?></a></li>
 				<li><a href="./?data_set=<?php print $control['data_set']; ?>&amp;step=faq&lang=<?php print $control['lang'] ?>">FAQ</a></li>
 				<li><a href="./?data_set=<?php print $control['data_set']; ?>&amp;step=credits&lang=<?php print $control['lang'] ?>"><?php print $text['meta'][$control['lang']]['nav_footer_link_credits'] ?></a></li>
-				<?php if( $control['fb_login_state'] == 'yes' ){ ?>
+				<?php if( $control['fb_login_state'] == 'yes' || (isset($user['me']) && !isset($user['me']['sample'])) ){ ?>
 				<li><a id="fb_logout_btn" href="#"><?php print $text['meta'][$control['lang']]['nav_footer_link_logout'] ?></a></li>
 				<?php } ?>
 			</ul>

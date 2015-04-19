@@ -926,7 +926,9 @@ if (isset($_SESSION['dnt_user'])){
 					<script>  </script>
 
 
-					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
+					<?php } else { 
+						print '<p>'. $text['meta'][$control['lang']]['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta'][$control['lang']]['no_data_found2'] .'</a>.</p>'; 
+					} ?>
 					
 					
 					
@@ -1439,7 +1441,9 @@ function eval_risk($risk_name){
 					
 					
 					
-					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
+					<?php } else { 
+						print '<p>'. $text['meta'][$control['lang']]['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta'][$control['lang']]['no_data_found2'] .'</a>.</p>'; 
+					} ?>
 	
 	
 					<div><br>
@@ -1726,7 +1730,9 @@ function eval_risk($risk_name){
 					
 					
 					
-					<?php } else { print '<p>'. $text['meta'][$control['lang']]['no_data_found'] .'</p>'; } ?>
+					<?php } else { 
+						print '<p>'. $text['meta'][$control['lang']]['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta'][$control['lang']]['no_data_found2'] .'</a>.</p>'; 
+					} ?>
 					
 					
 					<div><br>
@@ -1844,10 +1850,10 @@ function login_user(_scope) {
 }
 // Logout user
 function logout_user() {
+	
 	FB.api('/me/permissions', 'DELETE', function(res){
 	    if(res.success === true){
 	        console.log('APP: app deauthorized');
-			window.location.replace("./?data_set=<?php print $control['data_set']?>&amp;step=zero&lang="+lang+"&player="+player);
 	    } else if(res.error){
 	        console.log('APP: res.error');
 	        console.error('APP: ' + res.error.type + ': ' + res.error.message);
@@ -1855,6 +1861,9 @@ function logout_user() {
 	        console.log('APP: '+res);
 	    }
 	});
+	
+	var url = "./?data_set=user&step=logout&lang="+lang+"&player="+player;
+	window.location.replace(url);
 }
 
 

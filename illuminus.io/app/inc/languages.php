@@ -614,6 +614,7 @@ $text = array(
 			'alt_data_click' => 'Click here',
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
+			'no_data_found2' => 'Click Get Started to begin',
 			
 			'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using sample data from Richard’s Facebook account instead. See the FAQ for more info.',
 			
@@ -663,6 +664,7 @@ $text = array(
 			'alt_data_click' => 'Click here',
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
+			'no_data_found2' => 'Click Get Started to begin',
 			
 			'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using sample data from Richard’s Facebook account instead. See the FAQ for more info.',
 			
@@ -712,6 +714,7 @@ $text = array(
 			'alt_data_click' => 'Click here',
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
+			'no_data_found2' => 'Click Get Started to begin',
 			
 			'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using sample data from Richard’s Facebook account instead. See the FAQ for more info.',
 			
@@ -761,6 +764,7 @@ $text = array(
 			'alt_data_click' => 'Click here',
 			'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
 			'no_data_found' => 'No data found',
+			'no_data_found2' => 'Click Get Started to begin',
 			
 			'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using sample data from Richard’s Facebook account instead. See the FAQ for more info.',
 			
