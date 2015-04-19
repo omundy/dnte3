@@ -563,7 +563,7 @@ if ( $control['fb_data_problems'] == true){
 
 
 //report($user['big5_risk_domains']);
-report($control,180);
+//report($control,180);
 //exit();
 //report($_SESSION);
 //report($user);
