@@ -1,7 +1,10 @@
 <?php
-	
+
+
+require_once('inc/localization.php');
+$lang = get_language();
+require_once('inc/text_'. $lang .'.php');
 require_once('inc/fb_login.php');
-require_once('inc/text_'. $control['lang'] .'.php');
 include_once('templates/header.php');
 
 
@@ -43,8 +46,8 @@ print $css . '</style>';
 			<div class="inner">
 
 
-		
-		
+
+
 				<?php if($control['player'] == 'yes'){ ?>
 				<div class="row">
 					<div class="col-sm-10 ">
@@ -56,44 +59,44 @@ print $css . '</style>';
 					</div>
 				</div>
 				<?php } ?>
-		
-		
+
+
 <?php
 
 $pic = 'assets/img/fb_profile_img.png';
-						
+
 if (isset($_SESSION['dnt_user'])){
-	
+
 	if ( isset($user['me']['photo'])){
 		$pic = $user['me']['photo'];
-	} 
+	}
 }
 
-?>		
-		
-		
-		
-				
+?>
+
+
+
+
 				<!-- load_data -->
 				<?php if ($control['step'] == 'load_data'){ ?>
 				<div id="" class="step">
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text['load_data']['0_heading'] ?></h3>							
+							<h3><?php print $text['load_data']['0_heading'] ?></h3>
 						</div>
-						
+
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							
-							
-							
-							
-							
+
+
+
+
+
 							<?php
-							
+
 							if (isset($_SESSION['dnt_user'])){
-																
+
 							?>
 								<p><?php print $text['meta']['get_current_data_set']; ?></p>
 								<div class="profile_box">
@@ -102,55 +105,55 @@ if (isset($_SESSION['dnt_user'])){
 										<div class="profile_name"><?php print $user['me']['name'] ?></div>
 										<div class="profile_age"><?php print $user['me']['gender'] ?></div>
 										<div class="profile_gender"><?php print $user['me']['age'] ?> years</div>
-									</div>	
+									</div>
 								</div>
-								
+
 								<br>
-								
+
 								<p><?php print $text[0]['select_assessment'] ?></p>
-								
-								
-								
+
+
+
 							<?php } else { ?>
-							
-							<img src="assets/img/illuminus_cover_img.jpg">							
-						
+
+							<img src="assets/img/illuminus_cover_img.jpg">
+
 							<?php } ?>
-							
-							
-												
+
+
+
 							<h4 style="clear: both; margin: 30px 0 0 0"><?php print $text['meta']['get_select_a_data_set']; ?></h4>
-														
+
 							<p>
 							<?php if( $control['fb_login_state'] == 'no' ){ ?>
-							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
+							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo">
 							<?php print $text['meta']['login_with_facebook'] ?>
 							<?php } else { ?>
-							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
+							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo">
 							<?php print $text['meta']['get_fb_data_btn']; ?>
 							<?php } ?>
 							</button>
-				
+
 							<p>... <?php print $text['meta']['get_select_or']; ?> ...
-				
-							<p><button id="get_sample_data_btn" class="btn btn-large btn-custom"><?php print $text['meta']['get_sample_data_btn']; ?></button>				
-							
-							
+
+							<p><button id="get_sample_data_btn" class="btn btn-large btn-custom"><?php print $text['meta']['get_sample_data_btn']; ?></button>
+
+
 						</div>
 					</div>
 				</div>
 				<?php } ?>
 				<!-- /load_data -->
-				
-				
-				
-				
+
+
+
+
 				<!-- privacy -->
 				<?php if ($control['step'] == 'privacy'){ ?>
 				<div id="" class="step">
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text['privacy']['0_heading'] ?></h3>							
+							<h3><?php print $text['privacy']['0_heading'] ?></h3>
 
 						</div>
 					</div>
@@ -162,74 +165,74 @@ if (isset($_SESSION['dnt_user'])){
 				</div>
 				<?php } ?>
 				<!-- /privacy -->
-				
-				
-				
-				
-				
+
+
+
+
+
 				<!-- faq -->
 				<?php if ($control['step'] == 'faq'){ ?>
 				<div id="" class="step">
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text['faq']['0_heading'] ?></h3>							
+							<h3><?php print $text['faq']['0_heading'] ?></h3>
 
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							
-							
-							<h4><?php print $text['faq']['what_heading'] ?></h4>	
-							<p><?php print $text['faq']['what_text'] ?></p>		
-							
-							<h4><?php print $text['faq']['who_heading'] ?></h4>	
+
+
+							<h4><?php print $text['faq']['what_heading'] ?></h4>
+							<p><?php print $text['faq']['what_text'] ?></p>
+
+							<h4><?php print $text['faq']['who_heading'] ?></h4>
 							<p><?php print $text['faq']['who_text1'] ?>
 								<a href="?data_set=<?php print $control['data_set'] ?>&amp;step=credits&amp;lang=<?php print $control['lang'] ?>&amp;player=<?php print $control['player'] ?>">
-								<?php print $text['faq']['who_text2'] ?></a>.</p>	
-								
-							<h4><?php print $text['faq']['fberror_heading'] ?></h4>	
-							<p><?php print $text['faq']['fberror_text'] ?></p>		
-							
-							<h4><?php print $text['faq']['bugs_heading'] ?></h4>	
-							<p><?php print $text['faq']['bugs_text'] ?>.</p>		
-							
-							
+								<?php print $text['faq']['who_text2'] ?></a>.</p>
+
+							<h4><?php print $text['faq']['fberror_heading'] ?></h4>
+							<p><?php print $text['faq']['fberror_text'] ?></p>
+
+							<h4><?php print $text['faq']['bugs_heading'] ?></h4>
+							<p><?php print $text['faq']['bugs_text'] ?>.</p>
+
+
 						</div>
 					</div>
 				</div>
 				<?php } ?>
 				<!-- /faq -->
-				
 
 
 
 
 
-				
+
+
 				<!-- credits -->
 				<?php if ($control['step'] == 'credits'){ ?>
 				<div id="" class="step">
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text['credits']['0_heading'] ?></h3>							
+							<h3><?php print $text['credits']['0_heading'] ?></h3>
 
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 
-							
+
 							<h4><?php print $text['credits']['1_creators'] ?></h4>
-							
+
 							<p>Owen Mundy, Brett Gaylor, Tim Schwartz, Sébastien Brothier, Christiane Miethge, and Eric Drier</p>
-							
+
 							<br>
-							
-							
-							
+
+
+
 							<h4><?php print $text['credits']['1_predictions'] ?></h4>
-							
+
 							<p>
 							<?php print $text['credits']['cambridge'] ?><br>
 							Dr Michal Kosinski<br>
@@ -237,72 +240,72 @@ if (isset($_SESSION['dnt_user'])){
 							Dr David Stillwell<br>
 							Bartosz Kielczewski<br>
 							</p>
-							
+
 							<br>
-							
-							
+
+
 							<h4><?php print $text['credits']['1_thankyou'] ?></h4>
-							
+
 							<p>Richard Gutjahr, Margaux Missika, Auriane Meilhon, Maxime Quintard, Nicolas Menetand, and Gregory Trowbridge</p>
-							
-							
+
+
 						</div>
 					</div>
 				</div>
 				<?php } ?>
 				<!-- /credits -->
-				
-				
-				
-				
-				
+
+
+
+
+
 				<!-- error -->
 				<?php if ($control['step'] == 'error'){ ?>
 				<div id="" class="step">
 					<div class="row">
 						<div class="col-sm-12 title">
-							<h3><?php print $text['meta']['alt_data_heading'] ?></h3>					
+							<h3><?php print $text['meta']['alt_data_heading'] ?></h3>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							
-							<p><?php 
+
+							<p><?php
 								print $text['meta']['alt_data_p1'] .' ';
 								print $text['meta']['alt_data_reasons'][$control['show_alt_data_reason']]  .'. ';
 								print '</p><p>';
 								print '<a href="?data_set='.$control['data_set'].'&amp;step=one&amp;lang='. $control['lang'] .'" class="step1_btn btn btn-custom">' . $text['meta']['alt_data_click'] .'</a> ';
 								print $text['meta']['alt_data_p2'];
 							?></p>
-							
+
 						</div>
 					</div>
 				</div>
 				<?php } ?>
 				<!-- /error -->
-				
-				
-				
 
-							
-							
-							
-							
-				
-				
-				
-				
+
+
+
+
+
+
+
+
+
+
+
 				<!-- step_zero -->
 				<?php if ($control['step'] == 'zero'){ ?>
 				<div id="step_zero" class="step">
 					<?php if($control['player'] == 'no'){ ?>
 					<div class="row">
 						<div class="col-sm-10 title">
-							
-							
+
+
 							<p><?php print $text[0]['0_heading'] ?></p>
 
-							
+
 							<div align="center" class="embed-responsive embed-responsive-16by9">
 								<video autoplay class="embed-responsive-item">
 									<source src="https://illuminus.io/video/illuminus_promo.mp4" type="video/mp4">
@@ -310,26 +313,26 @@ if (isset($_SESSION['dnt_user'])){
 								</video>
 							</div>
 
-			
+
 							<h1><?php print $text[0]['callout'] ?></h1>
-							
-							
-							<?php 
-							
+
+
+							<?php
+
 							if (isset($session)) {
-								print $text[0]['select_assessment'];									
+								print $text[0]['select_assessment'];
 							} else {
 								print $text[0]['please_login'];
 							}
 
 							?>
-							
+
 							<p>
 							<?php if( $control['fb_login_state'] == 'no' ){ ?>
-							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
+							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo">
 							<?php print $text['meta']['login_with_facebook'] ?>
 							<?php } else { ?>
-							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo"> 
+							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo">
 							<?php print $text['meta']['get_fb_data_btn']; ?>
 							<?php } ?>
 							</button>
@@ -340,13 +343,13 @@ if (isset($_SESSION['dnt_user'])){
 					<?php } ?>
 					<div class="row">
 						<div class="col-sm-7">
-							
+
 						</div>
 						<div class="col-sm-5">
 							<!--<img src="assets/img/network.png" alt="network" class="img-responsive">
 							<p><?php print $text[0]['0_heading'] ?></p>
 							<h1><?php print $text[0]['callout'] ?></h1>-->
-							
+
 						</div>
 					</div>
 				</div>
@@ -369,26 +372,26 @@ if (isset($_SESSION['dnt_user'])){
 				<div id="step_one" class="step">
 
 
-					
-		
-					
+
+
+
 					<div id="step1_frame_1">
-						
+
 
 
 						<div class="row">
 							<div class="col-sm-12 title">
 								<h3><?php print $text[1]['1_1_heading'] ?></h3>
 								<?php
-									
-								//report($user);	
-									
+
+								//report($user);
+
 								if ( isset($user['fb_data_problems']) && $user['fb_data_problems'] == true ){
-									
+
 									//print '<p>'. $control['show_alt_data_reason'];
 									//print '<p>'. $control['fb_error'];
 									print '<p class="well">'. $text['meta']['no_data_found_statement'] .'</p>';
-									
+
 									// use sample user data
 									$json = file_get_contents('inc/default_user.json');
 									$user = (Array)json_decode($json,true);
@@ -396,30 +399,30 @@ if (isset($_SESSION['dnt_user'])){
 									// make that the user
 									$_SESSION['dnt_user'] = $user;
 								}
-								
+
 								?>
 							</div>
 						</div>
 
-						
+
 						<?php if ( isset($user['like_timeline']) && count($user['like_timeline']) > 0 ){ ?>
 
 
 						<div class="row">
 							<div class="col-sm-6 left">
 
-								
-								
+
+
 								<p>
-								
+
 								<img src="<?php print $pic ?>" style="width:100px; height:100px; float:left; margin: 4px 13px 10px 0;" class="img-rounded profile-pic">
-									
+
 								<?php if (isset($user['like_timeline'])){ ?>
 								<?php print $text[1]['1_1_welcome'] ?>, <span class="udata"><?php print $user['me']['name'] ?></span>!!!
 								<?php print $text[1]['1_1_subheading'] ?>
 								<?php } ?>
-						
-								
+
+
 								<?php
 
 								// Your social activity reveals a lot about you.
@@ -557,7 +560,7 @@ if (isset($_SESSION['dnt_user'])){
 									$str .= "var ctx = document.getElementById('bar_like_timeline').getContext('2d');
 
 
-											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options); 
+											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options);
 											 $('#step1_frame_1').hide();
 											 \n\n\n";
 
@@ -579,20 +582,20 @@ if (isset($_SESSION['dnt_user'])){
 
 
 
-						<?php } ?>	
-						
+						<?php } ?>
+
 					</div>
-					
-					
-					
-					
-					
-						
-					
-					
-					
-					
-					
+
+
+
+
+
+
+
+
+
+
+
 					<?php if (isset($user['like_timeline'])){ ?>
 
 
@@ -611,9 +614,9 @@ if (isset($_SESSION['dnt_user'])){
 						<div class="row">
 							<div class="col-sm-6 left">
 
-							<p><?php 
-								
-								
+							<p><?php
+
+
 								arsort($user['like_categories']); // sort by frequency
 								//report($user['like_categories']);
 								//ksort($user['like_categories']); // sort by key
@@ -639,23 +642,23 @@ if (isset($_SESSION['dnt_user'])){
 								$val = $user['like_categories']['Other'];
 								unset($user['like_categories']['Other']);
 								$user['like_categories']['Other'] = $val;
-								
-								
-								// We have also sorted your interests on Facebook into the following categories. These interests, especially the top ones like 
+
+
+								// We have also sorted your interests on Facebook into the following categories. These interests, especially the top ones like
 								print $text[1]['1_2_p1_1'];
-								
+
 								$i = 0;
 								// loop through categories
 								foreach($user['like_categories'] as $key => $val){
 									$i++;
 									// and
-									if ($i == 3) print $text[1]['1_2_p1_2']; 
+									if ($i == 3) print $text[1]['1_2_p1_2'];
 									print ' <span class="udata">'. $key .'</span>';
 									if ($i < 3) print ', ';
 									if ($i == 3) break;
 								}
-								
-								
+
+
 								// determine which advertisements you see.
 								print ' '. $text[1]['1_2_p1_3'] ?>
 							</p>
@@ -674,7 +677,7 @@ if (isset($_SESSION['dnt_user'])){
 
 									############### LIKE_CATEGORIES ###############
 
-									
+
 
 									$colors0 = array('#09bc87','#E5F9E0','#A3F7B5','#40C9A2','#664147');
 									$colors1 = array('#09bc87','#DEE5E5','#9DC5BB','#5E807F','#082D0F');
@@ -699,7 +702,7 @@ if (isset($_SESSION['dnt_user'])){
 									$str .= '];';
 
 
-									$str .= "\n 
+									$str .= "\n
 											var donut_chart = document.getElementById('donut_like_category').getContext('2d');
 											var donut_like_category = new Chart(donut_chart).Doughnut(donut_like_category_data, pie_chart_options);
 											$('#step1_frame_2').hide();
@@ -721,14 +724,14 @@ if (isset($_SESSION['dnt_user'])){
 
 
 					<?php }  ?>
-					
-					
-					
-					
-					
-					
-					
-					
+
+
+
+
+
+
+
+
 
 
 					<?php if (isset($user['big5'])){ ?>
@@ -761,34 +764,34 @@ if (isset($_SESSION['dnt_user'])){
 							//	print ' <span class="udata">'. $traits[1] .'</span>.';
 
 
-								
+
 
 
 
 								if ( isset($user['likes']) && count($user['likes']) > 0 && isset($user['big5']) ){
 									//report($big5_temp_high);
 
-									
+
 									// insert [BIG5]
 									// sort big 5 by value high > low
 									$big5_temp_high = $user['big5'];
 									arsort( $big5_temp_high );
 									//report($big5_temp_high);
 									//$big5_highest = key($big5_temp_high);
-									
+
 									print '<p>';
-									
+
 									$c = 0;
 									foreach ($big5_temp_high as $key => $val){
-										
+
 										//print '<p>'.$c .' '. $key .'<p>';
-										
+
 										print '<span class="udata" style="font-weight:bold">'. $key .'</span>';
 
 										// which indicates you are
 										print " ". $text[1]['1_1_p1_9_pos'];
-	
-	
+
+
 										// insert POSITIVE [BIG5 TRAITS]
 										$traits = explode(',',$text['big5'][$key]['keywords']);
 										for($i=0; $i<count($traits); $i++){
@@ -799,10 +802,10 @@ if (isset($_SESSION['dnt_user'])){
 												print " ". $text[1]['1_1_p1_9_and'] ." ";
 											}
 										}
-										
-										
+
+
 										print " ". $text[1]['1_1_p1_9_neg'];
-										
+
 										// insert NEGATIVE [BIG5 TRAITS]
 										$traits = explode(',',$text['big5'][$key]['opposite_keywords']);
 										for($i=0; $i<count($traits); $i++){
@@ -811,14 +814,14 @@ if (isset($_SESSION['dnt_user'])){
 												print " ". $text[1]['1_1_p1_9_and'] ." ";
 											}
 										}
-										
-										
-										
-										
+
+
+
+
 										if (++$c > 1) break;
 										print ' '. $text[1]['1_3_3'] .' ';
-										
-										
+
+
 									}
 									print ". ";
 								}
@@ -830,11 +833,11 @@ if (isset($_SESSION['dnt_user'])){
 
 
 
-								
+
 								?>
 								</p>
-								
-								
+
+
 
 								<div><br>
 									<button class="step1_btn btn btn-custom" id="step1_3_prev_btn"><?php print $text[1]['1_2_p1_back']; ?></button>
@@ -848,7 +851,7 @@ if (isset($_SESSION['dnt_user'])){
 								<?php
 
 
-									
+
 									############### BIG5_RADAR ###############
 
 									/*
@@ -867,8 +870,8 @@ if (isset($_SESSION['dnt_user'])){
 									$c = 0;
 
 
-									
-									
+
+
 									$str = "\n\n var radar_big5_data = {";
 
 									// make labels
@@ -896,9 +899,9 @@ if (isset($_SESSION['dnt_user'])){
 											radar_chart_options.scaleOverride = true;
 											radar_chart_options.scaleSteps = 2;
 											radar_chart_options.scaleStepWidth = .5;
-											radar_chart_options.scaleStartValue = 0; 
+											radar_chart_options.scaleStartValue = 0;
 											//radar_big5_data.datasets[0].fillColor = 'rgba(255,255,255,.3)';
-											
+
 											var ctx = document.getElementById('radar_big5').getContext('2d');
 											var radar_big5 = new Chart(ctx).Radar(radar_big5_data, radar_chart_options);
 											$('#step1_frame_3').hide();
@@ -925,21 +928,21 @@ if (isset($_SESSION['dnt_user'])){
 					<script>  </script>
 
 
-					<?php } else { 
-						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>'; 
+					<?php } else {
+						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>';
 					} ?>
-					
-					
-					
+
+
+
 				</div>
 				<?php } ?>
 				<!-- /step_one -->
-			
-			
-			
-			
-<?php			
-	
+
+
+
+
+<?php
+
 $health_domains = array('Health', 'Safety', 'Recreation');
 $financial_domains = array('Career', 'Finance', 'Social');
 
@@ -947,10 +950,10 @@ $financial_domains = array('Career', 'Finance', 'Social');
 function overall_risk($domain){
 	global $user, $health_domains, $financial_domains;
 	$score = 0;
-	
+
 	if ($domain = 'health') $arr = $health_domains;
 	if ($domain = 'financial') $arr = $financial_domains;
-	
+
 	foreach ($user['big5_risk_domains'] as $key => $risk_arr){
 		if (in_array($key,$arr)){
 			foreach ($risk_arr as $risk_score){
@@ -962,7 +965,7 @@ function overall_risk($domain){
 			return $score / count($risk_arr);
 		}
 	}
-	
+
 }
 
 
@@ -999,13 +1002,13 @@ function get_risk_color($total){
 function eval_risk_overview($risk_name, $overall_domain_risk){
 	global $user, $control, $text, $health_domains, $financial_domains;
 	//report($user);
-	
+
 	if (isset($user['me']['gender']) && $user['me']['gender'] != 'NOT DECLARED' && isset($user['me']['age']) && $user['me']['age'] != 'NOT DECLARED'){
 
 		print '<ul>';
-		
+
 		if ( isset($user['me']['gender']) && $user['me']['gender'] != 'NOT DECLARED'){
-						
+
 			print '<li>';
 			// In addition to your seemingly boring Facebook data, your
 			print $text[2]['eval_risk_overview_1'];
@@ -1013,9 +1016,9 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 			print ' <span class="udata">'. $user['me']['gender'];
 			print ' '. $text[2]['eval_risk_overview_2'] .' ';
 			print '</span> ';
-			
-			
-			
+
+
+
 			if ( $user['me']['gender'] === 'male' ){
 				if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
 					// greatly contributed
@@ -1041,8 +1044,8 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 			} else {
 				print ' '. $text[2]['eval_risk_overview_adj_1_3'] .' ';
 			}
-			
-			
+
+
 			// to your estimated risk as
 			print ' '. $text[2]['eval_risk_overview_3'] .' '. ' "<em>';
 
@@ -1053,55 +1056,55 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 			if ( strtolower($risk_name) == 'financial' && $user['me']['gender'] === 'male' ){
 				// Men reported significantly greater risk taking than women in the overall risk-taking scale
 				print ' '. $text[2]['eval_risk_overview_3_1'];
-			} 
+			}
 			// financial - women
 			else if ( strtolower($risk_name) == 'financial' && $user['me']['gender'] === 'female' ){
 				print ' '. $text[2]['eval_risk_overview_3_2'];
-			} 
+			}
 			// health - men
 			else if ( strtolower($risk_name) == 'health' && $user['me']['gender'] === 'male' ){
 				print ' '. $text[2]['eval_risk_overview_3_3'];
-			} 
+			}
 			// health - women
 			else if ( strtolower($risk_name) == 'health' && $user['me']['gender'] === 'female' ){
 				print ' '. $text[2]['eval_risk_overview_3_4'];
-			} 
+			}
 			else {
 				print ' '. $text[2]['eval_risk_overview_3_5'];
-			} 
-			 
+			}
+
 			print '.</em>" (Nicholson, 163)</li>';
-				
-			
-			
+
+
+
 		}
-		
+
 		if (isset($user['me']['age']) && $user['me']['age'] != 'NOT DECLARED'){
-			
+
 			$age = $user['me']['age'];
 			$risk_score = 0;
-			
+
 			if ($age > 0){
 				if ($age < 20){
-					$risk_score *= 1.4; 
+					$risk_score *= 1.4;
 				} else if ($age < 30){
-					$risk_score *= 1.3; 
+					$risk_score *= 1.3;
 				} else if ($age < 40){
-					$risk_score *= 1.15; 
+					$risk_score *= 1.15;
 				} else if ($age < 50){
-					$risk_score *= .9; 
+					$risk_score *= .9;
 				} else if ($age < 60){
-					$risk_score *= .8; 
+					$risk_score *= .8;
 				} else if ($age < 70){
-					$risk_score *= .7; 
+					$risk_score *= .7;
 				} else if ($age < 80){
-					$risk_score *= .6; 
+					$risk_score *= .6;
 				} else if ($age < 120){
-					$risk_score *= .5; 
+					$risk_score *= .5;
 				}
 			}
-			
-			
+
+
 			// Your ... age
 			print '<li>'. $text[2]['eval_risk_overview_age_1'] .' <span class="udata">'. $text[2]['eval_risk_overview_age_2'] .' ('. $user['me']['age'] .')';
 			if ($age < 29){
@@ -1114,32 +1117,32 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 				// did not contribute
 				print ' <span style="color: '. get_risk_color(.2) .'">'. $text[2]['eval_risk_overview_age_2_didnot'] .'</span> ';
 			}
-			
-			
-			
+
+
+
 			// to your estimated risk as
 			print '</span> '. $text[2]['eval_risk_overview_age_3'] .' "<em>';
 			// Risk taking decreased with age in every domain
 			print ' '. $text[2]['eval_risk_overview_age_4'] ;
 			print '.</em>" (Nicholson, 164)';
-			
-			
-				
+
+
+
 			if ( $risk_name == 'financial'){
 				// nothing
 			} else if ( $risk_name == 'health'){
 				// Meaning, the younger you are, the more likely you are to engage in risky behavior, which may affect our bottom line
 				print ' '. $text[2]['eval_risk_overview_age_5'];
 			}
-			
+
 			print '.</li>';
-			
-			
-				
-		
-			
+
+
+
+
+
 		}
-		
+
 		print '</ul>';
 	}
 }
@@ -1147,18 +1150,18 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 
 
 function eval_risk($risk_name){
-									
+
 	global $user, $control, $text;
-	
-	
+
+
 	$arr = $user['big5_risk_domains'][$risk_name];
 	arsort($arr);
 	//return($arr);
 	$keys=array_keys($arr);
-	
+
 	if ( floor($arr[$keys[0]] * 10) > 4 ) print '<img src="assets/img/warning_risk_'. floor($arr[$keys[0]] * 10) .'.png" style="height:22px; margin-right:5px">';
-		
-			
+
+
 	// Your high scores in
 	print $text[2]['eval_risk_1']. ' ';
 	// this one colors the words
@@ -1170,8 +1173,8 @@ function eval_risk($risk_name){
 	print ' <span class="udata">'. $keys[1] .' ('. $arr[$keys[1]] .')</span> ';
 	// indicate
 	print ' '. $text[2]['eval_risk_2'] .' ';
-		
-	$r = floor( ($arr[$keys[0]] * 10)/2 );	
+
+	$r = floor( ($arr[$keys[0]] * 10)/2 );
 	print ' <span class="udata" style="color:'. get_risk_color($arr[$keys[0]]) .'">'. $text['meta']['risk_words'][ $r ] .'</span>';
 	//print ' ('.$r.') ';
 	// potential for risk-taking behavior in your
@@ -1180,34 +1183,34 @@ function eval_risk($risk_name){
 	// decisions
 	print ' '. $text[2]['eval_risk_4'] .' ';
 }
-		
-			
-?>			
-			
-			
+
+
+?>
+
+
 
 
 				<!-- step_two -->
 				<?php if ($control['step'] == 'two'){ ?>
-				<div id="step_two" class="step">	
-					
-					
-					
+				<div id="step_two" class="step">
+
+
+
 
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[2]['2_heading'] ?></h3>
-							
-							
+
+
 							<?php if (isset($user['big5_risk_domains'])){ ?>
-							<p><?php 
-								
-								// Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that 
+							<p><?php
+
+								// Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that
 								print $text[2]['2_1'];
-								
+
 								// get overall financial risk
 								$overall_financial_risk = overall_risk('financial');
-								
+
 								if ( $overall_financial_risk > .7 ){
 									// you may be an unreliable candidate for a loan
 									print ' <span class="udata" style="color: '. get_risk_color(.8) .'">';
@@ -1221,15 +1224,15 @@ function eval_risk($risk_name){
 									print ' <span class="udata" style="color: '. get_risk_color(.1) .'">';
 									print ' '. $text[2]['2_2_good'] .'</span>. ';
 								}
-								
+
 								?>
 							</p>
-							
+
 							<?php eval_risk_overview('financial', $overall_financial_risk) ?>
-							
-							
+
+
 							<?php } ?>
-							
+
 						</div>
 					</div>
 
@@ -1244,15 +1247,15 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[2]['2_career_heading'] ?> </h4>
-							
+
 							<p><?php eval_risk('Career'); ?> (<em><?php print $text[2]['2_career_risk_eg'] ?></em>).</p>
-							
-							
+
+
 							<?php /*
 							<button id="career_info_btn" class="btn btn-custom"><?php print $text[2]['2_career_risk_more'] ?></button>
 							<blockquote class="more_info" id="career_info">"<em><?php print $text[2]['2_career_risk_more_text'] ?>.</em>" (Nicholson, 164) </blockquote>
 							*/ ?>
-							
+
 						</div>
 						<div class="col-sm-7">
 
@@ -1316,7 +1319,7 @@ function eval_risk($risk_name){
 
 							<h4><?php print $text[2]['2_finance_heading'] ?></h4>
 							<p><?php eval_risk('Finance'); ?> (<em><?php print $text[2]['2_finance_risk_eg'] ?></em>).</p>
-							
+
 
 						</div>
 						<div class="col-sm-7">
@@ -1378,7 +1381,7 @@ function eval_risk($risk_name){
 
 							<h4><?php print $text[2]['2_social_heading'] ?></h4>
 							<p><?php eval_risk('Social'); ?> (<em><?php print $text[2]['2_social_risk_eg'] ?></em>).</p>
-							
+
 
 						</div>
 						<div class="col-sm-7">
@@ -1435,16 +1438,16 @@ function eval_risk($risk_name){
 					</div>
 
 
-					
-					
-					
-					
-					
-					<?php } else { 
-						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>'; 
+
+
+
+
+
+					<?php } else {
+						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>';
 					} ?>
-	
-	
+
+
 					<div><br>
 						<?php if($control['player'] == 'yes'){ ?>
 						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta']['resume_video']; ?></button><?php } ?>
@@ -1456,19 +1459,19 @@ function eval_risk($risk_name){
 				<!-- / step_two -->
 
 
-				
-	
-				
-				
-				
-				
-				
-			
-			
-				
-						
-						
-			
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				<!-- step_three -->
 				<?php if ($control['step'] == 'three'){ ?>
@@ -1478,18 +1481,18 @@ function eval_risk($risk_name){
 					<div class="row">
 						<div class="col-sm-12 title">
 							<h3><?php print $text[3]['3_heading'] ?></h3>
-							
-							
+
+
 							<?php if (isset($user['big5_risk_domains'])){ ?>
-							
-							<p><?php 
-								
+
+							<p><?php
+
 								// Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports. Your predisposition to risky behavior could mean higher medical costs for us. To help us understand how dangerous you are, we compared your personality analysis to results from a study on risk in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>.
 								print $text[3]['3_1'];
-								
+
 								// get overall health risk
 								$overall_health_risk = overall_risk('health');
-								
+
 								if ( $overall_health_risk > .7 ){
 									// your risk level is too extreme to make you a candidate for health insurance
 									print ' <span class="udata" style="color: '. get_risk_color(.8) .'">';
@@ -1507,21 +1510,21 @@ function eval_risk($risk_name){
 									print ' <span class="udata" style="color: '. get_risk_color(.1) .'">';
 									print ' '. $text[3]['2_3_low'] .'</span>. ';
 								}
-								
+
 								?>
 							</p>
-							
+
 							<?php eval_risk_overview('Health', $overall_health_risk) ?>
-							
-							
-							
-							
-								
-								
-							
+
+
+
+
+
+
+
 							<?php } ?>
-							
-							
+
+
 						</div>
 					</div>
 
@@ -1534,7 +1537,7 @@ function eval_risk($risk_name){
 
 							<h4><?php print $text[3]['3_health_heading'] ?></h4>
 							<p><?php eval_risk('Health'); ?> (<em><?php print $text[3]['3_health_risk_eg'] ?></em>).</p>
-							
+
 
 						</div>
 						<div class="col-sm-7">
@@ -1604,7 +1607,7 @@ function eval_risk($risk_name){
 
 							<h4><?php print $text[3]['3_safety_heading'] ?></h4>
 							<p><?php eval_risk('Safety'); ?> (<em><?php print $text[3]['3_safety_risk_eg'] ?></em>).</p>
-							
+
 
 						</div>
 						<div class="col-sm-7">
@@ -1669,7 +1672,7 @@ function eval_risk($risk_name){
 
 							<h4><?php print $text[3]['3_recreation_heading'] ?></h4>
 							<p><?php eval_risk('Recreation'); ?> (<em><?php print $text[3]['3_recreation_risk_eg'] ?></em>).</p>
-							
+
 
 						</div>
 						<div class="col-sm-7">
@@ -1726,19 +1729,19 @@ function eval_risk($risk_name){
 						</div>
 					</div>
 
-					
-					
-					
-					<?php } else { 
-						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>'; 
+
+
+
+					<?php } else {
+						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>';
 					} ?>
-					
-					
+
+
 					<div><br>
 						<?php if($control['player'] == 'yes'){ ?>
 						<button class="step1_btn btn btn-custom" id="backtovideo_btn"><?php print $text['meta']['resume_video']; ?></button><?php } ?>
 					</div>
-					
+
 
 				</div>
 				<?php } ?>
@@ -1765,10 +1768,10 @@ include_once('templates/footer.php');
 
 
 
-	
-	
-<?php 
-	
+
+
+<?php
+
 print $scripts;
 
 
@@ -1824,11 +1827,11 @@ function checkLoginStatus(response) {
 		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
 
 
-		
+
 	// not_authorized: Logged into Facebook, but not your app
 	} else if (response.status === 'not_authorized') {
 		console.log('APP: user is logged in BUT has not authorized app');
-	// [else]: Not logged into Facebook / can't tell if they are logged into app	
+	// [else]: Not logged into Facebook / can't tell if they are logged into app
 
 	} else {
 		console.log('APP: user is not logged into Facebook');
@@ -1849,7 +1852,7 @@ function login_user(_scope) {
 }
 // Logout user
 function logout_user() {
-	
+
 	FB.api('/me/permissions', 'DELETE', function(res){
 	    if(res.success === true){
 	        console.log('APP: app deauthorized');
@@ -1860,7 +1863,7 @@ function logout_user() {
 	        console.log('APP: '+res);
 	    }
 	});
-	
+
 	var url = "./?data_set=user&step=logout&lang="+lang+"&player="+player;
 	window.location.replace(url);
 }
@@ -1884,7 +1887,7 @@ function checkLoginState() {
 
 
 
-				
+
 
 function step1_frames_event(frame){
 	// hide
@@ -1897,7 +1900,7 @@ function step1_frames_event(frame){
 	$('#step1_frame_'+frame).show();
 
 
-}	
+}
 step1_frames_event(1);
 
 
