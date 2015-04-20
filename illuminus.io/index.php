@@ -98,19 +98,25 @@ include_once('templates/header.php');
 			<div class="row bkg-lightgray">
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="row shim">
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							[CONTACT]
+						<div class="col-xs-12 col-sm-12 col-md-12 services">
+							Contact
 						</div>
 					</div>
 					<div class="row shim">
 						<div class="col-xs-12 col-sm-4 col-md-4">
-							[Addresses]
+							Illuminus America<br>
+							1 Road Rd<br>
+							Town, City, Country
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-4">
-							[Addresses]
+							Illuminus Europe<br>
+							1 Road Rd<br>
+							Town, City, Country
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-4">
-							[Addresses]
+							Illuminus Asia<br>
+							1 Road Rd<br>
+							Town, City, Country
 						</div>
 					</div>
 				</div>
@@ -122,8 +128,15 @@ include_once('templates/header.php');
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="row shim">
 						<div class="col-xs-12 col-sm-12 col-md-12">
-							[Illuminus]
-							[links]
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<img src="app/assets/img/logo_dark.png" alt="illuminus logo">
+								<br><br><br>
+									<a href="#about">About</a>
+							<a href="#services">Services</a>
+							<a href="#privacy">Privacy</a>
+							<a href="#contact">Contact</a>
+							</div>
+
 						</div>
 					</div>
 				</div>
