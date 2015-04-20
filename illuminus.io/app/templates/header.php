@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- meta -->
-<title>Illuminus - Unlocking the power of you</title>
+<title><?php print $text['homepage']['title'] ?></title>
 <meta name="description" content="illuminus.io - Unlocking the power of you">
 <meta name="author" content="Produced in association with Do Not Track">
 <link rel="apple-touch-icon" sizes="57x57" href="assets/img/icons/apple-icon-57x57.png">
