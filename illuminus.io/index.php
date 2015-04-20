@@ -1,14 +1,13 @@
 <?php
-$control = array();
-$control['lang'] = 'EN';
-require_once('app/inc/text_'. $control['lang'] .'.php');
+require_once('app/inc/localization.php');
+$lang = get_language();
+require_once('app/inc/text_'. $lang .'.php');
 include_once('templates/header.php');
-
 
 ?>
 <style>
 
-a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}	
+a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 
 </style>
 
@@ -22,8 +21,8 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 			<!-- black -->
 			<div class="row bkg-black">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					
-					
+
+
 					<div class="row shim">
 						<div class="col-xs-12 col-sm-12 col-md-7" style="text-align: left">
 							<img src="app/assets/img/logo.png" alt="illuminus logo">
@@ -37,9 +36,9 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 					</div>
 
 
-					
+
 					<div class="row shim">
-						
+
 						<div class="col-xs-12 col-sm-12 col-md-7 pad-top">
 							<!--<div align="center" class="embed-responsive embed-responsive-16by9">-->
 							<div>
@@ -49,17 +48,17 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 								</video>
 							</div>
 						</div>
-						
+
 						<div class="col-xs-12 col-sm-12 col-md-5 pad-top" style="text-align: left">
-							
-							
+
+
 							<img src="app/assets/img/unlocking.png" class="left">
-							<script> 
-								$('.homepage_video').click(function(){this.paused?this.play():this.pause();}); 
+							<script>
+								$('.homepage_video').click(function(){this.paused?this.play():this.pause();});
 								$('.homepage_video').on('ended',function(){
-								    $(this).load();     
+								    $(this).load();
 								});
-								
+
 								$(document).ready(function(){
 								  $('a[href*=#]').click(function() {
 								    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
@@ -76,16 +75,16 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 								    }
 								  });
 								});
-																
+
 							</script>
-							
-							
+
+
 							<div class="unlocking-content left"><?php print $text['homepage']['unlocking'] ?><br>
 							<a href="./app"><?php print $text['homepage']['get_started_btn'] ?></a></div>
 						</div>
 					</div>
-					
-					
+
+
 				</div>
 			</div>
 
@@ -185,7 +184,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 					<div class="row shim">
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<img src="app/assets/img/logo_footer.png">
-							<div class="menu"> 
+							<div class="menu">
 								<a href="#top"><?php print $text['homepage']['home'] ?></a>
 								<a href="#services"><?php print $text['homepage']['services'] ?></a>
 								<a href="app/?data_set=sample&step=privacy&lang=EN"><?php print $text['homepage']['privacy'] ?></a>
