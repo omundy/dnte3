@@ -456,14 +456,14 @@ if (isset($_SESSION['dnt_user'])){
 								}
 
 
-								if ( isset($user['likes']) && count($user['likes']) > 0 && isset($user['big5']) ){
+								if ( isset($user['likes']) && $user['likes_count'] > 0 && isset($user['big5']) ){
 									//report($big5_temp_high);
 
 									// But the real gold mine is your Facebook data over time.
 									print " ". $text[1]['1_1_p1_6'];
 
 									// By analyzing the [NUMBER OF LIKES]
-									print "<p>". $text[1]['1_1_p1_7'] . ' <span class="udata">'. count($user['likes']) ."</span> ";
+									print "<p>". $text[1]['1_1_p1_7'] . ' <span class="udata">'. $user['likes_count'] ."</span> ";
 
 									// things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in
 									print $text[1]['1_1_p1_8'];

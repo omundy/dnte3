@@ -245,9 +245,12 @@ else if ( $control['step'] == 'load_data_fb'){
 					$user['like_ids'][] = $val->id;
 				}
 				
+				
+				/* // don't need this data
 				// get all liked pages (FB has a limit of 50 for above type calls)
 				$likes_str = implode(',',array_slice($user['like_ids'],0,49));
 				$user['likes_pages'] = fb_call_basic('?ids='. $likes_str .'&fields=name,about,link,likes,picture');
+				*/
 				
 				// report
 				$control['retrieve_fb_likes_data'] = 'true';
@@ -282,7 +285,14 @@ else if ( $control['step'] == 'load_data_fb'){
 						$user['like_categories'][$arr['category']] = 1;
 					}
 				}
-	
+				
+				// done with ALL likes...
+				
+				// count them
+				$user['likes_count'] = count($user['likes']);
+				
+				// and keep 20
+				$user['likes'] = array_slice($user['likes'], 0,20);
 				
 				
 				// BIG5
@@ -425,23 +435,6 @@ else if ( $control['step'] == 'load_data_fb'){
 						$data[$big5_name][$risk_name] = round($risk_score,5);
 					}
 				}
-				/*
-				// normalize all data
-				$max = 0;
-				$min = 100;
-				// get max / min values
-				foreach($data as $big5_name => $big5_arr){
-					if ( max($big5_arr) > $max ) $max = max($big5_arr);
-					if ( min($big5_arr) < $min ) $min = min($big5_arr);
-				}
-				print "<br>Pre-normalization values: $max (max) / $min (min)";
-				
-				foreach($data as $big5_name => $big5_arr){
-					foreach($big5_arr as $risk_name => $risk_score){
-						$data[$big5_name][$risk_name] = convertRange($risk_score,$min,$max,0,1);
-					}
-				}
-				*/
 				return $data;
 			}
 			/**/
@@ -479,6 +472,14 @@ else if ( $control['step'] == 'load_data_fb'){
 					$user['big5_risk_domains'][$risk_domain][$key] = $val;
 				}
 			}
+			
+			
+			// ALL DONE WITH THESE NOW
+			unset( $user['big5_risk_final'] );
+			unset( $user['permissions'] );
+			unset( $user['like_ids'] );
+
+			
 		} else {
 			$control['fb_data_problems'] = true;
 			$control['show_alt_data_reason'] = 'big5prediction';
@@ -566,7 +567,7 @@ if ( $control['fb_data_problems'] == true){
 //report($control,180);
 //exit();
 //report($_SESSION);
-//report($user);
+report($user);
 
 
 
