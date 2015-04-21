@@ -567,7 +567,7 @@ if ( $control['fb_data_problems'] == true){
 //report($control,180);
 //exit();
 //report($_SESSION);
-report($user);
+//report($user);
 
 
 

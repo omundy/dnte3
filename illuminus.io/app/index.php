@@ -2,9 +2,9 @@
 
 
 require_once('inc/localization.php');
-$lang = get_language();
-require_once('inc/text_'. $lang .'.php');
 require_once('inc/fb_login.php');
+if ($control['player'] != 'yes') $control['lang'] = get_language();
+require_once('inc/text_'. $control['lang'] .'.php');
 include_once('templates/header.php');
 
 
