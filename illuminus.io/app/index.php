@@ -1939,6 +1939,9 @@ $( "#career_info" ).hide()
 
 </script>
 
-
+<?php
+$path_to_stats = 'inc/stats/';
+include_once('inc/stats/analytics-illuminus.inc.php');
+?>
 </body>
 </html>

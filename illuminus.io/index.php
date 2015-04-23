@@ -1,7 +1,7 @@
 <?php
 require_once('app/inc/localization.php');
-$lang = get_language();
-require_once('app/inc/text_'. $lang .'.php');
+$control['lang'] = get_language();
+require_once('app/inc/text_'. $control['lang'] .'.php');
 include_once('templates/header.php');
 
 ?>
@@ -204,5 +204,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 
 
 <?php
-include_once('templates/header.php');
+$path_to_stats = 'app/inc/stats/';
+include_once('app/inc/stats/analytics-illuminus.inc.php');
+include_once('templates/footer.php');
 ?>
