@@ -57,7 +57,7 @@
 								// Your social activity reveals a lot about you.
 								print $text[1]['1_1_p1_1'];
 
-								if ( isset($user['age']) || isset($user['gender']) ){
+								if ( isset($user['age']) || isset($user['gender']) ) {
 
 									// Your profile for instance says that
 									print " ". $text[1]['1_1_p1_2'];
@@ -85,7 +85,13 @@
 										// your gender is
 										print " ". $text[1]['1_1_p1_5'];
 										// [GENDER]
-										print ' <span class="udata">'. $user['gender'] .'</span>';
+                                        
+                                        if ( isset($text[0][$user['gender'].'_pronoun']) )
+                                            $gender = $text[0][$user['gender'].'_pronoun'];
+                                        else
+                                            $gender = $user['gender'];
+                                        
+										print ' <span class="udata">'. $gender .'</span>';
 									}
 
 									print '.';
