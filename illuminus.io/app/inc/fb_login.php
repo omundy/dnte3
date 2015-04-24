@@ -1,6 +1,7 @@
 <?php ob_start(); 
 
 // FB namespaces (cannot be put in conditional statement)
+/*
 use Facebook\FacebookSession;
 use Facebook\FacebookJavaScriptLoginHelper;
 use Facebook\FacebookRedirectLoginHelper;
@@ -16,7 +17,7 @@ use Facebook\Entities\AccessToken;
 use Facebook\HttpClients\FacebookCurl;
 use Facebook\HttpClients\FacebookHttpable;
 use Facebook\HttpClients\FacebookCurlHttpClient;
-
+*/
 
 $control['show_alt_data_reason'] = '';
 $control['fb_data_problems'] = false;
@@ -55,7 +56,7 @@ require_once('inc/config.php');
 require_once('inc/fb_functions.php');
 require_once('inc/fb_api_calls.php');
 require_once('inc/facebook-php-sdk-v4/autoload.php');
-
+/*
 // create Facebook
 FacebookSession::setDefaultApplication($login['app_id'],$login['app_secret']);
 
@@ -81,6 +82,7 @@ if (isset($session) && $session) {
 	$control['show_alt_data_reason'] = 'notloggedin';
 	$scripts .= "console.log('Could not login: ". $control['fb_error'] ."'); \n";
 }
+*/
 
 // attempt to get sample data
 if ( $control['step'] == 'load_data_sample') {
@@ -125,17 +127,3 @@ if ( $control['step'] == 'load_data_sample') {
 	}
     
 }
-
-
-/*
-// attempt to get sample data
-if ( $control['fb_data_problems'] == true) {
-	
-	$control['show_alt_data_reason'] = '!!';
-	$_SESSION['dnt_user'] = $user;
-
-	header('Location: '.$control['lang'].'/one', true, 303);
-	ob_end_clean();
-	exit();
-}
-*/
