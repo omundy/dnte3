@@ -97,7 +97,13 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 			// In addition to your seemingly boring Facebook data, your
 			print $text[2]['eval_risk_overview_1'];
 			// gender
-			print ' <span class="udata">'. $user['gender'];
+            
+            if ( isset($text[0][$user['gender'].'_pronoun']) )
+                $gender = $text[0][$user['gender'].'_pronoun'];
+            else
+                $gender = $user['gender'];
+            
+			print ' <span class="udata">'. $gender;
 			print ' '. $text[2]['eval_risk_overview_2'] .' ';
 			print '</span> ';
 
@@ -274,7 +280,10 @@ function eval_risk($risk_name) {
 	//print ' ('.$r.') ';
 	// potential for risk-taking behavior in your
 	print ' '. $text[2]['eval_risk_3'] .' ';
-	print strtolower($risk_name);
+    if (isset($text[0][$risk_name]))
+        print strtolower($text[0][$risk_name]);
+    else
+	    print strtolower($risk_name);
 	// decisions
 	print ' '. $text[2]['eval_risk_4'] .' ';
 }
