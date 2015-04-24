@@ -92,6 +92,11 @@ print $css . '</style>';
     var locale = '<?php echo get_locale() ?>';
     <?php print $scripts; ?>
 </script>
+<?php
+if ( in_array($control['step'], array('one', 'two', 'three') ) )
+    include_once('inc/analytics-illuminus.inc.php');
+?>
+    
 
     <div id="spinner"></div>
 </body>
