@@ -37,15 +37,18 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 
 
 
+
 					<div class="row shim">
 
 						<div class="col-xs-12 col-sm-12 col-md-7 pad-top">
-							<!--<div align="center" class="embed-responsive embed-responsive-16by9">-->
-							<div>
-								<video class="homepage_video"  style="width:600px; height: auto;" poster="app/assets/img/illuminus_promo_banner_video.png">
-									<source src="video/illuminus_promo.mp4" type="video/mp4">
+							<div align="center" class="embed-responsive embed-responsive-16by9">
+							
+								<video class="homepage_video" poster="app/assets/img/illuminus_promo_banner_video.png">
+									<source src="https://download.arte.tv/permanent/donottrack/episode3/illuminus/illuminus_promo2.mp4" type='video/mp4' />
+									<source src="https://download.arte.tv/permanent/donottrack/episode3/illuminus/illuminus_promo2.webm" type='video/webm' />
 									Your browser does not support the video tag.
 								</video>
+								
 							</div>
 						</div>
 
@@ -53,32 +56,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 
 
 							<img src="app/assets/img/unlocking.png" class="left">
-							<script>
-								$('.homepage_video').click(function(){this.paused?this.play():this.pause();});
-								$('.homepage_video').on('ended',function(){
-								    $(this).load();
-								});
-
-								$(document).ready(function(){
-								  $('a[href*=#]').click(function() {
-								    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-								    && location.hostname == this.hostname) {
-								      var $target = $(this.hash);
-								      $target = $target.length && $target
-								      || $('[name=' + this.hash.slice(1) +']');
-								      if ($target.length) {
-								        var targetOffset = $target.offset().top;
-								        $('html,body')
-								        .animate({scrollTop: targetOffset}, 1000);
-								       return false;
-								      }
-								    }
-								  });
-								});
-
-							</script>
-
-
+							
 							<div class="unlocking-content left"><?php print $text['homepage']['unlocking'] ?><br>
 							<a href="./app"><?php print $text['homepage']['get_started_btn'] ?></a></div>
 						</div>
@@ -214,3 +192,4 @@ $path_to_stats = 'app/inc/stats/';
 include_once('app/inc/stats/analytics-illuminus.inc.php');
 include_once('templates/footer.php');
 ?>
+								

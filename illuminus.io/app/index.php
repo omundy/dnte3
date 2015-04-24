@@ -308,9 +308,11 @@ if (isset($_SESSION['dnt_user'])){
 
 							<div align="center" class="embed-responsive embed-responsive-16by9">
 								<video autoplay class="embed-responsive-item">
-									<source src="https://illuminus.io/video/illuminus_promo.mp4" type="video/mp4">
+									<source src="https://download.arte.tv/permanent/donottrack/episode3/illuminus/illuminus_promo2.mp4" type='video/mp4' />
+									<source src="https://download.arte.tv/permanent/donottrack/episode3/illuminus/illuminus_promo2.webm" type='video/webm' />
 									Your browser does not support the video tag.
 								</video>
+								
 							</div>
 
 

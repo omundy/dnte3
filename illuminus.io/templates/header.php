@@ -39,9 +39,7 @@
 <![endif]-->
 <script src="app/assets/js/jquery.min.js"></script>
 
-<script type="text/javascript">
-  document.createElement('video');document.createElement('audio');document.createElement('track');
-</script>
+
 
 </head>
 
