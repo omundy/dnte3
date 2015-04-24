@@ -174,6 +174,11 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							United Kingdom
 						</div>
 					</div>
+					<div class="row shim">
+						<a href="https://twitter.com/illuminus_io"><i class="fa fa-twitter fa-2x" style="margin: 40px 30px 0 0"></i></a>
+						<a href="https://www.facebook.com/games/?fbs=-1&app_id=761116317308745"><i class="fa fa-facebook fa-2x" style="margin-right: 30px"></i></a>
+						<a href="mailto:contact@donottrack-doc.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+					</div>
 				</div>
 			</div>
 

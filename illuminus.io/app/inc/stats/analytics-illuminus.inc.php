@@ -18,7 +18,24 @@ xtn2 = "2";
 <?php } else if ($control['lang'] == 'FR' || $control['lang'] == 'CA'){ ?>
 xtn2 = "1";
 <?php } ?>
-xtpage = "webprod_donottrack::illuminus";  //page name (with the use of :: to create chapters)  
+
+//page name (with the use of :: to create chapters)  
+<?php if ($control['step'] == 'zero'){ ?>
+xtpage = "webprod_donottrack::illuminus::index"
+<?php } else if ($control['step'] == 'load_data'){ ?>
+xtpage = "webprod_donottrack::illuminus::getstarted"
+<?php } else if ($control['step'] == 'privacy'){ ?>
+xtpage = "webprod_donottrack::illuminus::privacy"
+<?php } else if ($control['step'] == 'one'){ ?>
+xtpage = "webprod_donottrack::illuminus::personality"
+<?php } else if ($control['step'] == 'two'){ ?>
+xtpage = "webprod_donottrack::illuminus::financialrisk"
+<?php } else if ($control['step'] == 'three'){ ?>
+xtpage = "webprod_donottrack::illuminus::healthrisk"
+<?php } else { ?>
+xtpage = "webprod_donottrack::illuminus";  
+<?php } ?>
+
 xtdi = "";
 xt_multc = "";
 xt_an = "";
