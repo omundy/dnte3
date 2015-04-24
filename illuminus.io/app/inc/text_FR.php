@@ -24,8 +24,16 @@ $text = array(
 		'callout' => 'Comprendre la puissance de vos données',
 		'select_assessment' => 'Choisir une analyse personnelle sur la gauche pour commencer',
 		'please_login' => 'Connectez-vous avec Facebook pour démarrer l\'analyse personnelle',
-        'and' => 'et'
-	),
+	    'and' => 'et',
+        'career' => 'carrière',
+        'finance' => 'budget',
+        'social' => 'vie sociale',
+        'health' => 'de santé',
+        'safety' => 'de sécurité',
+        'recreation' => 'de loisirs',
+        'homme_pronoun' => 'un homme',
+        'femme_pronoun' => 'une femme'
+),
 
 
 
@@ -79,7 +87,7 @@ $text = array(
 		'1_2_p1_back' => '<<',
 		'1_2_p1_next' => 'Analyse de personnalité',
 		'1_2_chartcaption' => 'Découpage de likes',
-        '1_2_other' => 'Autre',
+        '1_2_other' => 'Other',        
 		
 
 		// page 3
@@ -199,7 +207,7 @@ $text = array(
 		'nav_link_two' => 'Évaluation du risque financier',
 		'nav_link_three' => 'Évaluation du risque santé',
 		'nav_footer_link_home' => 'Home',
-		'nav_footer_link_privacy' => 'Mentions légales',
+		'nav_footer_link_privacy' => 'Confidentialité',
 		'nav_footer_link_credits' => 'Crédits',
 		'nav_footer_link_logout' => 'Déconnexion',
 		'risk_words' => array('faible','modérée','significative','sévère','extrême'),
@@ -253,70 +261,71 @@ $text = array(
 	// PRIVACY
 	'privacy' => array(
 		
-		'0_heading' => 'Privacy Policy',
+		'0_heading' => 'Politique de confidentialité',
 		'policy' => '
 		
 		
-<p>Illuminus is a satirical website created for the documentary series Do Not Track (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  When you log in via Facebook, we access information you have shared on Facebook to build the Illuminus website.  </p>
+<p>Illuminus est un site web satirique créé pour la série documentaire (<a href="https://www.donottrack-doc.com">Do Not Track</a>). Lorsque vous vous connectez via Facebook, nous récupérons les informations que vous partagez avec Facebook pour construire les pages du site Illuminus.</p>
 
-<p>When you use Illuminus, it will create a "personality profile" for you.  If you access Illuminus while watching an episode of Do Not Track, and you create an account on Do Not Track, we will store this information on your profile.  This profile will only contain the information you gave authorization for us to access. If you access Illuminus at <a href="https://illuminus.io">illuminus.io</a> your personal information will not be saved.</p>
+<p>Quand vous utilisez Illuminus, nous créons votre profil personnel avec ces données. Si vous accédez au site Illuminus pendant que vous regardez un épisode de Do Not Track, et que vous êtes connecté sur Do Not Track via votre lien personnalisé, ces informations sont enregistrés sur le site et ajoutées à votre profil. Vous pouvez consulter ces informations sur la page <a href=" https://donottrack-doc.com/fr/your-datas/">Vos Données</a>. Si vous vous connectez à Illuminus via at <a href="https://illuminus.io">illuminus.io</a> vos informations personnelles ne sont pas enregistrées. </p>
 
-<p>When you use <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>, we do request some information from you, such as your email address, as well as aspects of your browsing history.  If you volunteer that information, the terms below describe your rights and our responsibilities.
+<p>Lorsque vous consultez <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>, nous vous demandons certains informations personnelles, comme votre adresse email, ainsi que certains éléments de votre historique de navigation. Si vous nous donnez ces informations, les conditions ci-dessous détaillent vos droits et nos responsabilités.
 
-<h4>Your data</h4>
+<h4>Vos données</h4>
 
-<p>The Producers guarantee that they are the sole recipients of the data collected and that it will be used exclusively for the Project and will neither be passed on, nor accessible, nor sold to any third party whatsoever. The Producers implement technical and organizational security measures to ensure that its users’ personal data is protected against loss, fraudulent alterations, or unauthorized access by third parties. The transmission of data collected during registration is carried out in an encrypted manner, as is subsequent communication between the server and the Project.</p>
+<p>Les producteurs garantissent qu\'ils sont les seuls destinataires des informations collectées et qu\'elles seront utilisées exclusivement dans le cadre du projet Do Not Track et qu\'elles ne seront ni transmises, ni cédées, ni rendues accessibles à aucune tierce partie quelle qu\'elle soit. Les producteurs mettront en oeuvre les mesures de sécurité nécessaires pour garantir la confidentialité des données personnelles des utilisateurs et les protéger contre la perte, le vol, les utilisations frauduleuses ou un accès non autorisé de tierce partie. La transmission des données collectées pendant la connexion est effectuée de manière cryptée, ainsi que tous les échanges de données subséquents entre le serveur et le programme.</p>
 
-<p>The producers will use your email address for the following purposes:
+<p>Les producteurs utiliserons votre adresse email uniquement aux fins suivantes : 
 <ul>
-<li>keep you abreast of the broadcast of upcoming episodes of the Project,</li>
-<li>invite you to follow the Project’s news</li>
-<li>offer personalized content</li>
+<li>vous avertir du lancement de nouveaux épisodes de Do Not Track,</li>
+<li>vous informer de nouveautés concernant Do Not Track</li>
+<li>vous offrir l\'accès à votre version personnalisée</li>
 </ul>
 
-Your personal data will be stored within the Project database and retained for the life of the Project (3 years).</p>
+Vos données personnelles ne seront pas conservées dans la base de données de Do Not Track Your au delà de la durée de vie du projet (3 ans).</p>
 
-<p>You have the right to access, modify, correct, and delete your information. To exercise this right, or to opt out, write to: data@donottrack-doc.com</p>
+<p>Vous avez le droit d\'accéder, de modifier, de corriger ou d\'effacer les informations vous concernant. Pour exercer ce droit, écrivez à : data@donottrack-doc.com</p>
 
-<h4>INFORMATICS AND LIBERTY</h4>
+<h4>INFORMATIQUE & LIBERTÉS</h4>
 
-<p>According to French law n°78-17 of 6th January 1978 on informatics, files and liberties, every user who made a contribution has the right of opposition (art. 38), access (art. 39, 41, 42) and rectification (art.40) of his contents.</p>
+<p>En application de la loi n°78-17 du 6 janvier 1978 relative à l\'informatique, aux fichiers et aux libertés, l\'Internaute dispose d\'un droit d\'accès, de rectification et d\'opposition des données qui le
+concernent.</p>
 
-<p>He thus can require his contribution to be corrected, completed, clarified, updated or erased if it is incorrect, incomplete, false, obsolete or if its collection, use, communication and conservation are prohibited.</p>
+<p>Ainsi, il peut exiger que soient rectifiées, complétées, clarifiées, mises à jour ou effacées les informations le concernant qui sont inexactes, incomplètes, équivoques, périmées ou dont la collecte ou l\'utilisation, la communication ou la conservation est interdite.</p>
 
-<p>Every user can assert this right by writing to the following address: data@donottrack-doc.com</p>
+<p>Tout internaute peut exercer ce droit en écrivant à l\'adresse data@donottrack-doc.com</p>
 
 <h4>COOKIES</h4>
 
-<p>The site http://donottrack-doc.com/ utilizes Google Analytics & Xiti.</p>
+<p>Le site http://donottrack-doc.com/ utilise Google Analytics & Xiti.</p>
 
-<p>Google Analytics, a web analytics service allows Do Not Track to study your usage of the site.</p>
+<p>Google Analytics est un service d’analyse de sites web édité par Google qui nous aide à étudier l’utilisation que vous faites du site.</p>
 
-<p>The data generated by these navigation analysis cookies regarding your usage of the site: sites visited, frequency, number and repeat of visits, navigation time, research carried out, browser used, operator providing the service, location relative to the IP address.</p>
+<p>Ce service enregistre des informations comme : comment vous êtes arrivés sur Do Not Track, fréquence, nombre et répétition des visites, durée de navigation, recherches effectuées, navigateur utilisé, opérateur qui fournit le service, emplacement lié à l’adresse IP.</p>
 
-<p>They are generally transmitted to and stored by Google on servers located in the United States.</p>
+<p>Ces informations sont en règle générale transmises et stockées par Google sur des serveurs situés aux États-Unis.</p>
 
-<p>If you choose to make your IP address anonymous on this site, your IP address will be nonetheless handed over to Google, yet truncated within the Member States of the European Union or among other signatory states of the European Economic Area Agreement. Only in exceptional circumstances will your IP address be fully transmitted to a Google server in the USA, and truncated there.</p>
+<p>Si vous avez choisi de rendre anonyme votre adresse IP sur ce site, votre adresse IP sera toutefois transmise par Google, mais tronquée dans les pays membres de l’Union européenne ou dans les autres États signataires de l’accord instituant l’Espace économique européen. Dans des cas exceptionnels uniquement, votre adresse IP sera transmise intégralement à un serveur de Google aux États-Unis, puis tronquée là-bas.</p>
 
-<p>Along with other data captured by Google, Google will not shorten your transmitted IP address within Google Analytics. Google will use this information to evaluate your usage of the website, compile for Do Not Track reports on website activity and Internet usage: measures and analyses navigation and user behavior, development of anonymous navigation profiles, areas for improvement based on the analysis of usage data collected.</p>
+<p>Google ne recoupera pas votre adresse IP transmise dans le cadre de Google Analytics avec d’autres données détenues par Google. Google utilisera ces informations pour évaluer votre utilisation du site, compiler pour UPIAN des rapports sur l’activité du site et l’utilisation d’Internet : mesure et analyse de la navigation et du comportement des utilisateurs, élaboration de profils anonymes de navigation, pistes d’améliorations en fonction de l’analyse des données d’utilisation.</p>
 
-<p>For more information, see Google’s privacy policy.</p>
+<p>Pour en savoir plus, consultez <a href="http://www.google.fr/intl/fr/policies/privacy/">les règles de confidentialité de Google</a><br></p>
 
-<p>In addition to blocking cookies in the browser, you can disable Google Analytics while browsing through a module provided by Google.</p>
+<p>En plus de désactiver les cookies sur votre navigateur, vous pouvez bloquer Google Analytics pendant que vous naviguez grâce à un module fourni par Google.</p>
 
-<p>Xiti is a web audience measurement tool offered by AT Internet company. In order to establish visitor statistics, Xiti leaves a cookie to track a visitor\'s journey. For example, this allows avoiding doubling up on the visitor count as if new when reloading the page. Additionally, Xiti prevents website publishers from exaggerating their own statistics when they reload a page. In order to provide reports and services in connection with the usage of the site and the Internet, Xiti uses information collected by its cookies at the request of Do Not Track. Xiti will not capture your IP address with any data it holds.</p>
+<p>Xiti est un outil de mesure d’audience web proposé par la société AT Internet. Xiti dépose un cookie pour tracer le parcours du visiteur afin d’établir les statistiques de visites. Par exemple, cela permet de ne pas compter deux fois le visiteur comme si c’était un nouveau quand il recharge la page. Xiti empêche ainsi que les éditeurs de sites web gonflent leurs propres statistiques en rechargeant en boucle. Xiti utilise les informations collectées par ses cookies à la demande d’UPIAN pour fournir des rapports et des prestations en lien avec l’utilisation du site et internet. XITI ne recoupera votre adresse IP avec aucune donnée qu’il détiendrait.</p>
 
-<p>For more information, see Xiti’s Privacy Statement.</p>
+<p>Pour en savoir plus, consultez <a href="http://www.atinternet.com/politique-du-respect-de-la-vie-privee/">la page Politique du respect de la vie privée de Xiti</a><br></p>.</p>
 
-<h4>For more information</h4>
+<h4>Pour plus d\'informations</h4>
 
-<p>To obtain further information about cookies and the use of these analysis tools, the Internet user can visit the CNIL website.</p>
+<p>Pour obtenir plus d\'informations sur les cookies et l\'utilisation d\'outils d\'analyse d\'audience, l\'internaute peut visiter le site de la CNIL.</p>
 
 
-<h4>Terms of Service URL</h4>
+<h4>URL de conditions d\'utilisation</h4>
 
-User Support Email: <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a><br>
-User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.donottrack-doc.com/en/about/</a>
+Adresse mail du support technique : <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a><br>
+URL de support technique <a href="https://hub.donottrack-doc.com/en/about/">https://hub.donottrack-doc.com/en/about/</a>
 
 ',
 	
@@ -325,11 +334,11 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	
 	// CREDITS
 	'credits' => array(
-		'0_heading' => 'Credits',
-		'1_creators' => 'Creators of Illuminus',
-		'1_thankyou' => 'Thank you',
-		'1_predictions' => 'Psycho-demographic trait predictions',
-		'cambridge' => 'Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>',
+		'0_heading' => 'Crédits',
+		'1_creators' => 'Créateurs d\'Illuminus',
+		'1_thankyou' => 'Merci',
+		'1_predictions' => 'Prédictions des caractéristiques psycho-démographiques',
+		'cambridge' => 'La Prédiction des caractéristiques psycho-démographiques est basée sur l\'API<a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce</a> développée au <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">Centre de Psychométrie de l\'université de Cambridge</a>',
 		
 	),
 	
@@ -341,29 +350,20 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	// FAQ
 	'faq' => array(
 		'0_heading' => 'FAQ',
-		'what_heading' => 'What is Illuminus',
-		'what_text' => 'Illuminus is a fantasy corporation that analyses your Facebook likes to build a character profile.  It is a work of satire to accompany Do Not Track, a personalized documentary series about tracking and the web economy. Illuminus uses a fictional scenario of a corporation deciding your financial services to uncover real-life techniques of data analysis.',
-		'who_heading' => 'Who created Illuminus',
-		'who_text1' => 'Please see the ',
-		'who_text2' => 'credits page',
-		'fberror_heading' => 'Illuminus says I do not have sufficient data',
-		'fberror_text' => 'This problem could happen for one of the following reasons:
+		'what_heading' => 'Illuminus, c\'est quoi ?',
+		'what_text' => 'Illuminus est une entreprise fictive qui analyse vos Likes Facebook afin de construire un profil de votre personnalité. Il s\'agit d\'une oeuvre satirique appartenant au programme Do Not Track, une série documentaire personnalisée consacrée au tracking et à l\'économie du web. Illuminus suit ainsi un scénario fictif pour juger vos caractéristiques financières et personnelles afin d\'illustrer le fonctionnement de certaines techniques d\'analyse de données existant dans le monde réel.',
+		'who_heading' => 'Qui a créé Illuminus ?',
+		'who_text1' => 'Veuillez vous reporter à la',
+		'who_text2' => 'page Crédits',
+		'fberror_heading' => 'Illuminus dit que je n\'ai pas suffisamment de données.',
+		'fberror_text' => 'Ce problème peut survenir pour l\'une des raisons suivantes:
 			<ul>
-			<li>You are not logged into Facebook</li>
-			<li>You did not give Illuminus the permissions it requested</li>
-			<li>You do not have enough data to participate or you may have manually increased the privacy of your like data. To make your Likes public:
-				<ol>
-				<li>Go to your Facebook profile</li>
-				<li>Click <b>more</b> next to photos in the header tab under your cover photo</li>
-				<li>Click <b>Likes</b> (if Likes is not in this list then click Manage Sections and choose Likes)</li>
-				<li>In the top right-hand corner, click the pen icon titled <b>Manage</b></li>
-				<li>Select <b>edit privacy</b></li>
-				<li>Make sure the privacy of your Likes is set to "Public"</li>
-				</ol>
-			</li>
+			<li>Vous n\'êtes pas connecté à Facebook</li>
+			<li>Vous n\'avez pas donné à Illuminus l\'autorisation nécessaire. </li>
+			<li>Vous n\'avez pas assez de données pour participer ou vous avez manuellement modifié le niveau</li>
 			</ul>',
-		'bugs_heading' => 'I found a bug',
-		'bugs_text' => 'Please report bugs to <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a>',
+		'bugs_heading' => 'Vous avez trouvé un bug ?',
+		'bugs_text' => 'Veuillez le signaler  <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a>',
 
 	),
 
