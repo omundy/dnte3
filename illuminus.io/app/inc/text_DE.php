@@ -20,10 +20,11 @@ $text = array(
 
 	// step 0 - landing page for standalone only
 	array(
-		'0_heading' => 'Welcome to Illuminus.',
-		'callout' => 'Unlocking the power of you',
-		'select_assessment' => 'Select Personality Assessment on left to begin',
-		'please_login' => 'Please log in to Facebook to begin Personality Assessment',
+		'0_heading' => 'Willkommen bei Illuminus.',
+		'callout' => 'Erfahren Sie, was in Ihnen steckt',
+		'select_assessment' => 'Wählen Sie zuerst links den Persönlichkeitstest aus',
+		'please_login' => 'Um den Persönlichkeitstest zu machen, melden Sie sich bitte mit Ihrem Facebook-Konto an',
+        'loading'
 	),
 
 
@@ -31,60 +32,67 @@ $text = array(
 
 	// step 1 - Personality Assessment
 	array(
-		'1_1_heading' => 'Personality Assessment',
-		'1_1_welcome' => 'Welcome to Illuminus',
-		'1_1_subheading' => 'We have successfully retrieved your data.',
-		'1_1_p1_1' => 'Your social activity reveals a lot about you.',
-		'1_1_p1_2' => 'Your profile for instance says that',
-		'1_1_p1_3' => 'your age is',
+		'1_1_heading' => 'Persönlichkeitstest',
+		'1_1_welcome' => 'Willkommen bei Illuminus',
+		'1_1_subheading' => 'Ihre Daten wurden erfolgreich übermittelt.',
+		'1_1_p1_1' => 'Ihr Verhalten in sozialen Netzwerken gibt eine ganze Menge über Sie preis.',
+		'1_1_p1_2' => 'Ihr Profil besagt beispielweise, dass',
+		'1_1_p1_3' => 'Sie',
 		// insert [age]
-		'1_1_p1_4' => 'and',
+		'1_1_p1_4' => 'Jahre alt sind und dass',
 		// insert [age]
-		'1_1_p1_5' => 'your gender is',
+		'1_1_p1_5' => 'Ihr Geschlecht',
 		// insert [GENDER]
 
-		'1_1_p1_6' => 'But the real gold mine is your Facebook data over time.',
-		'1_1_p1_7' => 'By analyzing the at least',
+		'1_1_p1_6' => 'ist. Doch tatsächlich sind Ihre Facebook-Daten, die Sie mit der Zeit angesammelt haben, eine wahre Goldgrube.',
+		'1_1_p1_7' => 'Wir haben Ihre mindestens',
 		// insert [NUMBER OF LIKES]
-		'1_1_p1_8' => 'things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in ',
+		'1_1_p1_8' => 'Likes auf Facebook ausgewertet und so dank fortschrittlicher Algorithmen Aufschlüsse über Ihren Charakter erhalten. Den höchsten Wert haben Sie in der Kategorie ',
 		// insert [BIG5 CATEGORIES]
-		'1_1_p1_9_pos' => 'which indicates you are',
-		'1_1_p1_9_and' => 'and',
-		'1_1_p1_9_neg' => 'but also may be',
+		'1_1_p1_9_pos' => ', was darauf schließen lässt, dass Sie',
+		'1_1_p1_9_and' => 'und',
+		'1_1_p1_9_neg' => 'sind, aber auch',
 		
 		// insert [BIG5 TRAITS]
 
-		'1_1_p1_10' => 'Our personality evaluation system uses Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>.', 
-		'1_1_p1_11' => 'It may surprise you that your interest in', 
+		'1_1_p1_10' => 'sein können. Zur Auswertung Ihrer Charakterzüge haben wir mithilfe von <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> psycho- und demografische Prognosen gemacht. Dieser Algorithmus wurde am <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">Psychometrics Centre der University of Cambridge</a> entwickelt.', 
+		'1_1_p1_11' => 'Vielleicht überrascht es Sie, dass Ihr Interesse an', 
 		// [likes]
-		'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-		'1_1_p1_next' => 'Discover what we know about your interests',
-		'1_1_chartcaption' => 'Your likes over time',
+		'1_1_p1_12' => 'uns bei der Bewertung Ihres wahren Charakters geholfen hat. Und das sind noch lange nicht alle Dinge, denen Sie ein „Gefällt mir" gegeben haben.', 
+		'1_1_p1_next' => 'Gefällt mir Analyse beginnen.',
+		'1_1_chartcaption' => 'Ihre Likes im Laufe der Zeit.',
+				
+		// [error]
+		'1_1_not_connected' => '',
+		'1_1_no_permission' => '',
+		'1_1_no_likes' => '',
+		'1_1_no_magic_sauce' => '',
 		
 		// page 2
-		'1_2_heading' => 'Your Interests',
-		'1_2_subheading' => 'How you are categorized',
-		'1_2_p1_1' => 'We have also sorted your interests on Facebook into categories in this doughnut chart. Move your mouse over the chart to see them. These interests, especially the top ones like',
-		'1_2_p1_2' => 'and',
-		'1_2_p1_3' => 'are used to target (and retarget) you and thus determine which advertisements you see.', 
-		'1_2_p1_4' => 'Next, we run this database that you have deposited on Facebook through an algorithm to determine your personality traits.',
+		'1_2_heading' => 'Gefällt mir Analyse',
+		'1_2_subheading' => 'Kategorisierte Anordnung',
+		'1_2_p1_1' => ' in diesem Kreisdiagramm haben wir Ihre Interessen auf Facebook dargestellt. Bewegen Sie Ihre Maus über das Diagramm, um die Kategorie zu sehen. Diese Interessen, insbesondere die mit dem größten Anteil, wie',
+		'1_2_p1_2' => 'und',
+		'1_2_p1_3' => 'werden genutzt, um Ihr Profil zu erstellen und Ihnen  entsprechende Werbung zu zeigen.', 
+		'1_2_p1_4' => 'Anschließend werden die Daten, die Sie auf Facebook gespeichert haben, über einen Algorithmus analysiert und somit Ihre Persönlichkeitszüge ausgewertet.',
 
 		'1_2_p1_back' => '<<',
-		'1_2_p1_next' => 'Reveal your personality analysis',
-		'1_2_chartcaption' => 'Your likes categorized',
+		'1_2_p1_next' => 'Persönlichkeitsbewertung beginnen',
+		'1_2_chartcaption' => 'Ihre Likes in Kategorien unterteilt',
+        '1_2_other' => 'Other',        
 		
 
 		// page 3
-		'1_3_heading' => 'Personality Analysis',
+		'1_3_heading' => 'Persönlichkeitsbewertung',
 		'1_3_subheading' => ' ',
-		'1_3_1' => 'Psychologists believe that each human belongs to one of the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five Personality Traits</a>:  extroversion, openness to experience, conscientiousness, agreeableness and neuroticism. A person who scores high in extraversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking. ',
-		'1_3_2' => 'After crunching the numbers, we have determined that your two highest Big Five traits are:',
+		'1_3_1' => 'Psychologen sind der Meinung, dass der Charakter eines jeden Menschen gemäß dem <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Fünf-Faktoren-Modell</a> in eine der fünf Kategorien (den sog. Big Five) Extraversion, Offenheit für Erfahrungen, Gewissenhaftigkeit, Verträglichkeit und Neurotizismus eingeteilt werden kann. Wenn eine Person einen hohen Wert in der Kategorie Extraversion erhält, ist sie beispielsweise sehr gesellig, freundlich und aktiv. Menschen, die einen hohen Wert für ihre Gewissenhaftigkeit erhalten, sind gut organisiert, vernünftig und strebsam. ',
+		'1_3_2' => 'Nach Auswertung der Daten haben wir also festgestellt, dass Sie die höchsten Werte für die folgenden beiden Big Five erzielen:',
 		// insert [BIG5 CATEGORY]
-		'1_3_3' => 'and',
+		'1_3_3' => 'und',
 		// insert [BIG5 CATEGORY]
-		'1_3_chartcaption' => 'Your Big Five personality analysis',
-		'1_3_click_on_risk' => 'Click on one of the risk evaluations to learn how your data can be used to make decisions about your potential risk.',
-		'1_3_gorisk_btn' => 'View your risk evaluation',
+		'1_3_chartcaption' => 'Ihre Big Five-Persönlichkeitsbewertung',
+		'1_3_click_on_risk' => 'Klicken Sie eine der Risikoeinschätzungen an und erfahren Sie, wie Ihre Daten verwendet werden, um Auskunft über potentielle Risiken zu erhalten.',
+		'1_3_gorisk_btn' => 'Sehen Sie sich Ihre Risikoeinschätzung an',
 	),
 
 
@@ -93,58 +101,58 @@ $text = array(
 	// step 2 - Financial Risk Evaluation
 	array(
 
-		'2_heading' => 'Financial Risk Evaluation',
-		'2_1' => 'Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that',
+		'2_heading' => 'Einschätzung des finanziellen Risikos',
+		'2_1' => 'Unser Algorithmus hat aufgrund der Persönlichkeitsbewertung, die sich aus Ihren Facebook-Daten ergeben hat, und einer wissenschaftliche Studie, die im <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> veröffentlicht wurde, ergeben,',
 		// good || mediocre || unreliable
-		'2_2_unreliable' => 'you may be an unreliable candidate for a loan',
-		'2_2_mediocre' => 'you may be a mediocre candidate for a loan',
-		'2_2_good' => 'you may be a good candidate for a loan',
+		'2_2_unreliable' => 'dass Sie ein unzuverlässiger Kreditnehmer wären',
+		'2_2_mediocre' => 'dass Sie ein mittelmäßiger Kreditnehmer wären',
+		'2_2_good' => 'dass Sie ein zuverlässiger Kreditnehmer wären',
 		
 		// eval_risk()
-		'eval_risk_1' => 'Your high scores in',
-		'eval_risk_2' => 'indicate',
-		'eval_risk_3' => 'potential for risk-taking behavior in your',
-		'eval_risk_4' => 'decisions',
+		'eval_risk_1' => 'Ihre hohe Bewertung in der Kategorie',
+		'eval_risk_2' => 'zeigt an, dass Sie',
+		'eval_risk_3' => 'häufig riskante',
+		'eval_risk_4' => 'Entscheidungen treffen.',
 		
 		// career
-		'2_career_heading' => 'Career Risk',
-		'2_career_risk_eg' => 'e.g. quitting a job without another to go to',
+		'2_career_heading' => 'Risiko bei der beruflichen Laufbahn',
+		'2_career_risk_eg' => 'z. B. eine Anstellung kündigen, ohne bereits eine neue gefunden zu haben',
 		
-		'2_career_risk_more' => 'More about Career risk',
-		'2_career_risk_more_text' => 'Career risk taking was significantly associated with lower job level, working in small organizations, shorter tenure, having a greater number of employers and involvement in business start-ups',
+		'2_career_risk_more' => 'Mehr zum Risiko bei der beruflichen Laufbahn',
+		'2_career_risk_more_text' => 'Riskante Entscheidungen in Bezug auf die berufliche Laufbahn werden mit einer geringeren Beschäftigung, der Arbeit in kleinen Betrieben, kürzeren Anstellungsverträgen, einer größeren Arbeitgeberzahl und der Beschäftigung bei Start-up-Unternehmen in Verbindung gebracht',
 		
-		'2_finance_heading' => 'Finance Risk',
-		'2_finance_risk_eg' => 'e.g. gambling, risky investments',
+		'2_finance_heading' => 'Finanzielles Risiko',
+		'2_finance_risk_eg' => 'z. B. Glücksspiel und riskante Investitionen',
 		
-		'2_social_heading' => 'Social Risk',
-		'2_social_risk_eg' => 'e.g. standing for election, publicly challenging a rule or decision',
+		'2_social_heading' => 'Gesellschaftliches Risiko',
+		'2_social_risk_eg' => 'z. B. politische Kandidatur, öffentliche Kritik an Regeln oder Entscheidungen',
 		
 		// GENDER
-		'eval_risk_overview_1' => 'In addition to your seemingly boring Facebook data, your',
+		'eval_risk_overview_1' => 'Neben Ihren scheinbar langweiligen Facebook-Daten hat Ihr',
 		// [MALE/FEMALE]
-		'eval_risk_overview_2' => 'gender',
+		'eval_risk_overview_2' => 'Geschlecht',
 		// adjectives
-		'eval_risk_overview_adj_1_1' => 'greatly contributed',
-		'eval_risk_overview_adj_1_2' => 'likely contributed',
-		'eval_risk_overview_adj_1_3' => 'did not contribute',
-		'eval_risk_overview_3' => 'to your estimated risk as',
+		'eval_risk_overview_adj_1_1' => 'sehr',
+		'eval_risk_overview_adj_1_2' => 'eher',
+		'eval_risk_overview_adj_1_3' => 'nicht',
+		'eval_risk_overview_3' => 'zu Ihrer Risikoeinschätzung beigetragen.',
 		
-		'eval_risk_overview_3_1' => 'Men reported significantly greater risk taking than women in the overall risk-taking scale',
-		'eval_risk_overview_3_2' => 'Women reported significantly greater risk taking in career and social domains',
-		'eval_risk_overview_3_3' => 'Men reported significantly greater risk taking than women in four domains, including the health and safety-oriented domains',
-		'eval_risk_overview_3_4' => 'Women reported significantly greater risk taking in career and social domains',
-		'eval_risk_overview_3_5' => 'Men reported significantly greater risk taking than women in the overall risk-taking scale, while women reported significantly greater risk taking in career and social domains',
+		'eval_risk_overview_3_1' => 'In der allgemeinen Bewertung sind Männer deutlich risikofreudiger als Frauen',
+		'eval_risk_overview_3_2' => 'Frauen zeigen sich hingegen bei beruflichen und gesellschaftlichen Entscheidungen risikobereiter',
+		'eval_risk_overview_3_3' => 'In vier Bereichen, darunter Gesundheit und Sicherheit, gehen Männer ein deutlich höheres Risiko ein als Frauen',
+		'eval_risk_overview_3_4' => 'Frauen zeigen sich hingegen bei beruflichen und gesellschaftlichen Entscheidungen risikobereiter',
+		'eval_risk_overview_3_5' => 'In der allgemeinen Bewertung sind Männer deutlich risikofreudiger als Frauen, jedoch zeigen sich diese bei beruflichen und gesellschaftlichen Entscheidungen risikobereiter',
 		
 		
 		// AGE
-		'eval_risk_overview_age_1' => 'Your',
-		'eval_risk_overview_age_2' => 'age',
-		'eval_risk_overview_age_2_greatly' => 'greatly contributed',
-		'eval_risk_overview_age_2_likely' => 'likely contributed',
-		'eval_risk_overview_age_2_didnot' => 'did not contribute',
-		'eval_risk_overview_age_3' => 'to your estimated risk as',
-		'eval_risk_overview_age_4' => 'Risk taking decreased with age in every domain',
-		'eval_risk_overview_age_5' => 'Meaning, the younger you are, the more likely you are to engage in risky behavior, which may affect our bottom line',
+		'eval_risk_overview_age_1' => 'Ihr',
+		'eval_risk_overview_age_2' => 'Alter hat',
+		'eval_risk_overview_age_2_greatly' => 'sehr',
+		'eval_risk_overview_age_2_likely' => 'eher',
+		'eval_risk_overview_age_2_didnot' => 'nicht',
+		'eval_risk_overview_age_3' => 'zu Ihrer Risikoeinschätzung beigetragen.',
+		'eval_risk_overview_age_4' => 'Die Bereitschaft, ein Risiko einzugehen, sinkt in allen Kategorien mit zunehmendem Alter',
+		'eval_risk_overview_age_5' => 'Je jünger Sie sind, desto eher verhalten Sie sich demnach riskant, was Ihren Durchschnittswert beeinflusst',
 	),
 
 
@@ -156,23 +164,23 @@ $text = array(
 	// step 3 - Health Risk Evaluation
 	array(
 
-		'3_heading' => 'Health Risk Evaluation',
-		'3_1' => 'Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports. Ultimately, your predisposition to risky behavior could mean higher medical costs for us. To help us understand how dangerous you are, we compared your personality analysis to results from a study on risk in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> to determine that',
+		'3_heading' => 'Einschätzung des gesundheitlichen Risikos',
+		'3_1' => 'Ihr Verhalten in sozialen Netzwerk gibt eindeutigen Aufschluss darüber, wie riskant Ihr Lebensstil für Sie selbst ist. Wir erfahren hierdurch, mit welcher Wahrscheinlichkeit Sie Fremde treffen, unverhütet Sex haben oder gefährliche Extremsportarten betreiben. Ihr Hang zu riskantem Verhalten kann demnach höhere medizinische Kosten für uns bedeuten. Um zu verstehen, wie gefährlich Sie leben, haben wir Ihre Persönlichkeitsbewertung mit den Ergebnissen einer Studie des <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> verglichen, mit folgendem Ergebnis:',
 		
 		// good || mediocre || unreliable
-		'2_3_extreme' => 'your risk level is too extreme to make you a candidate for health insurance',
-		'2_3_high' => 'your risk level is too high to make you a candidate for health insurance',
-		'2_3_moderate' => 'your risk level is moderate which may barely qualify you for health insurance',
-		'2_3_low' => 'your risk level is low which makes you a good candidate for health insurance',
+		'2_3_extreme' => 'Ihr Risiko ist viel zu hoch, als dass Sie für eine Krankenversicherung in Frage kämen',
+		'2_3_high' => 'Ihr Risiko ist zu hoch, als dass Sie für eine Krankenversicherung in Frage kämen',
+		'2_3_moderate' => 'Ihr Risiko ist mäßig, sodass Sie unter Umständen gerade noch für eine Krankenversicherung in Frage kämen',
+		'2_3_low' => 'Ihr Risiko ist niedrig, sodass Sie sicherlich für eine Krankenversicherung in Frage kämen',
 		
-		'3_health_heading' => 'Health Risk',
-		'3_health_risk_eg' => 'e.g. smoking, poor diet, high alcohol consumption',
+		'3_health_heading' => 'Gesundheitsrisiko',
+		'3_health_risk_eg' => 'z. B. Rauchen, schlechte Ernährung, hoher Alkoholkonsum',
 		
-		'3_safety_heading' => 'Safety Risk',
-		'3_safety_risk_eg' => 'e.g. fast driving, city cycling without a helmet',
+		'3_safety_heading' => 'Sicherheitsrisiko',
+		'3_safety_risk_eg' => 'z. B. rasantes Autofahren, Fahrradfahren durch die Stadt ohne Helm',
 		
-		'3_recreation_heading' => 'Recreation Risk',
-		'3_recreation_risk_eg' => 'e.g. rock-climbing, scuba diving',
+		'3_recreation_heading' => 'Freizeitrisiko',
+		'3_recreation_risk_eg' => 'z. B. Klettern, Sporttauchen',
 	),
 
 
@@ -182,53 +190,53 @@ $text = array(
 
 	// meta - links, etc.
 	'meta' => array(
-		'product_name' => 'Future Present Risk Detection',
-		'product_callout' => 'Learn what we already know about you',
-		'login_with_facebook' => 'Log in with Facebook',
-		'nav_link_zero' => 'Welcome',
-		'nav_link_load_data' => 'Get Started',
-		'nav_link_one' => 'Personality Assessment',
-		'nav_link_two' => 'Financial Risk Evaluation',
-		'nav_link_three' => 'Health Risk Evaluation',
+		'product_name' => 'Zukünftige und gegenwärtige Risikoprognose',
+		'product_callout' => 'Erfahren Sie, was wir bereits über Sie wissen',
+		'login_with_facebook' => 'Melden Sie sich mit Ihrem Facebook-Konto an',
+		'nav_link_zero' => 'Willkommen',
+		'nav_link_load_data' => 'Fangen wir an',
+		'nav_link_one' => 'Persönlichkeitstest',
+		'nav_link_two' => 'Einschätzung des finanziellen Risikos',
+		'nav_link_three' => 'Einschätzung des gesundheitlichen Risikos',
 		'nav_footer_link_home' => 'Home',
-		'nav_footer_link_privacy' => 'Privacy',
-		'nav_footer_link_credits' => 'Credits',
-		'nav_footer_link_logout' => 'Logout',
-		'risk_words' => array('mild','moderate','significant','severe','extreme'),
-		'resume_video' => 'Back to the video',
-		'alt_data_heading' => 'Uh oh',
-		'alt_data_p1' => 'There was a problem accessing your Facebook data. It looks like ',
+		'nav_footer_link_privacy' => 'Datenschutz',
+		'nav_footer_link_credits' => 'Abspann',
+		'nav_footer_link_logout' => 'Abmelden',
+		'risk_words' => array('gering','mäßig','beträchtlich','stark','extrem'),
+		'resume_video' => 'Zurück zum Video',
+		'alt_data_heading' => 'Ups!',
+		'alt_data_p1' => 'Beim Zugriff auf Ihre Facebook-Daten ist ein Fehler aufgetreten. Es scheint, ',
 		'alt_data_reasons' => array(
-			'notloggedin' => 'you are not logged into Facebook',
-			'app_permissions' => 'you didn\'t give the app permission',
-			'nodata' => 'you don\'t have enough data to participate or you may have manually increased the privacy of your data.
+			'notloggedin' => 'Sie sind nicht bei Facebook angemeldet',
+			'app_permissions' => 'Sie haben der App den Zugriff verweigert',
+			'nodata' => 'Sie haben nicht genug Daten oder Sie haben diese manuell geschützt und können deshalb nicht teilnehmen.
 			
 			
-				To make Likes public:
+				So machen Sie Ihre „Likes“ öffentlich:
 				<ul>
-				<li>Go to your Facebook profile</li>
-				<li>Click <b>more</b> next to photos in the header tab under your cover photo</li>
-				<li>Click <b>Likes</b></li>
-				<li>In the top right-hand corner, click the pen icon titled <b>Manage</b></li>
-				<li>Select <b>edit privacy</b></li>
-				<li>Then you can edit the privacy of different sections of Likes</li>
+				<li>Gehen Sie zu Ihrem Facebook-Profil</li>
+				<li>Klicken Sie in der Überschriftenleiste unter Ihrem Cover-Foto neben den Fotos auf <b>Mehr</b></li>
+				<li>Klicken Sie auf <b>„Gefällt mir“-Angaben</b></li>
+				<li>Klicken Sie in der oberen rechten Ecke auf das Stift-Symbol, um zu <b>Verwalten</b> zu gelangen</li>
+				<li>Wählen Sie dann <b>Privatsphäre bearbeiten</b></li>
+				<li>Hier können Sie die Privatsphäre der unterschiedlichen „Gefällt mir“-Angaben bearbeiten</li>
 				</ul>
 			',
-			'big5prediction' => 'there was an error with the Apply Magic Sauce API',
+			'big5prediction' => 'bei der Anwendung von Apply Magic Sauce API ist ein Fehler aufgetreten',
 		),
-		'alt_data_click' => 'Click here',
-		'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
-		'no_data_found' => 'No data found',
-		'no_data_found2' => 'Click Get Started to begin',
+		'alt_data_click' => 'Klicken Sie hier',
+		'alt_data_p2' => 'wenn Sie Illuminus mit anderen Daten testen möchten, können Sie dafür die von Richard nutzen.',
+		'no_data_found' => 'Es konnten keine Daten gefunden werden',
+		'no_data_found2' => 'Klicken Sie auf „Fangen wir an“, um zu beginnen',
 		
-		'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using sample data from Richard’s Facebook account instead. See the FAQ for more info.',
+		'no_data_found_statement' => 'Sie haben entweder die Option gewählt, Ihr Facebook-Konto nicht zu verbinden, oder aber die dort gespeicherten Daten reichen nicht aus, um die Analyse richtig durchzuführen. Deshalb wird die Bewertung nun mit den Beispieldaten von Richards Facebook-Konto fortgeführt. Weitere Informationen finden Sie in unseren FAQ.',
 		
-		'get_current_data_set' => 'You are currently evaluating this profile',
-		'get_select_a_data_set' => 'Select the data to begin',
-		'get_select_or' => 'or',
-		'get_sample_data_btn' => 'Use a sample data set',
-		'get_fb_data_btn' => 'Use your Facebook data',
-		'get_started_btn' => 'Get started',
+		'get_current_data_set' => 'Sie werten derzeit dieses Profil aus',
+		'get_select_a_data_set' => 'Wählen Sie ein Datum aus, um anzufangen',
+		'get_select_or' => 'oder',
+		'get_sample_data_btn' => 'Wählen Sie die Beispieldaten aus',
+		'get_fb_data_btn' => 'Wählen Sie Ihre Facebook-Daten aus',
+		'get_started_btn' => 'Fangen wir an',
 	),
 	
 	
@@ -236,7 +244,7 @@ $text = array(
 	
 	// LOAD_DATA
 	'load_data' => array(
-		'0_heading' => 'Get started',
+		'0_heading' => 'Fangen wir an',
 	),
 	
 	
@@ -245,67 +253,67 @@ $text = array(
 	// PRIVACY
 	'privacy' => array(
 		
-		'0_heading' => 'Privacy Policy',
+		'0_heading' => 'Datenschutzrichtlinie',
 		'policy' => '
 		
 		
-<p>Illuminus is a satirical website created for the documentary series Do Not Track (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  When you log in via Facebook, we access information you have shared on Facebook to build the Illuminus website.  </p>
+<p>Wir haben die fiktive Illuminus-Website allein für die Doku-Serie Do Not Track erstellt (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  Wenn Sie sich über Facebook anmelden, erhalten wir Zugriff auf die Daten, die Sie bereits auf Facebook geteilt haben, und erstellen daraus die Illuminus-Website. </p>
 
-<p>When you use Illuminus, it will create a "personality profile" for you.  If you access Illuminus while watching an episode of Do Not Track, and you create an account on Do Not Track, we will store this information on your profile.  This profile will only contain the information you gave authorization for us to access. If you access Illuminus at <a href="https://illuminus.io">illuminus.io</a> your personal information will not be saved.</p>
+<p>Wenn Sie Illuminus nutzen, wird Ihr „Persönlichkeitsprofil“ erstellt.  Wenn Sie auf Illuminus zugreifen, während Sie eine Do Not Track-Folge ansehen und Sie dabei ein Do Not Track-Konto erstellen, werden Ihre Informationen in Ihrem Profil gespeichert.  In diesem Profil sind allein jene Informationen gespeichert, für welche Sie uns die Zugriffserlaubnis erteilt haben. Wenn Sie die Illuminus-Website über <a href="https://illuminus.io">illuminus.io</a> aufrufen, werden Ihre personenbezogenen Daten nicht gespeichert.</p>
 
-<p>When you use <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>, we do request some information from you, such as your email address, as well as aspects of your browsing history.  If you volunteer that information, the terms below describe your rights and our responsibilities.
+<p>Wenn Sie <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a> nutzen, verlangen wir einige Informationen von Ihnen, wie beispielsweise Ihre E-Mail-Adresse oder Auszüge Ihres Browserverlaufs.  Falls Sie Ihre Informationen bereitwillig zur Verfügung stellen, finden Sie unten Ihre entsprechenden Rechte und unsere Verpflichtungen.</p>
 
-<h4>Your data</h4>
+<h4>Ihre Daten</h4>
 
-<p>The Producers guarantee that they are the sole recipients of the data collected and that it will be used exclusively for the Project and will neither be passed on, nor accessible, nor sold to any third party whatsoever. The Producers implement technical and organizational security measures to ensure that its users’ personal data is protected against loss, fraudulent alterations, or unauthorized access by third parties. The transmission of data collected during registration is carried out in an encrypted manner, as is subsequent communication between the server and the Project.</p>
+<p>Die Produzenten gewährleisten, dass sie allein die gesammelten Daten nutzen und dass diese ausschließlich für das Projekt genutzt werden und weder an Dritte weitergegeben, noch diesen zugänglich gemacht oder an sie verkauft werden. Die Produzenten wenden technische und organisatorische Sicherheitsmaßnahmen an, um zu gewährleisten, dass die personenbezogenen Daten der Nutzer vor Verlust, betrügerischer Veränderung oder unerlaubtem Zugriff Dritter geschützt sind. Die während der Anmeldung gesammelten Daten werden verschlüsselt übermittelt, ebenso wie die weitere Kommunikation zwischen dem Server und dem Projekt.</p>
 
-<p>The producers will use your email address for the following purposes:
+<p>Die Produzenten nutzen Ihre E-Mail-Adresse für folgende Zwecke:
 <ul>
-<li>keep you abreast of the broadcast of upcoming episodes of the Project,</li>
-<li>invite you to follow the Project’s news</li>
-<li>offer personalized content</li>
+<li>um Sie über die kommenden Episoden des Projekts auf dem Laufenden zu halten;</li>
+<li>um Ihnen Neuigkeiten zum Projekt mitzuteilen;</li>
+<li>um den Projektinhalt auf Sie zuzuschneiden</li>
 </ul>
 
-Your personal data will be stored within the Project database and retained for the life of the Project (3 years).</p>
+Ihre personenbezogenen Daten werden während der gesamten Laufzeit des Projekts (3 Jahre) auf der Datenbank des Projekts gespeichert.</p>
 
-<p>You have the right to access, modify, correct, and delete your information. To exercise this right, or to opt out, write to: data@donottrack-doc.com</p>
+<p>Sie haben das Recht, auf Ihre Daten zuzugreifen, diese zu ändern, zu verbessern oder zu löschen. Um von diesem Recht Gebrauch zu machen oder uns den Zugriff auf Ihre Daten zu entziehen, schicken Sie bitte eine E-Mail an: data@donottrack-doc.com</p>
 
-<h4>INFORMATICS AND LIBERTY</h4>
+<h4>INFORMATIK UND FREIHEITSRECHTE</h4>
 
-<p>According to French law n°78-17 of 6th January 1978 on informatics, files and liberties, every user who made a contribution has the right of opposition (art. 38), access (art. 39, 41, 42) and rectification (art.40) of his contents.</p>
+<p>Gemäß des französischen Gesetzes Nummer 78-17 vom 6. Januar 1978 zu Informatik, Daten und Freiheitsrechten hat jeder Nutzer, der zum Projekt beiträgt, das Recht, seinen Inhalten zu widersprechen (Art. 38), auf diese zuzugreifen (Art. 39, 41, 42) und sie zu berichtigen (Art.40).</p>
 
-<p>He thus can require his contribution to be corrected, completed, clarified, updated or erased if it is incorrect, incomplete, false, obsolete or if its collection, use, communication and conservation are prohibited.</p>
+<p>Somit hat der Nutzer das Recht zu verlangen, dass sein Beitrag verbessert, vervollständigt, erläutert, aktualisiert oder gelöscht wird, sofern er fehlerhaft, unvollständig, falsch oder veraltet ist oder die Sammlung der Daten, deren Nutzung, Kommunikation oder Speicherung verboten ist.</p>
 
-<p>Every user can assert this right by writing to the following address: data@donottrack-doc.com</p>
+<p>Jeder Nutzer kann von diesem Recht Gebrauch machen, indem er an folgende E-Mail-Adresse schreibt: data@donottrack-doc.com</p>
 
 <h4>COOKIES</h4>
 
-<p>The site http://donottrack-doc.com/ utilizes Google Analytics & Xiti.</p>
+<p>Die Website http://donottrack-doc.com/ nutzt Google Analytics & XiTi.</p>
 
-<p>Google Analytics, a web analytics service allows Do Not Track to study your usage of the site.</p>
+<p>Google Analytics ist ein Online-Analysedienst, mit welchem Do Not Track Ihre Nutzung der Website untersucht.</p>
 
-<p>The data generated by these navigation analysis cookies regarding your usage of the site: sites visited, frequency, number and repeat of visits, navigation time, research carried out, browser used, operator providing the service, location relative to the IP address.</p>
+<p>Die Cookies zur Analyse Ihres Nutzungsverhaltens beim Browsen der Website generieren folgende Daten: welche Websites Sie besucht haben; wie häufig Sie unsere Website besuchen bzw. ob Sie sie wiederholt besuchen; wie viel Zeit Sie auf der Website verbringen; wonach Sie dabei suchen; welchen Browser Sie benutzen; welcher Provider diesen Dienst zur Verfügung stellt und wo Sie sich laut Ihrer IP-Adresse befinden.</p>
 
-<p>They are generally transmitted to and stored by Google on servers located in the United States.</p>
+<p>Diese Informationen werden von Google in der Regel an Server in den USA übermittelt und dort gespeichert.</p>
 
-<p>If you choose to make your IP address anonymous on this site, your IP address will be nonetheless handed over to Google, yet truncated within the Member States of the European Union or among other signatory states of the European Economic Area Agreement. Only in exceptional circumstances will your IP address be fully transmitted to a Google server in the USA, and truncated there.</p>
+<p>Falls Sie Ihre IP-Adresse für die Nutzung dieser Website anonymisiert haben, wird Ihre IP-Adresse dennoch an Google übermittelt, jedoch vorab innerhalb der Mitgliedsstaaten der Europäischen Union oder der unterzeichneten Staaten des Abkommens über den Europäischen Wirtschaftsraum gekürzt. Ihre IP-Adresse wird nur in Ausnahmefällen vollständig an einen Google-Server in den USA übermittelt und dort gekürzt.</p>
 
-<p>Along with other data captured by Google, Google will not shorten your transmitted IP address within Google Analytics. Google will use this information to evaluate your usage of the website, compile for Do Not Track reports on website activity and Internet usage: measures and analyses navigation and user behavior, development of anonymous navigation profiles, areas for improvement based on the analysis of usage data collected.</p>
+<p>Neben weiteren von Google gesammelten Daten wird Google die übermittelte IP-Adresse nicht über Google Analytics kürzen. Google nutzt diese Informationen, um Ihre Nutzung unserer Website auszuwerten und für Do Not Track Berichte zur Aktivität auf der Website und der Internetnutzung zu verfassen. Dabei wird das Browser- und Nutzerverhalten gemessen und analysiert, es werden anonyme Navigationsprofile erstellt und Bereiche mit Entwicklungspotenzial auf Grundlage der Analyse der gesammelten Nutzungsdaten ausfindig gemacht.</p>
 
-<p>For more information, see Google’s privacy policy.</p>
+<p>Mehr dazu finden Sie in der Datenschutzerklärung von Google.</p>
 
-<p>In addition to blocking cookies in the browser, you can disable Google Analytics while browsing through a module provided by Google.</p>
+<p>Sie können Cookies über Ihren Browser blockieren oder Google Analytics über eine Google-Erweiterung während der Nutzung deaktivieren.</p>
 
-<p>Xiti is a web audience measurement tool offered by AT Internet company. In order to establish visitor statistics, Xiti leaves a cookie to track a visitor\'s journey. For example, this allows avoiding doubling up on the visitor count as if new when reloading the page. Additionally, Xiti prevents website publishers from exaggerating their own statistics when they reload a page. In order to provide reports and services in connection with the usage of the site and the Internet, Xiti uses information collected by its cookies at the request of Do Not Track. Xiti will not capture your IP address with any data it holds.</p>
+<p>XiTi ist ein von AT Internet zur Verfügung gestelltes Webanalyse-Tool zur Messung des Online-Publikumsverkehrs. Mithilfe eines Cookies verfolgt XiTi den Verlauf der Nutzung eines Website-Besuchers und erstellt damit Statistiken zur Besucherzahl. So wird beispielsweise gewährleistet, dass Besucher nicht doppelt gezählt werden, wenn sie die Website aktualisieren. Dadurch kann XiTi verhindern, dass Websitebetreiber ihre eigenen Statistiken beschönigen, indem sie ihre Website ständig aktualisieren.  XiTi nutzt die von diesem Cookie gesammelten Daten gemäß den Vorgaben von Do Not Track, um Berichte und Dienste in Bezug auf die Nutzung der Website und des Internets auszuschreiben.  Dabei gleicht XiTi Ihre IP-Adresse jedoch keinesfalls mit den gespeicherten Daten ab.</p>
 
-<p>For more information, see Xiti’s Privacy Statement.</p>
+<p>Weitere Informationen finden Sie in den Datenschutzbestimmungen von XiTi.</p>
 
-<h4>For more information</h4>
+<h4>Weitere Informationen</h4>
 
-<p>To obtain further information about cookies and the use of these analysis tools, the Internet user can visit the CNIL website.</p>
+<p>Internetnutzer können weitere Informationen über Cookies und die Nutzung von Webanalyse-Tools über die Website der französischen Datenschutzbehörde CNIL einholen.</p>
 
 
-<h4>Terms of Service URL</h4>
+<h4>URL zu den Nutzungsbedingungen</h4>
 
 User Support Email: <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a><br>
 User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.donottrack-doc.com/en/about/</a>
@@ -317,11 +325,11 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	
 	// CREDITS
 	'credits' => array(
-		'0_heading' => 'Credits',
-		'1_creators' => 'Creators of Illuminus',
-		'1_thankyou' => 'Thank you',
-		'1_predictions' => 'Psycho-demographic trait predictions',
-		'cambridge' => 'Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>',
+		'0_heading' => 'Abspann',
+		'1_creators' => 'Entwickler von Illuminus',
+		'1_thankyou' => 'Vielen Dank',
+		'1_predictions' => 'Psycho- und demografische Prognosen zu Charaktereigenschaften',
+		'cambridge' => 'Psycho-und demografische Prognosen zu Charaktereigenschaften wurden per <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> erstellt. Dieser Algorithmus wurde am <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">Psychometrics Centre der University of Cambridge</a> entwickelt.',
 		
 	),
 	
@@ -333,29 +341,29 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	// FAQ
 	'faq' => array(
 		'0_heading' => 'FAQ',
-		'what_heading' => 'What is Illuminus',
-		'what_text' => 'Illuminus is a fantasy corporation that analyses your Facebook likes to build a character profile.  It is a work of satire to accompany Do Not Track, a personalized documentary series about tracking and the web economy. Illuminus uses a fictional scenario of a corporation deciding your financial services to uncover real-life techniques of data analysis.',
-		'who_heading' => 'Who created Illuminus',
-		'who_text1' => 'Please see the ',
-		'who_text2' => 'credits page',
-		'fberror_heading' => 'Illuminus says I do not have sufficient data',
-		'fberror_text' => 'This problem could happen for one of the following reasons:
+		'what_heading' => 'Was ist Illuminus?',
+		'what_text' => 'Illuminus ist ein fiktives Unternehmen, das mithilfe Ihrer „Gefällt mir“-Angaben auf Facebook ein Persönlichkeitsprofil erstellt.  Es handelt sich um eine ausgedachte Website, die für Do Not Track genutzt wird,  eine personalisierte Web-Serie über Tracking und die Internetwirtschaft. Hierbei nutzt Illuminus den fiktiven Fall eines Unternehmens, das mithilfe von tatsächlich existierenden Methoden zur Datenanalyse Entscheidungen über finanzielle Dienste macht, die Ihnen zur Verfügung gestellt werden.',
+		'who_heading' => 'Wer hat Illuminus entwickelt',
+		'who_text1' => 'Sehen Sie sich hierzu bitte den ',
+		'who_text2' => 'Abspann an',
+		'fberror_heading' => 'Laut Illuminus reichen meine Daten nicht aus',
+		'fberror_text' => 'Dieser Fehler kann aus folgenden Gründen auftreten:
 			<ul>
-			<li>You are not logged into Facebook</li>
-			<li>You did not give Illuminus the permissions it requested</li>
-			<li>You do not have enough data to participate or you may have manually increased the privacy of your like data. To make your Likes public:
+			<li>Sie sind nicht bei Facebook angemeldet</li>
+			<li>Sie haben Illuminus nicht die notwendigen Zugriffsberechtigungen erteilt</li>
+			<li>Sie haben nicht genug Daten oder Sie haben diese manuell geschützt und können deshalb nicht teilnehmen So machen Sie Ihre „Likes“ öffentlich:
 				<ol>
-				<li>Go to your Facebook profile</li>
-				<li>Click <b>more</b> next to photos in the header tab under your cover photo</li>
-				<li>Click <b>Likes</b> (if Likes is not in this list then click Manage Sections and choose Likes)</li>
-				<li>In the top right-hand corner, click the pen icon titled <b>Manage</b></li>
-				<li>Select <b>edit privacy</b></li>
-				<li>Make sure the privacy of your Likes is set to "Public"</li>
+				<li>Gehen Sie zu Ihrem Facebook-Profil</li>
+				<li>Klicken Sie in der Überschriftenleiste unter Ihrem Cover-Foto neben den Fotos auf <b>Mehr</b></li>
+				<li>Wählen Sie <b>„Gefällt mir“-Angaben</b> aus (falls diese nicht aufgelistet werden, klicken Sie auf „Abschnitte verwalten“ und wählen Sie dann „Gefällt mir“-Angaben aus)</li>
+				<li>Klicken Sie in der oberen rechten Ecke auf das Stift-Symbol, um zu <b>Verwalten</b> zu gelangen</li>
+				<li>Wählen Sie dann <b>Privatsphäre bearbeiten</b></li>
+				<li>Achten Sie darauf, dass die Privatsphäreneinstellungen Ihrer „Gefällt mir“-Angaben jeweils auf „öffentlich“ eingestellt sind</li>
 				</ol>
 			</li>
 			</ul>',
-		'bugs_heading' => 'I found a bug',
-		'bugs_text' => 'Please report bugs to <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a>',
+		'bugs_heading' => 'Ich habe einen Bug entdeckt',
+		'bugs_text' => 'Bitte melden Sie Bugs <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a>',
 
 	),
 
@@ -365,37 +373,47 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	
 		'Extraversion' => array(
 			'name' => 'Extraversion',
-			'keywords' => 'outgoing, friendly, talkative',
+			'keywords' => 'gesellig, freundlich, gesprächig',
+			'keywords_F' => 'gesellig, freundlich, gesprächig',
 			'opposite' => 'Introversion',
-			'opposite_keywords' => 'shy, reserved',
+			'opposite_keywords' => 'zurückhaltend, reserviert',
+			'opposite_keywords_F' => 'zurückhaltend, reserviert',
 			'desc' => ''
 		),
 		'Openness' => array(
-			'name' => 'Openness',
-			'keywords' => 'creative, imaginative, adventurous',
-			'opposite' => 'Closedmindedness',
-			'opposite_keywords' => 'closed-minded, unintellectual',
+			'name' => 'Offenheit',
+			'keywords' => 'kreativ, erfinderisch, wagemutig',
+			'keywords_F' => 'kreativ, erfinderisch, wagemutig',
+			'opposite' => 'Engstirnigkeit',
+			'opposite_keywords' => 'engstirnig, ungebildet',
+			'opposite_keywords_F' => 'engstirnig, ungebildet',
 			'desc' => ''
 		),
 		'Conscientiousness' => array(
-			'name' => 'Conscientiousness',
-			'keywords' => 'organized, responsible, hardworking',
-			'opposite' => 'Impulsivity',
-			'opposite_keywords' => 'unreliable, impulsive',
+			'name' => 'Gewissenhaftigkeit',
+			'keywords' => 'organisiert, vernünftig, strebsam',
+			'keywords_F' => 'organisiert, vernünftig, strebsam',
+			'opposite' => 'Impulsivität',
+			'opposite_keywords' => 'unzuverlässig, impulsiv',
+			'opposite_keywords_F' => 'unzuverlässig, impulsiv',
 			'desc' => ''
 		),
 		'Agreeableness' => array(
-			'name' => 'Agreeableness',
-			'keywords' => 'helpful, warm, sympathetic',
-			'opposite' => 'Hostility',
-			'opposite_keywords' => 'hostile, unfriendly',
+			'name' => 'Verträglichkeit',
+			'keywords' => 'hilfsbereit, warmherzig, mitfühlend',
+			'keywords_F' => 'hilfsbereit, warmherzig, mitfühlend',
+			'opposite' => 'Feindseligkeit',
+			'opposite_keywords' => 'feindselig, unfreundlich',
+			'opposite_keywords_F' => 'feindselig, unfreundlich',
 			'desc' => ''
 		),
 		'Neuroticism' => array(
-			'name' => 'Neuroticism',
-			'keywords' => 'calm, cool, collected',
-			'opposite' => 'Emotional Stability',
-			'opposite_keywords' => 'moody, nervous',
+			'name' => 'Neurotizismus',
+			'keywords' => 'ruhig, gelassen, beherrscht',
+			'keywords_F' => 'ruhig, gelassen, beherrscht',
+			'opposite' => 'Emotionale Stabilität',
+			'opposite_keywords' => 'launisch, nervös',
+			'opposite_keywords_F' => 'launisch, nervös',
 			'desc' => ''
 		)
 	
@@ -406,32 +424,32 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	// Illuminus home page
 	'homepage' => array(
 		
-		'title' => 'Illuminus - Unlocking the power of you',
+		'title' => 'Illuminus – Erfahren Sie, was in Ihnen steckt',
 	
 		'home' => 'Home',
-		'unlocking' => 'Unlocking the power of you',
-		'get_started_btn' => 'Get Started',
+		'unlocking' => 'Erfahren Sie, was in Ihnen steckt',
+		'get_started_btn' => 'Fangen wir an',
 		
-		'services' => 'Services',
-		'our_services' => 'Our Services',
+		'services' => 'Dienste',
+		'our_services' => 'Unsere Dienste',
 		
 		// SERVICES
-		'risk_assessment' => 'Risk Assessment ',
-		'future' => 'Your past determines your future',
+		'risk_assessment' => 'Risikoeinschätzung ',
+		'future' => 'Ihre Vergangenheit bestimmt Ihre Zukunft',
 		'liveforever' => 'LiveForever',
-		'dna_backup' => 'DNA backup',
-		'coming_soon' => 'coming soon',
-		'social_media' => 'Social Media Integration ',
-		'you_have_no_idea' => 'You have no idea what we know',
+		'dna_backup' => 'DNA-Backup',
+		'coming_soon' => 'bald',
+		'social_media' => 'Integration für soziale Netzwerke ',
+		'you_have_no_idea' => 'Sie haben keine Ahnung, was wir schon alles wissen',
 		
 		// future present
-		'future_present' => 'Future Present Risk Detection',
-		'learn_what' => 'Learn what we already know about you ',
-		'launch_btn' => 'Launch risk assessment tool',
+		'future_present' => 'Zukünftige und gegenwärtige Risikoprognose',
+		'learn_what' => 'Erfahren Sie, was wir bereits über Sie wissen ',
+		'launch_btn' => 'Tool zur Risikoeinschätzung starten',
 		
 		// more links
-		'privacy' => 'Privacy',
-		'contact' => 'Contact',
+		'privacy' => 'Datenschutz',
+		'contact' => 'Kontakt',
 			
 		
 	),

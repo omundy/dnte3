@@ -20,10 +20,11 @@ $text = array(
 
 	// step 0 - landing page for standalone only
 	array(
-		'0_heading' => 'Welcome to Illuminus.',
-		'callout' => 'Unlocking the power of you',
-		'select_assessment' => 'Select Personality Assessment on left to begin',
-		'please_login' => 'Please log in to Facebook to begin Personality Assessment',
+		'0_heading' => 'Bienvenue sur Illuminus.',
+		'callout' => 'Comprendre la puissance de vos données',
+		'select_assessment' => 'Choisir une analyse personnelle sur la gauche pour commencer',
+		'please_login' => 'Connectez-vous avec Facebook pour démarrer l\'analyse personnelle',
+        'and' => 'et'
 	),
 
 
@@ -31,60 +32,67 @@ $text = array(
 
 	// step 1 - Personality Assessment
 	array(
-		'1_1_heading' => 'Personality Assessment',
-		'1_1_welcome' => 'Welcome to Illuminus',
-		'1_1_subheading' => 'We have successfully retrieved your data.',
-		'1_1_p1_1' => 'Your social activity reveals a lot about you.',
-		'1_1_p1_2' => 'Your profile for instance says that',
-		'1_1_p1_3' => 'your age is',
+		'1_1_heading' => 'Analyse personelle',
+		'1_1_welcome' => 'Bienvenue sur Illuminus',
+		'1_1_subheading' => 'Vos données ont été analysées. </br>',
+		'1_1_p1_1' => 'Votre activité sur les réseaux sociaux en dit long sur vous.',
+		'1_1_p1_2' => 'Votre profil révèle par exemple que',
+		'1_1_p1_3' => 'vous avez ',
 		// insert [age]
-		'1_1_p1_4' => 'and',
+		'1_1_p1_4' => 'ans et',
 		// insert [age]
-		'1_1_p1_5' => 'your gender is',
+		'1_1_p1_5' => 'que vous êtes',
 		// insert [GENDER]
 
-		'1_1_p1_6' => 'But the real gold mine is your Facebook data over time.',
-		'1_1_p1_7' => 'By analyzing the at least',
+		'1_1_p1_6' => 'Mais ce sont les données accumulées sur vous par Facebook au fil des années qui sont la véritable mine d\'informations.',
+		'1_1_p1_7' => 'En étudiant les ',
 		// insert [NUMBER OF LIKES]
-		'1_1_p1_8' => 'things you have liked on Facebook, we have used our advanced algorithm techniques to assess your personality and have found you scored highest in ',
+		'1_1_p1_8' => 'éléments que vous avez likés sur Facebook, notre algorithme a analysé votre personnalité et déterminé que votre trait le plus marqué est ',
 		// insert [BIG5 CATEGORIES]
-		'1_1_p1_9_pos' => 'which indicates you are',
-		'1_1_p1_9_and' => 'and',
-		'1_1_p1_9_neg' => 'but also may be',
+		'1_1_p1_9_pos' => 'ce qui indique chez vous une tendance à être',
+		'1_1_p1_9_and' => 'et',
+		'1_1_p1_9_neg' => 'mais également',
 		
 		// insert [BIG5 TRAITS]
 
-		'1_1_p1_10' => 'Our personality evaluation system uses Psycho-demographic trait predictions powered by the <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce API</a> developed at the <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">University of Cambridge Psychometrics Centre</a>.', 
-		'1_1_p1_11' => 'It may surprise you that your interest in', 
+		'1_1_p1_10' => 'Notre évaluation prédictive de la personnalité à partir de caractéristiques psycho-démographiques utilise l\'API <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce</a> développée au <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">centre de psychométrie de l\'université de Cambridge</a>.', 
+		'1_1_p1_11' => 'Cela va peut-être vous surprendre mais votre intérêt pour', 
 		// [likes]
-		'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-		'1_1_p1_next' => 'Discover what we know about your interests',
-		'1_1_chartcaption' => 'Your likes over time',
+		'1_1_p1_12' => 'nous a aidé à déterminer qui vous étiez véritablement. Même si ce ne sont pas les seules choses que vous avez likées.', 
+		'1_1_p1_next' => 'Lancer l\'analyse de Likes.',
+		'1_1_chartcaption' => 'Répartition de vos Likes par année',
+		
+		// [error]
+		'1_1_not_connected' => '',
+		'1_1_no_permission' => '',
+		'1_1_no_likes' => '',
+		'1_1_no_magic_sauce' => '',
 		
 		// page 2
-		'1_2_heading' => 'Your Interests',
-		'1_2_subheading' => 'How you are categorized',
-		'1_2_p1_1' => 'We have also sorted your interests on Facebook into categories in this doughnut chart. Move your mouse over the chart to see them. These interests, especially the top ones like',
-		'1_2_p1_2' => 'and',
-		'1_2_p1_3' => 'are used to target (and retarget) you and thus determine which advertisements you see.', 
-		'1_2_p1_4' => 'Next, we run this database that you have deposited on Facebook through an algorithm to determine your personality traits.',
+		'1_2_heading' => 'Analyse de Likes',
+		'1_2_subheading' => 'Découpage par catégories',
+		'1_2_p1_1' => 'Le graphique ci-contre est une représentation de vos Likes sur Facebook triés par centres d\'intérêt. Passez votre souris sur le graphe pour les afficher. Vos centres d\'intérêt, notamment les principaux comme',
+		'1_2_p1_2' => 'et',
+		'1_2_p1_3' => ', servent à vous cibler et à déterminer quel type de publicité vous sera présenté.', 
+		'1_2_p1_4' => 'Cliquez sur le bouton ci-dessous pour analyser vos données Facebook au moyen d\'un algorithme de mesure de vos traits de caractère.',
 
 		'1_2_p1_back' => '<<',
-		'1_2_p1_next' => 'Reveal your personality analysis',
-		'1_2_chartcaption' => 'Your likes categorized',
+		'1_2_p1_next' => 'Analyse de personnalité',
+		'1_2_chartcaption' => 'Découpage de likes',
+        '1_2_other' => 'Autre',
 		
 
 		// page 3
-		'1_3_heading' => 'Personality Analysis',
+		'1_3_heading' => 'Analyse de personnalité',
 		'1_3_subheading' => ' ',
-		'1_3_1' => 'Psychologists believe that each human belongs to one of the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five Personality Traits</a>:  extroversion, openness to experience, conscientiousness, agreeableness and neuroticism. A person who scores high in extraversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking. ',
-		'1_3_2' => 'After crunching the numbers, we have determined that your two highest Big Five traits are:',
+		'1_3_1' => 'Les psychologues estiment que le caractère de chaque être humain est composé de ces cinq traits de personnalité, les <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five</a> : l\'extraversion, l\'ouverture à de nouvelles expériences, la conscienciosité, l\'agréabilité, et le névrosisme. Une personne qui aura un grand score sur l\'échelle de l\'extraversion sera par exemple très ouverte aux autres, amicale et active. Celles avec un score de conscienciosité élevé sont organisées, responsables et travailleuses.',
+		'1_3_2' => 'Après analyse de vos données, nous avons déterminé que vos deux traits principaux sont :',
 		// insert [BIG5 CATEGORY]
-		'1_3_3' => 'and',
+		'1_3_3' => 'et',
 		// insert [BIG5 CATEGORY]
-		'1_3_chartcaption' => 'Your Big Five personality analysis',
-		'1_3_click_on_risk' => 'Click on one of the risk evaluations to learn how your data can be used to make decisions about your potential risk.',
-		'1_3_gorisk_btn' => 'View your risk evaluation',
+		'1_3_chartcaption' => 'Représentation de vos cinq traits de personnalités',
+		'1_3_click_on_risk' => 'Cliquez sur l\'une des évaluations de risques pour découvrir comment vos données peuvent être utilisés pour déterminer vos risques potentiels.',
+		'1_3_gorisk_btn' => 'Accédez à votre évaluation de risques.',
 	),
 
 
@@ -93,58 +101,58 @@ $text = array(
 	// step 2 - Financial Risk Evaluation
 	array(
 
-		'2_heading' => 'Financial Risk Evaluation',
-		'2_1' => 'Using the personality analysis created from your Facebook data and scientific research from a study published in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> our advanced algorithm has determined that',
+		'2_heading' => 'Évaluation du risque financier',
+		'2_1' => 'À partir de vos traits de caractères tels que déterminés par vos données Facebook et selon les recherches scientifiques publiées dans le <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>, notre algorithme a déterminé',
 		// good || mediocre || unreliable
-		'2_2_unreliable' => 'you may be an unreliable candidate for a loan',
-		'2_2_mediocre' => 'you may be a mediocre candidate for a loan',
-		'2_2_good' => 'you may be a good candidate for a loan',
+		'2_2_unreliable' => 'que vous êtiez trop peu fiable pour obtenir un prêt bancaire',
+		'2_2_mediocre' => 'que vous seriez jugé médiocre candidat à l\'obtention d\'un prêt bancaire',
+		'2_2_good' => 'qu\'une candidature de votre part à l\'obtention d\'un prêt bancaire serait jugée fiable',
 		
 		// eval_risk()
-		'eval_risk_1' => 'Your high scores in',
-		'eval_risk_2' => 'indicate',
-		'eval_risk_3' => 'potential for risk-taking behavior in your',
-		'eval_risk_4' => 'decisions',
+		'eval_risk_1' => 'Votre score élevé sur l\'échelle de',
+		'eval_risk_2' => 'indique une tendance',
+		'eval_risk_3' => 'aux comportements à risque dans la prise de décisions touchant à votre',
+		'eval_risk_4' => '.',
 		
 		// career
-		'2_career_heading' => 'Career Risk',
-		'2_career_risk_eg' => 'e.g. quitting a job without another to go to',
+		'2_career_heading' => 'Risque professionnel',
+		'2_career_risk_eg' => 'Par ex., quitter votre emploi actuel avant d\'en avoir trouvé un autre.',
 		
-		'2_career_risk_more' => 'More about Career risk',
-		'2_career_risk_more_text' => 'Career risk taking was significantly associated with lower job level, working in small organizations, shorter tenure, having a greater number of employers and involvement in business start-ups',
+		'2_career_risk_more' => '',
+		'2_career_risk_more_text' => 'Des comportements à risque dans le domaine professionnel sont généralement associés avec des emplois de niveau moins élevé, dans des entreprises de taille plus réduite ou pour de plus courte durée, un nombre accru d\'employeurs différents et une tendance à travailler pour des start-up.',
 		
-		'2_finance_heading' => 'Finance Risk',
-		'2_finance_risk_eg' => 'e.g. gambling, risky investments',
+		'2_finance_heading' => 'Risque budgétaire',
+		'2_finance_risk_eg' => 'par ex., parier ou jouer à des jeux d\'argent, pratiquer des investissements risqués.',
 		
-		'2_social_heading' => 'Social Risk',
-		'2_social_risk_eg' => 'e.g. standing for election, publicly challenging a rule or decision',
+		'2_social_heading' => 'Risque social',
+		'2_social_risk_eg' => 'par ex., se présenter à une élection, dénoncer publiquement une loi ou une décision de justice.',
 		
 		// GENDER
-		'eval_risk_overview_1' => 'In addition to your seemingly boring Facebook data, your',
+		'eval_risk_overview_1' => 'En plus de vos données qui sont tout sauf anodines, le fait que vous soyez',
 		// [MALE/FEMALE]
-		'eval_risk_overview_2' => 'gender',
+		'eval_risk_overview_2' => 'contribue',
 		// adjectives
-		'eval_risk_overview_adj_1_1' => 'greatly contributed',
-		'eval_risk_overview_adj_1_2' => 'likely contributed',
-		'eval_risk_overview_adj_1_3' => 'did not contribute',
-		'eval_risk_overview_3' => 'to your estimated risk as',
+		'eval_risk_overview_adj_1_1' => 'grandement',
+		'eval_risk_overview_adj_1_2' => 'probablement',
+		'eval_risk_overview_adj_1_3' => 'peu ou pas du tout',
+		'eval_risk_overview_3' => 'à l\'accroissement de votre risque global dans la mesure où',
 		
-		'eval_risk_overview_3_1' => 'Men reported significantly greater risk taking than women in the overall risk-taking scale',
-		'eval_risk_overview_3_2' => 'Women reported significantly greater risk taking in career and social domains',
-		'eval_risk_overview_3_3' => 'Men reported significantly greater risk taking than women in four domains, including the health and safety-oriented domains',
-		'eval_risk_overview_3_4' => 'Women reported significantly greater risk taking in career and social domains',
-		'eval_risk_overview_3_5' => 'Men reported significantly greater risk taking than women in the overall risk-taking scale, while women reported significantly greater risk taking in career and social domains',
+		'eval_risk_overview_3_1' => 'les hommes prennent en général significativement plus de risques que les femmes.',
+		'eval_risk_overview_3_2' => 'les femmes prennent significativement plus de risques que les hommes dans les domaines professionnel et social',
+		'eval_risk_overview_3_3' => 'les hommes prennent significativement plus de risques que les femmes, notamment sur les plans de la santé et de la sécurité.',
+		'eval_risk_overview_3_4' => 'les femmes prennent significativement plus de risques sur le plan professionnel et social.',
+		'eval_risk_overview_3_5' => 'les hommes prennent en général significativement plus de risques que les femmes, tandis que les femmes prennent significativement plus de risques dans les domaines professionnel et social.',
 		
 		
 		// AGE
-		'eval_risk_overview_age_1' => 'Your',
-		'eval_risk_overview_age_2' => 'age',
-		'eval_risk_overview_age_2_greatly' => 'greatly contributed',
-		'eval_risk_overview_age_2_likely' => 'likely contributed',
-		'eval_risk_overview_age_2_didnot' => 'did not contribute',
-		'eval_risk_overview_age_3' => 'to your estimated risk as',
-		'eval_risk_overview_age_4' => 'Risk taking decreased with age in every domain',
-		'eval_risk_overview_age_5' => 'Meaning, the younger you are, the more likely you are to engage in risky behavior, which may affect our bottom line',
+		'eval_risk_overview_age_1' => 'Votre',
+		'eval_risk_overview_age_2' => 'âge',
+		'eval_risk_overview_age_2_greatly' => 'contribue grandement',
+		'eval_risk_overview_age_2_likely' => 'contribue probablement',
+		'eval_risk_overview_age_2_didnot' => 'ne contribue pas',
+		'eval_risk_overview_age_3' => 'à l\'accroissement de votre risque global dans la mesure où',
+		'eval_risk_overview_age_4' => 'la prise de risque diminue dans tous les domaines proportionnellement à l\'âge',
+		'eval_risk_overview_age_5' => 'En clair, plus vous êtes jeune, plus vous êtes susceptible d\'avoir un comportement à risque, ce qui affecte le calcul de votre risque global.',
 	),
 
 
@@ -156,23 +164,23 @@ $text = array(
 	// step 3 - Health Risk Evaluation
 	array(
 
-		'3_heading' => 'Health Risk Evaluation',
-		'3_1' => 'Your activity on social networks can tell us a lot about whether or not you are a risk to yourself. It lets us know how likely you are to meet a stranger, to engage in unprotected sex, or to enjoy dangerous extreme sports. Ultimately, your predisposition to risky behavior could mean higher medical costs for us. To help us understand how dangerous you are, we compared your personality analysis to results from a study on risk in the <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> to determine that',
+		'3_heading' => 'Évaluation du risque physique',
+		'3_1' => 'Votre activité sur les réseaux sociaux livre de précieuses informations permettant de déterminer si vous êtes susceptible ou non d\'être un risque pour vous-même. Nous pouvons par exemple savoir si vous êtes susceptible d\'aller à un rendez-vous avec un(e) inconnu(e), d\'avoir un rapport sexuel non protégé, ou de vous livrer à un sport extrême. Au final, votre prédisposition à un comportement à risque peut se traduire par un coût médical accru pour nous. Pour nous aider à déterminer ce risque potentiel, nous avons comparé votre analyse de la personnalité à une étude sur le risque publiée dans le <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> et avons conclu que',
 		
 		// good || mediocre || unreliable
-		'2_3_extreme' => 'your risk level is too extreme to make you a candidate for health insurance',
-		'2_3_high' => 'your risk level is too high to make you a candidate for health insurance',
-		'2_3_moderate' => 'your risk level is moderate which may barely qualify you for health insurance',
-		'2_3_low' => 'your risk level is low which makes you a good candidate for health insurance',
+		'2_3_extreme' => 'votre niveau de risque est extrême et vous ne pouvez souscrire à aucune assurance santé.',
+		'2_3_high' => 'votre niveau de risque est trop important pour vous laisser souscrire un contrat d\'assurance santé standard',
+		'2_3_moderate' => 'votre niveau de risque est modéré ce qui vous permet de souscrire à certaines assurances santé',
+		'2_3_low' => 'votre niveau de risque est faible, ce qui vous permet de souscrire au contrat de santé de votre choix',
 		
-		'3_health_heading' => 'Health Risk',
-		'3_health_risk_eg' => 'e.g. smoking, poor diet, high alcohol consumption',
+		'3_health_heading' => 'Risque santé ',
+		'3_health_risk_eg' => 'par ex., fumer, mauvais régime alimentaire, forte consommation d\'alcool',
 		
-		'3_safety_heading' => 'Safety Risk',
-		'3_safety_risk_eg' => 'e.g. fast driving, city cycling without a helmet',
+		'3_safety_heading' => 'Risque sécurité',
+		'3_safety_risk_eg' => 'par ex., conduite dangereuse, circuler à vélo sans équipement de sécurité',
 		
-		'3_recreation_heading' => 'Recreation Risk',
-		'3_recreation_risk_eg' => 'e.g. rock-climbing, scuba diving',
+		'3_recreation_heading' => 'Risque loisirs',
+		'3_recreation_risk_eg' => 'par ex., pratiquer le parapente, le saut à l\'élastique, la plongée',
 	),
 
 
@@ -182,22 +190,22 @@ $text = array(
 
 	// meta - links, etc.
 	'meta' => array(
-		'product_name' => 'Future Present Risk Detection',
-		'product_callout' => 'Learn what we already know about you',
-		'login_with_facebook' => 'Log in with Facebook',
-		'nav_link_zero' => 'Welcome',
-		'nav_link_load_data' => 'Get Started',
-		'nav_link_one' => 'Personality Assessment',
-		'nav_link_two' => 'Financial Risk Evaluation',
-		'nav_link_three' => 'Health Risk Evaluation',
+		'product_name' => 'Voir aujourd\'hui les risques de demain',
+		'product_callout' => 'Savoir ce que nous savons déjà de vous',
+		'login_with_facebook' => 'Connectez-vous avec Facebook',
+		'nav_link_zero' => 'Bienvenue',
+		'nav_link_load_data' => 'Commencer',
+		'nav_link_one' => 'Analyse de la personnalité',
+		'nav_link_two' => 'Évaluation du risque financier',
+		'nav_link_three' => 'Évaluation du risque santé',
 		'nav_footer_link_home' => 'Home',
-		'nav_footer_link_privacy' => 'Privacy',
-		'nav_footer_link_credits' => 'Credits',
-		'nav_footer_link_logout' => 'Logout',
-		'risk_words' => array('mild','moderate','significant','severe','extreme'),
-		'resume_video' => 'Back to the video',
-		'alt_data_heading' => 'Uh oh',
-		'alt_data_p1' => 'There was a problem accessing your Facebook data. It looks like ',
+		'nav_footer_link_privacy' => 'Mentions légales',
+		'nav_footer_link_credits' => 'Crédits',
+		'nav_footer_link_logout' => 'Déconnexion',
+		'risk_words' => array('faible','modérée','significative','sévère','extrême'),
+		'resume_video' => 'Retour à l\'épisode',
+		'alt_data_heading' => 'Bon ben',
+		'alt_data_p1' => 'Nous avons rencontré un problème lors de l\'accès à vos données Facebook. IIl semblerait que',
 		'alt_data_reasons' => array(
 			'notloggedin' => 'you are not logged into Facebook',
 			'app_permissions' => 'you didn\'t give the app permission',
@@ -206,29 +214,29 @@ $text = array(
 			
 				To make Likes public:
 				<ul>
-				<li>Go to your Facebook profile</li>
-				<li>Click <b>more</b> next to photos in the header tab under your cover photo</li>
-				<li>Click <b>Likes</b></li>
-				<li>In the top right-hand corner, click the pen icon titled <b>Manage</b></li>
-				<li>Select <b>edit privacy</b></li>
-				<li>Then you can edit the privacy of different sections of Likes</li>
+				<li>Ouvrez votre page Facebook</li>
+				<li>Cliquez sur l\'onglet <b>Plus</b> après l\'onglet Photos sous votre Cover</li>
+				<li>Cliquez <b>Mentions J\'aime</b></li>
+				<li>En haut à droite, cliquez sur l\icône crayon <b>Gérer</b></li>
+				<li>Sélectionnez <b>Modifier la confidentialité</b></li>
+				<li>Vous pouvez alors modifier la confidentialité des différentes catégories de Likes.</li>
 				</ul>
 			',
-			'big5prediction' => 'there was an error with the Apply Magic Sauce API',
+			'big5prediction' => 'L\'API Apply MAgic Sauce a rencontré une erreur.',
 		),
-		'alt_data_click' => 'Click here',
-		'alt_data_p2' => 'to proceed with Illuminus using a sample data set from Richard instead.',
-		'no_data_found' => 'No data found',
-		'no_data_found2' => 'Click Get Started to begin',
+		'alt_data_click' => 'Cliquez ici',
+		'alt_data_p2' => 'pour poursuivre l\'utilisation d\'Illuminus avec les données de Richard Gutjahr.',
+		'no_data_found' => 'Pas de données disponibles',
+		'no_data_found2' => 'Cliquez sur Commencer pour démarrer',
 		
-		'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using sample data from Richard’s Facebook account instead. See the FAQ for more info.',
+		'no_data_found_statement' => 'Soit vous avez choisi de ne pas connecté votre compte Facebook, soit votre compte ne contient pas suffisamment de données pour effectuer une analyse satisfaisante. Nous allons poursuivre l\'utilisation d\'Illuminus avec les données issues du compte Facebook de Richard. Consultez notre FAQ pour en savoir plus. ',
 		
-		'get_current_data_set' => 'You are currently evaluating this profile',
-		'get_select_a_data_set' => 'Select the data to begin',
-		'get_select_or' => 'or',
-		'get_sample_data_btn' => 'Use a sample data set',
-		'get_fb_data_btn' => 'Use your Facebook data',
-		'get_started_btn' => 'Get started',
+		'get_current_data_set' => 'Vous êtes en train d\évaluer le profil suivant',
+		'get_select_a_data_set' => 'Sélectionnez un compte pour commencer',
+		'get_select_or' => 'ou',
+		'get_sample_data_btn' => 'Analysez un compte témoin',
+		'get_fb_data_btn' => 'Utiliser vos données Facebook',
+		'get_started_btn' => 'Commencer',
 	),
 	
 	
@@ -236,7 +244,7 @@ $text = array(
 	
 	// LOAD_DATA
 	'load_data' => array(
-		'0_heading' => 'Get started',
+		'0_heading' => 'Commencer',
 	),
 	
 	
@@ -364,38 +372,48 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	'big5' => array(
 	
 		'Extraversion' => array(
-			'name' => 'Extraversion',
-			'keywords' => 'outgoing, friendly, talkative',
-			'opposite' => 'Introversion',
-			'opposite_keywords' => 'shy, reserved',
+			'name' => 'l\'extraversion',
+			'keywords' => 'extraverti, amical, ouvert',
+			'keywords_F' => 'extravertie, amicale, ouverte',
+			'opposite' => 'l\'introversion',
+			'opposite_keywords' => 'timide, réservé',
+			'opposite_keywords_F' => 'timide, réservée',
 			'desc' => ''
 		),
 		'Openness' => array(
-			'name' => 'Openness',
-			'keywords' => 'creative, imaginative, adventurous',
-			'opposite' => 'Closedmindedness',
-			'opposite_keywords' => 'closed-minded, unintellectual',
+			'name' => 'l\'ouverture',
+			'keywords' => 'créatif, imaginatif, curieux',
+			'keywords_F' => 'créative, imaginative, curieuse',
+			'opposite' => 'l\'étroitesse d\'esprit',
+			'opposite_keywords' => 'fermé, borné, non-curieux',
+			'opposite_keywords_F' => 'fermée, bornée, non-curieuse',
 			'desc' => ''
 		),
 		'Conscientiousness' => array(
-			'name' => 'Conscientiousness',
-			'keywords' => 'organized, responsible, hardworking',
-			'opposite' => 'Impulsivity',
-			'opposite_keywords' => 'unreliable, impulsive',
+			'name' => 'la conscienciosité',
+			'keywords' => 'organisé, responsable, travailleur',
+			'keywords_F' => 'organisée, responsable, travailleuse',
+			'opposite' => 'impulsivité',
+			'opposite_keywords' => 'peu fiable, impulsif',
+			'opposite_keywords_F' => 'peu fiable, impulsive',
 			'desc' => ''
 		),
 		'Agreeableness' => array(
-			'name' => 'Agreeableness',
-			'keywords' => 'helpful, warm, sympathetic',
-			'opposite' => 'Hostility',
-			'opposite_keywords' => 'hostile, unfriendly',
+			'name' => 'l\'agréabilité',
+			'keywords' => 'serviable, chaleureux, sympathique',
+			'keywords_F' => 'serviable, chaleureuse, sympathique',
+			'opposite' => 'l\'hositilité',
+			'opposite_keywords' => 'hostile, inamical',
+			'opposite_keywords_F' => 'hostile, inamicale',
 			'desc' => ''
 		),
 		'Neuroticism' => array(
-			'name' => 'Neuroticism',
-			'keywords' => 'calm, cool, collected',
-			'opposite' => 'Emotional Stability',
-			'opposite_keywords' => 'moody, nervous',
+			'name' => 'le névrosisme',
+			'keywords' => 'anxieux, lunatique, dépréssif',
+			'keywords_F' => 'anxieuse, lunatique, dépressive',
+			'opposite' => 'la stabilité émotionnelle',
+			'opposite_keywords' => 'calme, cool, de bonne humeur',
+			'opposite_keywords_F' => 'calme, cool, de bonne humeur',
 			'desc' => ''
 		)
 	
@@ -425,7 +443,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 		'you_have_no_idea' => 'You have no idea what we know',
 		
 		// future present
-		'future_present' => 'Future Present Risk Detection',
+		'future_present' => 'Voir ',
 		'learn_what' => 'Learn what we already know about you ',
 		'launch_btn' => 'Launch risk assessment tool',
 		

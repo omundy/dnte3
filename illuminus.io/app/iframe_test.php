@@ -161,13 +161,9 @@ function login_prompt(){
 function loadIframe(_step,_lang) {
 	step = _step;
 	lang = _lang;
-	var params = '';
-	params += '&step='+step;
-	params += '&lang='+lang;
-	params += '&player=yes';
 	
     $("#app_frame")
-    	.attr('src','index.php?v' + Math.random() + params)
+    	.attr('src', lang+'/'+step+'?v' + Math.random())
     	.css('display','block');
 
 }

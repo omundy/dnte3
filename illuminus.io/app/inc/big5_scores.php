@@ -34,9 +34,6 @@ $big5_risk = array(
 
 
 
-$big5_overview = 'Psychologists often use the "big five" traits – extroversion, openness to experience, conscientiousness, agreeableness and neuroticism – to describe personality. A person who scores high in extroversion, for example, is highly outgoing, friendly and active. Those who score high in conscientiousness are organized, responsible and hardworking.';
-
-
 $big5 = array(
 	'Extraversion' => array(
 		'name' => 'Extraversion',
@@ -92,12 +89,3 @@ $big5_defs = array(
 		'citation' => '1) <a href="http://www.feinberg.northwestern.edu/sites/ipham/docs/SeminarSeries/20130919-IPHAMSeminarSeries-Mroczek-Slides.pdf">link</a>; 2) Soldz, Stephen; Vaillant (1999). "<a href="http://www.sciencedirect.com/science/article/pii/S0092656699922432">The Big Five Personality Traits and the Life Course: A 45-Year Longetudinal Study</a>". Journal of Research in Personality 33: 208–232. doi:10.1006/jrpe.1999.2243.',
 	),
 );
-
-
-
-
-
-
-
-
-?>
