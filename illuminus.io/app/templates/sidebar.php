@@ -3,7 +3,7 @@
 			
 			
 			
-			<img src="assets/img/logo.png" alt="illuminus logo" class="img-responsive">
+			<a href="../" title="Illuminus - Home Page"><img src="assets/img/logo.png" alt="illuminus logo" class="img-responsive"></a>
 			<div class="product_name"><?php print $text['meta']['product_name'] ?></div>
 			<div class="product_callout"><?php print $text['meta']['product_callout'] ?></div>
 			

@@ -209,6 +209,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 
 
 <?php
+$control['step'] = "homepage";
 $path_to_stats = 'app/inc/stats/';
 include_once('app/inc/stats/analytics-illuminus.inc.php');
 include_once('templates/footer.php');
