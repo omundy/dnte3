@@ -25,10 +25,6 @@ use Facebook\HttpClients\FacebookCurlHttpClient;
 $control = array();
 
 
-
-
-
-
 // which data_set to show
 if(isset($_GET['data_set'])){
 	$control['data_set'] = $_GET['data_set'];
@@ -43,7 +39,7 @@ if(isset($_GET['lang']) && isset($_GET['step'])) {
 	$control['lang'] = $_GET['lang'];
 } else {
 	$control['step'] = 'zero';
-	$control['lang'] = 'EN';
+	$control['lang'] = 'en';
 }
 
 // get player
@@ -73,7 +69,7 @@ if (isset($_SERVER['HTTP_HOST'])){
 }
 
 // mod_rewrite
-// http://dnt.dev/illuminus.io/app/EN/sample/one
+// http://dnt.dev/illuminus.io/app/en/sample/one
 // index.php?lang=$1&data_set=$2&step=$3
 
 $control['langurl'] = $control['baseurl'] . $control['lang'] .'/';
@@ -97,16 +93,6 @@ $scripts .= "var data_set = '". $control['data_set'] ."'; \n\n";
 
 
 
-
-/*
-	
-
-1. First run, no data_set	
-
-illuminus.io/app/?data_set=user&step=zero&lang=EN
-
-
-*/
 
 
 // init session

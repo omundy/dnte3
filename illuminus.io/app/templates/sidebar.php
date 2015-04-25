@@ -2,15 +2,9 @@
 	<div class="inner">
 		
 		
-		
-		
-		<a href="<?php print $control['baseurl'] ?>" title="Illuminus - Home Page"><img src="<?php print $control['baseurl'] ?>assets/img/logo.png" alt="illuminus logo" class="img-responsive"></a>
+		<a href="https://illuminus.io" title="Illuminus - Home Page"><img src="<?php print $control['baseurl'] ?>assets/img/logo.png" alt="illuminus logo" class="img-responsive"></a>
 		<div class="product_name"><?php print $text['meta']['product_name'] ?></div>
 		<div class="product_callout"><?php print $text['meta']['product_callout'] ?></div>
-		
-		<?php if( $control['fb_login_state'] == 'no+++++++' ){ ?>
-		<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="<?php print $control['baseurl'] ?>assets/img/icon_fb_btn.png" alt="fb logo"> <?php print $text['meta']['login_with_facebook'] ?></button>
-		<?php } ?>
 			
 		<ul class="nav_steps">
 		
@@ -20,9 +14,7 @@
 			<li><a id="step_three_link" href="<?php print $control['dataurl']; ?>two" <?php if($control['step']=='two') print ' class="selected"'; ?>><?php print $text['meta']['nav_link_two'] ?></a></li>
 			<li><a id="step_two_link" href="<?php print $control['dataurl']; ?>three" <?php if($control['step']=='three') print ' class="selected"'; ?>><?php print $text['meta']['nav_link_three'] ?></a></li>
 		
-	
 		</ul>
-
 
 		<ul class="nav_footer">
 			<li><a href="<?php print $control['dataurl']; ?>privacy"><?php print $text['meta']['nav_footer_link_privacy'] ?></a></li>
