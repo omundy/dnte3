@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteOptions Inherit
+
+RewriteRule ^(FR|EN|DE|CA)/(user|sample)/(zero|load_data|load_data_sample|load_data_fb|one|two|three|faq|privacy|credits)?$ index.php?lang=$1&data_set=$2&step=$3 [L]

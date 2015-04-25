@@ -60,6 +60,12 @@ $text = array(
 		'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
 		'1_1_p1_next' => 'Discover what we know about your interests',
 		'1_1_chartcaption' => 'Your likes over time',
+				
+		// [error]
+		'1_1_not_connected' => '',
+		'1_1_no_permission' => '',
+		'1_1_no_likes' => '',
+		'1_1_no_magic_sauce' => '',
 		
 		// page 2
 		'1_2_heading' => 'Your Interests',
@@ -72,6 +78,7 @@ $text = array(
 		'1_2_p1_back' => '<<',
 		'1_2_p1_next' => 'Reveal your personality analysis',
 		'1_2_chartcaption' => 'Your likes categorized',
+        '1_2_other' => 'Other',        
 		
 
 		// page 3
@@ -366,36 +373,46 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 		'Extraversion' => array(
 			'name' => 'Extraversion',
 			'keywords' => 'outgoing, friendly, talkative',
+			'keywords_F' => 'outgoing, friendly, talkative',
 			'opposite' => 'Introversion',
 			'opposite_keywords' => 'shy, reserved',
+			'opposite_keywords_F' => 'shy, reserved',
 			'desc' => ''
 		),
 		'Openness' => array(
 			'name' => 'Openness',
 			'keywords' => 'creative, imaginative, adventurous',
+			'keywords_F' => 'creative, imaginative, adventurous',
 			'opposite' => 'Closedmindedness',
 			'opposite_keywords' => 'closed-minded, unintellectual',
+			'opposite_keywords_F' => 'closed-minded, unintellectual',
 			'desc' => ''
 		),
 		'Conscientiousness' => array(
 			'name' => 'Conscientiousness',
 			'keywords' => 'organized, responsible, hardworking',
+			'keywords_F' => 'organized, responsible, hardworking',
 			'opposite' => 'Impulsivity',
 			'opposite_keywords' => 'unreliable, impulsive',
+			'opposite_keywords_F' => 'unreliable, impulsive',
 			'desc' => ''
 		),
 		'Agreeableness' => array(
 			'name' => 'Agreeableness',
 			'keywords' => 'helpful, warm, sympathetic',
+			'keywords_F' => 'helpful, warm, sympathetic',
 			'opposite' => 'Hostility',
 			'opposite_keywords' => 'hostile, unfriendly',
+			'opposite_keywords_F' => 'hostile, unfriendly',
 			'desc' => ''
 		),
 		'Neuroticism' => array(
 			'name' => 'Neuroticism',
 			'keywords' => 'calm, cool, collected',
+			'keywords_F' => 'calm, cool, collected',
 			'opposite' => 'Emotional Stability',
 			'opposite_keywords' => 'moody, nervous',
+			'opposite_keywords_F' => 'moody, nervous',
 			'desc' => ''
 		)
 	

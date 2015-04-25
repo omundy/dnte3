@@ -1,4 +1,8 @@
 <?php
+
+$control = array();
+require_once('app/inc/om_functions.php');
+$control['url'] = request_protocol() . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 require_once('app/inc/localization.php');
 $control['lang'] = get_language();
 require_once('app/inc/text_'. $control['lang'] .'.php');

@@ -24,13 +24,9 @@ use Facebook\HttpClients\FacebookCurlHttpClient;
 // for reporting / recording states
 $control = array();
 
-// figure out what domain we're on
-if (isset($_SERVER['HTTP_HOST'])){
-	$search = array('https://','http://','www');
-	$control['domain'] = str_replace($search,'',$_SERVER['HTTP_HOST']);
-} else {
-	$control['domain'] = 'dnt.dev';
-}
+
+
+
 
 
 // which data_set to show
@@ -59,6 +55,29 @@ if(isset($_GET['player']) && $_GET['player'] == 'yes'){
 	$control['player'] = 'no';
 }; 
 
+require_once('inc/om_functions.php');
+$control['url'] = request_protocol() . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+// figure out what domain we're on
+if (isset($_SERVER['HTTP_HOST'])){
+	$search = array('https://','http://','www');
+	$control['domain'] = str_replace($search,'',$_SERVER['HTTP_HOST']);
+	if ($control['domain'] == 'dnt.dev'){
+		$control['baseurl'] = request_protocol() . "://dnt.dev/illuminus.io/app/";
+	} else {
+		$control['baseurl'] = request_protocol() . "://illuminus.io/app/";
+	}
+} else {
+	$control['baseurl'] = request_protocol() . "://$_SERVER[HTTP_HOST]/illuminus.io/app/";
+	$control['domain'] = 'dnt.dev';
+}
+
+// mod_rewrite
+// http://dnt.dev/illuminus.io/app/EN/sample/one
+// index.php?lang=$1&data_set=$2&step=$3
+
+$control['langurl'] = $control['baseurl'] . $control['lang'] .'/';
+$control['dataurl'] = $control['baseurl'] . $control['lang'] .'/'. $control['data_set'] .'/';
 
 
 
@@ -99,7 +118,7 @@ if ($control['step'] == 'logout'){
 	if ( isset($_SESSION['dnt_user']) ){
 		unset($_SESSION['dnt_user']);
 	}
-	header('Location: ./?data_set=user&step=load_data&lang='.$control['lang'].'&player='.$control['player'], true, 303);
+	header('Location: '. $control['langurl'] .'sample/load_data?player='.$control['player'], true, 303);
 	exit();
 }
 
@@ -189,7 +208,7 @@ if ( $control['step'] == 'load_data_sample'){
 
 	//report($user);
 	//exit();
-	header('Location: ./?data_set=sample&step=one&lang='.$control['lang'].'&player='.$control['player'], true, 303);
+	header('Location: '. $control['langurl'] .'sampe/one?player='.$control['player'], true, 303);
 	ob_end_clean();
 	exit();
 }
@@ -492,7 +511,7 @@ else if ( $control['step'] == 'load_data_fb'){
 			
 			// store all user data in session
 			$_SESSION['dnt_user'] = $user;
-			header('Location: ./?data_set=user&step=one&lang='.$control['lang'].'&player='.$control['player'], true, 303);
+			header('Location: '. $control['langurl'] .'user/one?player='.$control['player'], true, 303);
 			ob_end_clean();
 			exit();
 		}
@@ -556,7 +575,7 @@ if ( $control['fb_data_problems'] == true){
 
 	//report($user);
 	//exit();
-	header('Location: ./?data_set=sample&step=one&lang='.$control['lang'].'&player='.$control['player'], true, 303);
+	header('Location: '. $control['langurl'] .'sample/one?player='.$control['player'], true, 303);
 	ob_end_clean();
 	exit();
 }
@@ -564,12 +583,12 @@ if ( $control['fb_data_problems'] == true){
 
 
 //report($user['big5_risk_domains']);
-//report($control,180);
+report($control,180);
 //exit();
 //report($_SESSION);
 //report($user);
 
-
+//report($_SERVER);
 
 
 

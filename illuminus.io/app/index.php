@@ -51,7 +51,7 @@ print $css . '</style>';
 				<?php if($control['player'] == 'yes'){ ?>
 				<div class="row">
 					<div class="col-sm-10 ">
-						<img src='assets/img/logo.png' alt='illuminus logo' style="float: left; margin: 0 0 20px 0;">
+						<img src='<?php print $control['baseurl'] ?>assets/img/logo.png' alt='illuminus logo' style="float: left; margin: 0 0 20px 0;">
 						<div class='product_name' style="float: left; margin: 18px 0 0 20px;"><?php print $text['meta']['product_name']?> </div>
 					</div>
 					<div class="col-sm-2 ">
@@ -63,7 +63,7 @@ print $css . '</style>';
 
 <?php
 
-$pic = 'assets/img/fb_profile_img.png';
+$pic = $control['baseurl'] .'assets/img/fb_profile_img.png';
 
 if (isset($_SESSION['dnt_user'])){
 
@@ -116,7 +116,7 @@ if (isset($_SESSION['dnt_user'])){
 
 							<?php } else { ?>
 
-							<img src="assets/img/illuminus_cover_img.jpg">
+							<img src="<?php print $control['baseurl'] ?>assets/img/illuminus_cover_img.jpg">
 
 							<?php } ?>
 
@@ -126,10 +126,10 @@ if (isset($_SESSION['dnt_user'])){
 
 							<p>
 							<?php if( $control['fb_login_state'] == 'no' ){ ?>
-							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo">
+							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="<?php print $control['baseurl'] ?>assets/img/icon_fb_btn.png" alt="fb logo">
 							<?php print $text['meta']['login_with_facebook'] ?>
 							<?php } else { ?>
-							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo">
+							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="<?php print $control['baseurl'] ?>assets/img/icon_fb_btn.png" alt="fb logo">
 							<?php print $text['meta']['get_fb_data_btn']; ?>
 							<?php } ?>
 							</button>
@@ -188,7 +188,7 @@ if (isset($_SESSION['dnt_user'])){
 
 							<h4><?php print $text['faq']['who_heading'] ?></h4>
 							<p><?php print $text['faq']['who_text1'] ?>
-								<a href="?data_set=<?php print $control['data_set'] ?>&amp;step=credits&amp;lang=<?php print $control['lang'] ?>&amp;player=<?php print $control['player'] ?>">
+								<a href="<?php print $control['dataurl'] ?>credits?player=<?php print $control['player'] ?>">
 								<?php print $text['faq']['who_text2'] ?></a>.</p>
 
 							<h4><?php print $text['faq']['fberror_heading'] ?></h4>
@@ -274,7 +274,7 @@ if (isset($_SESSION['dnt_user'])){
 								print $text['meta']['alt_data_p1'] .' ';
 								print $text['meta']['alt_data_reasons'][$control['show_alt_data_reason']]  .'. ';
 								print '</p><p>';
-								print '<a href="?data_set='.$control['data_set'].'&amp;step=one&amp;lang='. $control['lang'] .'" class="step1_btn btn btn-custom">' . $text['meta']['alt_data_click'] .'</a> ';
+								print '<a href="'. $control['dataurl'] .'one" class="step1_btn btn btn-custom">' . $text['meta']['alt_data_click'] .'</a> ';
 								print $text['meta']['alt_data_p2'];
 							?></p>
 
@@ -307,7 +307,7 @@ if (isset($_SESSION['dnt_user'])){
 
 
 							<div align="center" class="embed-responsive embed-responsive-16by9">
-								<video autoplay class="embed-responsive-item">
+								<video class="homepage_video" autoplay class="embed-responsive-item">
 									<source src="https://download.arte.tv/permanent/donottrack/episode3/illuminus/illuminus_promo2.mp4" type='video/mp4' />
 									<source src="https://download.arte.tv/permanent/donottrack/episode3/illuminus/illuminus_promo2.webm" type='video/webm' />
 									Your browser does not support the video tag.
@@ -331,10 +331,10 @@ if (isset($_SESSION['dnt_user'])){
 
 							<p>
 							<?php if( $control['fb_login_state'] == 'no' ){ ?>
-							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo">
+							<button id="fb_login_btn" class="btn btn-large fb_btn"><img src="<?php print $control['baseurl'] ?>assets/img/icon_fb_btn.png" alt="fb logo">
 							<?php print $text['meta']['login_with_facebook'] ?>
 							<?php } else { ?>
-							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="assets/img/icon_fb_btn.png" alt="fb logo">
+							<button id="get_fb_data_btn" class="btn btn-large fb_btn"><img src="<?php print $control['baseurl'] ?>assets/img/icon_fb_btn.png" alt="fb logo">
 							<?php print $text['meta']['get_fb_data_btn']; ?>
 							<?php } ?>
 							</button>
@@ -348,7 +348,7 @@ if (isset($_SESSION['dnt_user'])){
 
 						</div>
 						<div class="col-sm-5">
-							<!--<img src="assets/img/network.png" alt="network" class="img-responsive">
+							<!--<img src="<?php print $control['baseurl'] ?>assets/img/network.png" alt="network" class="img-responsive">
 							<p><?php print $text[0]['0_heading'] ?></p>
 							<h1><?php print $text[0]['callout'] ?></h1>-->
 
@@ -931,7 +931,7 @@ if (isset($_SESSION['dnt_user'])){
 
 
 					<?php } else {
-						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>';
+						print '<p>'. $text['meta']['no_data_found'] . '. <a href="'. $control['dataurl'] .'load_data">'. $text['meta']['no_data_found2'] .'</a>.</p>';
 					} ?>
 
 
@@ -1161,7 +1161,7 @@ function eval_risk($risk_name){
 	//return($arr);
 	$keys=array_keys($arr);
 
-	if ( floor($arr[$keys[0]] * 10) > 4 ) print '<img src="assets/img/warning_risk_'. floor($arr[$keys[0]] * 10) .'.png" style="height:22px; margin-right:5px">';
+	if ( floor($arr[$keys[0]] * 10) > 4 ) print '<img src="'. $control['baseurl'] .'assets/img/warning_risk_'. floor($arr[$keys[0]] * 10) .'.png" style="height:22px; margin-right:5px">';
 
 
 	// Your high scores in
@@ -1446,7 +1446,7 @@ function eval_risk($risk_name){
 
 
 					<?php } else {
-						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>';
+						print '<p>'. $text['meta']['no_data_found'] . '. <a href="'. $control['dataurl'] .'load_data">'. $text['meta']['no_data_found2'] .'</a>.</p>';
 					} ?>
 
 
@@ -1735,7 +1735,7 @@ function eval_risk($risk_name){
 
 
 					<?php } else {
-						print '<p>'. $text['meta']['no_data_found'] . '. <a href="?data_set='. $control['data_set'] .'&amp;step=load_data&amp;lang='. $control['lang'] .'">'. $text['meta']['no_data_found2'] .'</a>.</p>';
+						print '<p>'. $text['meta']['no_data_found'] . '. <a href="'. $control['dataurl'] .'load_data">'. $text['meta']['no_data_found2'] .'</a>.</p>';
 					} ?>
 
 
@@ -1846,7 +1846,7 @@ function login_user(_scope) {
 		// handle the response
 		if (response.authResponse) {
 			// redirect
-			window.location.replace("./?data_set=user&step=load_data_fb&lang="+lang+"&player="+player);
+			window.location.replace("<?php print $control['langurl'] ?>user/load_data_fb?player="+player);
 		} else {
 			console.log('APP: User cancelled login or did not fully authorize.');
 		}
@@ -1866,7 +1866,7 @@ function logout_user() {
 	    }
 	});
 
-	var url = "./?data_set=user&step=logout&lang="+lang+"&player="+player;
+	var url = "<?php print $control['dataurl'] ?>logout?player="+player;
 	window.location.replace(url);
 }
 
@@ -1900,8 +1900,6 @@ function step1_frames_event(frame){
 		frame = 1;
 	}
 	$('#step1_frame_'+frame).show();
-
-
 }
 step1_frames_event(1);
 
@@ -1911,24 +1909,17 @@ $('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });
 $('#step1_2_prev_btn').on('click',function(){ step1_frames_event(1) });
 $('#step1_2_next_btn').on('click',function(){ step1_frames_event(3) });
 $('#step1_3_prev_btn').on('click',function(){ step1_frames_event(2) });
-$('#step1_3_gorisk_btn').on('click',function(){ window.location.replace("./?data_set="+data_set+"&step=two&lang="+lang+"&player="+player); });
+$('#step1_3_gorisk_btn').on('click',function(){ window.location.replace("<?php print $control['dataurl'] ?>two?player="+player); });
 
 
-$('#get_sample_data_btn').on('click',function(){ window.location.replace("./?data_set=sample&step=load_data_sample&lang="+lang+"&player="+player); });
-$('#get_fb_data_btn').on('click',function(){ window.location.replace("./?data_set=user&step=load_data_fb&lang="+lang+"&player="+player); });
+$('#get_sample_data_btn').on('click',function(){ window.location.replace("<?php print $control['dataurl'] ?>load_data_sample?player="+player); });
+$('#get_fb_data_btn').on('click',function(){ window.location.replace("<?php print $control['dataurl'] ?>load_data_fb?player="+player); });
 
 $('#fb_login_btn').on('click',function() { login_user('email,user_birthday,user_likes'); });
 $('#fb_logout_btn').on('click',function() { logout_user(); });
 
 
 $('#step_one_cover').hide();
-
-
-$("video").bind("ended", function() {
-   window.location.replace("./?step=load_data&lang="+lang+"&player="+player);
-});
-
-
 
 
 $( "#career_info_btn" ).click(function() {
@@ -1938,12 +1929,22 @@ $( "#career_info_btn" ).click(function() {
 });
 $( "#career_info" ).hide()
 
+// video
+$('.homepage_video').click(function(){this.paused?this.play():this.pause();});
+$("video").bind("ended", function() {
+   window.location.replace("<?php print $control['dataurl'] ?>load_data?player="+player);
+});
+
+
 
 </script>
 
 <?php
-$path_to_stats = 'inc/stats/';
+$path_to_stats = $control['baseurl'] .'inc/stats/';
 include_once('inc/stats/analytics-illuminus.inc.php');
 ?>
+
+
+
 </body>
 </html>

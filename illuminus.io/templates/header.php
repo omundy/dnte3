@@ -32,6 +32,14 @@
 <link href="app/assets/css/font-awesome.min.css" rel="stylesheet">
 <link href="app/assets/css/styles.css?r=<?php print rand(0,100); ?>" rel="stylesheet">
 
+<!-- FB -->
+<meta property="og:title" content="Illuminus - Find out what we already know about you" />
+<meta property="og:site_name" content="Illuminus"/>
+<meta property="og:url" content="<?php print $control['url']; ?>" />
+<meta property="og:description" content="" />
+<meta property="fb:app_id" content="761116317308745" />
+<meta property="og:type" content="website" />
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
