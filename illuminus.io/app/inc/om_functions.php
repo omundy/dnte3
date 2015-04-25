@@ -10,6 +10,12 @@ function request_protocol(){
 	elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
 	    $isSecure = true;
 	}
+	elseif ($_SERVER['SERVER_PORT'] == 443) {
+	    $isSecure = true;
+	}
+	elseif ($_SERVER['HTTP_HOST'] == 'illuminus.io') {
+	    $isSecure = true;
+	}
 	return $isSecure ? 'https' : 'http';
 }
 
