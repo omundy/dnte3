@@ -3,7 +3,7 @@
 
 require_once('inc/localization.php');
 require_once('inc/fb_login.php');
-if ($control['player'] != 'yes') $control['lang'] = get_language();
+if ($control['player'] != 'yes') //$control['lang'] = get_language();
 require_once('inc/text_'. $control['lang'] .'.php');
 include_once('templates/header.php');
 
@@ -68,7 +68,11 @@ $pic = $control['baseurl'] .'assets/img/fb_profile_img.png';
 if (isset($_SESSION['dnt_user'])){
 
 	if ( isset($user['me']['photo'])){
-		$pic = $user['me']['photo'];
+		if ( strpos($user['me']['photo'], 'http') === false ){
+			$pic = $control['baseurl'] . $user['me']['photo'];
+		} else {
+			$pic = $user['me']['photo'];
+		}	
 	}
 }
 

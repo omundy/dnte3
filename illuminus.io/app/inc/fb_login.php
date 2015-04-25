@@ -208,7 +208,7 @@ if ( $control['step'] == 'load_data_sample'){
 
 	//report($user);
 	//exit();
-	header('Location: '. $control['langurl'] .'sampe/one?player='.$control['player'], true, 303);
+	header('Location: '. $control['langurl'] .'sample/one?player='.$control['player'], true, 303);
 	ob_end_clean();
 	exit();
 }
@@ -583,7 +583,7 @@ if ( $control['fb_data_problems'] == true){
 
 
 //report($user['big5_risk_domains']);
-report($control,180);
+//report($control,180);
 //exit();
 //report($_SESSION);
 //report($user);
