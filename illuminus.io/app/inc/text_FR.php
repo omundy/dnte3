@@ -41,7 +41,7 @@ $text = array(
 
 	// step 1 - Personality Assessment
 	array(
-		'1_1_heading' => 'Analyse personelle',
+		'1_1_heading' => 'Analyse personnelle 1/3',
 		'1_1_welcome' => 'Bienvenue sur Illuminus',
 		'1_1_subheading' => 'Vos données ont été analysées. </br>',
 		'1_1_p1_1' => 'Votre activité sur les réseaux sociaux en dit long sur vous.',
@@ -68,7 +68,7 @@ $text = array(
 		'1_1_p1_11' => 'Cela va peut-être vous surprendre mais votre intérêt pour', 
 		// [likes]
 		'1_1_p1_12' => 'nous a aidé à déterminer qui vous étiez véritablement. Même si ce ne sont pas les seules choses que vous avez likées.', 
-		'1_1_p1_next' => 'Lancer l\'analyse de Likes.',
+		'1_1_p1_next' => 'Voir l\'analyse de Likes 2/3',
 		'1_1_chartcaption' => 'Répartition de vos Likes par année',
 		
 		// [error]
@@ -78,22 +78,22 @@ $text = array(
 		'1_1_no_magic_sauce' => "Le nombre de vos Likes sur Facebook est malheureusement insuffisant pour qu’une comparaison avec la base de données de l’API Apply Magic Sauce soit pertinente. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
 		
 		// page 2
-		'1_2_heading' => 'Analyse de Likes',
+		'1_2_heading' => 'Analyse de Likes 2/3',
 		'1_2_subheading' => 'Découpage par catégories',
 		'1_2_p1_1' => 'Le graphique ci-contre est une représentation de vos Likes sur Facebook triés par centres d\'intérêt. Passez votre souris sur le graphe pour les afficher. Vos centres d\'intérêt, notamment les principaux comme',
 		'1_2_p1_2' => 'et',
 		'1_2_p1_3' => ', servent à vous cibler et à déterminer quel type de publicité vous sera présenté.', 
 		'1_2_p1_4' => 'Cliquez sur le bouton ci-dessous pour analyser vos données Facebook au moyen d\'un algorithme de mesure de vos traits de caractère.',
 
-		'1_2_p1_back' => 'Retour à l\'analyse personnelle',
-        '1_2_p2_back' => 'Retour à l\'analyse de likes',
-		'1_2_p1_next' => 'Analyse de personnalité',
+		'1_2_p1_back' => 'Retour à l\'analyse personnelle 1/3',
+        '1_2_p2_back' => 'Retour à l\'analyse de likes 2/3',
+		'1_2_p1_next' => 'Voir l\'analyse de personnalité 3/3',
 		'1_2_chartcaption' => 'Découpage de likes',
         '1_2_other' => 'Other',        
 		
 
 		// page 3
-		'1_3_heading' => 'Analyse de personnalité',
+		'1_3_heading' => 'Analyse de personnalité 3/3',
 		'1_3_subheading' => ' ',
 		'1_3_1' => 'Les psychologues estiment que le caractère de chaque être humain est composé de ces cinq traits de personnalité, les <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five</a> : l\'extraversion, l\'ouverture à de nouvelles expériences, la conscienciosité, l\'agréabilité, et le névrosisme. Une personne qui aura un grand score sur l\'échelle de l\'extraversion sera par exemple très ouverte aux autres, amicale et active. Celles avec un score de conscienciosité élevé sont organisées, responsables et travailleuses.',
 		'1_3_2' => 'Après analyse de vos données, nous avons déterminé que vos deux traits principaux sont :',

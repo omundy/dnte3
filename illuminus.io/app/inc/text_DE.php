@@ -32,7 +32,7 @@ $text = array(
 
 	// step 1 - Personality Assessment
 	array(
-		'1_1_heading' => 'Persönlichkeitstest',
+		'1_1_heading' => 'Persönlichkeitstest 1/3',
 		'1_1_welcome' => 'Willkommen bei Illuminus',
 		'1_1_subheading' => 'Ihre Daten wurden erfolgreich übermittelt.',
 		'1_1_p1_1' => 'Ihr Verhalten in sozialen Netzwerken erzählt eine Menge über Sie.',
@@ -69,22 +69,22 @@ $text = array(
 		'1_1_no_magic_sauce' => "Leider entsprechen zu wenig Likes von Ihrem Facebook-Account, der Datenbank der Apply Magic Sauce API. Ein Persönlichkeitsprofil trotzdem zu erstellen wäre Rätselraten. Illuminus wird stattdessen die Daten von Richards Facebook-Account verwenden.",
 		
 		// page 2
-		'1_2_heading' => 'Gefällt mir Analyse',
+		'1_2_heading' => 'Likes Analyse 2/3',
 		'1_2_subheading' => 'Kategorisierte Anordnung',
 		'1_2_p1_1' => ' in diesem Kreisdiagramm haben wir Ihre Interessen auf Facebook dargestellt. Bewegen Sie Ihre Maus über das Diagramm, um die Kategorie zu sehen. Diese Interessen, insbesondere die mit dem größten Anteil, wie',
 		'1_2_p1_2' => 'und',
 		'1_2_p1_3' => 'werden genutzt, um Sie immer wieder neu in bestimmte Kategorien einzusortieren und Ihnen so passende Werbung zu zeigen.', 
 		'1_2_p1_4' => 'Als nächstes werden die Daten, die Sie auf Facebook gespeichert haben, mit Hilfe eines Algorithmus analysiert und auf diese Weise Ihre Charaktereigenschaften ausgewertet.',
 
-		'1_2_p1_back' => 'Zurück zum Persönlichkeitsprofil',
-        '1_2_p2_back' => 'Zurück zur Gefällt mir Analyse',
-		'1_2_p1_next' => 'Wollen Sie Ihr Persönlichkeitsprofil sehen?',
+		'1_2_p1_back' => 'Zurück zum Persönlichkeitsprofil 1/3',
+        '1_2_p2_back' => 'Zurück zur Gefällt mir Analyse 2/3',
+		'1_2_p1_next' => 'zum Persönlichkeitsprofil 3/3',
 		'1_2_chartcaption' => 'Ihre Likes in Kategorien unterteilt',
         '1_2_other' => 'Other',         
 		
 
 		// page 3
-		'1_3_heading' => 'Ihr Persönlichkeitsprofil',
+		'1_3_heading' => 'Ihr Persönlichkeitsprofil 3/3',
 		'1_3_subheading' => ' ',
 		'1_3_1' => 'Psychologen gehen davon aus, dass sich der Charakter eines jeden Menschen gemäß dem <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Fünf-Faktoren-Modell</a> (den sog. Big Five) auf den Skalen Extraversion, Offenheit für Erfahrungen, Gewissenhaftigkeit, Verträglichkeit und Neurotizismus einordnen lässt. Wenn eine Person einen hohen Wert in der Kategorie Extraversion hat, ist sie beispielsweise meist sehr gesellig, freundlich und aktiv. Menschen, die einen hohen Wert in der Kategorie Gewissenhaftigkeit haben, sind in der  Regel gut organisiert, vernünftig und strebsam.',
 		'1_3_2' => 'Nach Auswertung der Daten haben wir also festgestellt, dass Sie bei den folgenden zwei Big Five die höchsten Werte haben:',

@@ -31,7 +31,7 @@ $text = array(
 
 	// step 1 - Personality Assessment
 	array(
-		'1_1_heading' => 'Personality Assessment',
+		'1_1_heading' => 'Personality Assessment 1/3',
 		'1_1_welcome' => 'Welcome to Illuminus',
 		'1_1_subheading' => 'We have successfully retrieved your data.',
 		'1_1_p1_1' => 'Your social activity reveals a lot about you.',
@@ -58,7 +58,7 @@ $text = array(
 		'1_1_p1_11' => 'It may surprise you that your interest in', 
 		// [likes]
 		'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-		'1_1_p1_next' => 'Discover what we know about your interests',
+		'1_1_p1_next' => 'Analyze your Likes 2/3',
 		'1_1_chartcaption' => 'Your likes over time',
 				
 		// [error]
@@ -68,16 +68,16 @@ $text = array(
 		'1_1_no_magic_sauce' => "The number of your Likes matching those in Apply Magic Sauce database is insufficient, and we don’t believe in guesswork. Illuminus will proceed using data from Richard’s Facebook account instead.",
 		
 		// page 2
-		'1_2_heading' => 'Your Interests',
-		'1_2_subheading' => 'How you are categorized',
+		'1_2_heading' => 'Your Interests 2/3',
+		'1_2_subheading' => 'How your Likes are categorized',
 		'1_2_p1_1' => 'We have also sorted your interests on Facebook into categories in this doughnut chart. Move your mouse over the chart to see them. These interests, especially the top ones like',
 		'1_2_p1_2' => 'and',
 		'1_2_p1_3' => 'are used to target (and retarget) you and thus determine which advertisements you see.', 
 		'1_2_p1_4' => 'Next, we run this database that you have deposited on Facebook through an algorithm to determine your personality traits.',
 
-		'1_2_p1_back' => '<<',
-        '1_2_p2_back' => '<<',
-		'1_2_p1_next' => 'Reveal your personality analysis',
+		'1_2_p1_back' => 'Back to Personality assessment 1/3',
+        '1_2_p2_back' => 'Back to Likes assessment 2/3',
+		'1_2_p1_next' => 'View personality analysis 3/3',
 		'1_2_chartcaption' => 'Your likes categorized',
         '1_2_other' => 'Other',        
 		
