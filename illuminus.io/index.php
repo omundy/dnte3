@@ -101,7 +101,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							<img src="<?php print $control['baseurl'] ?>app/assets/img/unlocking.png" class="left">
 							
 							<div class="unlocking-content left"><?php print $text['homepage']['unlocking'] ?><br>
-							<a href="./app"><?php print $text['homepage']['get_started_btn'] ?></a></div>
+							<a href="<?php print $control['baseurl'] ?>/app"><?php print $text['homepage']['get_started_btn'] ?></a></div>
 						</div>
 					</div>
 					
@@ -129,7 +129,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 
 <p>Today Illuminus launches a groundbreaking web service that uses your Facebook data to tell you how risky you might be in your financial and health decisions. 
 
-<p>Illuminus' new Future Present Risk Detection application first analyzes users' Facebook data to build a character profile, revealing insights into how Facebook targets users and matches them to ad content. 
+<p>Illuminus' new <a href="<?php print $control['baseurl'] ?>app/">Future Present Risk Detection application</a> first analyzes users' Facebook data to build a character profile, revealing insights into how Facebook targets users and matches them to ad content. 
 
 <p>Illuminus then analyzes the things you have liked on Facebook to determine your Big Five personality traits and shows how even your most boring data can be used to determine your behavior.
 
@@ -237,7 +237,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							<div class="med left">
 								<?php print $text['homepage']['learn_what'] ?>
 								<br><br>
-							<a href="./app"><?php print $text['homepage']['launch_btn'] ?></a></div>
+							<a href="<?php print $control['baseurl'] ?>app"><?php print $text['homepage']['launch_btn'] ?></a></div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<img src="<?php print $control['baseurl'] ?>app/assets/img/riskgraph.png">

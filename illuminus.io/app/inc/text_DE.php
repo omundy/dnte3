@@ -228,7 +228,7 @@ $text = array(
 		'no_data_found' => 'Es konnten keine Daten gefunden werden',
 		'no_data_found2' => 'Klicken Sie auf „Fangen wir an“, um zu beginnen',
 		
-		'no_data_found_statement' => 'Sie haben entweder die Option gewählt, Ihr Facebook-Konto nicht zu verbinden, oder aber die dort gespeicherten Daten reichen nicht aus, um die Analyse richtig durchzuführen. Deshalb wird die Bewertung nun mit den Beispieldaten von Richards Facebook-Konto fortgeführt. Weitere Informationen finden Sie in unseren FAQ.',
+		'no_data_found_statement' => 'Sie haben entweder die Option gewählt, Ihr Facebook-Konto nicht zu verbinden, oder aber die dort gespeicherten Daten reichen nicht aus, um die Analyse richtig durchzuführen. Deshalb wird die Bewertung nun mit den Beispieldaten von Richards Facebook-Konto fortgeführt. <a class="faq_data_link" href="./faq">Weitere Informationen finden Sie in unseren FAQ</a>.',
 		
 		'get_current_data_set' => 'Sie werten derzeit dieses Profil aus',
 		'get_select_a_data_set' => 'Wählen Sie ein Datum aus, um anzufangen',

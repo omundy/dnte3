@@ -237,7 +237,7 @@ $text = array(
 		'no_data_found' => 'Pas de données disponibles',
 		'no_data_found2' => 'Cliquez sur Commencer pour démarrer',
 		
-		'no_data_found_statement' => 'Soit vous avez choisi de ne pas connecté votre compte Facebook, soit votre compte ne contient pas suffisamment de données pour effectuer une analyse satisfaisante. Nous allons poursuivre l\'utilisation d\'Illuminus avec les données issues du compte Facebook de Richard. Consultez notre FAQ pour en savoir plus. ',
+		'no_data_found_statement' => 'Soit vous avez choisi de ne pas connecté votre compte Facebook, soit votre compte ne contient pas suffisamment de données pour effectuer une analyse satisfaisante. Nous allons poursuivre l\'utilisation d\'Illuminus avec les données issues du compte Facebook de Richard. <a class="faq_data_link" href="./faq">Consultez notre FAQ pour en savoir plus</a>. ',
 		
 		'get_current_data_set' => 'Vous êtes en train d\évaluer le profil suivant',
 		'get_select_a_data_set' => 'Sélectionnez un compte pour commencer',

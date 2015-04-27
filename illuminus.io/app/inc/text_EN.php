@@ -228,7 +228,7 @@ $text = array(
 		'no_data_found' => 'No data found',
 		'no_data_found2' => 'Click Get Started to begin',
 		
-		'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using sample data from Richard’s Facebook account instead. See the FAQ for more info.',
+		'no_data_found_statement' => 'Either you chose not to connect your Facebook account, or your account does not have sufficient data to analyze properly. We will proceed using sample data from Richard’s Facebook account instead. <a class="faq_data_link" href="./faq">See the FAQ for more info</a>.',
 		
 		'get_current_data_set' => 'You are currently evaluating this profile',
 		'get_select_a_data_set' => 'Select the data to begin',
