@@ -448,6 +448,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 		
 		// more links
 		'privacy' => 'Privacy',
+		'press' => 'Press',
 		'contact' => 'Contact',
 			
 		

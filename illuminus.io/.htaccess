@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteOptions Inherit
+
+RewriteRule ^(fr|en|de|ca)/?$ index.php?lang=$1 [L]
+RewriteRule ^(fr|en|de|ca)/(press|privacy)?$ index.php?lang=$1&page=$2 [L]

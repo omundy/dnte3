@@ -449,6 +449,7 @@ URL de support technique <a href="https://hub.donottrack-doc.com/en/about/">http
 		
 		// more links
 		'privacy' => 'Privacy',
+		'press' => 'Presse',
 		'contact' => 'Contact',
 			
 		
