@@ -34,6 +34,8 @@ xtn2 = "3";
 xtn2 = "2";
 <?php } else if ($control['lang'] == 'fr' || $control['lang'] == 'ca'){ ?>
 xtn2 = "1";
+<?php } else { ?>
+xtn2 = "3"; // default
 <?php } ?>
 
 //page name (with the use of :: to create chapters)  
