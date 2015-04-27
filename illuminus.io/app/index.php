@@ -399,7 +399,7 @@ if (isset($_SESSION['dnt_user'])){
 									print '<p class="well">'. $text['meta']['no_data_found_statement'] .'</p>';
 
 									// use sample user data
-									$json = file_get_contents('inc/default_user.json');
+									$json = file_get_contents('inc/default_user_data/default_user_format_'. $control['lang'] .'.json');
 									$user = (Array)json_decode($json,true);
 									$user['fb_data_problems'] = true;
 									// make that the user
@@ -696,7 +696,7 @@ if (isset($_SESSION['dnt_user'])){
 									$delimiter = '';
 									foreach($user['like_categories'] as $key => $val){
 										$str .= $delimiter."{";
-										$str .= "value: $val, ";
+										$str .= "value: ". htmlentities($val, ENT_QUOTES) .", ";
 										if ($c >= count($colors3)) $c = 0;
 										$str .= "color: '". $colors3[$c++] ."', ";
 										//$str .= "color: '". $colors2[rand(0,count($colors2)-1)] ."', "; // random
@@ -889,12 +889,12 @@ if (isset($_SESSION['dnt_user'])){
 									}
 									// make dataset
 									$str .= '], datasets: [{';
-									$str .= 'label: "Big5", ';
+									$str .= 'label: "Big Five", ';
 									$str .= $chart_colors;
 									$str .= 'data: [';
 									$delimiter = '';
 									foreach($user['big5'] as $key => $val){
-										$str .= $delimiter.$val;
+										$str .= $delimiter . htmlentities($val, ENT_QUOTES);
 										$delimiter = ', ';
 									}
 									$str .= ']}]};';

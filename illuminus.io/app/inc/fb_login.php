@@ -185,7 +185,7 @@ if ( $control['step'] == 'load_data_sample'){
 	
 	
 	// use sample user data
-	$json = file_get_contents('inc/default_user.json');
+	$json = file_get_contents('inc/default_user_data/default_user_format_'. $control['lang'] .'.json');
 	$user = (Array)json_decode($json,true);
 	$user['fb_data_problems'] = true;
 
@@ -552,7 +552,7 @@ if ( $control['fb_data_problems'] == true){
 	//exit();
 
 	// use sample user data
-	$json = file_get_contents('inc/default_user.json');
+	$json = file_get_contents('inc/default_user_data/default_user_format_'. $control['lang'] .'.json');
 	$user = (Array)json_decode($json,true);
 	$user['fb_data_problems'] = true;
 
