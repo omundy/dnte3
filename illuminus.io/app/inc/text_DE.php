@@ -341,7 +341,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	'faq' => array(
 		'0_heading' => 'FAQ',
 		'what_heading' => 'Was ist Illuminus?',
-		'what_text' => 'Illuminus ist ein fiktives Unternehmen, das mithilfe Ihrer „Gefällt mir“-Angaben auf Facebook ein Persönlichkeitsprofil erstellt.  Es handelt sich um eine ausgedachte Website, die für Do Not Track genutzt wird,  eine personalisierte Web-Serie über Tracking und die Internetwirtschaft. Hierbei nutzt Illuminus den fiktiven Fall eines Unternehmens, das mithilfe von tatsächlich existierenden Methoden zur Datenanalyse Entscheidungen über finanzielle Dienste macht, die Ihnen zur Verfügung gestellt werden.',
+		'what_text' => 'Illuminus ist ein fiktives Unternehmen, das mithilfe Ihrer „Gefällt mir“-Angaben auf Facebook ein Persönlichkeitsprofil erstellt.  Es handelt sich um eine ausgedachte Website, die für Do Not Track genutzt wird (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>),  eine personalisierte Web-Serie über Tracking und die Internetwirtschaft. Hierbei nutzt Illuminus den fiktiven Fall eines Unternehmens, das mithilfe von tatsächlich existierenden Methoden zur Datenanalyse Entscheidungen über finanzielle Dienste macht, die Ihnen zur Verfügung gestellt werden.',
 		'who_heading' => 'Wer hat Illuminus entwickelt',
 		'who_text1' => 'Sehen Sie sich hierzu bitte den ',
 		'who_text2' => 'Abspann an',

@@ -351,7 +351,7 @@ URL de support technique <a href="https://hub.donottrack-doc.com/ca/about/">http
 	'faq' => array(
 		'0_heading' => 'FAQ',
 		'what_heading' => 'Illuminus, c\'est quoi ?',
-		'what_text' => 'Illuminus est une entreprise fictive qui analyse vos Likes Facebook afin de construire un profil de votre personnalité. Il s\'agit d\'une oeuvre satirique appartenant au programme Traque Interdite, une série documentaire personnalisée consacrée au tracking et à l\'économie du Web. Illuminus suit ainsi un scénario fictif pour juger vos caractéristiques financières et personnelles afin d\'illustrer le fonctionnement de certaines techniques d\'analyse de données existant dans le monde réel.',
+		'what_text' => 'Illuminus est une entreprise fictive qui analyse vos Likes Facebook afin de construire un profil de votre personnalité. Il s\'agit d\'une oeuvre satirique appartenant au programme Traque Interdite (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>), une série documentaire personnalisée consacrée au tracking et à l\'économie du Web. Illuminus suit ainsi un scénario fictif pour juger vos caractéristiques financières et personnelles afin d\'illustrer le fonctionnement de certaines techniques d\'analyse de données existant dans le monde réel.',
 		'who_heading' => 'Qui a créé Illuminus ?',
 		'who_text1' => 'Veuillez vous reporter à la',
 		'who_text2' => 'page Crédits',
