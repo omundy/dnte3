@@ -28,11 +28,11 @@ window._fbq.push(['track', 'PixelInitialized', {}]);
 xtnv = document;   
 xtsd = "https://logs1136";
 xtsite = "539110";
-<?php if ($control['lang'] == 'EN'){ ?>
+<?php if ($control['lang'] == 'en'){ ?>
 xtn2 = "3";
-<?php } else if ($control['lang'] == 'DE'){ ?>
+<?php } else if ($control['lang'] == 'de'){ ?>
 xtn2 = "2";
-<?php } else if ($control['lang'] == 'FR' || $control['lang'] == 'CA'){ ?>
+<?php } else if ($control['lang'] == 'fr' || $control['lang'] == 'ca'){ ?>
 xtn2 = "1";
 <?php } ?>
 
@@ -41,6 +41,10 @@ xtn2 = "1";
 xtpage = "webprod_donottrack::illuminus::index"
 <?php } else if ($control['step'] == 'load_data'){ ?>
 xtpage = "webprod_donottrack::illuminus::getstarted"
+<?php } else if ($control['step'] == 'credits'){ ?>
+xtpage = "webprod_donottrack::illuminus::credits"
+<?php } else if ($control['step'] == 'faq'){ ?>
+xtpage = "webprod_donottrack::illuminus::faq"
 <?php } else if ($control['step'] == 'privacy'){ ?>
 xtpage = "webprod_donottrack::illuminus::privacy"
 <?php } else if ($control['step'] == 'one'){ ?>
