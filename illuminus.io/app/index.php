@@ -479,7 +479,9 @@ if (isset($_SESSION['dnt_user'])){
 									$big5_temp_high = $user['big5'];
 									arsort( $big5_temp_high );
 									$big5_highest = key($big5_temp_high);
-									print ' <span class="udata">'. $big5_highest .'</span>';
+									//print ' <span class="udata">'. $big5_highest .'</span>';
+									// showing instead translated big5::name
+									print ' <span class="udata">'. $text['big5'][$big5_highest]['name'] .'</span>';
 
 									// which indicates you are
 									print " ". $text[1]['1_1_p1_9_pos'];
@@ -792,7 +794,10 @@ if (isset($_SESSION['dnt_user'])){
 
 										//print '<p>'.$c .' '. $key .'<p>';
 
-										print '<span class="udata" style="font-weight:bold">'. $key .'</span>';
+										//print '<span class="udata" style="font-weight:bold">'. $key .'</span>';
+										// showing instead translated big5::name
+										print '<span class="udata" style="font-weight:bold">'. $text['big5'][$key]['name'] .'</span>';
+										
 
 										// which indicates you are
 										print " ". $text[1]['1_1_p1_9_pos'];
