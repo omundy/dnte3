@@ -143,7 +143,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 
 <h4>Additional information</h4>
 
-<p>Illuminus is a work of satire to accompany Do Not Track <a href="https://donottrack-doc.com">https://donottrack-doc.com</a> a personalized documentary series about tracking and the web economy. Illuminus uses a fictional scenario of a corporation deciding your financial services to uncover real-life techniques of data analysis.
+<p>Illuminus is a new service to accompany Do Not Track (<a href="https://donottrack-doc.com">https://donottrack-doc.com</a>) a personalized documentary series about tracking and the web economy. Illuminus uses a fictional scenario of a corporation deciding your financial services to uncover real-life techniques of data analysis.
 
 <h4>Contact information</h4>
 <a href="https://twitter.com/illuminus_io">Twitter</a><br>
