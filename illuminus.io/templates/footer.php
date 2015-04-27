@@ -3,7 +3,7 @@
 </div>
 
 
-<script src="app/assets/js/bootstrap.min.js"></script>
+<script src="<?php print $control['baseurl'] ?>app/assets/js/bootstrap.min.js"></script>
 
 <script>
 	$('.homepage_video').click(function(){this.paused?this.play():this.pause();});

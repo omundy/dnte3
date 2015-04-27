@@ -63,7 +63,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 					
 					<div class="row shim">
 						<div class="col-xs-12 col-sm-12 col-md-7" style="text-align: left">
-							<img src="<?php print $control['baseurl'] ?>app/assets/img/logo.png" alt="illuminus logo">
+							<a href="<?php print $control['baseurl'] ?>"><img src="<?php print $control['baseurl'] ?>app/assets/img/logo.png" alt="illuminus logo"></a>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-5 menu home" style="text-align: left">
 							<!--<a href="#about">About</a>-->
@@ -101,7 +101,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							<img src="<?php print $control['baseurl'] ?>app/assets/img/unlocking.png" class="left">
 							
 							<div class="unlocking-content left"><?php print $text['homepage']['unlocking'] ?><br>
-							<a href="<?php print $control['baseurl'] ?>/app"><?php print $text['homepage']['get_started_btn'] ?></a></div>
+							<a href="<?php print $control['baseurl'] ?>app"><?php print $text['homepage']['get_started_btn'] ?></a></div>
 						</div>
 					</div>
 					
@@ -313,7 +313,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 
 <?php
 $control['step'] = "homepage";
-$path_to_stats = 'app/inc/stats/';
+$path_to_stats = $control['baseurl'] .'app/inc/stats/';
 include_once('app/inc/stats/analytics-illuminus.inc.php');
 include_once('templates/footer.php');
 ?>
