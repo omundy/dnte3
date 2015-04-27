@@ -106,7 +106,13 @@ if ( $control['step'] == 'load_data_sample') {
 } elseif ( $control['step'] != 'load_data_fb') {
 	
 	// check if all user data is already in a session
-	if (isset($_SESSION['dnt_user'])) {
+	if (
+        isset($_SESSION['dnt_user'])
+        && (
+            !in_array($control['step'], array('one', 'two', 'three')) 
+            || !empty($_SESSION['dnt_user']['big5'])
+        )
+    ) {
 		
 		$control['dnt_user_session'] = 'previous dnt_user session FOUND';
 		$user = $_SESSION['dnt_user'];
@@ -118,7 +124,7 @@ if ( $control['step'] == 'load_data_sample') {
 		
 	} else {
 
-    	$json = file_get_contents('inc/default_session_user.json');
+    	$json = file_get_contents('inc/default_session_user_'.$control['lang'].'.json');
     	$user = (Array)json_decode($json,true);
 
 		$control['dnt_user_session'] = 'previous dnt_user session NOT FOUND';

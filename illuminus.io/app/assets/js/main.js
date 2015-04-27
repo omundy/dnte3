@@ -314,3 +314,30 @@ $( "#career_info_btn" ).click(function() {
 	});
 });
 $( "#career_info" ).hide()
+
+function effectiveDeviceWidth() {
+    var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+
+/*    if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
+        deviceWidth = deviceWidth / window.devicePixelRatio;
+    }*/
+    return deviceWidth;
+}
+
+$(document).ready(function() {
+
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+
+    $('html').width((effectiveDeviceWidth()-20) + 'px');
+  
+    window.addEventListener("orientationchange", function() {
+      $('html').width((effectiveDeviceWidth()-20) + 'px');
+    }, false);  
+  
+    window.addEventListener("resize", function() {
+      $('html').width((effectiveDeviceWidth()-20) + 'px');
+    }, false);
+    
+  }
+  
+})

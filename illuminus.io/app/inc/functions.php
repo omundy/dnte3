@@ -248,8 +248,10 @@ function eval_risk($risk_name) {
 	arsort($arr);
 	//return($arr);
 	$keys=array_keys($arr);
+    $risk_level = floor($arr[$keys[0]] * 10);
+    if ($risk_level > 13) $risk_level = 13;
 
-	if ( floor($arr[$keys[0]] * 10) > 4 ) print '<img src="assets/img/warning_risk_'. floor($arr[$keys[0]] * 10) .'.png" style="height:22px; margin-right:5px">';
+	if ( $risk_level > 4 ) print '<img src="assets/img/warning_risk_'. $risk_level .'.png" style="height:22px; margin-right:5px">';
 
 
 	// Your high scores in
@@ -280,10 +282,11 @@ function eval_risk($risk_name) {
 	//print ' ('.$r.') ';
 	// potential for risk-taking behavior in your
 	print ' '. $text[2]['eval_risk_3'] .' ';
-    if (isset($text[0][$risk_name]))
-        print strtolower($text[0][$risk_name]);
+    $rnl = strtolower($risk_name);
+    if (isset($text[0][$rnl]))
+        print strtolower($text[0][$rnl]);
     else
-	    print strtolower($risk_name);
+	    print $rnl;
 	// decisions
 	print ' '. $text[2]['eval_risk_4'] .' ';
 }

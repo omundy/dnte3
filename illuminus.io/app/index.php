@@ -21,7 +21,7 @@ $css .= '#step_'.$control['step'].' { display: block; }';
 if($control['player'] == 'yes') {
 	$scripts .= "\n $('.backtovideo_btn').on('click',function(){ parent.resumeVideo() }); \n";
 	$content_col = 12;
-	$css .= '.content-col .inner { margin-top: 100px; }';
+	$css .= '.content-col .inner { margin-top: 0px; }';
 } else {
 	include_once('templates/sidebar.php');
 	$content_col = 9;
@@ -45,7 +45,7 @@ print $css . '</style>';
 						<div class='product_name' style="float: left; margin: 18px 0 0 20px;"><?php print $text['meta']['product_name']?> </div>
 					</div>
 					<div class="col-sm-2 ">
-						<button class="step1_btn btn btn-custom backtovideo_btn"><?php print $text['meta']['resume_video']; ?></button>
+						<button class="btn btn-custom backtovideo_btn">► <?php print $text['meta']['resume_video']; ?></button>
 					</div>
 				</div>
 				<?php } ?>

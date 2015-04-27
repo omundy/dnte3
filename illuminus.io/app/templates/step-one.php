@@ -17,15 +17,15 @@
 
                                     if (isset($user['err'])) {
                                         if ($user['err'] == 'no_permission')
-        									print '<p class="well">'. $text[1]['1_1_no_permission'] .'</p>';
+        									print '<p class="well">'. stripslashes($text[1]['1_1_no_permission']) .'</p>';
                                         elseif ($user['err'] == 'no_likes')
-        									print '<p class="well">'. $text[1]['1_1_no_likes'] .'</p>';
+        									print '<p class="well">'. stripslashes($text[1]['1_1_no_likes']) .'</p>';
                                         elseif ($user['err'] == 'no_magic_sauce')
-        									print '<p class="well">'. $text[1]['1_1_no_magic_sauce'] .'</p>';
+        									print '<p class="well">'. stripslashes($text[1]['1_1_no_magic_sauce']) .'</p>';
                                         else
-    									    print '<p class="well">'. $text[1]['1_1_not_connected'] .'</p>';
+    									    print '<p class="well">'. stripslashes($text[1]['1_1_not_connected']) .'</p>';
                                     } else
-    									print '<p class="well">'. $text[1]['1_1_not_connected'] .'</p>';
+    									print '<p class="well">'. stripslashes($text[1]['1_1_not_connected']) .'</p>';
 
 								}
 
@@ -398,7 +398,7 @@
 
 
 
-					<?php if (isset($user['big5'])){ ?>
+					<?php if (isset($user['big5'])) { ?>
 					<div id="step1_frame_3">
 
 
