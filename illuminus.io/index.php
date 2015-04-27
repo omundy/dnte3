@@ -34,7 +34,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 						<div class="col-xs-12 col-sm-12 col-md-5 menu home" style="text-align: left">
 							<!--<a href="#about">About</a>-->
 							<a href="#services"><?php print $text['homepage']['services'] ?></a>
-							<a href="app/?data_set=sample&step=privacy&lang=EN"><?php print $text['homepage']['privacy'] ?></a>
+								<a href="https://illuminus.io/app/<?php print $control['lang'] ?>/sample/privacy"><?php print $text['homepage']['privacy'] ?></a>
 							<a href="#contact"><?php print $text['homepage']['contact'] ?></a>
 						</div>
 					</div>
@@ -174,7 +174,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							<div class="menu">
 								<a href="#top"><?php print $text['homepage']['home'] ?></a>
 								<a href="#services"><?php print $text['homepage']['services'] ?></a>
-								<a href="app/?data_set=sample&step=privacy&lang=EN"><?php print $text['homepage']['privacy'] ?></a>
+								<a href="https://illuminus.io/app/<?php print $control['lang'] ?>/sample/privacy"><?php print $text['homepage']['privacy'] ?></a>
 								<a href="#contact"><?php print $text['homepage']['contact'] ?></a>
 							</div>
 						</div>
