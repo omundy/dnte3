@@ -25,14 +25,15 @@ $text = array(
 		'select_assessment' => 'Choisir une analyse personnelle sur la gauche pour commencer',
 		'please_login' => 'Connectez-vous avec Facebook pour démarrer l\'analyse personnelle',
 	    'and' => 'et',
-        'career' => 'carrière',
-        'finance' => 'budget',
-        'social' => 'vie sociale',
-        'health' => 'de santé',
-        'safety' => 'de sécurité',
-        'recreation' => 'de loisirs',
+        'career' => 'votre carrière',
+        'finance' => 'vos finances',
+        'social' => 'votre vie sociale',
+        'health' => 'votre santé',
+        'safety' => 'votre sécurité',
+        'recreation' => 'vos loisirs',
         'homme_pronoun' => 'un homme',
-        'femme_pronoun' => 'une femme'
+        'femme_pronoun' => 'une femme',
+		'loading' => 'L\'analyse de vos données est en cours, merci de patienter.' 
 ),
 
 
@@ -71,10 +72,10 @@ $text = array(
 		'1_1_chartcaption' => 'Répartition de vos Likes par année',
 		
 		// [error]
-		'1_1_not_connected' => '',
-		'1_1_no_permission' => '',
-		'1_1_no_likes' => '',
-		'1_1_no_magic_sauce' => '',
+		'1_1_not_connected' => "Vous n'êtes pas connecté avec votre compte Facebook. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
+		'1_1_no_permission' => "L’application n’ayant pas obtenu l’autorisation de se connecter à votre compte Facebook, nous n’avons pas pu récupérer vos données. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
+		'1_1_no_likes' => "Vous n'avez pas suffisamment de \"likes\" sur Facebook. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
+		'1_1_no_magic_sauce' => "Le nombre de vos Likes sur Facebook est malheureusement insuffisant pour qu’une comparaison avec la base de données de l’API Apply Magic Sauce soit pertinente. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
 		
 		// page 2
 		'1_2_heading' => 'Analyse de Likes',
@@ -84,7 +85,8 @@ $text = array(
 		'1_2_p1_3' => ', servent à vous cibler et à déterminer quel type de publicité vous sera présenté.', 
 		'1_2_p1_4' => 'Cliquez sur le bouton ci-dessous pour analyser vos données Facebook au moyen d\'un algorithme de mesure de vos traits de caractère.',
 
-		'1_2_p1_back' => '<<',
+		'1_2_p1_back' => 'Retour à l\'analyse personnelle',
+        '1_2_p2_back' => 'Retour à l\'analyse de likes',
 		'1_2_p1_next' => 'Analyse de personnalité',
 		'1_2_chartcaption' => 'Découpage de likes',
         '1_2_other' => 'Other',        
@@ -119,7 +121,7 @@ $text = array(
 		// eval_risk()
 		'eval_risk_1' => 'Votre score élevé sur l\'échelle de',
 		'eval_risk_2' => 'indique une tendance',
-		'eval_risk_3' => 'aux comportements à risque dans la prise de décisions touchant à votre',
+		'eval_risk_3' => 'aux comportements à risque dans la prise de décisions touchant à',
 		'eval_risk_4' => '.',
 		
 		// career
@@ -213,23 +215,11 @@ $text = array(
 		'risk_words' => array('faible','modérée','significative','sévère','extrême'),
 		'resume_video' => 'Retour à l\'épisode',
 		'alt_data_heading' => 'Bon ben',
-		'alt_data_p1' => 'Nous avons rencontré un problème lors de l\'accès à vos données Facebook. IIl semblerait que',
+		'alt_data_p1' => 'Nous avons rencontré un problème lors de l\'accès à vos données Facebook. Il semblerait que',
 		'alt_data_reasons' => array(
-			'notloggedin' => 'you are not logged into Facebook',
-			'app_permissions' => 'you didn\'t give the app permission',
-			'nodata' => 'you don\'t have enough data to participate or you may have manually increased the privacy of your data.
-			
-			
-				To make Likes public:
-				<ul>
-				<li>Ouvrez votre page Facebook</li>
-				<li>Cliquez sur l\'onglet <b>Plus</b> après l\'onglet Photos sous votre Cover</li>
-				<li>Cliquez <b>Mentions J\'aime</b></li>
-				<li>En haut à droite, cliquez sur l\icône crayon <b>Gérer</b></li>
-				<li>Sélectionnez <b>Modifier la confidentialité</b></li>
-				<li>Vous pouvez alors modifier la confidentialité des différentes catégories de Likes.</li>
-				</ul>
-			',
+			'notloggedin' => 'vous ne soyez pas connecté à Facebook',
+			'app_permissions' => 'vous n\'ayez pas donné à Illuminus l\'autorisation d\'accéder à votre compte Facebook ',
+			'nodata' => 'vous n\'ayez pas assez de données pour qu\'Illuminus puisse proposer une analyse de personnalité satisfaisante',
 			'big5prediction' => 'L\'API Apply MAgic Sauce a rencontré une erreur.',
 		),
 		'alt_data_click' => 'Cliquez ici',
@@ -239,7 +229,7 @@ $text = array(
 		
 		'no_data_found_statement' => 'Soit vous avez choisi de ne pas connecté votre compte Facebook, soit votre compte ne contient pas suffisamment de données pour effectuer une analyse satisfaisante. Nous allons poursuivre l\'utilisation d\'Illuminus avec les données issues du compte Facebook de Richard. Consultez notre FAQ pour en savoir plus. ',
 		
-		'get_current_data_set' => 'Vous êtes en train d\évaluer le profil suivant',
+		'get_current_data_set' => 'Vous êtes en train d\'évaluer le profil suivant',
 		'get_select_a_data_set' => 'Sélectionnez un compte pour commencer',
 		'get_select_or' => 'ou',
 		'get_sample_data_btn' => 'Analysez un compte témoin',
@@ -360,7 +350,7 @@ URL de support technique <a href="https://hub.donottrack-doc.com/en/about/">http
 			<ul>
 			<li>Vous n\'êtes pas connecté à Facebook</li>
 			<li>Vous n\'avez pas donné à Illuminus l\'autorisation nécessaire. </li>
-			<li>Vous n\'avez pas assez de données pour participer ou vous avez manuellement modifié le niveau</li>
+			<li>Vous n\'avez pas assez de données pour qu\'Illuminus puisse proposer une analyse de personnalité satisfaisante</li>
 			</ul>',
 		'bugs_heading' => 'Vous avez trouvé un bug ?',
 		'bugs_text' => 'Veuillez le signaler  <a href="mailto:contact@donottrack-doc.com">contact@donottrack-doc.com</a>',
@@ -456,6 +446,3 @@ URL de support technique <a href="https://hub.donottrack-doc.com/en/about/">http
 
 
 );
-
-
-?>

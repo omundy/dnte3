@@ -62,10 +62,10 @@ $text = array(
 		'1_1_chartcaption' => 'Your likes over time',
 				
 		// [error]
-		'1_1_not_connected' => '',
-		'1_1_no_permission' => '',
-		'1_1_no_likes' => '',
-		'1_1_no_magic_sauce' => '',
+		'1_1_not_connected' => "We apologize, but you are not connected with your Facebook account. Illuminus will proceed using the data from Richard’s Facebook account instead.",
+		'1_1_no_permission' => "Since you did not allow the connection to your Facebook account, we couldn’t retrieve your data. Illuminus will proceed using the data from Richard’s Facebook account instead.",
+		'1_1_no_likes' => "You do not have enough Likes on Facebook to make this app do something other than guesswork. Illuminus will proceed using the data from Richard’s Facebook account instead.",
+		'1_1_no_magic_sauce' => "The number of your Likes matching those in Apply Magic Sauce database is insufficient, and we don’t believe in guesswork. Illuminus will proceed using data from Richard’s Facebook account instead.",
 		
 		// page 2
 		'1_2_heading' => 'Your Interests',
@@ -76,6 +76,7 @@ $text = array(
 		'1_2_p1_4' => 'Next, we run this database that you have deposited on Facebook through an algorithm to determine your personality traits.',
 
 		'1_2_p1_back' => '<<',
+        '1_2_p2_back' => '<<',
 		'1_2_p1_next' => 'Reveal your personality analysis',
 		'1_2_chartcaption' => 'Your likes categorized',
         '1_2_other' => 'Other',        
@@ -208,19 +209,7 @@ $text = array(
 		'alt_data_reasons' => array(
 			'notloggedin' => 'you are not logged into Facebook',
 			'app_permissions' => 'you didn\'t give the app permission',
-			'nodata' => 'you don\'t have enough data to participate or you may have manually increased the privacy of your data.
-			
-			
-				To make Likes public:
-				<ul>
-				<li>Go to your Facebook profile</li>
-				<li>Click <b>more</b> next to photos in the header tab under your cover photo</li>
-				<li>Click <b>Likes</b></li>
-				<li>In the top right-hand corner, click the pen icon titled <b>Manage</b></li>
-				<li>Select <b>edit privacy</b></li>
-				<li>Then you can edit the privacy of different sections of Likes</li>
-				</ul>
-			',
+			'nodata' => 'you don\'t have enough data to participate',
 			'big5prediction' => 'there was an error with the Apply Magic Sauce API',
 		),
 		'alt_data_click' => 'Click here',

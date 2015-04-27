@@ -24,7 +24,7 @@ $text = array(
 		'callout' => 'Erfahren Sie, was in Ihnen steckt',
 		'select_assessment' => 'Wählen Sie zuerst links den Persönlichkeitstest aus',
 		'please_login' => 'Um den Persönlichkeitstest zu machen, melden Sie sich bitte mit Ihrem Facebook-Konto an',
-        'loading'
+        'loading' => 'Ihre Daten werden analysiert, bitte einen Augenblick warten.'
 	),
 
 
@@ -35,7 +35,7 @@ $text = array(
 		'1_1_heading' => 'Persönlichkeitstest',
 		'1_1_welcome' => 'Willkommen bei Illuminus',
 		'1_1_subheading' => 'Ihre Daten wurden erfolgreich übermittelt.',
-		'1_1_p1_1' => 'Ihr Verhalten in sozialen Netzwerken gibt eine ganze Menge über Sie preis.',
+		'1_1_p1_1' => 'Ihr Verhalten in sozialen Netzwerken erzählt eine Menge über Sie.',
 		'1_1_p1_2' => 'Ihr Profil besagt beispielweise, dass',
 		'1_1_p1_3' => 'Sie',
 		// insert [age]
@@ -63,30 +63,31 @@ $text = array(
 		'1_1_chartcaption' => 'Ihre Likes im Laufe der Zeit.',
 				
 		// [error]
-		'1_1_not_connected' => '',
-		'1_1_no_permission' => '',
-		'1_1_no_likes' => '',
-		'1_1_no_magic_sauce' => '',
+		'1_1_not_connected' => "Sie sind nicht mit Ihrem Facebook Profil verbunden. Illuminus wird daher stattdessen die Daten von Richards Facebook-Account verwenden.",
+		'1_1_no_permission' => "Weil Sie die Verbindung zu Ihrem Facebook-Account nicht genehmigt haben, können wir Ihre Daten nicht abrufen. Illuminus wird daher stattdessen die Daten von Richards Facebook-Account verwenden.",
+		'1_1_no_likes' => "Leider ist die Anzahl Ihrer Likes in Ihrem Facebook-Account unzureichend. Ein Persönlichkeitsprofil mit so wenig Daten zu erstellen wäre Rätselraten. Illuminus wird daher stattdessen die Daten von Richards Facebook-Account verwenden.",
+		'1_1_no_magic_sauce' => "Leider entsprechen zu wenig Likes von Ihrem Facebook-Account, der Datenbank der Apply Magic Sauce API. Ein Persönlichkeitsprofil trotzdem zu erstellen wäre Rätselraten. Illuminus wird stattdessen die Daten von Richards Facebook-Account verwenden.",
 		
 		// page 2
 		'1_2_heading' => 'Gefällt mir Analyse',
 		'1_2_subheading' => 'Kategorisierte Anordnung',
 		'1_2_p1_1' => ' in diesem Kreisdiagramm haben wir Ihre Interessen auf Facebook dargestellt. Bewegen Sie Ihre Maus über das Diagramm, um die Kategorie zu sehen. Diese Interessen, insbesondere die mit dem größten Anteil, wie',
 		'1_2_p1_2' => 'und',
-		'1_2_p1_3' => 'werden genutzt, um Ihr Profil zu erstellen und Ihnen  entsprechende Werbung zu zeigen.', 
-		'1_2_p1_4' => 'Anschließend werden die Daten, die Sie auf Facebook gespeichert haben, über einen Algorithmus analysiert und somit Ihre Persönlichkeitszüge ausgewertet.',
+		'1_2_p1_3' => 'werden genutzt, um Sie immer wieder neu in bestimmte Kategorien einzusortieren und Ihnen so passende Werbung zu zeigen.', 
+		'1_2_p1_4' => 'Als nächstes werden die Daten, die Sie auf Facebook gespeichert haben, mit Hilfe eines Algorithmus analysiert und auf diese Weise Ihre Charaktereigenschaften ausgewertet.',
 
-		'1_2_p1_back' => '<<',
-		'1_2_p1_next' => 'Persönlichkeitsbewertung beginnen',
+		'1_2_p1_back' => 'Zurück zum Persönlichkeitsprofil',
+        '1_2_p2_back' => 'Zurück zur Gefällt mir Analyse',
+		'1_2_p1_next' => 'Wollen Sie Ihr Persönlichkeitsprofil sehen?',
 		'1_2_chartcaption' => 'Ihre Likes in Kategorien unterteilt',
-        '1_2_other' => 'Other',        
+        '1_2_other' => 'Other',         
 		
 
 		// page 3
-		'1_3_heading' => 'Persönlichkeitsbewertung',
+		'1_3_heading' => 'Ihr Persönlichkeitsprofil',
 		'1_3_subheading' => ' ',
-		'1_3_1' => 'Psychologen sind der Meinung, dass der Charakter eines jeden Menschen gemäß dem <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Fünf-Faktoren-Modell</a> in eine der fünf Kategorien (den sog. Big Five) Extraversion, Offenheit für Erfahrungen, Gewissenhaftigkeit, Verträglichkeit und Neurotizismus eingeteilt werden kann. Wenn eine Person einen hohen Wert in der Kategorie Extraversion erhält, ist sie beispielsweise sehr gesellig, freundlich und aktiv. Menschen, die einen hohen Wert für ihre Gewissenhaftigkeit erhalten, sind gut organisiert, vernünftig und strebsam. ',
-		'1_3_2' => 'Nach Auswertung der Daten haben wir also festgestellt, dass Sie die höchsten Werte für die folgenden beiden Big Five erzielen:',
+		'1_3_1' => 'Psychologen gehen davon aus, dass sich der Charakter eines jeden Menschen gemäß dem <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Fünf-Faktoren-Modell</a> (den sog. Big Five) auf den Skalen Extraversion, Offenheit für Erfahrungen, Gewissenhaftigkeit, Verträglichkeit und Neurotizismus einordnen lässt. Wenn eine Person einen hohen Wert in der Kategorie Extraversion hat, ist sie beispielsweise meist sehr gesellig, freundlich und aktiv. Menschen, die einen hohen Wert in der Kategorie Gewissenhaftigkeit haben, sind in der  Regel gut organisiert, vernünftig und strebsam.',
+		'1_3_2' => 'Nach Auswertung der Daten haben wir also festgestellt, dass Sie bei den folgenden zwei Big Five die höchsten Werte haben:',
 		// insert [BIG5 CATEGORY]
 		'1_3_3' => 'und',
 		// insert [BIG5 CATEGORY]
@@ -102,7 +103,7 @@ $text = array(
 	array(
 
 		'2_heading' => 'Einschätzung des finanziellen Risikos',
-		'2_1' => 'Unser Algorithmus hat aufgrund der Persönlichkeitsbewertung, die sich aus Ihren Facebook-Daten ergeben hat, und einer wissenschaftliche Studie, die im <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> veröffentlicht wurde, ergeben,',
+		'2_1' => 'Unser Algorithmus hat aufgrund der Bewertung Ihrer Persönlichkeit, die sich aus Ihren Facebook-Daten ergeben hat, und einer wissenschaftliche Studie, die im <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> veröffentlicht wurde, ergeben,',
 		// good || mediocre || unreliable
 		'2_2_unreliable' => 'dass Sie ein unzuverlässiger Kreditnehmer wären',
 		'2_2_mediocre' => 'dass Sie ein mittelmäßiger Kreditnehmer wären',
@@ -115,16 +116,16 @@ $text = array(
 		'eval_risk_4' => 'Entscheidungen treffen.',
 		
 		// career
-		'2_career_heading' => 'Risiko bei der beruflichen Laufbahn',
+		'2_career_heading' => 'Ihre berufliche Risikobereitschaft ist',
 		'2_career_risk_eg' => 'z. B. eine Anstellung kündigen, ohne bereits eine neue gefunden zu haben',
 		
-		'2_career_risk_more' => 'Mehr zum Risiko bei der beruflichen Laufbahn',
-		'2_career_risk_more_text' => 'Riskante Entscheidungen in Bezug auf die berufliche Laufbahn werden mit einer geringeren Beschäftigung, der Arbeit in kleinen Betrieben, kürzeren Anstellungsverträgen, einer größeren Arbeitgeberzahl und der Beschäftigung bei Start-up-Unternehmen in Verbindung gebracht',
+		'2_career_risk_more' => 'Mehr über Ihre berufliche Risikobereitschaft',
+		'2_career_risk_more_text' => 'Riskante berufliche Entscheidungen korrelieren oft mit einer geringeren Beschäftigung, der Arbeit in kleinen Betrieben, kürzeren Anstellungsverträgen, einer größeren Arbeitgeberzahl und der Beschäftigung bei Start-up-Unternehmen',
 		
-		'2_finance_heading' => 'Finanzielles Risiko',
+		'2_finance_heading' => 'Finanzielle Risikobereitschaft',
 		'2_finance_risk_eg' => 'z. B. Glücksspiel und riskante Investitionen',
 		
-		'2_social_heading' => 'Gesellschaftliches Risiko',
+		'2_social_heading' => 'Gesellschaftliche Risikobereitschaft',
 		'2_social_risk_eg' => 'z. B. politische Kandidatur, öffentliche Kritik an Regeln oder Entscheidungen',
 		
 		// GENDER
@@ -135,7 +136,7 @@ $text = array(
 		'eval_risk_overview_adj_1_1' => 'sehr',
 		'eval_risk_overview_adj_1_2' => 'eher',
 		'eval_risk_overview_adj_1_3' => 'nicht',
-		'eval_risk_overview_3' => 'zu Ihrer Risikoeinschätzung beigetragen.',
+		'eval_risk_overview_3' => 'zur Einschätzung Ihrer Risikobereitschaft beigetragen.',
 		
 		'eval_risk_overview_3_1' => 'In der allgemeinen Bewertung sind Männer deutlich risikofreudiger als Frauen',
 		'eval_risk_overview_3_2' => 'Frauen zeigen sich hingegen bei beruflichen und gesellschaftlichen Entscheidungen risikobereiter',
@@ -164,22 +165,22 @@ $text = array(
 	// step 3 - Health Risk Evaluation
 	array(
 
-		'3_heading' => 'Einschätzung des gesundheitlichen Risikos',
-		'3_1' => 'Ihr Verhalten in sozialen Netzwerk gibt eindeutigen Aufschluss darüber, wie riskant Ihr Lebensstil für Sie selbst ist. Wir erfahren hierdurch, mit welcher Wahrscheinlichkeit Sie Fremde treffen, unverhütet Sex haben oder gefährliche Extremsportarten betreiben. Ihr Hang zu riskantem Verhalten kann demnach höhere medizinische Kosten für uns bedeuten. Um zu verstehen, wie gefährlich Sie leben, haben wir Ihre Persönlichkeitsbewertung mit den Ergebnissen einer Studie des <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> verglichen, mit folgendem Ergebnis:',
+		'3_heading' => 'Einschätzung Ihrer gesundheitlichen Risikobereitschaft',
+		'3_1' => 'Ihr Verhalten in sozialen Netzwerken gibt Aufschluss darüber, wie sehr Sie sich mit Ihrem Lebensstil selbst in Gefahr bringen. Wir können daraus ablesen, mit welcher Wahrscheinlichkeit Sie Fremde treffen, unverhütet Sex haben oder gefährliche Extremsportarten betreiben. Ihr Hang zu riskantem Verhalten kann demnach höhere medizinische Kosten für uns bedeuten. Um zu verstehen, wie gefährlich Sie leben, haben wir Ihr Persönlichkeitsprofil mit den Ergebnissen einer Studie des <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> verglichen, mit folgendem Ergebnis:',
 		
 		// good || mediocre || unreliable
-		'2_3_extreme' => 'Ihr Risiko ist viel zu hoch, als dass Sie für eine Krankenversicherung in Frage kämen',
-		'2_3_high' => 'Ihr Risiko ist zu hoch, als dass Sie für eine Krankenversicherung in Frage kämen',
-		'2_3_moderate' => 'Ihr Risiko ist mäßig, sodass Sie unter Umständen gerade noch für eine Krankenversicherung in Frage kämen',
-		'2_3_low' => 'Ihr Risiko ist niedrig, sodass Sie sicherlich für eine Krankenversicherung in Frage kämen',
+		'2_3_extreme' => 'Ihre Risikobereitschaft ist viel zu hoch, als dass Sie für unsere Krankenversicherung in Frage kämen',
+		'2_3_high' => 'Ihre Risikobereitschaft ist etwas zu hoch, als dass Sie für unsere Krankenversicherung in Frage kämen',
+		'2_3_moderate' => 'Ihre Risikobereitschaft ist mäßig, so dass Sie unter Umständen gerade noch für unsere Krankenversicherung in Frage kämen',
+		'2_3_low' => 'Ihre Risikobereitschaft ist niedrig. Wir würden uns freuen, Sie in unserer Krankenversicherung aufnehmen zu können.',
 		
-		'3_health_heading' => 'Gesundheitsrisiko',
+		'3_health_heading' => 'Gesundheits-Risikobereitschaft',
 		'3_health_risk_eg' => 'z. B. Rauchen, schlechte Ernährung, hoher Alkoholkonsum',
 		
-		'3_safety_heading' => 'Sicherheitsrisiko',
+		'3_safety_heading' => 'Sicherheits-Risikobereitschaft',
 		'3_safety_risk_eg' => 'z. B. rasantes Autofahren, Fahrradfahren durch die Stadt ohne Helm',
 		
-		'3_recreation_heading' => 'Freizeitrisiko',
+		'3_recreation_heading' => 'Risikobereitschaft in der Freizeit',
 		'3_recreation_risk_eg' => 'z. B. Klettern, Sporttauchen',
 	),
 
@@ -196,8 +197,8 @@ $text = array(
 		'nav_link_zero' => 'Willkommen',
 		'nav_link_load_data' => 'Fangen wir an',
 		'nav_link_one' => 'Persönlichkeitstest',
-		'nav_link_two' => 'Einschätzung des finanziellen Risikos',
-		'nav_link_three' => 'Einschätzung des gesundheitlichen Risikos',
+		'nav_link_two' => 'Einschätzung der finanziellen Risikobereitschaft',
+		'nav_link_three' => 'Einschätzung der Gesundheits-Risikobereitschaft',
 		'nav_footer_link_home' => 'Home',
 		'nav_footer_link_privacy' => 'Datenschutz',
 		'nav_footer_link_credits' => 'Abspann',
@@ -232,10 +233,10 @@ $text = array(
 		'no_data_found_statement' => 'Sie haben entweder die Option gewählt, Ihr Facebook-Konto nicht zu verbinden, oder aber die dort gespeicherten Daten reichen nicht aus, um die Analyse richtig durchzuführen. Deshalb wird die Bewertung nun mit den Beispieldaten von Richards Facebook-Konto fortgeführt. Weitere Informationen finden Sie in unseren FAQ.',
 		
 		'get_current_data_set' => 'Sie werten derzeit dieses Profil aus',
-		'get_select_a_data_set' => 'Wählen Sie ein Datum aus, um anzufangen',
+		'get_select_a_data_set' => 'Wählen Sie eine der folgenden Optionen, um anzufangen',
 		'get_select_or' => 'oder',
-		'get_sample_data_btn' => 'Wählen Sie die Beispieldaten aus',
-		'get_fb_data_btn' => 'Wählen Sie Ihre Facebook-Daten aus',
+		'get_sample_data_btn' => 'Einen Beispielsdatensatz verwenden',
+		'get_fb_data_btn' => 'Mit Ihrem Facebook-Profil einloggen',
 		'get_started_btn' => 'Fangen wir an',
 	),
 	
@@ -342,7 +343,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	'faq' => array(
 		'0_heading' => 'FAQ',
 		'what_heading' => 'Was ist Illuminus?',
-		'what_text' => 'Illuminus ist ein fiktives Unternehmen, das mithilfe Ihrer „Gefällt mir“-Angaben auf Facebook ein Persönlichkeitsprofil erstellt.  Es handelt sich um eine ausgedachte Website, die für Do Not Track genutzt wird,  eine personalisierte Web-Serie über Tracking und die Internetwirtschaft. Hierbei nutzt Illuminus den fiktiven Fall eines Unternehmens, das mithilfe von tatsächlich existierenden Methoden zur Datenanalyse Entscheidungen über finanzielle Dienste macht, die Ihnen zur Verfügung gestellt werden.',
+		'what_text' => 'Illuminus ist ein fiktives Unternehmen, das mithilfe Ihrer „Gefällt mir“-Angaben auf Facebook ein Persönlichkeitsprofil erstellt.  Es handelt sich um eine ausgedachte Website, die für Do Not Track genutzt wird, eine personalisierte Web-Serie über Tracking und die Internetwirtschaft. Hierbei nutzt Illuminus den fiktiven Fall eines Unternehmens, das mithilfe von tatsächlich existierenden Methoden zur Datenanalyse Entscheidungen über finanzielle Dienste macht, die Ihnen zur Verfügung gestellt werden. Ihr Persönlichkeitsprofil und die daraus abgeleitete Einschätzung Ihrer Risikobereitschaft sind das Ergebnis einer Analyse Ihres Facebook-Profils. Diese basiert auf statistischen Wahrscheinlichkeiten. Es kann daher durchaus vorkommen, dass Ihr Profil fehlerhaft ist. Solange Sie das nicht beweisen können, werden Firmen wie Illuminus jedoch immer davon ausgehen, dass Ihr digitales Profil Ihre wahre Identität widerspiegelt.',
 		'who_heading' => 'Wer hat Illuminus entwickelt',
 		'who_text1' => 'Sehen Sie sich hierzu bitte den ',
 		'who_text2' => 'Abspann an',
@@ -434,7 +435,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 		'our_services' => 'Unsere Dienste',
 		
 		// SERVICES
-		'risk_assessment' => 'Risikoeinschätzung ',
+		'risk_assessment' => 'Einschätzung Ihrer Risikobereitschaft ',
 		'future' => 'Ihre Vergangenheit bestimmt Ihre Zukunft',
 		'liveforever' => 'LiveForever',
 		'dna_backup' => 'DNA-Backup',
@@ -445,7 +446,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 		// future present
 		'future_present' => 'Zukünftige und gegenwärtige Risikoprognose',
 		'learn_what' => 'Erfahren Sie, was wir bereits über Sie wissen ',
-		'launch_btn' => 'Tool zur Risikoeinschätzung starten',
+		'launch_btn' => 'Tool zur Einschätzung Ihrer Risikobereitschaft starten',
 		
 		// more links
 		'privacy' => 'Datenschutz',
