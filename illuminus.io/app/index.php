@@ -1164,8 +1164,10 @@ function eval_risk($risk_name){
 	arsort($arr);
 	//return($arr);
 	$keys=array_keys($arr);
+	$risk_level = floor($arr[$keys[0]] * 10);
+	if ($risk_level > 13) $risk_level = 13;
 
-	if ( floor($arr[$keys[0]] * 10) > 4 ) print '<img src="'. $control['baseurl'] .'assets/img/warning_risk_'. floor($arr[$keys[0]] * 10) .'.png" style="height:22px; margin-right:5px">';
+	if ( floor($arr[$keys[0]] * 10) > 4 ) print '<img src="'. $control['baseurl'] .'assets/img/warning_risk_'. $risk_level .'.png" style="height:22px; margin-right:5px">';
 
 
 	// Your high scores in
