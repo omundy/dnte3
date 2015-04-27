@@ -4,7 +4,7 @@ function get_language() {
     $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
     switch ($lang){
         case "fr":
-            return 'fe';
+            return 'fr';
             break;
         case "de":
             return 'de';
