@@ -93,8 +93,9 @@
                                         
 										print ' <span class="udata">'. $gender .'</span>';
 									}
-
-									print '.';
+                                    
+                                    if ($control['lang'] != 'DE')
+                                        print '.';
 								}
 
 
@@ -138,7 +139,8 @@
 											print ", and ";
 										}
 									}
-									print ". ";
+                                    if ($control['lang'] != 'DE')
+                                        print ". ";
 									// Our system uses the Apply Magic Sauce personality evaluation system developed by the world’s leading scientists.
 									print ' '. $text[1]['1_1_p1_10'];
 
@@ -171,7 +173,7 @@
 								?>
 
 								<div><br>
-									<button class="step1_btn btn btn-custom" id="step1_1_next_btn"><?php print $text[1]['1_1_p1_next']; ?></button>
+									<button class="step1_btn btn btn-custom" id="step1_1_next_btn"><?php print $text[1]['1_1_p1_next']; ?> 2/3</button>
 								</div>
 
 							</div>
@@ -321,9 +323,10 @@
 							<p><?php print $text[1]['1_2_p1_4'] ?></p>
 
 
-							<div><br>
-								<button class="step1_btn btn btn-custom" id="step1_2_prev_btn"><?php print $text[1]['1_2_p1_back']; ?></button>
-								<button class="step1_btn btn btn-custom" id="step1_2_next_btn"><?php print $text[1]['1_2_p1_next']; ?></button>
+							<div>
+                                <br>
+								<button class="step1_btn btn btn-custom" id="step1_2_next_btn"><?php print $text[1]['1_2_p1_next']; ?> 3/3</button><br/>
+								<button class="back_btn btn btn-custom" id="step1_2_prev_btn"><?php print $text[1]['1_2_p1_back']; ?></button>                                
 							</div>
 
 
@@ -507,7 +510,7 @@
 
 
 								<div><br>
-									<button class="step1_btn btn btn-custom" id="step1_3_prev_btn"><?php print $text[1]['1_2_p1_back']; ?></button>
+									<button class="back_btn btn btn-custom" id="step1_3_prev_btn"><?php print $text[1]['1_2_p2_back']; ?></button>
 									<?php if($control['player'] != 'yes'){ ?>
 									<button class="step1_btn btn btn-custom" id="step1_3_gorisk_btn"><?php print $text[1]['1_3_gorisk_btn']; ?></button>
 									<?php } ?>

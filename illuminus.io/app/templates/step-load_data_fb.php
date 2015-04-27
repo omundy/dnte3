@@ -1,6 +1,6 @@
 <div id="load_data_fb">
     <div id="spinner" class="centered"></div>
-    Loading
+    <?php echo ( isset($text[0]['loading']) ? $text[0]['loading'] : 'Loading' ) ?>
 </div>
 
 <script type="text/javascript">

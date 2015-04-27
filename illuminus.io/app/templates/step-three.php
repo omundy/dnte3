@@ -280,7 +280,7 @@
 
 					<div><br>
 						<?php if($control['player'] == 'yes'){ ?>
-						<button class="step1_btn btn btn-custom backtovideo_btn"><?php print $text['meta']['resume_video']; ?></button><?php } ?>
+						<button class="btn btn-custom backtovideo_btn">► <?php print $text['meta']['resume_video']; ?></button><?php } ?>
 					</div>
 
 
