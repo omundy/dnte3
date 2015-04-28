@@ -40,7 +40,12 @@
 
 <!-- CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/css/styles.css?t=<?php echo rand(1,1000) ?>" rel="stylesheet">
+
+<?php if (!empty($login['static_cache'])): ?>
+    <link href="assets/css/styles.css?t=<?php echo rand(1,1000) ?>" rel="stylesheet">
+<?php else: ?>
+    <link href="assets/css/styles.css" rel="stylesheet">
+<?php endif; ?>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
