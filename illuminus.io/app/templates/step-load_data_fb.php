@@ -11,7 +11,13 @@
 
 
 <script type="text/javascript">
+
+    var timerLoadFb;
+
     function afterFBInit(at) {
+        
+        clearTimeout(timerLoadFb);
+        
         if (at != undefined)
             loadUserData(at);            
         else
@@ -19,6 +25,6 @@
     }
     
     $(document).ready(function() {
-        setTimeout(gotoFirstScreen, 3000);
+        timerLoadFb = setTimeout(gotoFirstScreen, 3000);
     })
 </script>
