@@ -18,7 +18,7 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100; color: #29aecf; }
 @media (max-width:767px) { 
 	.site-main { padding-bottom: 0px!important; }
 	.sidebar-col, .content-col { height: auto!important; padding: 40px; background: #141414 }
-	.content-col { height: 100% !important; padding: 40px;}
+	.content-col { height: 100% !important; padding: 20px;}
 }
 /* large viewport layout */
 @media (min-width:768px) { 
@@ -68,7 +68,7 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100; color: #29aecf; }
 
 
 .chart { margin: 10px 0 10px 0; background: rgba(20,20,20,.8);		}
-.chart canvas { width:500px; height:250px; background: rgba(20,20,20,.8);}
+.chart canvas { width:500px; height:250px; background: rgba(20,20,20,.8); }
 .chart_caption { margin: 0 0 10px 0; font-size: 80%; color: #666 }
 
 
@@ -429,8 +429,8 @@ fieldset[disabled] .btn-custom.active {
 }
 
 .back_btn:visited {
-  color: white !important;
-  text-decoration: none !important;
+/*  color: white !important;
+  text-decoration: none !important;*/
 }
 
 .back_btn:hover {
@@ -455,3 +455,16 @@ fieldset[disabled] .btn-custom.active {
   }
 
 }
+
+#bar_like_timeline {
+  max-width: 100%;
+}
+
+#donut_like_category {
+  max-width: 100%;
+}
+
+#radar_big5 {
+  max-width: 100%;
+}
+
