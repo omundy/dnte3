@@ -483,7 +483,7 @@
 											}
 										}
 
-
+                                        /*
 										print " ". $text[1]['1_1_p1_9_neg'];
 
 										// insert NEGATIVE [BIG5 TRAITS]
@@ -494,7 +494,7 @@
 												print " ". $text[1]['1_1_p1_9_and'] ." ";
 											}
 										}
-
+                                        */
 
 
 
