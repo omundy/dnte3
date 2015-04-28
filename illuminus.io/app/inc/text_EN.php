@@ -24,6 +24,14 @@ $text = array(
 		'callout' => 'Unlocking the power of you',
 		'select_assessment' => 'Select Personality Assessment on left to begin',
 		'please_login' => 'Please log in to Facebook to begin Personality Assessment',
+		'and' => 'and',
+        'career' => 'career',
+        'finance' => 'finance',
+        'social' => 'social',
+        'health' => 'health',
+        'safety' => 'safety',
+        'recreation' => 'recreation',
+        'loading' => 'Your data is being analyzed, please be patient.'
 	),
 
 
@@ -58,7 +66,7 @@ $text = array(
 		'1_1_p1_11' => 'It may surprise you that your interest in', 
 		// [likes]
 		'1_1_p1_12' => 'helped us decide who you really are. And these aren\'t the only things you\'ve liked.', 
-		'1_1_p1_next' => 'Analyze your Likes 2/3',
+		'1_1_p1_next' => 'Analyze your Likes',
 		'1_1_chartcaption' => 'Your likes over time',
 				
 		// [error]
@@ -77,7 +85,7 @@ $text = array(
 
 		'1_2_p1_back' => 'Back to Personality assessment 1/3',
         '1_2_p2_back' => 'Back to Likes assessment 2/3',
-		'1_2_p1_next' => 'View personality analysis 3/3',
+		'1_2_p1_next' => 'View personality analysis',
 		'1_2_chartcaption' => 'Your likes categorized',
         '1_2_other' => 'Other',        
 		

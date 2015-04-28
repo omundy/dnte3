@@ -68,7 +68,7 @@ $text = array(
 		'1_1_p1_11' => 'Cela va peut-être vous surprendre mais votre intérêt pour', 
 		// [likes]
 		'1_1_p1_12' => 'nous a aidé à déterminer qui vous étiez véritablement. Même si ce ne sont pas les seules choses que vous avez likées.', 
-		'1_1_p1_next' => 'Voir l\'analyse de Likes 2/3',
+		'1_1_p1_next' => 'Voir l\'analyse de Likes',
 		'1_1_chartcaption' => 'Répartition de vos Likes par année',
 		
 		// [error]
@@ -85,9 +85,9 @@ $text = array(
 		'1_2_p1_3' => ', servent à vous cibler et à déterminer quel type de publicité vous sera présenté.', 
 		'1_2_p1_4' => 'Cliquez sur le bouton ci-dessous pour analyser vos données Facebook au moyen d\'un algorithme de mesure de vos traits de caractère.',
 
-		'1_2_p1_back' => 'Retour à l\'analyse personnelle 1/3',
-        '1_2_p2_back' => 'Retour à l\'analyse de likes 2/3',
-		'1_2_p1_next' => 'Analyse de personnalité 3/3',
+		'1_2_p1_back' => 'Retour à l\'analyse personnelle',
+        '1_2_p2_back' => 'Retour à l\'analyse de likes',
+		'1_2_p1_next' => 'Analyse de personnalité',
 		'1_2_chartcaption' => 'Découpage de likes',
         '1_2_other' => 'Other',        
 		
@@ -126,16 +126,16 @@ $text = array(
 		
 		// career
 		'2_career_heading' => 'Risque professionnel',
-		'2_career_risk_eg' => 'Par ex., quitter votre emploi actuel avant d\'en avoir trouvé un autre.',
+		'2_career_risk_eg' => 'par ex., quitter votre emploi actuel avant d\'en avoir trouvé un autre',
 		
 		'2_career_risk_more' => '',
 		'2_career_risk_more_text' => 'Des comportements à risque dans le domaine professionnel sont généralement associés avec des emplois de niveau moins élevé, dans des entreprises de taille plus réduite ou pour de plus courte durée, un nombre accru d\'employeurs différents et une tendance à travailler pour des start-up.',
 		
 		'2_finance_heading' => 'Risque budgétaire',
-		'2_finance_risk_eg' => 'par ex., parier ou jouer à des jeux d\'argent, pratiquer des investissements risqués.',
+		'2_finance_risk_eg' => 'par ex., parier ou jouer à des jeux d\'argent, pratiquer des investissements risqués',
 		
 		'2_social_heading' => 'Risque social',
-		'2_social_risk_eg' => 'par ex., se présenter à une élection, dénoncer publiquement une loi ou une décision de justice.',
+		'2_social_risk_eg' => 'par ex., se présenter à une élection, dénoncer publiquement une loi ou une décision de justice',
 		
 		// GENDER
 		'eval_risk_overview_1' => 'En plus de vos données qui sont tout sauf anodines, le fait que vous soyez',
@@ -147,11 +147,11 @@ $text = array(
 		'eval_risk_overview_adj_1_3' => 'peu ou pas du tout',
 		'eval_risk_overview_3' => 'à l\'accroissement de votre risque global dans la mesure où',
 		
-		'eval_risk_overview_3_1' => 'les hommes prennent en général significativement plus de risques que les femmes.',
+		'eval_risk_overview_3_1' => 'les hommes prennent en général significativement plus de risques que les femmes',
 		'eval_risk_overview_3_2' => 'les femmes prennent significativement plus de risques que les hommes dans les domaines professionnel et social',
-		'eval_risk_overview_3_3' => 'les hommes prennent significativement plus de risques que les femmes, notamment sur les plans de la santé et de la sécurité.',
-		'eval_risk_overview_3_4' => 'les femmes prennent significativement plus de risques sur le plan professionnel et social.',
-		'eval_risk_overview_3_5' => 'les hommes prennent en général significativement plus de risques que les femmes, tandis que les femmes prennent significativement plus de risques dans les domaines professionnel et social.',
+		'eval_risk_overview_3_3' => 'les hommes prennent significativement plus de risques que les femmes, notamment sur les plans de la santé et de la sécurité',
+		'eval_risk_overview_3_4' => 'les femmes prennent significativement plus de risques sur le plan professionnel et social',
+		'eval_risk_overview_3_5' => 'les hommes prennent en général significativement plus de risques que les femmes, tandis que les femmes prennent significativement plus de risques dans les domaines professionnel et social',
 		
 		
 		// AGE
@@ -411,34 +411,34 @@ URL de support technique <a href="https://hub.donottrack-doc.com/ca/about/">http
 	),
 	
 	
-	// Illuminus home page
+// Illuminus home page
 	'homepage' => array(
 		
-		'title' => 'Illuminus - Unlocking the power of you',
+		'title' => 'Illuminus - voir aujourd\'hui les risques de demain ',
 	
-		'home' => 'Home',
-		'unlocking' => 'Unlocking the power of you',
-		'get_started_btn' => 'Get Started',
+		'home' => 'Accueil',
+		'unlocking' => 'Découvrez la clé de votre potentiel',
+		'get_started_btn' => 'Commencer',
 		
 		'services' => 'Services',
-		'our_services' => 'Our Services',
+		'our_services' => 'Nos services',
 		
 		// SERVICES
-		'risk_assessment' => 'Risk Assessment ',
-		'future' => 'Your past determines your future',
-		'liveforever' => 'LiveForever',
-		'dna_backup' => 'DNA backup',
-		'coming_soon' => 'coming soon',
-		'social_media' => 'Social Media Integration ',
-		'you_have_no_idea' => 'You have no idea what we know',
+		'risk_assessment' => 'Analyse de risque ',
+		'future' => 'Vos actions déterminent votre futur',
+		'liveforever' => 'VieEternelle',
+		'dna_backup' => 'sauvegarde d\'ADN',
+		'coming_soon' => 'bientôt disponible',
+		'social_media' => 'Intégration de réseaux sociaux',
+		'you_have_no_idea' => 'Si vous saviez ce que nous savons de vous',
 		
 		// future present
-		'future_present' => 'Voir ',
-		'learn_what' => 'Learn what we already know about you ',
-		'launch_btn' => 'Launch risk assessment tool',
+		'future_present' => 'Voir aujourd\'hui les risques de demain',
+		'learn_what' => 'Découvrez ce que nous savons de vous',
+		'launch_btn' => 'Démarrer l\'analyse de risque',
 		
 		// more links
-		'privacy' => 'Privacy',
+		'privacy' => 'Confidentialité',
 		'contact' => 'Contact',
 			
 		

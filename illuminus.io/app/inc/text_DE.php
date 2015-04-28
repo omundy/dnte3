@@ -24,6 +24,15 @@ $text = array(
 		'callout' => 'Erfahren Sie, was in Ihnen steckt',
 		'select_assessment' => 'Wählen Sie zuerst links den Persönlichkeitstest aus',
 		'please_login' => 'Um den Persönlichkeitstest zu machen, melden Sie sich bitte mit Ihrem Facebook-Konto an',
+		'and' => 'und',
+        'career' => 'berufliche',
+        'finance' => 'finanzielle',
+        'social' => 'soziale',
+        'health' => 'gesundheitliche',
+        'safety' => 'Sicherheitsbetreffende',
+        'recreation' => 'Freizeitbetreffende',
+        'homme_pronoun' => 'mänlich',
+        'femme_pronoun' => 'weiblich',
         'loading' => 'Ihre Daten werden analysiert, bitte einen Augenblick warten.'
 	),
 
@@ -76,9 +85,9 @@ $text = array(
 		'1_2_p1_3' => 'werden genutzt, um Sie immer wieder neu in bestimmte Kategorien einzusortieren und Ihnen so passende Werbung zu zeigen.', 
 		'1_2_p1_4' => 'Als nächstes werden die Daten, die Sie auf Facebook gespeichert haben, mit Hilfe eines Algorithmus analysiert und auf diese Weise Ihre Charaktereigenschaften ausgewertet.',
 
-		'1_2_p1_back' => 'Zurück zum Persönlichkeitsprofil 1/3',
-        '1_2_p2_back' => 'Zurück zur Gefällt mir Analyse 2/3',
-		'1_2_p1_next' => 'zum Persönlichkeitsprofil 3/3',
+		'1_2_p1_back' => 'Zurück zum Persönlichkeitsprofil',
+        '1_2_p2_back' => 'Zurück zur Gefällt mir Analyse',
+		'1_2_p1_next' => 'zum Persönlichkeitsprofil',
 		'1_2_chartcaption' => 'Ihre Likes in Kategorien unterteilt',
         '1_2_other' => 'Other',         
 		
