@@ -5,6 +5,8 @@ if (!window.console.log) window.console.log = function () { };
  *	Facebook
  */
 
+console.log('BEFORE FB SDK');
+
 // load the Javascript SDK
 (function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
@@ -14,16 +16,27 @@ if (!window.console.log) window.console.log = function () { };
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+console.log('AFTER FB SDK');
+
 // initialize Facebook
 window.fbAsyncInit = function() {
-	FB.init({
-		appId: app_id,
-		cookie: true,	// enable cookies to allow the server to access the session
-		xfbml: true,	// parse social plugins on this page
-		version: 'v2.3' // use version 2.1
-	});
-	// check login
-	FB.getLoginStatus(checkLoginStatus, true);
+
+  try {
+
+  	FB.init({
+  		appId: app_id,
+  		cookie: true,	// enable cookies to allow the server to access the session
+  		xfbml: true,	// parse social plugins on this page
+  		version: 'v2.3' // use version 2.1
+  	});
+  	// check login
+  	FB.getLoginStatus(checkLoginStatus, true);
+    
+  } catch (e) {
+
+    gotoFirstScreen();
+    
+  }
   
 };
 
@@ -82,7 +95,7 @@ function logout_user() {
     
     if (res.success === true) {
         console.log('APP: app deauthorized');
-        window.location.replace(lang+"/zero");
+        window.location.href = base_url + lang+"/zero";
     } else if (res.error) {
         console.log('APP: res.error');
         console.error('APP: ' + res.error.type + ': ' + res.error.message);
@@ -242,7 +255,7 @@ function sendUserData() {
 }
 
 function gotoFirstScreen() {
-  window.location.replace(lang +"/one");
+  window.location.href = base_url + lang +"/one";
 }
 
 function showSpinner() {
@@ -260,34 +273,36 @@ function checkLoginState() {
 	});
 }
 
-function step1_frames_event(frame){
+function step1_frames_event(frame) {
 	// hide
 	for(var i=1; i<=3; i++) {
 		$('#step1_frame_'+i).hide()
 	}
-	if (!frame){
+	if (!frame) {
 		frame = 1;
 	}
 	$('#step1_frame_'+frame).show();
-
-
 }
 
 $(document).ready(function() {
-  step1_frames_event(1);  
+  step1_frames_event(1);
 })
 
-$('#step1_1_next_btn').on('click',function(){ step1_frames_event(2) });
-$('#step1_2_prev_btn').on('click',function(){ step1_frames_event(1) });
-$('#step1_2_next_btn').on('click',function(){ step1_frames_event(3) });
-$('#step1_3_prev_btn').on('click',function(){ step1_frames_event(2) });
-$('#step1_3_gorisk_btn').on('click',function(){ window.location.replace(lang+"/two"); });
+//$('.step1_1_next_btn').on('click',function(e){ e.preventDefault(); step1_frames_event(2) });
+$('body').delegate('.step1_1_next_btn', 'click', function(e) { e.preventDefault(); step1_frames_event(2); });
 
+$('.step1_2_prev_btn').on('click',function(e){  e.preventDefault(); step1_frames_event(1) });
+
+$('.step1_2_next_btn').on('click',function(e){  e.preventDefault(); step1_frames_event(3) });
+
+$('.step1_3_prev_btn').on('click',function(e){  e.preventDefault(); step1_frames_event(2) });
+
+$('.step1_3_gorisk_btn').on('click',function(e){  e.preventDefault(); window.location.href = base_url + lang+"/two"; });
 
 $('#get_sample_data_btn').on('click',function() { 
   
   $.post('reset.php', function() {
-    window.location.replace(lang+"/one");     
+    window.location.href = base_url + lang+"/one";     
   });  
 
 });
@@ -305,7 +320,7 @@ $(document).ready(function() {
 
 
 $("video").bind("ended", function() {
-   window.location.replace(lang+"/load_data");
+   window.location.href = base_url + lang+"/load_data";
 });
 
 $( "#career_info_btn" ).click(function() {
