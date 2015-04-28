@@ -184,7 +184,7 @@
 								$scripts .= $str;
 								// div to hold chart
 								print "<div class='chart'><canvas id='bar_risk_finance'></canvas></div>
-									   <div class='chart_caption'>". $text[2]['2_finance_heading'] ."k</div>";
+									   <div class='chart_caption'>". $text[2]['2_finance_heading'] ."</div>";
 
 							?>
 						</div>
