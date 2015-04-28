@@ -228,11 +228,14 @@ if (isset($_SESSION['dnt_user'])){
 
 							<h4><?php print $text['credits']['1_creators'] ?></h4>
 
-							<p>Owen Mundy, Brett Gaylor, Tim Schwartz, Sébastien Brothier, Christiane Miethge, and Eric Drier</p>
+							<p>Owen Mundy, Brett Gaylor, Tim Schwartz, Sébastien Brothier, Christiane Miethge, Eric Drier, Richard Gutjahr, Margaux Missika, Auriane Meilhon, Maxime Quintard, Nicolas Menetand, and Gregory Trowbridge</p>
+							
+						
+							
+							<a href="https://donottrack-doc.com/<?php print $control['lang'] ?>/credits/">Do Not Track production</a>
+	
 
-							<br>
-
-
+<br><br>
 
 							<h4><?php print $text['credits']['1_predictions'] ?></h4>
 
@@ -247,9 +250,6 @@ if (isset($_SESSION['dnt_user'])){
 							<br>
 
 
-							<h4><?php print $text['credits']['1_thankyou'] ?></h4>
-
-							<p>Richard Gutjahr, Margaux Missika, Auriane Meilhon, Maxime Quintard, Nicolas Menetand, and Gregory Trowbridge</p>
 
 
 						</div>
