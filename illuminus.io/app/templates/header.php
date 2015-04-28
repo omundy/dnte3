@@ -41,7 +41,7 @@
 <!-- CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
-<?php if (!empty($login['static_cache'])): ?>
+<?php if (empty($login['static_cache'])): ?>
     <link href="assets/css/styles.css?t=<?php echo rand(1,1000) ?>" rel="stylesheet">
 <?php else: ?>
     <link href="assets/css/styles.css" rel="stylesheet">
