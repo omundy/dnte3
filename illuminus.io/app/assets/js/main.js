@@ -5,18 +5,14 @@ if (!window.console.log) window.console.log = function () { };
  *	Facebook
  */
 
-console.log('BEFORE FB SDK');
-
 // load the Javascript SDK
 (function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) return;
 	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/'+locale+'/sdk.js";
+	js.src = "//connect.facebook.net/" + locale + "/sdk.js";
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-
-console.log('AFTER FB SDK');
 
 // initialize Facebook
 window.fbAsyncInit = function() {
@@ -54,18 +50,18 @@ function checkLoginStatus(response) {
     if (typeof afterFBInit == 'function')
       afterFBInit(accessToken);
     
-		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
+//		console.log('APP: user='+ userID +' logged in AND has authorized app - accessToken (ends with)='+ accessToken.substr(accessToken.length - 10) +'');
 
 	// not_authorized: Logged into Facebook, but not your app
 	} else if (response.status === 'not_authorized') {
-		console.log('APP: user is logged in BUT has not authorized app');
+//		console.log('APP: user is logged in BUT has not authorized app');
     if (typeof afterFBInit == 'function')    
       afterFBInit();
     
 	// [else]: Not logged into Facebook / can't tell if they are logged into app
 
 	} else {
-		console.log('APP: user is not logged into Facebook');
+//		console.log('APP: user is not logged into Facebook');
     if (typeof afterFBInit == 'function')    
       afterFBInit();
 	}
@@ -79,8 +75,8 @@ function login_user(_scope) {
 		if (response.authResponse) {
 			// redirect
       loadUserData();
-		} else {
-			console.log('APP: User cancelled login or did not fully authorize.');
+//		} else {
+//			console.log('APP: User cancelled login or did not fully authorize.');
 		}
 	}, { scope: _scope });
 }
@@ -94,13 +90,13 @@ function logout_user() {
     hideSpinner();
     
     if (res.success === true) {
-        console.log('APP: app deauthorized');
+//        console.log('APP: app deauthorized');
         window.location.href = base_url + lang+"/zero";
     } else if (res.error) {
-        console.log('APP: res.error');
+//        console.log('APP: res.error');
         console.error('APP: ' + res.error.type + ': ' + res.error.message);
-    } else {
-        console.log('APP: '+res);
+//    } else {
+//        console.log('APP: '+res);
     }
     
 	});
@@ -127,7 +123,7 @@ function loadUserData(at) {
   
   FB.api('/me', d, function(response) {
     
-    console.log(response);
+//    console.log(response);
     
     userData = {};
     userData.gender = response.gender;
@@ -287,15 +283,63 @@ function step1_frames_event(frame) {
 $(document).ready(function() {
   step1_frames_event(1);
 })
+/*
+$('.step1_1_next_btn').on('click',function(e){ e.preventDefault(); step1_frames_event(2) });
+$('.step1_1_next_btn').on('touchstart',function(e){ e.preventDefault(); step1_frames_event(2) });
+*/
+var flag = false;
 
-//$('.step1_1_next_btn').on('click',function(e){ e.preventDefault(); step1_frames_event(2) });
-$('body').delegate('.step1_1_next_btn', 'click', function(e) { e.preventDefault(); step1_frames_event(2); });
+$('.step1_1_next_btn').bind('touchstart click', function(){
+  if (!flag) {
+    flag = true;
+    setTimeout(function(){ flag = false; }, 100);
+    step1_frames_event(2);
+  }
+  return false
+});
 
+//$('body').delegate('.step1_1_next_btn', 'click', function(e) { e.preventDefault(); step1_frames_event(2); });
+/*
 $('.step1_2_prev_btn').on('click',function(e){  e.preventDefault(); step1_frames_event(1) });
+$('.step1_2_prev_btn').on('touchstart',function(e){  e.preventDefault(); step1_frames_event(1) });
+*/
+$('.step1_2_prev_btn').bind('touchstart click', function(){
+  if (!flag) {
+    flag = true;
+    setTimeout(function(){ flag = false; }, 100);
+    step1_frames_event(1);
+  }
+  return false
+});
 
-$('.step1_2_next_btn').on('click',function(e){  e.preventDefault(); step1_frames_event(3) });
+//$('.step1_2_next_btn').on('click',function(e){  e.preventDefault(); step1_frames_event(3) });
+$('.step1_2_next_btn').bind('touchstart click', function(){
+  if (!flag) {
+    flag = true;
+    setTimeout(function(){ flag = false; }, 100);
+    step1_frames_event(3);
+  }
+  return false
+});
 
-$('.step1_3_prev_btn').on('click',function(e){  e.preventDefault(); step1_frames_event(2) });
+//$('.step1_3_prev_btn').on('click',function(e){  e.preventDefault(); step1_frames_event(2) });
+$('.step1_3_prev_btn').bind('touchstart click', function(){
+  if (!flag) {
+    flag = true;
+    setTimeout(function(){ flag = false; }, 100);
+    step1_frames_event(2);
+  }
+  return false
+});
+
+$('.backtovideo_btn').bind('touchstart click', function() {
+  if (!flag) {
+    flag = true;
+    setTimeout(function(){ flag = false; }, 100);
+    parent.resumeVideo();
+  }
+  return false
+});
 
 $('.step1_3_gorisk_btn').on('click',function(e){  e.preventDefault(); window.location.href = base_url + lang+"/two"; });
 
