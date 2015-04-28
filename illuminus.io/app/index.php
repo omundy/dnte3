@@ -824,8 +824,9 @@ if (isset($_SESSION['dnt_user'])){
 										}
 
 
+										/*
 										print " ". $text[1]['1_1_p1_9_neg'];
-
+										
 										// insert NEGATIVE [BIG5 TRAITS]
 										// adding gender specific adjectives
 										if ( isset($user['me']['gender']) && in_array($user['me']['gender'], $genders_female) ){
@@ -833,7 +834,7 @@ if (isset($_SESSION['dnt_user'])){
 										} else {
 											$traits = explode(',',$text['big5'][$key]['opposite_keywords']);
 										}
-
+										
 										
 										for($i=0; $i<count($traits); $i++){
 											print ' <span class="udata">'. $traits[$i] .'</span>';
@@ -841,7 +842,7 @@ if (isset($_SESSION['dnt_user'])){
 												print " ". $text[1]['1_1_p1_9_and'] ." ";
 											}
 										}
-
+										*/
 
 
 
