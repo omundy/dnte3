@@ -19,7 +19,6 @@ $css = '<style scoped media="all" type="text/css">';
 $css .= '#step_'.$control['step'].' { display: block; }';
 
 if($control['player'] == 'yes') {
-	$scripts .= "\n $('.backtovideo_btn').on('click',function(){ parent.resumeVideo() }); \n";
 	$content_col = 12;
 	$css .= '.content-col .inner { margin-top: 0px; }';
 } else {
@@ -84,12 +83,15 @@ print $css . '</style>';
 			</div><!-- /.inner -->
 		</div><!-- /.content-col -->
 
+<script>
+        var locale = '<?php echo get_locale() ?>';
+</script>
+                
 <?php include_once('templates/footer.php'); ?>
 
 <script>
     var app_id = <?php echo $login['app_id'] ?>;
     var api_url = '<?php echo $login['upian_api_url'] ?>';
-    var locale = '<?php echo get_locale() ?>';
     var base_url = '<?php echo $login['base_url'] ?>';
     <?php print $scripts; ?>
 </script>

@@ -136,7 +136,7 @@
 										if ($i < count($traits)-2){
 											print ", ";
 										} else if ($i == count($traits)-2) {
-											print ", and ";
+											print ", ".$text[0]['and']." ";
 										}
 									}
                                     if ($control['lang'] != 'DE')
@@ -155,8 +155,8 @@
 											print ' <span class="udata">'. $like_arr['name'] .'</span>';
 											if ($i < 2){
 												print ", ";
-											} else if ($i < 3){
-												print ", and ";
+											} else if ($i < 3) {
+												print ", ".$text[0]['and']." ";
 											} else {
 												break;
 											}
@@ -211,7 +211,6 @@
 									$str .= ']}]};';
 									$str .= "var ctx = document.getElementById('bar_like_timeline').getContext('2d');
 
-
 											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options);
 											 $('#step1_frame_1').hide();
 											 \n\n\n";
@@ -232,11 +231,9 @@
 
 						</div><!-- row -->
                         
-                        <a class="step1_btn btn btn-custom step1_1_next_btn mobile" href="#"><?php print $text[1]['1_1_p1_next']; ?> 2/3</a>
-
-
-
 						<?php } ?>
+
+                        <a class="step1_btn btn btn-custom step1_1_next_btn mobile"><?php print $text[1]['1_1_p1_next']; ?> 2/3</a>
 
 					</div>
 
@@ -524,6 +521,8 @@
 									<?php if($control['player'] != 'yes'){ ?>
 									<a class="step1_btn btn btn-custom step1_3_gorisk_btn" href="#"><?php print $text[1]['1_3_gorisk_btn']; ?></a>
 									<?php } ?>
+                                    <br />
+                                    <a class="btn btn-custom backtovideo_btn" href="#">► <?php print $text['meta']['resume_video']; ?></a>                                    
 								</div>
 							</div>
 							<div class="col-sm-6 left">
@@ -612,17 +611,22 @@
 									<?php if($control['player'] != 'yes'){ ?>
 									<a class="step1_btn btn btn-custom step1_3_gorisk_btn" href="#"><?php print $text[1]['1_3_gorisk_btn']; ?></a>
 									<?php } ?>
+                                    <br>
+                                    <a class="btn btn-custom backtovideo_btn" href="#">► <?php print $text['meta']['resume_video']; ?></a>
 								</div>                            
+
 
 						</div>
 
-                        <a class="btn btn-custom backtovideo_btn" href="#">► <?php print $text['meta']['resume_video']; ?></a>
+
 
 					</div>
 					<script> 
+                    /*
                         $(document).ready(function() {
                             $(window).trigger('resize');
                         })
+                    */
                      </script>
 
 
