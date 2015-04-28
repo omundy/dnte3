@@ -32,7 +32,8 @@ if($control['player'] == 'yes'){
 print $css . '</style>';
 
 
-
+$genders_male = array('homme', 'mänlich', 'male', 'homme');
+$genders_female = array('femme', 'weiblich', 'female', 'femme');
 
 
 
@@ -487,7 +488,12 @@ if (isset($_SESSION['dnt_user'])){
 									print " ". $text[1]['1_1_p1_9_pos'];
 
 									// insert [BIG5 TRAITS]
-									$traits = explode(',',$text['big5'][$big5_highest]['keywords']);
+									// adding gender specific adjectives
+									if ( isset($user['me']['gender']) && in_array($user['me']['gender'], $genders_female) ){
+										$traits = explode(',',$text['big5'][$big5_highest]['keywords_F']);
+									} else {
+										$traits = explode(',',$text['big5'][$big5_highest]['keywords']);
+									}
 									for($i=0; $i<count($traits); $i++){
 										print ' <span class="udata">'. $traits[$i] .'</span>';
 										if ($i < count($traits)-2){
@@ -804,7 +810,12 @@ if (isset($_SESSION['dnt_user'])){
 
 
 										// insert POSITIVE [BIG5 TRAITS]
-										$traits = explode(',',$text['big5'][$key]['keywords']);
+										// adding gender specific adjectives
+										if ( isset($user['me']['gender']) && in_array($user['me']['gender'], $genders_female) ){
+											$traits = explode(',',$text['big5'][$key]['keywords_F']);
+										} else {
+											$traits = explode(',',$text['big5'][$key]['keywords']);
+										}
 										for($i=0; $i<count($traits); $i++){
 											print ' <span class="udata">'. $traits[$i] .'</span>';
 											if ($i < count($traits)-2){
@@ -818,7 +829,14 @@ if (isset($_SESSION['dnt_user'])){
 										print " ". $text[1]['1_1_p1_9_neg'];
 
 										// insert NEGATIVE [BIG5 TRAITS]
-										$traits = explode(',',$text['big5'][$key]['opposite_keywords']);
+										// adding gender specific adjectives
+										if ( isset($user['me']['gender']) && in_array($user['me']['gender'], $genders_female) ){
+											$traits = explode(',',$text['big5'][$key]['opposite_keywords_F']);
+										} else {
+											$traits = explode(',',$text['big5'][$key]['opposite_keywords']);
+										}
+
+										
 										for($i=0; $i<count($traits); $i++){
 											print ' <span class="udata">'. $traits[$i] .'</span>';
 											if ($i == count($traits)-2){

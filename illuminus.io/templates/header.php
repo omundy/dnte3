@@ -7,8 +7,27 @@
 
 <!-- meta -->
 <title><?php print $text['homepage']['title'] ?></title>
-<meta name="description" content="illuminus.io - Unlocking the power of you">
+<meta name="keywords" content="Illuminus, you, Facebook, data, Do Not Track">
+<meta name="description" content="<?php print $text['homepage']['title'] ?>">
 <meta name="author" content="Produced in association with Do Not Track">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@illuminus_io">
+<meta name="twitter:title" content="<?php print $text['homepage']['title'] ?>">
+<meta name="twitter:description" content="<?php print $text['homepage']['title'] ?>">
+<meta name="twitter:creator" content="@illuminus_io">
+<meta name="twitter:image" content="https://illuminus.io/app/assets/img/illuminus_share_card">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="<?php print $text['homepage']['title'] ?>" />
+<meta property="og:description" content="<?php print $text['homepage']['title'] ?>" /> 
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<?php print $control['url']; ?>" />
+<meta property="og:image" content="https://illuminus.io/app/assets/img/illuminus_share_card" />
+<meta property="og:site_name" content="Illuminus" />
+<meta property="fb:app_id" content="761116317308745" />
+
 <link rel="apple-touch-icon" sizes="57x57" href="<?php print $control['baseurl'] ?>app/assets/img/icons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="<?php print $control['baseurl'] ?>app/assets/img/icons/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="<?php print $control['baseurl'] ?>app/assets/img/icons/apple-icon-72x72.png">
@@ -31,14 +50,6 @@
 <link href="<?php print $control['baseurl'] ?>app/assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php print $control['baseurl'] ?>app/assets/css/font-awesome.min.css" rel="stylesheet">
 <link href="<?php print $control['baseurl'] ?>app/assets/css/styles.css?r=<?php print rand(0,100); ?>" rel="stylesheet">
-
-<!-- FB -->
-<meta property="og:title" content="Illuminus - Find out what we already know about you" />
-<meta property="og:site_name" content="Illuminus"/>
-<meta property="og:url" content="<?php print $control['url']; ?>" />
-<meta property="og:description" content="" />
-<meta property="fb:app_id" content="761116317308745" />
-<meta property="og:type" content="website" />
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
