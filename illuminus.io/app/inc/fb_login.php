@@ -126,6 +126,8 @@ if ( $control['step'] == 'load_data_sample') {
 
     	$json = file_get_contents('inc/default_session_user_'.$control['lang'].'.json');
     	$user = (Array)json_decode($json,true);
+        if (isset($_SESSION['dnt_user']['err']))
+            $user['err'] = $_SESSION['dnt_user']['err'];
 
 		$control['dnt_user_session'] = 'previous dnt_user session NOT FOUND';
         $control['data_set'] = 'sample';
