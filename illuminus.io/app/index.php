@@ -90,6 +90,7 @@ print $css . '</style>';
     var app_id = <?php echo $login['app_id'] ?>;
     var api_url = '<?php echo $login['upian_api_url'] ?>';
     var locale = '<?php echo get_locale() ?>';
+    var base_url = '<?php echo $login['base_url'] ?>';
     <?php print $scripts; ?>
 </script>
 <?php

@@ -172,8 +172,8 @@
 
 								?>
 
-								<div><br>
-									<button class="step1_btn btn btn-custom" id="step1_1_next_btn"><?php print $text[1]['1_1_p1_next']; ?> 2/3</button>
+								<div class="not-mobile"><br>
+									<a class="step1_btn btn btn-custom step1_1_next_btn" href="#"><?php print $text[1]['1_1_p1_next']; ?> 2/3</a>
 								</div>
 
 							</div>
@@ -231,6 +231,8 @@
 
 
 						</div><!-- row -->
+                        
+                        <a class="step1_btn btn btn-custom step1_1_next_btn mobile" href="#"><?php print $text[1]['1_1_p1_next']; ?> 2/3</a>
 
 
 
@@ -325,8 +327,10 @@
 
 							<div>
                                 <br>
-								<button class="step1_btn btn btn-custom" id="step1_2_next_btn"><?php print $text[1]['1_2_p1_next']; ?> 3/3</button><br/>
-								<button class="back_btn btn btn-custom" id="step1_2_prev_btn"><?php print $text[1]['1_2_p1_back']; ?></button>                                
+                                <div class="not-mobile">
+    								<a class="step1_btn btn btn-custom step1_2_next_btn" href="#"><?php print $text[1]['1_2_p1_next']; ?> 3/3</a><br/>
+    								<a class="back_btn btn btn-custom step1_2_prev_btn" href="#"><?php print $text[1]['1_2_p1_back']; ?></a>                                
+                                </div>
 							</div>
 
 
@@ -382,6 +386,12 @@
 								?>
 
 							</div>
+                            
+                            <div class="mobile">
+								<a class="step1_btn btn btn-custom step1_2_next_btn" href="#"><?php print $text[1]['1_2_p1_next']; ?> 3/3</a><br/>
+								<a class="back_btn btn btn-custom step1_2_prev_btn" href="#"><?php print $text[1]['1_2_p1_back']; ?></a>                                
+                            </div>                            
+                            
 						</div>
 
 					</div>
@@ -509,10 +519,10 @@
 
 
 
-								<div><br>
-									<button class="back_btn btn btn-custom" id="step1_3_prev_btn"><?php print $text[1]['1_2_p2_back']; ?></button>
+								<div class="not-mobile"><br>
+									<a class="back_btn btn btn-custom step1_3_prev_btn" href="#"><?php print $text[1]['1_2_p2_back']; ?></a>
 									<?php if($control['player'] != 'yes'){ ?>
-									<button class="step1_btn btn btn-custom" id="step1_3_gorisk_btn"><?php print $text[1]['1_3_gorisk_btn']; ?></button>
+									<a class="step1_btn btn btn-custom step1_3_gorisk_btn" href="#"><?php print $text[1]['1_3_gorisk_btn']; ?></a>
 									<?php } ?>
 								</div>
 							</div>
@@ -596,12 +606,24 @@
 
 
 							</div>
+                            
+								<div class="mobile"><br>
+									<a class="back_btn btn btn-custom step1_3_prev_btn" href="#"><?php print $text[1]['1_2_p2_back']; ?></a>
+									<?php if($control['player'] != 'yes'){ ?>
+									<a class="step1_btn btn btn-custom step1_3_gorisk_btn" href="#"><?php print $text[1]['1_3_gorisk_btn']; ?></a>
+									<?php } ?>
+								</div>                            
 
 						</div>
 
+                        <a class="btn btn-custom backtovideo_btn" href="#">► <?php print $text['meta']['resume_video']; ?></a>
 
 					</div>
-					<script>  </script>
+					<script> 
+                        $(document).ready(function() {
+                            $(window).trigger('resize');
+                        })
+                     </script>
 
 
 					<?php } else {
