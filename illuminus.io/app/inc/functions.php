@@ -109,7 +109,7 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 
 
 
-			if ( $user['gender'] === 'male' ){
+			if ( in_array($user['gender'], array('male', 'homme', 'männlich') ) ) {
 				if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
 					// greatly contributed
 					print ' <span style="color: '. get_risk_color(.7) .'">'. $text[2]['eval_risk_overview_adj_1_1'] .'</span> ';
@@ -120,8 +120,8 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 					// did not contribute
 					print ' <span style="color: '. get_risk_color(.2) .'">'. $text[2]['eval_risk_overview_adj_1_3'] .'</span> ';
 				}
-			} else if ($user['gender'] == 'female'){
-				if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance'){
+			} else if ( in_array($user['gender'], array('female', 'femme', 'weiblich') ) ) {
+				if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance') {
 					// greatly contributed
 					print ' <span style="color: '. get_risk_color(.7) .'">'. $text[2]['eval_risk_overview_adj_1_1'] .'</span> ';
 				} else if ( $overall_domain_risk > .3) {
@@ -143,7 +143,7 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 
 
 			// financial - men
-			if ( strtolower($risk_name) == 'financial' && $user['gender'] === 'male' ){
+			if ( strtolower($risk_name) == 'financial' && $user['gender'] === 'male' ) {
 				// Men reported significantly greater risk taking than women in the overall risk-taking scale
 				print ' '. $text[2]['eval_risk_overview_3_1'];
 			}

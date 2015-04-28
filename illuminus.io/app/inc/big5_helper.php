@@ -120,11 +120,11 @@ function compute_risk($big5_result, $big5_risk, $options='', $g='', $age=0){
 			}
 			
 			// calc user risk AND gender for logged in user
-			if ( $g === 'male' ){
+			if ( in_array($g, array('male', 'homme', 'männlich')) ) {
 				if ($risk_name == 'Recreation' || $risk_name == 'Health' || $risk_name == 'Safety' || $risk_name == 'Overall'){
 					$risk_score *= 1.5; 
 				}
-			} else if ($g == 'female'){
+			} else if (in_array($g, array('female', 'femme', 'weiblich') ) ) {
 				if ($risk_name == 'Career' || $risk_name == 'Social' || $risk_name == 'Finance') {
 					$risk_score *= 1.5; 
 				}
