@@ -32,6 +32,9 @@ function get_locale() {
         case 'FR':
             $locale = 'fr_FR';
             break;
+        case 'CA':
+            $locale = 'fr_CA';
+            break;            
         case 'DE':
             $locale = 'de_DE';
             break;

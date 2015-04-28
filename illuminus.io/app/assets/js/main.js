@@ -383,18 +383,39 @@ function effectiveDeviceWidth() {
     return deviceWidth;
 }
 
+/*
+function refreshGraphs() {
+  
+  if (typeof bar_like_timeline != 'undefined') {
+    bar_like_timeline.resize();
+    donut_like_category.resize();
+    radar_big5.resize();
+  }
+  
+}
+*/
+
 $(document).ready(function() {
 
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+//  if (true) {
 
     $('html').width((effectiveDeviceWidth()-20) + 'px');
+    
+//    refreshGraphs();
   
     window.addEventListener("orientationchange", function() {
       $('html').width((effectiveDeviceWidth()-20) + 'px');
+      
+//      refreshGraphs();      
+
     }, false);  
   
     window.addEventListener("resize", function() {
       $('html').width((effectiveDeviceWidth()-20) + 'px');
+      
+//      refreshGraphs();
+            
     }, false);
     
   }
