@@ -17,4 +17,8 @@
         else
             gotoFirstScreen();
     }
+    
+    $(document).ready(function() {
+        setTimeout(gotoFirstScreen, 3000);
+    })
 </script>
