@@ -89,7 +89,7 @@ $text = array(
         '1_2_p2_back' => 'Retour à l\'analyse de likes',
 		'1_2_p1_next' => 'Voir l\'analyse de personnalité',
 		'1_2_chartcaption' => 'Découpage de likes',
-        '1_2_other' => 'Other',        
+        '1_2_other' => 'Autres',        
 		
 
 		// page 3
@@ -100,7 +100,7 @@ $text = array(
 		// insert [BIG5 CATEGORY]
 		'1_3_3' => 'et',
 		// insert [BIG5 CATEGORY]
-		'1_3_chartcaption' => 'Représentation de vos cinq traits de personnalités',
+		'1_3_chartcaption' => 'Représentation de vos cinq traits de personnalité',
 		'1_3_click_on_risk' => 'Cliquez sur l\'une des évaluations de risques pour découvrir comment vos données peuvent être utilisés pour déterminer vos risques potentiels.',
 		'1_3_gorisk_btn' => 'Accédez à votre évaluation de risques.',
 	),
@@ -112,7 +112,7 @@ $text = array(
 	array(
 
 		'2_heading' => 'Évaluation du risque financier',
-		'2_1' => 'À partir de vos traits de caractères tels que déterminés par vos données Facebook et selon les recherches scientifiques publiées dans le <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>, notre algorithme a déterminé',
+		'2_1' => 'À partir de vos traits de caractère tels que déterminés par vos données Facebook et selon les recherches scientifiques publiées dans le <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a>, notre algorithme a déterminé',
 		// good || mediocre || unreliable
 		'2_2_unreliable' => 'que vous êtiez trop peu fiable pour obtenir un prêt bancaire',
 		'2_2_mediocre' => 'que vous seriez jugé médiocre candidat à l\'obtention d\'un prêt bancaire',

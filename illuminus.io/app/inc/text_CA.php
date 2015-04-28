@@ -56,7 +56,7 @@ $text = array(
 		'1_1_p1_6' => 'Mais ce sont les données accumulées sur vous par Facebook au fil des années qui sont la véritable mine d\'informations.',
 		'1_1_p1_7' => 'En étudiant les ',
 		// insert [NUMBER OF LIKES]
-		'1_1_p1_8' => 'éléments que vous avez likés sur Facebook, notre algorithme a analysé votre personnalité et déterminé que votre trait le plus marqué est ',
+		'1_1_p1_8' => 'éléments que vous avez aimés sur Facebook, notre algorithme a analysé votre personnalité et déterminé que votre trait le plus marqué est ',
 		// insert [BIG5 CATEGORIES]
 		'1_1_p1_9_pos' => 'ce qui indique chez vous une tendance à être',
 		'1_1_p1_9_and' => 'et',
@@ -67,35 +67,35 @@ $text = array(
 		'1_1_p1_10' => 'Notre évaluation prédictive de la personnalité à partir de caractéristiques psycho-démographiques utilise l\'API <a href="http://applymagicsauce.com/" target="_blank">Apply Magic Sauce</a> développée au <a href="http://www.psychometrics.cam.ac.uk/" target="_blank">centre de psychométrie de l\'université de Cambridge</a>.', 
 		'1_1_p1_11' => 'Cela va peut-être vous surprendre mais votre intérêt pour', 
 		// [likes]
-		'1_1_p1_12' => 'nous a aidé à déterminer qui vous étiez véritablement. Même si ce ne sont pas les seules choses que vous avez likées.', 
-		'1_1_p1_next' => 'Voir l\'analyse de Likes',
-		'1_1_chartcaption' => 'Répartition de vos Likes par année',
+		'1_1_p1_12' => 'nous a aidé à déterminer qui vous étiez véritablement. Même si ce ne sont pas les seules choses que vous avez aimées.', 
+		'1_1_p1_next' => 'Voir l\'analyse de «J\'aime»',
+		'1_1_chartcaption' => 'Répartition de vos «J\'aime» par année',
 		
 		// [error]
 		'1_1_not_connected' => "Vous n'êtes pas connecté avec votre compte Facebook. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
 		'1_1_no_permission' => "L’application n’ayant pas obtenu l’autorisation de se connecter à votre compte Facebook, nous n’avons pas pu récupérer vos données. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
-		'1_1_no_likes' => "Vous n'avez pas suffisamment de \"likes\" sur Facebook. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
-		'1_1_no_magic_sauce' => "Le nombre de vos Likes sur Facebook est malheureusement insuffisant pour qu’une comparaison avec la base de données de l’API Apply Magic Sauce soit pertinente. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
+		'1_1_no_likes' => "Vous n'avez pas suffisamment de «J\'aime» sur Facebook. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
+		'1_1_no_magic_sauce' => "Le nombre de vos «J\'aime» sur Facebook est malheureusement insuffisant pour qu’une comparaison avec la base de données de l’API Apply Magic Sauce soit pertinente. Illuminus va poursuivre en utilisant les données du compte Facebook de Richard.",
 		
 		// page 2
-		'1_2_heading' => 'Analyse de Likes 2/3',
+		'1_2_heading' => 'Analyse de «J\'aime» 2/3',
 		'1_2_subheading' => 'Découpage par catégories',
-		'1_2_p1_1' => 'Le graphique ci-contre est une représentation de vos Likes sur Facebook triés par centres d\'intérêt. Passez votre souris sur le graphe pour les afficher. Vos centres d\'intérêt, notamment les principaux comme',
+		'1_2_p1_1' => 'Le graphique ci-contre est une représentation de vos «J\'aime» sur Facebook triés par centres d\'intérêt. Passez votre souris sur le graphique pour les afficher. Vos centres d\'intérêt, notamment les principaux comme',
 		'1_2_p1_2' => 'et',
 		'1_2_p1_3' => ', servent à vous cibler et à déterminer quel type de publicité vous sera présenté.', 
 		'1_2_p1_4' => 'Cliquez sur le bouton ci-dessous pour analyser vos données Facebook au moyen d\'un algorithme de mesure de vos traits de caractère.',
 
 		'1_2_p1_back' => 'Retour à l\'analyse personnelle',
-        '1_2_p2_back' => 'Retour à l\'analyse de likes',
+        '1_2_p2_back' => 'Retour à l\'analyse de «J\'aime»',
 		'1_2_p1_next' => 'Analyse de personnalité',
-		'1_2_chartcaption' => 'Découpage de likes',
-        '1_2_other' => 'Other',        
+		'1_2_chartcaption' => 'Découpage de «J\'aime»',
+        '1_2_other' => 'Autres',        
 		
 
 		// page 3
 		'1_3_heading' => 'Analyse de personnalité 3/3',
 		'1_3_subheading' => ' ',
-		'1_3_1' => 'Les psychologues estiment que le caractère de chaque être humain est composé de ces cinq traits de personnalité, les <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five</a> : l\'extraversion, l\'ouverture à de nouvelles expériences, la conscienciosité, l\'agréabilité, et le névrosisme. Une personne qui aura un grand score sur l\'échelle de l\'extraversion sera par exemple très ouverte aux autres, amicale et active. Celles avec un score de conscienciosité élevé sont organisées, responsables et travailleuses.',
+		'1_3_1' => 'Les psychologues estiment que le caractère de chaque être humain est composé de ces cinq traits de personnalité, les <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Big Five</a> : l\'extraversion, l\'ouverture à de nouvelles expériences, la conscienciosité, l\'agréabilité, et le névrosisme. Une personne qui aura un grand score sur l\'échelle de l\'extraversion sera par exemple très ouverte aux autres, amicale et active. Celles avec un score de conscienciosité élevé sont organisées, responsables et travaillantes.',
 		'1_3_2' => 'Après analyse de vos données, nous avons déterminé que vos deux traits principaux sont :',
 		// insert [BIG5 CATEGORY]
 		'1_3_3' => 'et',
@@ -381,8 +381,8 @@ URL de support technique <a href="https://hub.donottrack-doc.com/ca/about/">http
 		),
 		'Conscientiousness' => array(
 			'name' => 'la conscienciosité',
-			'keywords' => 'organisé, responsable, travailleur',
-			'keywords_F' => 'organisée, responsable, travailleuse',
+			'keywords' => 'organisé, responsable, travaillant',
+			'keywords_F' => 'organisée, responsable, travaillante',
 			'opposite' => 'impulsivité',
 			'opposite_keywords' => 'peu fiable, impulsif',
 			'opposite_keywords_F' => 'peu fiable, impulsive',

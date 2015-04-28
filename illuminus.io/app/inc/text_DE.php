@@ -58,7 +58,7 @@ $text = array(
 		// insert [NUMBER OF LIKES]
 		'1_1_p1_8' => 'Likes auf Facebook ausgewertet und so dank fortschrittlicher Algorithmen Aufschlüsse über Ihren Charakter erhalten. Den höchsten Wert haben Sie in der Kategorie ',
 		// insert [BIG5 CATEGORIES]
-		'1_1_p1_9_pos' => ', was darauf schließen lässt, dass Sie',
+		'1_1_p1_9_pos' => ', Sie sind also wahrscheinlich',
 		'1_1_p1_9_and' => 'und',
 		'1_1_p1_9_neg' => 'sind, aber auch',
 		
@@ -80,7 +80,7 @@ $text = array(
 		// page 2
 		'1_2_heading' => 'Likes Analyse 2/3',
 		'1_2_subheading' => 'Kategorisierte Anordnung',
-		'1_2_p1_1' => ' in diesem Kreisdiagramm haben wir Ihre Interessen auf Facebook dargestellt. Bewegen Sie Ihre Maus über das Diagramm, um die Kategorie zu sehen. Diese Interessen, insbesondere die mit dem größten Anteil, wie',
+		'1_2_p1_1' => ' in diesem Kreisdiagramm haben wir Ihre Interessen auf Facebook dargestellt. Bewegen Sie Ihre Maus über das Diagramm, um die Kategorie zu sehen. Diese Interessen, insbesondere die mit dem größten Anteil wie',
 		'1_2_p1_2' => 'und',
 		'1_2_p1_3' => 'werden genutzt, um Sie immer wieder neu in bestimmte Kategorien einzusortieren und Ihnen so passende Werbung zu zeigen.', 
 		'1_2_p1_4' => 'Als nächstes werden die Daten, die Sie auf Facebook gespeichert haben, mit Hilfe eines Algorithmus analysiert und auf diese Weise Ihre Charaktereigenschaften ausgewertet.',
@@ -89,7 +89,7 @@ $text = array(
         '1_2_p2_back' => 'Zurück zur Gefällt mir Analyse',
 		'1_2_p1_next' => 'zum Persönlichkeitsprofil',
 		'1_2_chartcaption' => 'Ihre Likes in Kategorien unterteilt',
-        '1_2_other' => 'Other',         
+        '1_2_other' => 'Anderes',         
 		
 
 		// page 3
@@ -111,7 +111,7 @@ $text = array(
 	// step 2 - Financial Risk Evaluation
 	array(
 
-		'2_heading' => 'Einschätzung des finanziellen Risikos',
+		'2_heading' => 'Einschätzung der finanziellen Risikobereitschaft',
 		'2_1' => 'Unser Algorithmus hat aufgrund der Bewertung Ihrer Persönlichkeit, die sich aus Ihren Facebook-Daten ergeben hat, und einer wissenschaftliche Studie, die im <a href="http://dx.doi.org/10.1080/1366987032000123856" target="_blank">Journal of Risk Research</a> veröffentlicht wurde, ergeben,',
 		// good || mediocre || unreliable
 		'2_2_unreliable' => 'dass Sie ein unzuverlässiger Kreditnehmer wären',
@@ -121,11 +121,11 @@ $text = array(
 		// eval_risk()
 		'eval_risk_1' => 'Ihre hohe Bewertung in der Kategorie',
 		'eval_risk_2' => 'zeigt an, dass Sie',
-		'eval_risk_3' => 'häufig riskante',
+		'eval_risk_3' => 'riskante',
 		'eval_risk_4' => 'Entscheidungen treffen.',
 		
 		// career
-		'2_career_heading' => 'Ihre berufliche Risikobereitschaft ist',
+		'2_career_heading' => 'Ihre berufliche Risikobereitschaft',
 		'2_career_risk_eg' => 'z. B. eine Anstellung kündigen, ohne bereits eine neue gefunden zu haben',
 		
 		'2_career_risk_more' => 'Mehr über Ihre berufliche Risikobereitschaft',
@@ -143,7 +143,7 @@ $text = array(
 		'eval_risk_overview_2' => 'Geschlecht',
 		// adjectives
 		'eval_risk_overview_adj_1_1' => 'sehr',
-		'eval_risk_overview_adj_1_2' => 'eher',
+		'eval_risk_overview_adj_1_2' => 'ein bißchen',
 		'eval_risk_overview_adj_1_3' => 'nicht',
 		'eval_risk_overview_3' => 'zur Einschätzung Ihrer Risikobereitschaft beigetragen.',
 		
@@ -158,7 +158,7 @@ $text = array(
 		'eval_risk_overview_age_1' => 'Ihr',
 		'eval_risk_overview_age_2' => 'Alter hat',
 		'eval_risk_overview_age_2_greatly' => 'sehr',
-		'eval_risk_overview_age_2_likely' => 'eher',
+		'eval_risk_overview_age_2_likely' => 'ein bißchen',
 		'eval_risk_overview_age_2_didnot' => 'nicht',
 		'eval_risk_overview_age_3' => 'zu Ihrer Risikoeinschätzung beigetragen.',
 		'eval_risk_overview_age_4' => 'Die Bereitschaft, ein Risiko einzugehen, sinkt in allen Kategorien mit zunehmendem Alter',
@@ -212,7 +212,7 @@ $text = array(
 		'nav_footer_link_privacy' => 'Datenschutz',
 		'nav_footer_link_credits' => 'Abspann',
 		'nav_footer_link_logout' => 'Abmelden',
-		'risk_words' => array('gering','mäßig','beträchtlich','stark','extrem'),
+		'risk_words' => array('selten','machmal','oft','sehr oft','extrem oft'),
 		'resume_video' => 'Zurück zum Video',
 		'alt_data_heading' => 'Ups!',
 		'alt_data_p1' => 'Beim Zugriff auf Ihre Facebook-Daten ist ein Fehler aufgetreten. Es scheint, ',
