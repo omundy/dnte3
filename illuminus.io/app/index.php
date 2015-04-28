@@ -47,8 +47,6 @@ $genders_female = array('femme', 'weiblich', 'female', 'femme');
 			<div class="inner">
 
 
-
-
 				<?php if($control['player'] == 'yes'){ ?>
 				<div class="row">
 					<div class="col-sm-10 ">
@@ -1178,7 +1176,7 @@ function eval_risk_overview($risk_name, $overall_domain_risk){
 
 
 
-function eval_risk($risk_name){
+function eval_risk($risk_name,$eg,$adj){
 
 	global $user, $control, $text;
 
@@ -1191,8 +1189,17 @@ function eval_risk($risk_name){
 	if ($risk_level > 13) $risk_level = 13;
 
 	if ( floor($arr[$keys[0]] * 10) > 4 ) print '<img src="'. $control['baseurl'] .'assets/img/warning_risk_'. $risk_level .'.png" style="height:22px; margin-right:5px">';
+/*
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=286500671396775";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-
+*/
 	// Your high scores in
 	print $text[2]['eval_risk_1']. ' ';
 	// this one colors the words
@@ -1213,7 +1220,25 @@ function eval_risk($risk_name){
 	print strtolower($risk_name);
 	// decisions
 	print ' '. $text[2]['eval_risk_4'] .' ';
+
+	// e.g.
+	print '(<em>'. $eg .'</em>). ';
+	
+	// social
+	print '<span style="display:inline-block">';
+	
+	print '<div style="vertical-align:9px; margin-right:8px;" class="fb-like" data-href="https://illuminus.io/app" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>';
+		
+	print ' <a class="twitter-share-button" href="https://twitter.com/intent/tweet?button_hashtag=donottrack&text=Your Facebook data indicates '. $text['meta']['risk_words'][$r] .' potential for risky '. $adj .' decisions http://illuminus.io/app @illuminus_io" >';
+	print '</a></span>';
+	
+	
 }
+
+
+	
+
+
 
 
 ?>
@@ -1279,7 +1304,7 @@ function eval_risk($risk_name){
 
 							<h4><?php print $text[2]['2_career_heading'] ?> </h4>
 
-							<p><?php eval_risk('Career'); ?> (<em><?php print $text[2]['2_career_risk_eg'] ?></em>).</p>
+							<p><?php eval_risk('Career', $text[2]['2_career_risk_eg'], 'career'); ?></p>
 
 
 							<?php /*
@@ -1349,7 +1374,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[2]['2_finance_heading'] ?></h4>
-							<p><?php eval_risk('Finance'); ?> (<em><?php print $text[2]['2_finance_risk_eg'] ?></em>).</p>
+							<p><?php eval_risk('Finance', $text[2]['2_finance_risk_eg'], 'financial') ?></p>
 
 
 						</div>
@@ -1411,7 +1436,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[2]['2_social_heading'] ?></h4>
-							<p><?php eval_risk('Social'); ?> (<em><?php print $text[2]['2_social_risk_eg'] ?></em>).</p>
+							<p><?php eval_risk('Social', $text[2]['2_social_risk_eg'], 'social') ?></p>
 
 
 						</div>
@@ -1567,7 +1592,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[3]['3_health_heading'] ?></h4>
-							<p><?php eval_risk('Health'); ?> (<em><?php print $text[3]['3_health_risk_eg'] ?></em>).</p>
+							<p><?php eval_risk('Health', $text[3]['3_health_risk_eg'], 'health') ?></p>
 
 
 						</div>
@@ -1637,7 +1662,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[3]['3_safety_heading'] ?></h4>
-							<p><?php eval_risk('Safety'); ?> (<em><?php print $text[3]['3_safety_risk_eg'] ?></em>).</p>
+							<p><?php eval_risk('Safety', $text[3]['3_safety_risk_eg'], 'safety') ?></p>
 
 
 						</div>
@@ -1702,7 +1727,7 @@ function eval_risk($risk_name){
 
 
 							<h4><?php print $text[3]['3_recreation_heading'] ?></h4>
-							<p><?php eval_risk('Recreation'); ?> (<em><?php print $text[3]['3_recreation_risk_eg'] ?></em>).</p>
+							<p><?php eval_risk('Recreation', $text[3]['3_recreation_risk_eg'], 'recreational') ?></p>
 
 
 						</div>
@@ -1760,6 +1785,12 @@ function eval_risk($risk_name){
 						</div>
 					</div>
 
+					<div class="row">
+						<div class="col-sm-12">
+							<br><br><p>Intrigued? <button class="btn btn-custom" onclick="location.href='https://episode3.donottrack-doc.com/'">Learn more about the science behind Illuminus in Episode 3 of Do Not Track</button></p>
+
+						</div>
+					</div>
 
 
 
@@ -1967,6 +1998,11 @@ $("video").bind("ended", function() {
 
 
 </script>
+
+<script>
+window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+</script>
+
 
 <?php
 $path_to_stats = $control['baseurl'] .'inc/stats/';

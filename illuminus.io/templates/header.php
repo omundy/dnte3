@@ -24,7 +24,7 @@
 <meta property="og:description" content="<?php print $text['homepage']['title'] ?>" /> 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php print $control['url']; ?>" />
-<meta property="og:image" content="https://illuminus.io/app/assets/img/illuminus_share_card" />
+<meta property="og:image" content="https://illuminus.io/app/assets/img/illuminus_share_card.png" />
 <meta property="og:site_name" content="Illuminus" />
 <meta property="fb:app_id" content="761116317308745" />
 
