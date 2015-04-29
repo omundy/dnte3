@@ -209,9 +209,11 @@
 										$delimiter = ', ';
 									}
 									$str .= ']}]};';
-									$str .= "var ctx = document.getElementById('bar_like_timeline').getContext('2d');
+									$str .= "
+//                                        var ctx = document.getElementById('bar_like_timeline').getContext('2d');
 
-											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options);
+//											 var bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, //bar_chart_options);
+                                        var bar_like_timeline = null;
 											 $('#step1_frame_1').hide();
 											 \n\n\n";
 
@@ -368,8 +370,9 @@
 
 
 									$str .= "\n
-											var donut_chart = document.getElementById('donut_like_category').getContext('2d');
-											var donut_like_category = new Chart(donut_chart).Doughnut(donut_like_category_data, pie_chart_options);
+//											var donut_chart = //document.getElementById('donut_like_category').getContext('2d');
+//											var donut_like_category = new //Chart(donut_chart).Doughnut(donut_like_category_data, pie_chart_options);
+                                            var donut_like_category = null;
 											$('#step1_frame_2').hide();
 											\n\n";
 
@@ -587,8 +590,13 @@
 											radar_chart_options.scaleStartValue = 0;
 											//radar_big5_data.datasets[0].fillColor = 'rgba(255,255,255,.3)';
 
-											var ctx = document.getElementById('radar_big5').getContext('2d');
-											var radar_big5 = new Chart(ctx).Radar(radar_big5_data, radar_chart_options);
+//											var ctx = document.getElementById('radar_big5').getContext('2d');
+//											var radar_big5 = new Chart(ctx).Radar(radar_big5_data, radar_chart_options);
+                                            var radar_big5 = null;
+//                                            $(document).ready(function() {
+//                                                drawGraphs();
+//                                            });
+                                            
 											$('#step1_frame_3').hide();
 											\n\n";
 

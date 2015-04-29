@@ -269,15 +269,29 @@ function checkLoginState() {
 	});
 }
 
+var currentFrame = -1;
 function step1_frames_event(frame) {
-	// hide
-	for(var i=1; i<=3; i++) {
-		$('#step1_frame_'+i).hide()
-	}
+
 	if (!frame) {
 		frame = 1;
 	}
-	$('#step1_frame_'+frame).show();
+  
+  currentFrame = frame;
+
+	// hide
+	for(var i=1; i<=3; i++) {
+    if (i != frame)
+      $('#step1_frame_'+i).hide(0);
+	}
+
+	$('#step1_frame_'+frame).show(1, function() {
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+      $(document).scrollTop();
+    }
+    drawGraph(frame);	  
+	});
+
 }
 
 $(document).ready(function() {
@@ -383,6 +397,56 @@ function effectiveDeviceWidth() {
     return deviceWidth;
 }
 
+function drawGraph(id) {
+  
+  if (id < 1)
+    return;
+  
+  if (id == 1) {
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {    
+      $("#bar_like_timeline").replaceWith("<canvas id='bar_like_timeline' style='width:100%;'></canvas>");
+    } else {
+      $("#bar_like_timeline").replaceWith("<canvas id='bar_like_timeline' style='width:400px; height:300px;'></canvas>");      
+    }
+    var ctx = document.getElementById('bar_like_timeline').getContext('2d');
+    bar_like_timeline = new Chart(ctx).Bar(bar_like_timeline_data, bar_chart_options);
+
+  } else if (id == 2) {
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {    
+      $("#donut_like_category").replaceWith("<canvas id='donut_like_category' style='width:100%;'></canvas>");
+    } else {
+      $("#donut_like_category").replaceWith("<canvas id='donut_like_category' style='width:400px; height:400px;'></canvas>");      
+    }
+  	var donut_chart = document.getElementById('donut_like_category').getContext('2d');
+    donut_like_category = new Chart(donut_chart).Doughnut(donut_like_category_data, pie_chart_options);
+    
+  } else if (id == 3) {
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {    
+      $("#radar_big5").replaceWith("<canvas id='radar_big5' style='width:100%;'></canvas>");
+    } else {
+      $("#radar_big5").replaceWith("<canvas id='radar_big5' style='width:400px; height:400px;'></canvas>"); 
+    }
+  	var ctx = document.getElementById('radar_big5').getContext('2d');
+    radar_big5 = new Chart(ctx).Radar(radar_big5_data, radar_chart_options);
+    
+  }
+  
+}
+
+function drawGraphs() {
+  
+  console.log('DRAW GRAPHS');
+  
+  
+  
+
+  console.log('AFTER DRAW GRAPHS');  
+}
+
+
 /*
 function refreshGraphs() {
   
@@ -406,7 +470,8 @@ $(document).ready(function() {
   
     window.addEventListener("orientationchange", function() {
       $('html').width((effectiveDeviceWidth()-20) + 'px');
-      
+        
+        drawGraph(currentFrame);
 //      refreshGraphs();      
 
     }, false);  
@@ -414,6 +479,7 @@ $(document).ready(function() {
     window.addEventListener("resize", function() {
       $('html').width((effectiveDeviceWidth()-20) + 'px');
       
+        drawGraph(currentFrame);
 //      refreshGraphs();
             
     }, false);
