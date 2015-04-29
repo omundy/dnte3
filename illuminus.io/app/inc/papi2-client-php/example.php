@@ -163,7 +163,8 @@ $likeIds = array("7010901522", "7721750727", "7557552517", "8536905548", "772340
 			return $return;
 		}
 	} catch (NoPredictionException $e) {
-	    print "No prediction could be made";
+	    //print "No prediction could be made";
+        return null;
 	}
 }
 //get_prediction();
