@@ -92,10 +92,10 @@ h1,h2,h3,h4,h5,h6 { font-weight: 100; color: #29aecf; }
 
 
 
-.well { background: none; padding: 13px; font-size: 15px; line-height: 25px; margin: 15px 0 2px 0; }
+.well { background: yellow; padding: 13px; font-size: 15px; line-height: 25px; margin: 15px 0 2px 0; }
 .well { border: 1px solid #29aecf; color: #29aecf }
 .well { border: 1px solid #a94442; color: #a94442 }
-.well { border: 1px solid #999; color: #999; }
+.well { border: 1px solid #999; color: black; }
 
 
 .profile_box { border: 1px solid #333; padding: 15px; overflow: auto; width:360px; background: rgba(0,0,0,.2) }
@@ -381,14 +381,16 @@ fieldset[disabled] .btn-custom.active {
 }
 
 #load_data_fb {
-  height: 36px;
+  height: 48px;
   position: absolute;
   left: 0; right: 0;
   margin: auto;
   text-align: center;
-  padding-top: 18px;
+  padding-top: 30px;
   top: 50%;
   margin-top: -18px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .centered {
@@ -403,6 +405,8 @@ fieldset[disabled] .btn-custom.active {
   color: white !important;
   text-decoration: none !important;
   border-radius: 0;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .step1_btn {
@@ -413,6 +417,8 @@ fieldset[disabled] .btn-custom.active {
   padding-bottom: 10px;  
   border-radius: 6px;
   text-shadow: 0px 1px 0px rgba(0, 68, 137, 0.5);
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .step1_btn:visited {
@@ -453,6 +459,10 @@ fieldset[disabled] .btn-custom.active {
   .mobile {
     display: block !important;
   }
+  
+  .mobile a {
+    display: block !important;
+  }  
 
 }
 
@@ -468,3 +478,14 @@ fieldset[disabled] .btn-custom.active {
   max-width: 100%;
 }
 
+#bar_risk_finance {
+  max-width: 100%;
+}
+
+#bar_risk_social {
+  max-width: 100%;
+}
+
+#bar_risk_health, #bar_risk_safety, #bar_risk_recreation, #bar_risk_career  {
+  max-width: 100%;
+}
