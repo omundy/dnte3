@@ -9,7 +9,7 @@
 <title><?php print $text['homepage']['title'] ?></title>
 <meta name="keywords" content="Illuminus, you, Facebook, data, Do Not Track">
 <meta name="description" content="<?php print $text['homepage']['title'] ?>">
-<meta name="author" content="Produced in association with Do Not Track">
+<meta name="author" content="Illuminus">
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary">

@@ -228,7 +228,7 @@ if (isset($_SESSION['dnt_user'])){
 
 							<h4><?php print $text['credits']['1_creators'] ?></h4>
 
-							<p>Owen Mundy, Brett Gaylor, Tim Schwartz, Sébastien Brothier, Christiane Miethge, Eric Drier, Richard Gutjahr, Margaux Missika, Auriane Meilhon, Maxime Quintard, Nicolas Menetand, and Gregory Trowbridge</p>
+							<p>Owen Mundy, Brett Gaylor, Tim Schwartz, Sébastien Brothier, Christiane Miethge, Wolfi Christl, Eric Drier, Richard Gutjahr, Margaux Missika, Auriane Meilhon, Maxime Quintard, Nicolas Menetand, and Gregory Trowbridge</p>
 							
 						
 							
@@ -1230,7 +1230,7 @@ function eval_risk($risk_name,$eg,$adj){
 	
 	print '<div style="vertical-align:9px; margin-right:8px;" class="fb-like" data-href="https://illuminus.io/app" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>';
 		
-	print ' <a class="twitter-share-button" href="https://twitter.com/intent/tweet?button_hashtag=donottrack&text=Your Facebook data indicates '. $text['meta']['risk_words'][$r] .' potential for risky '. $adj .' decisions http://illuminus.io/app @illuminus_io" >';
+	print ' <a class="twitter-share-button" href="https://twitter.com/intent/tweet?button_hashtag=DoNotTrack&text=Your Facebook data indicates '. $text['meta']['risk_words'][$r] .' potential for risky '. $adj .' decisions http://illuminus.io/app @illuminus_io" >';
 	print '</a></span>';
 	
 	
