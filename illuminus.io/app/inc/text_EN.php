@@ -256,16 +256,21 @@ $text = array(
 		'policy' => '
 		
 		
+<!--
 <p>Illuminus is a satirical website created for the documentary series Do Not Track (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  When you log in via Facebook, we access information you have shared on Facebook to build the Illuminus website.  </p>
+-->
 
 <p>When you use Illuminus, it will create a "personality profile" for you.  If you access Illuminus while watching an episode of Do Not Track, and you create an account on Do Not Track, we will store this information on your profile.  This profile will only contain the information you gave authorization for us to access. If you access Illuminus at <a href="https://illuminus.io">illuminus.io</a> your personal information will not be saved.</p>
 
+<!--
 <p>When you use <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>, we do request some information from you, such as your email address, as well as aspects of your browsing history.  If you volunteer that information, the terms below describe your rights and our responsibilities.
+-->
 
 <h4>Your data</h4>
 
 <p>The Producers guarantee that they are the sole recipients of the data collected and that it will be used exclusively for the Project and will neither be passed on, nor accessible, nor sold to any third party whatsoever. The Producers implement technical and organizational security measures to ensure that its users’ personal data is protected against loss, fraudulent alterations, or unauthorized access by third parties. The transmission of data collected during registration is carried out in an encrypted manner, as is subsequent communication between the server and the Project.</p>
 
+<!--
 <p>The producers will use your email address for the following purposes:
 <ul>
 <li>keep you abreast of the broadcast of upcoming episodes of the Project,</li>
@@ -276,6 +281,7 @@ $text = array(
 Your personal data will be stored within the Project database and retained for the life of the Project (3 years).</p>
 
 <p>You have the right to access, modify, correct, and delete your information. To exercise this right, or to opt out, write to: data@donottrack-doc.com</p>
+-->
 
 <h4>INFORMATICS AND LIBERTY</h4>
 

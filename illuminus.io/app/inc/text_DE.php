@@ -255,17 +255,21 @@ $text = array(
 		'0_heading' => 'Datenschutzrichtlinie',
 		'policy' => '
 		
-		
+<!--		
 <p>Wir haben die fiktive Illuminus-Website allein für die Doku-Serie Do Not Track erstellt (<a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>).  Wenn Sie sich über Facebook anmelden, erhalten wir Zugriff auf die Daten, die Sie bereits auf Facebook geteilt haben, und erstellen daraus die Illuminus-Website. </p>
+-->
 
 <p>Wenn Sie Illuminus nutzen, wird Ihr „Persönlichkeitsprofil“ erstellt.  Wenn Sie auf Illuminus zugreifen, während Sie eine Do Not Track-Folge ansehen und Sie dabei ein Do Not Track-Konto erstellen, werden Ihre Informationen in Ihrem Profil gespeichert.  In diesem Profil sind allein jene Informationen gespeichert, für welche Sie uns die Zugriffserlaubnis erteilt haben. Wenn Sie die Illuminus-Website über <a href="https://illuminus.io">illuminus.io</a> aufrufen, werden Ihre personenbezogenen Daten nicht gespeichert.</p>
 
+<!--
 <p>Wenn Sie <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a> nutzen, verlangen wir einige Informationen von Ihnen, wie beispielsweise Ihre E-Mail-Adresse oder Auszüge Ihres Browserverlaufs.  Falls Sie Ihre Informationen bereitwillig zur Verfügung stellen, finden Sie unten Ihre entsprechenden Rechte und unsere Verpflichtungen.</p>
+-->
 
 <h4>Ihre Daten</h4>
 
 <p>Die Produzenten gewährleisten, dass sie allein die gesammelten Daten nutzen und dass diese ausschließlich für das Projekt genutzt werden und weder an Dritte weitergegeben, noch diesen zugänglich gemacht oder an sie verkauft werden. Die Produzenten wenden technische und organisatorische Sicherheitsmaßnahmen an, um zu gewährleisten, dass die personenbezogenen Daten der Nutzer vor Verlust, betrügerischer Veränderung oder unerlaubtem Zugriff Dritter geschützt sind. Die während der Anmeldung gesammelten Daten werden verschlüsselt übermittelt, ebenso wie die weitere Kommunikation zwischen dem Server und dem Projekt.</p>
 
+<!--
 <p>Die Produzenten nutzen Ihre E-Mail-Adresse für folgende Zwecke:
 <ul>
 <li>um Sie über die kommenden Episoden des Projekts auf dem Laufenden zu halten;</li>
@@ -276,6 +280,7 @@ $text = array(
 Ihre personenbezogenen Daten werden während der gesamten Laufzeit des Projekts (3 Jahre) auf der Datenbank des Projekts gespeichert.</p>
 
 <p>Sie haben das Recht, auf Ihre Daten zuzugreifen, diese zu ändern, zu verbessern oder zu löschen. Um von diesem Recht Gebrauch zu machen oder uns den Zugriff auf Ihre Daten zu entziehen, schicken Sie bitte eine E-Mail an: data@donottrack-doc.com</p>
+-->
 
 <h4>INFORMATIK UND FREIHEITSRECHTE</h4>
 

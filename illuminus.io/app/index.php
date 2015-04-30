@@ -185,7 +185,7 @@ if (isset($_SESSION['dnt_user'])){
 					<div class="row">
 						<div class="col-sm-12">
 
-
+							<!--
 							<h4><?php print $text['faq']['what_heading'] ?></h4>
 							<p><?php print $text['faq']['what_text'] ?></p>
 
@@ -193,7 +193,8 @@ if (isset($_SESSION['dnt_user'])){
 							<p><?php print $text['faq']['who_text1'] ?>
 								<a href="<?php print $control['dataurl'] ?>credits?player=<?php print $control['player'] ?>">
 								<?php print $text['faq']['who_text2'] ?></a>.</p>
-
+							-->
+							
 							<h4><?php print $text['faq']['fberror_heading'] ?></h4>
 							<p><?php print $text['faq']['fberror_text'] ?></p>
 
@@ -226,16 +227,13 @@ if (isset($_SESSION['dnt_user'])){
 						<div class="col-sm-12">
 
 
-							<h4><?php print $text['credits']['1_creators'] ?></h4>
+							<!--<h4><?php print $text['credits']['1_creators'] ?></h4>
 
 							<p>Owen Mundy, Brett Gaylor, Tim Schwartz, Sébastien Brothier, Christiane Miethge, Wolfi Christl, Eric Drier, Richard Gutjahr, Margaux Missika, Auriane Meilhon, Maxime Quintard, Nicolas Menetand, and Gregory Trowbridge</p>
 							
-						
-							
 							<a href="https://donottrack-doc.com/<?php print $control['lang'] ?>/credits/">Do Not Track production</a>
-	
-
-<br><br>
+								
+							<br><br>-->
 
 							<h4><?php print $text['credits']['1_predictions'] ?></h4>
 

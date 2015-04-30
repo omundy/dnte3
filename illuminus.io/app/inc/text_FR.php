@@ -264,17 +264,21 @@ $text = array(
 		'0_heading' => 'Politique de confidentialité',
 		'policy' => '
 		
-		
+<!--
 <p>Illuminus est un site web satirique créé pour la série documentaire (<a href="https://www.donottrack-doc.com">Do Not Track</a>). Lorsque vous vous connectez via Facebook, nous récupérons les informations que vous partagez avec Facebook pour construire les pages du site Illuminus.</p>
+-->
 
 <p>Quand vous utilisez Illuminus, nous créons votre profil personnel avec ces données. Si vous accédez au site Illuminus pendant que vous regardez un épisode de Do Not Track, et que vous êtes connecté sur Do Not Track via votre lien personnalisé, ces informations sont enregistrés sur le site et ajoutées à votre profil. Vous pouvez consulter ces informations sur la page <a href=" https://donottrack-doc.com/fr/your-datas/">Vos Données</a>. Si vous vous connectez à Illuminus via at <a href="https://illuminus.io">illuminus.io</a> vos informations personnelles ne sont pas enregistrées. </p>
 
+<!--
 <p>Lorsque vous consultez <a href="https://www.donottrack-doc.com">www.donottrack-doc.com</a>, nous vous demandons certains informations personnelles, comme votre adresse email, ainsi que certains éléments de votre historique de navigation. Si vous nous donnez ces informations, les conditions ci-dessous détaillent vos droits et nos responsabilités.
+-->
 
 <h4>Vos données</h4>
 
 <p>Les producteurs garantissent qu\'ils sont les seuls destinataires des informations collectées et qu\'elles seront utilisées exclusivement dans le cadre du projet Do Not Track et qu\'elles ne seront ni transmises, ni cédées, ni rendues accessibles à aucune tierce partie quelle qu\'elle soit. Les producteurs mettront en oeuvre les mesures de sécurité nécessaires pour garantir la confidentialité des données personnelles des utilisateurs et les protéger contre la perte, le vol, les utilisations frauduleuses ou un accès non autorisé de tierce partie. La transmission des données collectées pendant la connexion est effectuée de manière cryptée, ainsi que tous les échanges de données subséquents entre le serveur et le programme.</p>
 
+<!--
 <p>Les producteurs utiliserons votre adresse email uniquement aux fins suivantes : 
 <ul>
 <li>vous avertir du lancement de nouveaux épisodes de Do Not Track,</li>
@@ -285,6 +289,8 @@ $text = array(
 Vos données personnelles ne seront pas conservées dans la base de données de Do Not Track Your au delà de la durée de vie du projet (3 ans).</p>
 
 <p>Vous avez le droit d\'accéder, de modifier, de corriger ou d\'effacer les informations vous concernant. Pour exercer ce droit, écrivez à : data@donottrack-doc.com</p>
+-->
+
 
 <h4>INFORMATIQUE & LIBERTÉS</h4>
 
