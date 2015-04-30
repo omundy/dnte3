@@ -430,6 +430,7 @@ URL de support technique <a href="https://hub.donottrack-doc.com/ca/about/">http
 	'homepage' => array(
 		
 		'title' => 'Illuminus - Unlocking the power of you',
+		'desc' => 'Discover what our company already knows about you from your Facebook activity.',
 	
 		'home' => 'Home',
 		'unlocking' => 'Unlocking the power of you',

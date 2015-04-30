@@ -8,20 +8,20 @@
 <!-- meta -->
 <title><?php print $text['homepage']['title'] ?></title>
 <meta name="keywords" content="Illuminus, you, Facebook, data, Do Not Track">
-<meta name="description" content="<?php print $text['homepage']['title'] ?>">
+<meta name="description" content="<?php print $text['homepage']['desc'] ?>">
 <meta name="author" content="Illuminus">
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@illuminus_io">
 <meta name="twitter:title" content="<?php print $text['homepage']['title'] ?>">
-<meta name="twitter:description" content="<?php print $text['homepage']['title'] ?>">
+<meta name="twitter:description" content="<?php print $text['homepage']['desc'] ?>">
 <meta name="twitter:creator" content="@illuminus_io">
 <meta name="twitter:image" content="https://illuminus.io/app/assets/img/illuminus_share_card">
 
 <!-- Open Graph data -->
 <meta property="og:title" content="<?php print $text['homepage']['title'] ?>" />
-<meta property="og:description" content="<?php print $text['homepage']['title'] ?>" /> 
+<meta property="og:description" content="<?php print $text['homepage']['desc'] ?>" /> 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php print $control['url']; ?>" />
 <meta property="og:image" content="https://illuminus.io/app/assets/img/illuminus_share_card.png" />

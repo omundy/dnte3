@@ -429,6 +429,7 @@ User Support URL <a href="https://hub.donottrack-doc.com/en/about/">https://hub.
 	'homepage' => array(
 		
 		'title' => 'Illuminus – Erfahren Sie, was in Ihnen steckt',
+		'desc' => 'Entdecken Sie, was unser Unternehmen bereits kennt Sie von Ihrer Facebook-Aktivität.',
 	
 		'home' => 'Home',
 		'unlocking' => 'Erfahren Sie, was in Ihnen steckt',
