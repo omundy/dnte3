@@ -33,14 +33,7 @@ if(isset($_GET['data_set'])){
 	$control['data_set'] = 'sample';
 }; 
 
-// get lang / step
-if(isset($_GET['lang']) && isset($_GET['step'])) { 
-	$control['step'] = $_GET['step'];
-	$control['lang'] = $_GET['lang'];
-} else {
-	$control['step'] = 'zero';
-	$control['lang'] = 'en';
-}
+
 
 // get player
 if(isset($_GET['player']) && $_GET['player'] == 'yes'){
@@ -66,6 +59,19 @@ if (isset($_SERVER['HTTP_HOST'])){
 } else {
 	$control['baseurl'] = request_protocol() . "://$_SERVER[HTTP_HOST]/illuminus.io/app/";
 	$control['domain'] = 'dnt.dev';
+}
+
+// get lang / step
+if(isset($_GET['lang']) && isset($_GET['step'])) { 
+	$control['step'] = $_GET['step'];
+	$control['lang'] = $_GET['lang'];
+} else {
+	require_once('localization.php');
+	$control['lang'] = get_language();
+	//$control['lang'] = 'en';
+	$control['step'] = 'zero';
+	$control['data_set'] = 'user';
+	header('Location: '. $control['baseurl'] .''. $control['lang'] .'/'. $control['data_set'] .'/'. $control['step'], true, 303);
 }
 
 // mod_rewrite

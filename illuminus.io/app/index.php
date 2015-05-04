@@ -1785,9 +1785,17 @@ function eval_risk($risk_name,$eg,$adj){
 					</div>
 
 					<div class="row">
-						<div class="col-sm-12">
-							<br><br><p>Intrigued? <button class="btn btn-custom" onclick="location.href='https://episode3.donottrack-doc.com/'">Learn more about the science behind Illuminus in Episode 3 of Do Not Track</button></p>
-
+						<div class="col-sm-8">
+							<br>
+							<p><a href="https://episode3.donottrack-doc.com/"><img class="img-responsive" src="<?php print $control['baseurl'] ?>assets/img/DNTS01E3_Share_S01E03_EN_Like-Mining.jpg"></a></p>
+						</div>
+						<div class="col-sm-4">
+						</div>
+					</div>
+						
+					<div class="row">
+						<div class="col-sm-12">		
+							<p><button class="btn btn-custom" onclick="location.href='https://episode3.donottrack-doc.com/'">Intrigued? Learn more about the science behind Illuminus in Episode 3 of Do Not Track</button></p>
 						</div>
 					</div>
 
