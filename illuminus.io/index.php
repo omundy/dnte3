@@ -101,7 +101,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							<img src="<?php print $control['baseurl'] ?>app/assets/img/unlocking.png" class="left">
 							
 							<div class="unlocking-content left"><?php print $text['homepage']['unlocking'] ?><br>
-							<a href="<?php print $control['baseurl'] ?>app"><?php print $text['homepage']['get_started_btn'] ?></a></div>
+							<a href="<?php print $control['baseurl'] ?>app/<?php print $control['lang'] ?>/user/zero"><?php print $text['homepage']['get_started_btn'] ?></a></div>
 						</div>
 					</div>
 					
@@ -237,7 +237,7 @@ a, a:link, a:visited, a:hover, a:active { color: #fff; text-decoration: none}
 							<div class="med left">
 								<?php print $text['homepage']['learn_what'] ?>
 								<br><br>
-							<a href="<?php print $control['baseurl'] ?>app"><?php print $text['homepage']['launch_btn'] ?></a></div>
+							<a href="<?php print $control['baseurl'] ?>app/<?php print $control['lang'] ?>/user/zero"><?php print $text['homepage']['launch_btn'] ?></a></div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<img src="<?php print $control['baseurl'] ?>app/assets/img/riskgraph.png">
